@@ -186,6 +186,32 @@ MonoBehaviour:
   initialSize: {x: 1, y: 1}
   borderPadding: {x: 0, y: 0}
   widgetContainer: {fileID: 0}
+--- !u!1 &46679252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 46679253}
+  m_Layer: 9
+  m_Name: Child
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46679253
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46679252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1257413048}
 --- !u!1 &81556773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1734,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2125135187}
+  - {fileID: 46679253}
   - {fileID: 1884711536}
   m_Father: {fileID: 953546232}
 --- !u!114 &1257413049
@@ -2595,7 +2622,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884711535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -25, z: 0}
+  m_LocalPosition: {x: 6, y: -158, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257413048}
@@ -2622,7 +2649,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 156, y: 112, z: 0}
+  m_Size: {x: 156, y: 374, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1884711539
 MonoBehaviour:
@@ -2638,35 +2665,36 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: 3
+    absolute: -72
   rightAnchor:
     target: {fileID: 0}
     relative: 1
-    absolute: 165
+    absolute: 84
   bottomAnchor:
     target: {fileID: 0}
     relative: 0
-    absolute: -63
+    absolute: -129
   topAnchor:
     target: {fileID: 0}
     relative: 1
-    absolute: 33
+    absolute: 79
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 156
-  mHeight: 112
+  mHeight: 374
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.39285719
+  aspectRatio: .382352948
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 7a48ea22e80d1ac4b97fdd87f9009546, type: 2}
-  mText: hello this is some test text that fits in here for testing purposes, isn't
-    it.
-  mFontSize: 16
+  mText: "hello this is some test text that fits in here for testing purposes, isn't
+    it. Terrubke how silly this whole thing is. spo test testitesting. asdas asd asdas
+    \ asdas \nasd asdasd asd \nasd asd\n\nasd\nas\nd \nasd\nasd\nasd\nasdasd\n\nasd\n\nasd\n\n\n\nasd\n\n\nasd\n\n\n\n "
+  mFontSize: 11
   mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
@@ -2725,7 +2753,7 @@ MonoBehaviour:
   verticalScrollBar: {fileID: 0}
   showScrollBars: 1
   customMovement: {x: 1, y: 0}
-  contentPivot: 1
+  contentPivot: 0
   scale: {x: 0, y: 0, z: 0}
   relativePositionOnReset: {x: 0, y: 0}
 --- !u!114 &1884711542
@@ -2770,7 +2798,7 @@ MonoBehaviour:
   mClipSoftness: {x: 4, y: 4}
   mDepth: 7
   mSortingOrder: 0
-  mClipOffset: {x: 0, y: 34}
+  mClipOffset: {x: 0, y: 167}
 --- !u!1 &1909821213
 GameObject:
   m_ObjectHideFlags: 0
