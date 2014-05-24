@@ -188,6 +188,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\scripts\CustomSpriteAnimation.cs" />
      <Compile Include="Assets\scripts\Customer.cs" />
+     <Compile Include="Assets\scripts\CustomerPanelManager.cs" />
      <Compile Include="Assets\scripts\CustomerView.cs" />
      <Compile Include="Assets\scripts\God.cs" />
      <Compile Include="Assets\scripts\UIExtensions.cs" />

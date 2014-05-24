@@ -20,6 +20,7 @@ public class God : MonoBehaviour {
     public GameObject gameScreen;
     public GameObject entranceStart;
     public GameObject entranceEnd;
+    public CustomerPanelManager customerPanelManager;
 
 	
 	// This defines a static instance property that attempts to find the manager object in the scene and

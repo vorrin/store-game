@@ -98,7 +98,8 @@ public class CustomerView : MonoBehaviour {
 
 	void OnClick(){ 
 		Debug.Log ("RANDOMWALKING");
-		WalkToRandomSpot();
+        God.instance.customerPanelManager.Display(customerModel.avatarName, customerModel.scenario);
+		//WalkToRandomSpot();
 	}
 
 	void OnMouseUp(){
