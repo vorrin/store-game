@@ -10,7 +10,7 @@ using UnityEditor;
 /// Inspector class used to edit UISpriteAnimations.
 /// </summary>
 
-[CustomEditor(typeof(UISpriteAnimation))]
+[CustomEditor(typeof(CustomSpriteAnimation))]
 public class UISpriteAnimationInspector : Editor
 {
 	/// <summary>
@@ -21,7 +21,7 @@ public class UISpriteAnimationInspector : Editor
 	{
 		NGUIEditorTools.DrawSeparator();
 		NGUIEditorTools.SetLabelWidth(80f);
-		UISpriteAnimation anim = target as UISpriteAnimation;
+		CustomSpriteAnimation anim = target as CustomSpriteAnimation;
 
 		int fps = EditorGUILayout.IntField("Framerate", anim.framesPerSecond);
 		fps = Mathf.Clamp(fps, 0, 60);

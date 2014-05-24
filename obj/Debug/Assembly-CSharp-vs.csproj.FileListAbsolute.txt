@@ -9,3 +9,15 @@ C:\Users\Shiny\Desktop\Store Game Unity\Temp\bin\Debug\ICSharpCode.NRefactory.dl
 C:\Users\Shiny\Desktop\Store Game Unity\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 C:\Users\Shiny\Desktop\Store Game Unity\obj\Debug\Assembly-CSharp.dll
 C:\Users\Shiny\Desktop\Store Game Unity\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Shiny\Desktop\storr\Store Game Unity\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Shiny\Desktop\storr\Store Game Unity\obj\Debug\Assembly-CSharp.dll
+C:\Users\Shiny\Desktop\storr\Store Game Unity\obj\Debug\Assembly-CSharp.pdb

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Customer : MonoBehaviour {
+[System.Serializable] public class Customer {
 	public float mood = 1f;
 	public string scenario = "I want to buy them things, fast!";
 	public string avatarName = "customer";
@@ -11,27 +11,40 @@ public class Customer : MonoBehaviour {
     public Zone currentZone;
 	public bool waiting = false;
 
+
+    public  void Create()
+    {
+        Debug.Log("CUSTOMER CRREATION CALLED");
+        mood = 1f;
+        ChangeZone(God.instance.entrance.GetComponent<Zone>());
+    }
+
+   
+
 	// Use this for initialization
-	void Start () {
-		GetComponent<UISpriteAnimation> ().namePrefix = avatarName;
-        currentZone = God.instance.Entrance.GetComponent<Zone>();
-	}
+    //void Start () {
+    //    GetComponent<UISpriteAnimation> ().namePrefix = avatarName;
+    //    currentZone = God.instance.entrance.GetComponent<Zone>();
+    //}
         
 
 
 	// Update is called once per frame
-	void Update () {
-		if (waiting) {
-			elapsedTime += Time.deltaTime;
-				}
+    //void Update () {
+    //    if (waiting) {
+    //        elapsedTime += Time.deltaTime;
+    //            }
 	
-	}
+    //}
 
     public void ChangeZone(Zone zone)
     {
         Debug.Log(zone);
-        if (zone == currentZone) return;
-        currentZone.customers.Remove(this);
+        if (currentZone)
+        {
+            if (zone == currentZone) return;
+            currentZone.customers.Remove(this);
+        }
         currentZone = zone;
         zone.customers.Add(this);
     }
