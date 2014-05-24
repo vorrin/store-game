@@ -50,28 +50,64 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
+        TestingGame();
+    }
+
+   
+        static public GameObject AddChild(GameObject parent, GameObject prefab)
+        {
+            GameObject go = GameObject.Instantiate(prefab) as GameObject;
+
+            if (go != null && parent != null)
+            {
+                Transform t = go.transform;
+                t.parent = parent.transform;
+                t.localPosition = prefab.transform.localPosition;
+                t.localRotation = prefab.transform.localRotation;
+                Debug.Log("CALLING TIS UO");
+                t.localScale = prefab.transform.localScale;
+                go.layer = parent.layer;
+            }
+            return go;
+        }
+
+    void TestingGame()
+    {
         Customer newCustomer = new Customer();
         newCustomer.Create();
         customers.Add(newCustomer);
-        GameObject customerView = Instantiate(customerPrefab,new Vector3(10000f,10000f,0f),customerPrefab.transform.rotation) as GameObject;
-        //customerView.transform.localScale = new Vector3(.6f, .6f, 1f);
-        customerView.transform.parent = entrance.transform;
+        //GameObject customerView = Instantiate(customerPrefab, new Vector3(10000f, 10000f, 0f), customerPrefab.transform.rotation) as GameObject;
+        GameObject customerView  = AddChild(gameScreen, customerPrefab);
+
+        //customerView.transform.parent = entrance.transform;
+        //customerView.transform.parent = GameObject.Find("UI Root").transform;
         customerView.GetComponent<CustomerView>().Create(newCustomer);  
     }
+
+
+    public void FadeZones(bool inOrOut)
+    {
+        foreach (GameObject zone in zones)
+        {
+            zone.GetComponent<UIPlayAnimation>().Play(inOrOut);
+        }
+    }
+
 
     public void AddCustomer(Customer customer)
     {
         customers.Add(customer);
     }
 
-    //void Update()
-    //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        Debug.Log("God IS PUSHING");
-    //        Start();
-    //    }
-    //}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("God IS PUSHING");
+            //Start();
+            TestingGame();
+        }
+    }
 	
 
 }

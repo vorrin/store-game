@@ -20,79 +20,17 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
+        inSlope: .79973346
+        outSlope: .79973346
         tangentMode: 10
-      - time: .5
-        value: .5
-        inSlope: 1
-        outSlope: 1
+      - time: .500166655
+        value: .400000006
+        inSlope: .79973346
+        outSlope: .79973346
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: mColor.a
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.r
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -4.36363649
-        outSlope: -4.36363649
-        tangentMode: 10
-      - time: .183333337
-        value: .200000003
-        inSlope: -.918660283
-        outSlope: -.918660283
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 2.52631593
-        outSlope: 2.52631593
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.g
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.b
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
@@ -105,7 +43,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .5
+    m_StopTime: .500166655
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -125,79 +63,17 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
+        inSlope: .79973346
+        outSlope: .79973346
         tangentMode: 10
-      - time: .5
-        value: .5
-        inSlope: 1
-        outSlope: 1
+      - time: .500166655
+        value: .400000006
+        inSlope: .79973346
+        outSlope: .79973346
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: mColor.a
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.r
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -4.36363649
-        outSlope: -4.36363649
-        tangentMode: 10
-      - time: .183333337
-        value: .200000003
-        inSlope: -.918660283
-        outSlope: -.918660283
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 2.52631593
-        outSlope: 2.52631593
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.g
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: mColor.b
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}

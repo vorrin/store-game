@@ -84,6 +84,7 @@ GameObject:
   - 4: {fileID: 28854539}
   - 20: {fileID: 28854541}
   - 114: {fileID: 28854540}
+  - 114: {fileID: 28854542}
   m_Layer: 9
   m_Name: UICamera
   m_TagString: MainCamera
@@ -99,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 28854538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 212.965515, y: 320, z: 1}
   m_Children: []
   m_Father: {fileID: 693120554}
 --- !u!114 &28854540
@@ -157,7 +158,7 @@ Camera:
   far clip plane: 10
   field of view: 60
   orthographic: 1
-  orthographic size: .639999986
+  orthographic size: .888764799
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -166,6 +167,25 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
   m_OcclusionCulling: 1
+--- !u!114 &28854542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 28854538}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b5bd8d2e1bcbe4580036799fb6ca41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCamera: {fileID: 28854541}
+  container: {fileID: 693120550}
+  style: 3
+  runOnlyOnce: 1
+  relativeSize: {x: 1, y: 1}
+  initialSize: {x: 1, y: 1}
+  borderPadding: {x: 0, y: 0}
+  widgetContainer: {fileID: 0}
 --- !u!1 &81556773
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +349,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 2
+  mDepth: 4
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!65 &104964219
@@ -379,7 +399,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 197690411}
   - 114: {fileID: 197690410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: God
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d388555b526c9498c7c60ec73b136f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 1406597820}
+  entrance: {fileID: 1406597821}
   zones:
   - {fileID: 1406597812}
   - {fileID: 1366527480}
@@ -413,10 +433,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197690409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .275094122, y: -.544373274, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 693120554}
 --- !u!1 &497514752
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,8 +708,9 @@ Transform:
   m_GameObject: {fileID: 693120550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00441501103, y: .00441501103, z: .00441501103}
+  m_LocalScale: {x: .00621118024, y: .00621118024, z: .00621118024}
   m_Children:
+  - {fileID: 197690411}
   - {fileID: 28854539}
   - {fileID: 1125361087}
   - {fileID: 104964215}
@@ -711,13 +732,14 @@ GameObject:
   - 114: {fileID: 795329213}
   - 114: {fileID: 795329215}
   - 114: {fileID: 795329216}
+  - 114: {fileID: 795329217}
   m_Layer: 9
   m_Name: Customer
   m_TagString: customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &795329208
 Transform:
   m_ObjectHideFlags: 0
@@ -814,10 +836,10 @@ BoxCollider:
   m_GameObject: {fileID: 795329207}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.7857151, y: 32.5581398, z: 0}
-  m_Center: {x: .535714149, y: -.930233002, z: 0}
+  m_Size: {x: 30, y: 40, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &795329212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,6 +959,26 @@ MonoBehaviour:
   from: {x: .676553428, y: .929782927, z: 1}
   to: {x: 0, y: 0, z: 1}
   updateTable: 0
+--- !u!114 &795329217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 795329207}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873e8708f06991444a7d99c32545da45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mFPS: 30
+  mPrefix: 
+  mLoop: 1
+  mSprite: {fileID: 0}
+  mDelta: 0
+  mIndex: 0
+  mActive: 1
+  mSpriteNames: []
+  name: 617364
 --- !u!1 &839764739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1901,7 @@ GameObject:
   - 111: {fileID: 1406597815}
   - 114: {fileID: 1406597819}
   - 114: {fileID: 1406597820}
+  - 114: {fileID: 1406597821}
   m_Layer: 9
   m_Name: ZoneEntrance
   m_TagString: zone
@@ -1940,7 +1983,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 1, b: .0896551609, a: .00392156886}
+  mColor: {r: 0, g: 1, b: .0896551609, a: 0}
   mPivot: 4
   mWidth: 100
   mHeight: 100
@@ -1957,7 +2000,7 @@ MonoBehaviour:
   mInvert: 0
   mFlip: 0
   mFillCenter: 1
-  centerType: 1
+  centerType: 0
   leftType: 1
   rightType: 1
   bottomType: 1
@@ -2044,6 +2087,17 @@ MonoBehaviour:
   eventReceiver: {fileID: 0}
   callWhenFinished: 
 --- !u!114 &1406597820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406597812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e215b204ae32b645a0487b572a435de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1406597821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}

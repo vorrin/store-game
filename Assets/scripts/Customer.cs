@@ -16,13 +16,10 @@ using System.Collections;
     {
         Debug.Log("CUSTOMER CRREATION CALLED");
         mood = 1f;
-        currentZone = God.instance.entrance.GetComponent<Zone>();
+        ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
 
-    public string ToString() {
-        
-        return "ASDASDA";
-    }
+   
 
 	// Use this for initialization
     //void Start () {
@@ -43,8 +40,11 @@ using System.Collections;
     public void ChangeZone(Zone zone)
     {
         Debug.Log(zone);
-        if (zone == currentZone) return;
-        currentZone.customers.Remove(this);
+        if (currentZone)
+        {
+            if (zone == currentZone) return;
+            currentZone.customers.Remove(this);
+        }
         currentZone = zone;
         zone.customers.Add(this);
     }

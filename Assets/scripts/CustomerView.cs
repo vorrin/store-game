@@ -22,17 +22,18 @@ public class CustomerView : MonoBehaviour {
 	// Use this for initialization
 	public void Create (Customer customer) {
         customerModel = customer;
-        GetComponent<UISpriteAnimation>().namePrefix = customerModel.avatarName;
+        GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName;
         EntranceStart = God.instance.entranceStart;
         EntranceEnd = God.instance.entranceEnd;
 		spots = GameObject.FindGameObjectsWithTag("spot");
+        GetComponent<CustomSpriteAnimation>().namePrefix = customer.avatarName;
 //		god = GameObject.Find("God").GetComponent<God>();
 //		god.Zones[1].GetComponent<UIPlayAnimation>().Play(true);
 		//tweener = GetComponent<TweenPosition>();
 		tweener = (TweenPosition) gameObject.AddComponent ("TweenPosition");
 		Dragger = GetComponent<UIDragObject>();
 		CustomerEnters();
-    //    God.instance.AddCustomer(customerModel);
+
 	}
 
 	void OnPress(bool isDown) {
@@ -40,16 +41,13 @@ public class CustomerView : MonoBehaviour {
 			beingDragged = true;
             dragStartTime = Time.time;
 			dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-			foreach (GameObject zone in God.instance.zones){
-				zone.GetComponent<UIPlayAnimation>().Play(true);
-			}
+            God.instance.FadeZones(true);
 		
 		}
 		else{
 			beingDragged = false;
-			foreach (GameObject zone in God.instance.zones){
-				zone.GetComponent<UIPlayAnimation>().Play(false);
-			}
+            God.instance.FadeZones(false);
+
             if (Time.time - dragStartTime > 0.2f)
             {
                 Ray cast = UICamera.mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
@@ -89,9 +87,10 @@ public class CustomerView : MonoBehaviour {
 		}
 	}
 
+
     private void DestroyCustomerView(AbstractGoTween obj)
     {
-        GetComponent<UISpriteAnimation>().enabled = false;
+        GetComponent<CustomSpriteAnimation>().enabled = false;
         Debug.Log("THIS WAS CALLED");
      //   Destroy(gameObject);
     }
@@ -140,7 +139,9 @@ public class CustomerView : MonoBehaviour {
 		setWaitingDelegate.methodName = "SetToWaiting";
 		setWaitingDelegate.oneShot = true;
 		tweener.AddOnFinished (setWaitingDelegate);
-		TweenToPosition (EntranceStart.transform.localPosition, EntranceEnd.transform.localPosition, 1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
+		TweenToPosition (transform.parent.InverseTransformPoint(EntranceStart.transform.position),
+            transform.parent.InverseTransformPoint(EntranceEnd.transform.position), 
+            1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
 	}
 
 	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
@@ -161,7 +162,11 @@ public class CustomerView : MonoBehaviour {
 		newDelegate.methodName = "WalkToRandomSpot";
 		newDelegate.oneShot = true;
 		tweener.SetOnFinished(newDelegate);
-		TweenToPosition (this.transform.localPosition, spots [Random.Range (0, spots.Length)].transform.localPosition, 1f, 1f, new EventDelegate[] { newDelegate});
+
+        Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
+        Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
+
+		TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
 	}
 
 
@@ -171,4 +176,8 @@ public class CustomerView : MonoBehaviour {
 			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - dragOffset;
 		}
 	}
+
+    void LateUpdate()
+    {
+    }
 }

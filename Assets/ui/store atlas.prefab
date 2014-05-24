@@ -43,16 +43,16 @@ MonoBehaviour:
   - name: customer0
     x: 0
     y: 94
-    width: 25
+    width: 26
     height: 36
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 1
-    paddingTop: 4
-    paddingBottom: 3
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: customer1
     x: 0
     y: 131
@@ -63,9 +63,9 @@ MonoBehaviour:
     borderTop: 0
     borderBottom: 0
     paddingLeft: 0
-    paddingRight: 2
-    paddingTop: 4
-    paddingBottom: 3
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: sliceSpriteZone
     x: 0
     y: 168
