@@ -20,8 +20,11 @@ public class CustomerView : MonoBehaviour {
 //	private God god;
 
 	// Use this for initialization
-	void Start () {
-		customerModel = GetComponent<Customer> ();
+	public void Create (Customer customer) {
+        customerModel = customer;
+        GetComponent<UISpriteAnimation>().namePrefix = customerModel.avatarName;
+        EntranceStart = God.instance.entranceStart;
+        EntranceEnd = God.instance.entranceEnd;
 		spots = GameObject.FindGameObjectsWithTag("spot");
 //		god = GameObject.Find("God").GetComponent<God>();
 //		god.Zones[1].GetComponent<UIPlayAnimation>().Play(true);
@@ -29,8 +32,7 @@ public class CustomerView : MonoBehaviour {
 		tweener = (TweenPosition) gameObject.AddComponent ("TweenPosition");
 		Dragger = GetComponent<UIDragObject>();
 		CustomerEnters();
-		
-		
+    //    God.instance.AddCustomer(customerModel);
 	}
 
 	void OnPress(bool isDown) {
@@ -38,14 +40,14 @@ public class CustomerView : MonoBehaviour {
 			beingDragged = true;
             dragStartTime = Time.time;
 			dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-			foreach (GameObject zone in God.instance.Zones){
+			foreach (GameObject zone in God.instance.zones){
 				zone.GetComponent<UIPlayAnimation>().Play(true);
 			}
 		
 		}
 		else{
 			beingDragged = false;
-			foreach (GameObject zone in God.instance.Zones){
+			foreach (GameObject zone in God.instance.zones){
 				zone.GetComponent<UIPlayAnimation>().Play(false);
 			}
             if (Time.time - dragStartTime > 0.2f)
@@ -59,7 +61,17 @@ public class CustomerView : MonoBehaviour {
                 {
                     if (hit.collider.name.Contains("Zone"))
                     {
-                        customerModel.ChangeZone(hit.collider.gameObject.GetComponent<Zone>());
+                        Zone currentZone = hit.collider.GetComponent<Zone>();
+                        customerModel.ChangeZone(currentZone);
+                        //User dropped in the Entrance zone again.
+                        if (currentZone != God.instance.entrance)
+                        {
+                            Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+                        }
+                        else
+                        {
+                            WalkToRandomSpot();
+                        }
                         hitAnotherZone = true;
                     }
                 }
@@ -67,7 +79,7 @@ public class CustomerView : MonoBehaviour {
                 if (!hitAnotherZone)
                 {
                     WalkToRandomSpot();
-                    customerModel.ChangeZone(God.instance.Entrance.GetComponent<Zone>());
+                    customerModel.ChangeZone(God.instance.entrance);
                 }
 
 
@@ -76,6 +88,14 @@ public class CustomerView : MonoBehaviour {
 						
 		}
 	}
+
+    private void DestroyCustomerView(AbstractGoTween obj)
+    {
+        GetComponent<UISpriteAnimation>().enabled = false;
+        Debug.Log("THIS WAS CALLED");
+     //   Destroy(gameObject);
+    }
+
 
 	void OnClick(){ 
 		Debug.Log ("RANDOMWALKING");
@@ -121,7 +141,6 @@ public class CustomerView : MonoBehaviour {
 		setWaitingDelegate.oneShot = true;
 		tweener.AddOnFinished (setWaitingDelegate);
 		TweenToPosition (EntranceStart.transform.localPosition, EntranceEnd.transform.localPosition, 1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
-
 	}
 
 	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {

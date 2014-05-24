@@ -1,6 +1,4 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections; 
 using System.Collections.Generic; 
 
@@ -15,8 +13,14 @@ public class God : MonoBehaviour {
 	
 	private static God s_Instance = null;
 
-    public GameObject Entrance;
-	public  List<GameObject> Zones = new List<GameObject>();
+    public Zone entrance;
+	public  List<GameObject> zones = new List<GameObject>();
+    public List<Customer> customers = new List<Customer>();
+    public GameObject customerPrefab;
+    public GameObject gameScreen;
+    public GameObject entranceStart;
+    public GameObject entranceEnd;
+
 	
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
@@ -43,10 +47,31 @@ public class God : MonoBehaviour {
 	void OnApplicationQuit() {
 		s_Instance = null;
 	}
+
+    public void Start()
+    {
+        Customer newCustomer = new Customer();
+        newCustomer.Create();
+        customers.Add(newCustomer);
+        GameObject customerView = Instantiate(customerPrefab,new Vector3(10000f,10000f,0f),customerPrefab.transform.rotation) as GameObject;
+        //customerView.transform.localScale = new Vector3(.6f, .6f, 1f);
+        customerView.transform.parent = entrance.transform;
+        customerView.GetComponent<CustomerView>().Create(newCustomer);  
+    }
+
+    public void AddCustomer(Customer customer)
+    {
+        customers.Add(customer);
+    }
+
+    //void Update()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        Debug.Log("God IS PUSHING");
+    //        Start();
+    //    }
+    //}
 	
-	// Add the rest of the code here...
-	public void DoSomeThing() {
-		Debug.Log("Doing something now", this);
-	}
-	
+
 }
