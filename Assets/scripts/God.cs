@@ -51,6 +51,7 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
+        //Screen.SetResolution( 480, 800, true);
         TestingGame();
     }
 
@@ -65,7 +66,6 @@ public class God : MonoBehaviour {
                 t.parent = parent.transform;
                 t.localPosition = prefab.transform.localPosition;
                 t.localRotation = prefab.transform.localRotation;
-                Debug.Log("CALLING TIS UO");
                 t.localScale = prefab.transform.localScale;
                 go.layer = parent.layer;
             }

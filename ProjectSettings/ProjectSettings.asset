@@ -73,7 +73,7 @@ PlayerSettings:
     16:10: 0
     16:9: 0
     Others: 1
-  iPhoneBundleIdentifier: com.Company.ProductName
+  iPhoneBundleIdentifier: com.zookeeper.storegame
   productGUID: a300c680b71842f4e8190228145ea8bb
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
