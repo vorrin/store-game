@@ -97,21 +97,16 @@ public class God : MonoBehaviour {
     {
         customers.Add(customer);
         
-        //GameObject customerView  = AddChild(gameScreen, customerPrefab);   
+        //GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
+        //customerView.GetComponent<CustomerView>().Create(customer);
 
-
-        GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
-        customerView.GetComponent<CustomerView>().Create(customer);
-
-        customersQueue.GetComponent<UIGrid>().Reposition();
-        customersQueue.GetComponent<UIPanel>().Refresh();
-        BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
-      //  customerView.GetComponent<UISprite>().panel.Refresh() ;
+        //customersQueue.GetComponent<UIGrid>().Reposition();
+        //customersQueue.GetComponent<UIPanel>().Refresh();
+        //BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
 
 
 
-        coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
-        //collider.bounds.size = new Vector3(collider.bounds.size.x + 50, collider.bounds.size.y, 0f);
+        //coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
     }
 
     

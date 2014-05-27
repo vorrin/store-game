@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 28854538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 534.065979, y: 800.000061, z: 1}
+  m_LocalScale: {x: 479.510681, y: 800, z: 1}
   m_Children: []
   m_Father: {fileID: 693120554}
 --- !u!114 &28854540
@@ -1185,9 +1185,6 @@ MonoBehaviour:
     elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
-  spots: []
-  EntranceStart: {fileID: 188066541}
-  EntranceEnd: {fileID: 1226373106}
   dragStartTime: 0
 --- !u!65 &795329211
 BoxCollider:

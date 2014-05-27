@@ -5,13 +5,8 @@ using System.Collections.Generic;
 public class CustomerView : MonoBehaviour {
 
 	public Customer customerModel;
-	public GameObject[] spots;
-	private TweenPosition tweener;
-	private UIDragObject Dragger;
 	private bool beingDragged = false; 
 	private Vector3 dragOffset = Vector3.zero;
-	public GameObject EntranceStart;
-	public GameObject EntranceEnd;
     public float dragStartTime; 
 
 
@@ -99,11 +94,8 @@ public class CustomerView : MonoBehaviour {
 	void OnClick(){ 
 		Debug.Log ("RANDOMWALKING");
         God.instance.customerPanelManager.Display(customerModel.avatarName, customerModel.scenario);
-		//WalkToRandomSpot();
 	}
 
-	void OnMouseUp(){
-	}
 
 	void OnRelease(){
 	}
@@ -148,38 +140,48 @@ public class CustomerView : MonoBehaviour {
         //    1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
 	}
 
-	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
-		tweener.from = startPos;
-		tweener.to = endPos; 
-		tweener.duration = duration;
-		tweener.delay = delay;
-		tweener.ResetToBeginning();
-		tweener.Play();
-		foreach (EventDelegate currentDelegate in onFinished) {
-			tweener.AddOnFinished(currentDelegate);
-		}
-	}
+    //void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
+    //    tweener.from = startPos;
+    //    tweener.to = endPos; 
+    //    tweener.duration = duration;
+    //    tweener.delay = delay;
+    //    tweener.ResetToBeginning();
+    //    tweener.Play();
+    //    foreach (EventDelegate currentDelegate in onFinished) {
+    //        tweener.AddOnFinished(currentDelegate);
+    //    }
+    //}
 
-	void WalkToRandomSpot ( ) {
-		EventDelegate newDelegate = new EventDelegate();
-		newDelegate.target = this;
-		newDelegate.methodName = "WalkToRandomSpot";
-		newDelegate.oneShot = true;
-		tweener.SetOnFinished(newDelegate);
+    //void WalkToRandomSpot ( ) {
+    //    EventDelegate newDelegate = new EventDelegate();
+    //    newDelegate.target = this;
+    //    newDelegate.methodName = "WalkToRandomSpot";
+    //    newDelegate.oneShot = true;
+    //    tweener.SetOnFinished(newDelegate);
 
-        Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
-        Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
+    //    Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
+    //    Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
 
-		TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
-	}
+    //    TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
+    //}
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (beingDragged) {
 			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - dragOffset;
 		}
 	}
+
+    void OnMouseDown()
+    {
+        OnPress(true);
+    }
+
+    void OnMouseUp()
+    {
+        OnPress(false);
+    }
 
     void LateUpdate()
     {
