@@ -37,6 +37,7 @@ public class CustomerView : MonoBehaviour {
 	}
 
 	void OnPress(bool isDown) {
+        return;
 		if (isDown){
 			beingDragged = true;
             dragStartTime = Time.time;
