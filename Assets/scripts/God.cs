@@ -13,13 +13,12 @@ public class God : MonoBehaviour {
 	
 	private static God s_Instance = null;
 
-    public Zone entrance;
+    public GameObject customersQueue;
 	public  List<GameObject> zones = new List<GameObject>();
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
     public GameObject gameScreen;
-    public GameObject entranceStart;
-    public GameObject entranceEnd;
+    
     public CustomerPanelManager customerPanelManager;
 
 	
@@ -74,15 +73,14 @@ public class God : MonoBehaviour {
 
     void TestingGame()
     {
+        
+        //GameObject customerView = Instantiate(customerPrefab, new Vector3(10000f, 10000f, 0f), customerPrefab.transform.rotation) as GameObject;
+
         Customer newCustomer = new Customer();
         newCustomer.Create();
-        customers.Add(newCustomer);
-        //GameObject customerView = Instantiate(customerPrefab, new Vector3(10000f, 10000f, 0f), customerPrefab.transform.rotation) as GameObject;
-        GameObject customerView  = AddChild(gameScreen, customerPrefab);
-
+        AddCustomer(newCustomer);
         //customerView.transform.parent = entrance.transform;
         //customerView.transform.parent = GameObject.Find("UI Root").transform;
-        customerView.GetComponent<CustomerView>().Create(newCustomer);  
     }
 
 
@@ -98,7 +96,25 @@ public class God : MonoBehaviour {
     public void AddCustomer(Customer customer)
     {
         customers.Add(customer);
+        
+        //GameObject customerView  = AddChild(gameScreen, customerPrefab);   
+
+
+        GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
+        customerView.GetComponent<CustomerView>().Create(customer);
+
+        customersQueue.GetComponent<UIGrid>().Reposition();
+        customersQueue.GetComponent<UIPanel>().Refresh();
+        BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
+      //  customerView.GetComponent<UISprite>().panel.Refresh() ;
+
+
+
+        coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
+        //collider.bounds.size = new Vector3(collider.bounds.size.x + 50, collider.bounds.size.y, 0f);
     }
+
+    
 
     void Update()
     {

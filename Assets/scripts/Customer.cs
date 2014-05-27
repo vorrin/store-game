@@ -16,7 +16,7 @@ using System.Collections;
     {
         Debug.Log("CUSTOMER CRREATION CALLED");
         mood = 1f;
-        ChangeZone(God.instance.entrance.GetComponent<Zone>());
+        //ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
 
    
@@ -39,7 +39,6 @@ using System.Collections;
 
     public void ChangeZone(Zone zone)
     {
-        Debug.Log(zone);
         if (currentZone)
         {
             if (zone == currentZone) return;

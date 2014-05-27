@@ -23,15 +23,15 @@ public class CustomerView : MonoBehaviour {
 	public void Create (Customer customer) {
         customerModel = customer;
         GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName;
-        EntranceStart = God.instance.entranceStart;
-        EntranceEnd = God.instance.entranceEnd;
-		spots = GameObject.FindGameObjectsWithTag("spot");
-        GetComponent<CustomSpriteAnimation>().namePrefix = customer.avatarName;
+        //EntranceStart = God.instance.entranceStart;
+        //EntranceEnd = God.instance.entranceEnd;
+        //spots = GameObject.FindGameObjectsWithTag("spot");
+        //GetComponent<CustomSpriteAnimation>().namePrefix = customer.avatarName;
 //		god = GameObject.Find("God").GetComponent<God>();
 //		god.Zones[1].GetComponent<UIPlayAnimation>().Play(true);
 		//tweener = GetComponent<TweenPosition>();
-		tweener = (TweenPosition) gameObject.AddComponent ("TweenPosition");
-		Dragger = GetComponent<UIDragObject>();
+        //tweener = (TweenPosition) gameObject.AddComponent ("TweenPosition");
+        //Dragger = GetComponent<UIDragObject>();
 		CustomerEnters();
 
 	}
@@ -62,22 +62,22 @@ public class CustomerView : MonoBehaviour {
                         Zone currentZone = hit.collider.GetComponent<Zone>();
                         customerModel.ChangeZone(currentZone);
                         //User dropped in the Entrance zone again.
-                        if (currentZone != God.instance.entrance)
-                        {
-                            Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
-                        }
-                        else
-                        {
-                            WalkToRandomSpot();
-                        }
+                        //if (currentZone != God.instance.entrance)
+                        //{
+                        //    Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+                        //}
+                        //else
+                        //{
+                        //    WalkToRandomSpot();
+                        //}
                         hitAnotherZone = true;
                     }
                 }
 
                 if (!hitAnotherZone)
                 {
-                    WalkToRandomSpot();
-                    customerModel.ChangeZone(God.instance.entrance);
+             //       WalkToRandomSpot();
+           //         customerModel.ChangeZone(God.instance.entrance);
                 }
 
 
@@ -109,7 +109,7 @@ public class CustomerView : MonoBehaviour {
 	}
 
 	void OnDrag(){
-		tweener.enabled = false;
+//		tweener.enabled = false;
 	}
 
 
@@ -130,19 +130,22 @@ public class CustomerView : MonoBehaviour {
 //		tweener.ResetToBeginning();
 //		tweener.Play();
         //collider.enabled = false;
-		EventDelegate walkDelegate = new EventDelegate();
-		walkDelegate.target = this;
-		walkDelegate.methodName = "WalkToRandomSpot";
-		walkDelegate.oneShot = true;
-		tweener.SetOnFinished(walkDelegate);
-		EventDelegate setWaitingDelegate = new EventDelegate();
-		setWaitingDelegate.target = this;
-		setWaitingDelegate.methodName = "SetToWaiting";
-		setWaitingDelegate.oneShot = true;
-		tweener.AddOnFinished (setWaitingDelegate);
-		TweenToPosition (transform.parent.InverseTransformPoint(EntranceStart.transform.position),
-            transform.parent.InverseTransformPoint(EntranceEnd.transform.position), 
-            1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
+
+        SetToWaiting();
+        return; //Not happening anymore
+        //EventDelegate walkDelegate = new EventDelegate();
+        //walkDelegate.target = this;
+        //walkDelegate.methodName = "WalkToRandomSpot";
+        //walkDelegate.oneShot = true;
+        //tweener.SetOnFinished(walkDelegate);
+        //EventDelegate setWaitingDelegate = new EventDelegate();
+        //setWaitingDelegate.target = this;
+        //setWaitingDelegate.methodName = "SetToWaiting";
+        //setWaitingDelegate.oneShot = true;
+        //tweener.AddOnFinished (setWaitingDelegate);
+        //TweenToPosition (transform.parent.InverseTransformPoint(EntranceStart.transform.position),
+        //    transform.parent.InverseTransformPoint(EntranceEnd.transform.position), 
+        //    1f, 0f, new EventDelegate[] { walkDelegate, setWaitingDelegate });
 	}
 
 	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
