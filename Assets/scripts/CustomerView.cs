@@ -172,7 +172,7 @@ public class CustomerView : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (beingDragged) {
 			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - dragOffset;
 		}
