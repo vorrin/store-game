@@ -2381,8 +2381,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1366527480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 26, z: 0}
-  m_LocalScale: {x: .76157254, y: .425725788, z: 1}
+  m_LocalPosition: {x: -89, y: 213, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 104964215}
 --- !u!65 &1366527482
@@ -2395,7 +2395,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 0}
+  m_Size: {x: 216, y: 185, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!111 &1366527483
 Animation:
@@ -2442,13 +2442,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: .00392156886}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
+  mWidth: 216
+  mHeight: 185
   mDepth: 3
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.16756761
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
   mSpriteName: sliceSpriteZone
   mType: 1
@@ -2586,8 +2586,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406597812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -25, z: 0}
-  m_LocalScale: {x: .761588931, y: .319317639, z: 1}
+  m_LocalPosition: {x: -91, y: -202, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 795329208}
   - {fileID: 188066542}
@@ -2608,7 +2608,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 0}
+  m_Size: {x: 206, y: 183, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!111 &1406597815
 Animation:
@@ -2655,13 +2655,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0, g: 1, b: .0896551609, a: .00392156886}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
+  mWidth: 206
+  mHeight: 183
   mDepth: 5
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.12568307
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
   mSpriteName: sliceSpriteZone
   mType: 1
@@ -2722,7 +2722,7 @@ MonoBehaviour:
   generateNormals: 0
   widgetsAreStatic: 0
   cullWhileDragging: 0
-  alwaysOnScreen: 1
+  alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
   startingRenderQueue: 3003
@@ -3249,9 +3249,7 @@ GameObject:
   - 114: {fileID: 2098987479}
   - 54: {fileID: 2098987478}
   - 114: {fileID: 2098987477}
-  - 114: {fileID: 2098987475}
   - 114: {fileID: 2098987474}
-  - 65: {fileID: 2098987476}
   m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
@@ -3282,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrangement: 0
-  sorting: 0
+  sorting: 2
   pivot: 3
   maxPerLine: 0
   cellWidth: 50
@@ -3291,44 +3289,19 @@ MonoBehaviour:
   hideInactive: 1
   keepWithinPanel: 0
   sorted: 0
---- !u!114 &2098987475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098987472}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollView: {fileID: 0}
-  draggablePanel: {fileID: 0}
---- !u!65 &2098987476
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098987472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0, y: 80, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2098987477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098987472}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 0
-  dragEffect: 2
+  dragEffect: 0
   restrictWithinPanel: 1
   disableDragIfFits: 0
   smoothDragStart: 1
@@ -3395,7 +3368,7 @@ MonoBehaviour:
   startingRenderQueue: 3009
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 111, y: 0, z: 234, w: 48}
+  mClipRange: {x: 174, y: -4, z: 396, w: 56}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 13
   mSortingOrder: 0

@@ -37,9 +37,8 @@ public class CustomerView : MonoBehaviour {
 	}
 
 	void OnPress(bool isDown) {
-        return;
+        //return;
 		if (isDown){
-			beingDragged = true;
             dragStartTime = Time.time;
 			dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             God.instance.FadeZones(true);
@@ -177,9 +176,7 @@ public class CustomerView : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (beingDragged) {
-			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - dragOffset;
-		}
+	
 	}
 
     void LateUpdate()
