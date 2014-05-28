@@ -14,8 +14,8 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400014}
   m_Layer: 9
   m_Name: Customer
   m_TagString: customer
@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 23, z: 0}
+  m_Size: {x: 40, y: 46, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -153,19 +153,6 @@ MonoBehaviour:
   momentumAmount: 35
   scale: {x: 1, y: 1, z: 0}
   scrollWheelFactor: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9ee9adcf574fc42857acfaad9fb89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restriction: 2
-  cloneOnDrag: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +205,19 @@ MonoBehaviour:
   from: {x: .676553428, y: .929782927, z: 1}
   to: {x: 0, y: 0, z: 1}
   updateTable: 0
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9f3a855be31314a95bc6867d0f619f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restriction: 2
+  cloneOnDrag: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

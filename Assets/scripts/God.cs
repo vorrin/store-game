@@ -18,7 +18,7 @@ public class God : MonoBehaviour {
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
     public GameObject gameScreen;
-    
+    public GameObject feedbackIconPrefab;
     public CustomerPanelManager customerPanelManager;
 
 	
@@ -104,13 +104,13 @@ public class God : MonoBehaviour {
         customerView.GetComponent<CustomerView>().Create(customer);
 
         customersQueue.GetComponent<UIGrid>().Reposition();
-        customersQueue.GetComponent<UIPanel>().Refresh();
-        BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
+        //customersQueue.GetComponent<UIPanel>().Refresh();
+        //BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
       //  customerView.GetComponent<UISprite>().panel.Refresh() ;
 
 
 
-        coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
+        //coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
         //collider.bounds.size = new Vector3(collider.bounds.size.x + 50, collider.bounds.size.y, 0f);
     }
 

@@ -36,52 +36,73 @@ public class CustomerView : MonoBehaviour {
 
 	}
 
+
+    public void CustomerDroppedInZone(Zone zone)
+    {
+        GetComponent<UIDragDropItem>().enabled = false;
+        zone.AddCustomer(customerModel);
+        Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+    }
+
+
+    void OnDrag()
+    {
+        Debug.Log("DRAGSTART");
+        God.instance.FadeZones(true);
+    }
+
+    void OnDragEnd()
+    {
+        God.instance.FadeZones(false);
+
+    }
+
 	void OnPress(bool isDown) {
-        //return;
+        return;
 		if (isDown){
-            dragStartTime = Time.time;
-			dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            //dragStartTime = Time.time;
+            //dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             God.instance.FadeZones(true);
 		
 		}
 		else{
-			beingDragged = false;
+            //beingDragged = false;
             God.instance.FadeZones(false);
 
-            if (Time.time - dragStartTime > 0.2f)
-            {
-                Ray cast = UICamera.mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+            //if (Time.time - dragStartTime > 0.2f)
+            //{
+            //    Ray cast = UICamera.mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
 
-                RaycastHit[] hits;
-                hits = Physics.RaycastAll(cast);
-                bool hitAnotherZone = false;
-                foreach (RaycastHit hit in hits)
-                {
-                    if (hit.collider.name.Contains("Zone"))
-                    {
-                        Zone currentZone = hit.collider.GetComponent<Zone>();
-                        customerModel.ChangeZone(currentZone);
-                        //User dropped in the Entrance zone again.
-                        //if (currentZone != God.instance.entrance)
-                        //{
-                        //    Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
-                        //}
-                        //else
-                        //{
-                        //    WalkToRandomSpot();
-                        //}
-                        hitAnotherZone = true;
-                    }
-                }
+            //    RaycastHit[] hits;
+            //    hits = Physics.RaycastAll(cast);
+            //    bool hitAnotherZone = false;
+            //    foreach (RaycastHit hit in hits)
+            //    {
+            //        if (hit.collider.name.Contains("Zone"))
+            //        {
+            //            Zone currentZone = hit.collider.GetComponent<Zone>();
+            //            customerModel.ChangeZone(currentZone);
+            //            //User dropped in the Entrance zone again.
+            //            //if (currentZone != God.instance.entrance)
+            //            //{
+            //            //    Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+            //            //}
+            //            //else
+            //            //{
+            //            //    WalkToRandomSpot();
+            //            //}
+            //            hitAnotherZone = true;
+            //        }
+            //    }
 
-                if (!hitAnotherZone)
-                {
-             //       WalkToRandomSpot();
-           //         customerModel.ChangeZone(God.instance.entrance);
-                }
+           //     if (!hitAnotherZone)
+           //     {
+           //  //       WalkToRandomSpot();
+           ////         customerModel.ChangeZone(God.instance.entrance);
+           //     }
 
 
-            }
+            //}
 
 						
 		}
@@ -91,7 +112,9 @@ public class CustomerView : MonoBehaviour {
     private void DestroyCustomerView(AbstractGoTween obj)
     {
         GetComponent<CustomSpriteAnimation>().enabled = false;
+        Destroy(gameObject);
         Debug.Log("THIS WAS CALLED");
+        
      //   Destroy(gameObject);
     }
 
@@ -106,10 +129,6 @@ public class CustomerView : MonoBehaviour {
 	}
 
 	void OnRelease(){
-	}
-
-	void OnDrag(){
-//		tweener.enabled = false;
 	}
 
 
