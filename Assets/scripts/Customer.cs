@@ -6,7 +6,7 @@ using System.Collections;
 	public string scenario = "I want to buy them things, fast!";
 	public string avatarName = "customer";
 	public float upsellChance = .5f;
-	public float totalTimeAvailable = 600f;
+	public float totalTimeAvailable = 60f; // 1f == 1 second
 	public float elapsedTime = 0f;
     public Zone currentZone;
 	public bool waiting = false;
@@ -17,6 +17,7 @@ using System.Collections;
         Debug.Log("CUSTOMER CRREATION CALLED");
         scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
         mood = 1f;
+        waiting = true;
         //ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
 

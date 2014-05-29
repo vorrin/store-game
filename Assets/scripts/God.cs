@@ -127,11 +127,21 @@ public class God : MonoBehaviour {
 
     void Update()
     {
+        foreach (Customer customer in customers)
+        {
+            if (customer.waiting)
+            {
+                customer.totalTimeAvailable -= Time.deltaTime;
+            }
+        }
+
+        //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("God IS PUSHING");
             //Start();
             TestingGame();
+            customerPanelManager.Hide();
         }
     }
 	

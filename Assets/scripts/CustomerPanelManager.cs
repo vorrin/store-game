@@ -4,30 +4,34 @@ using System.Collections;
 public class CustomerPanelManager : MonoBehaviour {
     public UISprite avatarWindow;
     public UILabel scenarioLabel;
+    public Customer currentCustomer;
 
 
-    public void Display(string avatarImageName, string scenarioText)
+    void Start()
     {
+        gameObject.SetActiveRecursively(false);           
+    }
+
+    public void Display(Customer customer)
+    {
+   //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
-        avatarWindow.spriteName = avatarImageName + "1" ;
-        scenarioLabel.text = scenarioText;
-        GetComponentInChildren<UIScrollView>().ResetPosition();
-        scenarioLabel.ResizeCollider();
         GetComponent<UIPlayAnimation>().Play(true);
 
+        currentCustomer = customer;
+        avatarWindow.spriteName = customer.avatarName + "1" ;
+        scenarioLabel.text = customer.scenario;
+        GetComponentInChildren<UIScrollView>().ResetPosition();
+        scenarioLabel.ResizeCollider();
     }
 
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-
+        GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

@@ -6,12 +6,18 @@ public class Zone : MonoBehaviour {
 
     public List<GameObject> staffs;
     public List<Customer> customers;
-    public float staffPower = 30f;
+    public float staffPower = .3f; //this is a percentage (.3f = 30%) 
     public int maxQueue = 5;
     public bool queueOpen = true;
     public ZoneView zoneView;
     public Customer currentlyProcessedCustomer;
     public bool processingCustomer = false;
+    float processingStartTime;
+    public float processingTimeInSecondsAtHundredPercent = 40f;
+
+
+
+
 
 
 	// Use this for initialization
@@ -25,6 +31,12 @@ public class Zone : MonoBehaviour {
     {
         customers.Add(customer);
         zoneView.UpdateCustomerNumber();
+        CheckIfQueueIsFull();
+        
+    }
+
+    void CheckIfQueueIsFull()
+    {
         if (customers.Count == maxQueue)
         {
             queueOpen = false;
@@ -35,12 +47,22 @@ public class Zone : MonoBehaviour {
         }
     }
 
-
     void StartCustomerProcessing()
     {
+        processingStartTime = Time.time;
+        //processingStartTime = Time.time;
         currentlyProcessedCustomer = customers[0];
         processingCustomer = true;
         customers[0].waiting = false ;
+
+    }
+
+    void CustomerSuccesfullyProcessed()
+    {
+        customers.RemoveAt(0);
+        processingCustomer = false;
+        zoneView.UpdateCustomerNumber();
+        CheckIfQueueIsFull();
 
     }
 
@@ -49,6 +71,14 @@ public class Zone : MonoBehaviour {
         if (customers.Count != 0 && processingCustomer == false)
         {
             StartCustomerProcessing();
+        }
+        else if (processingCustomer == true)
+        {
+            float percentageOfCompletion = (Time.time - processingStartTime) / ( processingTimeInSecondsAtHundredPercent / staffPower );
+            if (percentageOfCompletion >= 1f)
+            {
+                CustomerSuccesfullyProcessed();
+            }
         }
 
 

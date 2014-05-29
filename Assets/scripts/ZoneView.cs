@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class ZoneView : MonoBehaviour {
     public Zone zone;
     public GameObject queue;
@@ -12,7 +13,11 @@ public class ZoneView : MonoBehaviour {
     public void UpdateCustomerNumber()
     {
         customerNumberLabel.text = zone.customers.Count.ToString();
-        icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
+        HSBColor red = new HSBColor(Color.red);
+        HSBColor green = new HSBColor(Color.green);
+
+        icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zone.customers.Count / zone.maxQueue)); 
+        //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
     }
 
 	void OnClick () {
