@@ -13,6 +13,7 @@ public class God : MonoBehaviour {
 	
 	private static God s_Instance = null;
 
+    public int customerCountDown = 5;
     public GameObject customersQueue;
 	//public  List<GameObject> zones = new List<GameObject>();
     public GameObject[] zones;
@@ -53,7 +54,9 @@ public class God : MonoBehaviour {
     {
         //Screen.SetResolution( 480, 800, true);
         zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
-        TestingGame();
+        //TestingGame();
+        StartCoroutine(DelayedAddingOfCustomers());
+
     }
 
    
@@ -75,14 +78,18 @@ public class God : MonoBehaviour {
 
     void TestingGame()
     {
-        
-        //GameObject customerView = Instantiate(customerPrefab, new Vector3(10000f, 10000f, 0f), customerPrefab.transform.rotation) as GameObject;
-
         Customer newCustomer = new Customer();
         newCustomer.Create();
         AddCustomer(newCustomer);
-        //customerView.transform.parent = entrance.transform;
-        //customerView.transform.parent = GameObject.Find("UI Root").transform;
+
+    }
+
+    IEnumerator DelayedAddingOfCustomers()
+    {
+        TestingGame();
+        yield return new WaitForSeconds(customerCountDown);
+        StartCoroutine(DelayedAddingOfCustomers());
+
     }
 
 

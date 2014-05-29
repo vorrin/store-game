@@ -15,6 +15,7 @@ using System.Collections;
     public  void Create()
     {
         Debug.Log("CUSTOMER CRREATION CALLED");
+        scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
         mood = 1f;
         //ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
