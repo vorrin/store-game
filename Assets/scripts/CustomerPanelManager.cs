@@ -5,7 +5,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public UISprite avatarWindow;
     public UILabel scenarioLabel;
     public Customer currentCustomer;
-
+    public UILabel timerLabel;
 
     void Start()
     {
@@ -34,6 +34,10 @@ public class CustomerPanelManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+        
+        int minutes =  (int) Mathf.Floor(currentCustomer.totalTimeAvailable / 60) ;
+        int seconds = (int) currentCustomer.totalTimeAvailable % 60;
+        timerLabel.text = minutes + ":" + seconds; 
+
 	}
 }

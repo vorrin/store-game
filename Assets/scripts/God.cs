@@ -123,9 +123,8 @@ public class God : MonoBehaviour {
         //collider.bounds.size = new Vector3(collider.bounds.size.x + 50, collider.bounds.size.y, 0f);
     }
 
-    
 
-    void Update()
+    void UpdateCustomers()
     {
         foreach (Customer customer in customers)
         {
@@ -133,8 +132,14 @@ public class God : MonoBehaviour {
             {
                 customer.totalTimeAvailable -= Time.deltaTime;
             }
+            //Here be mood enhancing magiks
         }
+    }
 
+
+    void Update()
+    {
+        
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {

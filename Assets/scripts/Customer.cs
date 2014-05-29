@@ -7,7 +7,7 @@ using System.Collections;
 	public string avatarName = "customer";
 	public float upsellChance = .5f;
 	public float totalTimeAvailable = 60f; // 1f == 1 second
-	public float elapsedTime = 0f;
+    //public float elapsedTime = 0f;
     public Zone currentZone;
 	public bool waiting = false;
 
