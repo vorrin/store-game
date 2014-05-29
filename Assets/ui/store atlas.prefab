@@ -41,8 +41,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 6ecb215aa4f26d94496a5bde57806456, type: 2}
   mSprites:
   - name: customer0
-    x: 126
-    y: 175
+    x: 29
+    y: 169
     width: 26
     height: 36
     borderLeft: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: customer1
-    x: 153
-    y: 175
+    x: 56
+    y: 169
     width: 26
     height: 36
     borderLeft: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Fail
     x: 0
-    y: 116
+    y: 301
     width: 96
     height: 95
     borderLeft: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: Full
     x: 0
-    y: 21
+    y: 206
     width: 92
     height: 94
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: sliceSpriteZone
-    x: 97
-    y: 168
+    x: 0
+    y: 162
     width: 28
     height: 43
     borderLeft: 0
@@ -107,9 +107,9 @@ MonoBehaviour:
     paddingBottom: 0
   - name: store-game
     x: 0
-    y: 212
-    width: 243
-    height: 300
+    y: 397
+    width: 480
+    height: 627
     borderLeft: 0
     borderRight: 0
     borderTop: 0

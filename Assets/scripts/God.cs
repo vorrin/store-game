@@ -14,7 +14,8 @@ public class God : MonoBehaviour {
 	private static God s_Instance = null;
 
     public GameObject customersQueue;
-	public  List<GameObject> zones = new List<GameObject>();
+	//public  List<GameObject> zones = new List<GameObject>();
+    public GameObject[] zones;
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
     public GameObject gameScreen;
@@ -51,6 +52,7 @@ public class God : MonoBehaviour {
     public void Start()
     {
         //Screen.SetResolution( 480, 800, true);
+        zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
         TestingGame();
     }
 

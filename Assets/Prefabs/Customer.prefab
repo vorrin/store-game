@@ -13,9 +13,10 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400012}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 0}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400014}
+  - 114: {fileID: 0}
   m_Layer: 9
   m_Name: Customer
   m_TagString: customer
@@ -46,20 +47,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 40, y: 46, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 926686e7a2e69354daf2b095ba0cd744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mFPS: 2
-  mPrefix: 
-  mLoop: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,13 +77,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 40
-  mHeight: 46
+  mWidth: 50
+  mHeight: 57
   mDepth: 16
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .869565189
+  aspectRatio: .877192974
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
   mSpriteName: customer1
   mType: 0
@@ -218,6 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 2
   cloneOnDrag: 0
+  dragging: 0
+  customerView: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -12,7 +12,8 @@ public class CustomerView : MonoBehaviour {
 	private Vector3 dragOffset = Vector3.zero;
 	public GameObject EntranceStart;
 	public GameObject EntranceEnd;
-    public float dragStartTime; 
+    public float dragStartTime;
+    GoTween hoverTween;
 
 
 	delegate void MyDelegate();
@@ -34,6 +35,15 @@ public class CustomerView : MonoBehaviour {
         //Dragger = GetComponent<UIDragObject>();
 		CustomerEnters();
 
+
+
+        //Go.defaultUpdateType = GoUpdateType.FixedUpdate;
+
+        GoTweenConfig hoverTweenConfig = new GoTweenConfig().localPosition(new Vector3(0f, 10f, 0f),true).startPaused();
+        hoverTween = new GoTween(gameObject.transform, 0.1f, hoverTweenConfig);
+        hoverTween.autoRemoveOnComplete = false;
+        Go.addTween(hoverTween);
+
 	}
 
 
@@ -45,16 +55,33 @@ public class CustomerView : MonoBehaviour {
     }
 
 
-    void OnDrag()
+    public void StartDrag() 
     {
-        Debug.Log("DRAGSTART");
         God.instance.FadeZones(true);
     }
 
-    void OnDragEnd()
+
+    public void EndDrag()
     {
         God.instance.FadeZones(false);
+    }
 
+
+    public void OnHover(bool isOver)
+    {
+        Debug.Log("ASDASD");
+        if (isOver)
+        {
+            Debug.Log(" FASDASD " + hoverTween);
+            //hoverTween.playForward();
+            
+            //Go.t
+        }
+        else
+        {
+            //hoverTween.playBackwards();
+            //Go.to(gameObject.transform, .5f, new GoTweenConfig().localPosition(new Vector3(0f, 0f, 0f), true));
+        }
     }
 
 	void OnPress(bool isDown) {
