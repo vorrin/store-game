@@ -4,6 +4,16 @@ using System.Collections;
 public class ZoneView : MonoBehaviour {
     public Zone zone;
     public GameObject queue;
+    public UILabel customerNumberLabel;
+    public UISprite icon;
+
+
+
+    public void UpdateCustomerNumber()
+    {
+        customerNumberLabel.text = zone.customers.Count.ToString();
+        icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
+    }
 
 	void OnClick () {
 		Debug.Log ("clicKed on zone");

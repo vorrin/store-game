@@ -21,17 +21,17 @@ public class Zone : MonoBehaviour {
     public void AddCustomer(Customer customer)
     {
         customers.Add(customer);
+        zoneView.UpdateCustomerNumber();
         if (customers.Count == maxQueue)
         {
             queueOpen = false;
-            zoneView.GetComponent<UIDragDropContainer>().enabled = false;
         }
         else
         {
             queueOpen = true;
-            zoneView.GetComponent<UIDragDropContainer>().enabled = true;
-
         }
+        
+
     }
 	
 
