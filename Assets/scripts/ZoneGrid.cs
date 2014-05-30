@@ -14,11 +14,14 @@ public class ZoneGrid : UIGrid {
     }
 
 
+    //Transform SortQueue(Transform a, Transform b)
+    //{
+    //    return transform.parent.
+    //}
 
     public override void Reposition()
 
     {
-        Debug.Log("REPOSITIONING");
 
         if (Application.isPlaying && !mInitDone && NGUITools.GetActive(this))
         {
@@ -38,14 +41,11 @@ public class ZoneGrid : UIGrid {
 
         if (sorting != Sorting.None )
         {
-            Debug.Log("REPOSITIONING");
             BetterList<Transform> list = new BetterList<Transform>();
-            foreach (Transform childTransform in transform.parent)
+            foreach (Transform childTransform in transform)
             {
-                Debug.Log("Running through children?");
                 if (childTransform.gameObject.name == "Spot")
                 {
-                    Debug.Log("Adding spots!");
                     list.Add(childTransform);
                 }
             }
@@ -76,7 +76,8 @@ public class ZoneGrid : UIGrid {
 
                 float depth = t.localPosition.z;
                 Debug.Log("POSITION NOW ");
-                Vector3 pos = t.parent.InverseTransformPoint( list[i].position);
+                //Vector3 pos = t.parent.InverseTransformPoint(list[i].position);
+                Vector3 pos = list[i].localPosition;
                 //Vector3 pos = (arrangement == Arrangement.Horizontal) ?
                 //    new Vector3(cellWidth * x, -cellHeight * y, depth) :
                 //    new Vector3(cellWidth * y, -cellHeight * x, depth);
