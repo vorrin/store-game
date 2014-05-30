@@ -275,7 +275,7 @@ Transform:
   m_PrefabInternal: {fileID: 1731881477}
   m_GameObject: {fileID: 59013745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76, y: 197, z: 0}
+  m_LocalPosition: {x: 76, y: 288.812439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1892838551}
@@ -333,7 +333,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -619,7 +618,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104964214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 81.6800003, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 626608157}
@@ -661,14 +660,14 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 480
-  mHeight: 627
+  mHeight: 800
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .765550256
+  aspectRatio: .600000024
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: store-game
+  mSpriteName: main_ingame_02
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -748,8 +747,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 480, y: 626, z: 0}
-  m_Center: {x: 0, y: -.5, z: 0}
+  m_Size: {x: 480, y: 800, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &150140708
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 544623578}
   m_GameObject: {fileID: 150140708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 173, y: -43, z: 0}
+  m_LocalPosition: {x: 173, y: 48.8124237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1791511592}
@@ -839,7 +838,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1039,7 +1037,7 @@ Transform:
   m_PrefabInternal: {fileID: 2069959848}
   m_GameObject: {fileID: 159598757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -59, z: 0}
+  m_LocalPosition: {x: 3.00000715, y: 32.8124237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 812434579}
@@ -1097,7 +1095,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1294,7 +1291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171879436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 214, y: -256.399994, z: 0}
+  m_LocalPosition: {x: 218, y: -280, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2098987473}
@@ -1329,15 +1326,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 5
-  mWidth: 423
-  mHeight: 92
+  mWidth: 441
+  mHeight: 137
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.597826
-  mAtlas: {fileID: 11400000, guid: f95e07e3d350bf748b0c42b453a69d2e, type: 2}
-  mSpriteName: Window
+  aspectRatio: 3.21897817
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: box_customerQUEUE_01
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1402,7 +1399,7 @@ MonoBehaviour:
   startingRenderQueue: 3016
   mAlpha: 1
   mClipping: 4
-  mClipRange: {x: -210, y: -1, z: 368, w: 60}
+  mClipRange: {x: -219, y: -1, z: 350, w: 60}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 8
   mSortingOrder: 0
@@ -1417,8 +1414,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 423, y: 91.4556198, z: 0}
-  m_Center: {x: -211.5, y: -.272190094, z: 0}
+  m_Size: {x: 405.168732, y: 117.306252, z: 0}
+  m_Center: {x: -212.690628, y: -8.99062729, z: 0}
 --- !u!114 &171879442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,7 +1639,7 @@ Transform:
   m_PrefabInternal: {fileID: 1518042205}
   m_GameObject: {fileID: 439612537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -138, y: 180, z: 0}
+  m_LocalPosition: {x: -138, y: 271.812439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 205254081}
@@ -1700,7 +1697,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -2046,11 +2042,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 3.00000715
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -170
+      value: -78.1875534
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2130,7 +2126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -43
+      value: 48.8124237
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2272,7 +2268,7 @@ Transform:
   m_PrefabInternal: {fileID: 1183208026}
   m_GameObject: {fileID: 626608156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 66, z: 0}
+  m_LocalPosition: {x: 4.99999952, y: 157.812424, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 78834393}
@@ -2330,7 +2326,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -2830,7 +2825,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2
+  aspectRatio: 2.03846145
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 7a48ea22e80d1ac4b97fdd87f9009546, type: 2}
@@ -3156,8 +3151,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 631723332}
-  - {fileID: 834977695}
   - {fileID: 1257413048}
+  - {fileID: 834977695}
   m_Father: {fileID: 693120554}
 --- !u!65 &953546233
 BoxCollider:
@@ -3319,7 +3314,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   timerLabel: {fileID: 740606782}
@@ -3975,11 +3969,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 4.99999952
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 66
+      value: 157.812424
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4904,7 +4898,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 180
+      value: 271.812439
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5254,7 +5248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 197
+      value: 288.812439
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5439,7 +5433,7 @@ Transform:
   m_PrefabInternal: {fileID: 1925936929}
   m_GameObject: {fileID: 1837919986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -177, y: -46, z: 0}
+  m_LocalPosition: {x: -177, y: 45.8124237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1484219919}
@@ -5497,7 +5491,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -5697,7 +5690,7 @@ Transform:
   m_PrefabInternal: {fileID: 512703128}
   m_GameObject: {fileID: 1841164074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -170, z: 0}
+  m_LocalPosition: {x: 3.00000715, y: -78.1875534, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1626533732}
@@ -5755,7 +5748,6 @@ MonoBehaviour:
     avatarName: customer
     upsellChance: .5
     totalTimeAvailable: 600
-    elapsedTime: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -6239,7 +6231,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -46
+      value: 45.8124237
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6279,11 +6271,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 3.00000715
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -59
+      value: 32.8124237
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_LocalPosition.z
