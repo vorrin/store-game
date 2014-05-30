@@ -22,7 +22,8 @@ public class God : MonoBehaviour {
     public GameObject gameScreen;
     public GameObject feedbackIconPrefab;
     public CustomerPanelManager customerPanelManager;
-
+    public TextAsset csv;
+    public Customer[] possibleCustomersPool;
 	
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
@@ -50,11 +51,13 @@ public class God : MonoBehaviour {
 		s_Instance = null;
 	}
 
+
+
+
     public void Start()
     {
-        //Screen.SetResolution( 480, 800, true);
+        ProcessCSV();
         zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
-        //TestingGame();
         StartCoroutine(DelayedAddingOfCustomers());
 
     }
@@ -128,23 +131,85 @@ public class God : MonoBehaviour {
     {
         foreach (Customer customer in customers)
         {
+
             if (customer.waiting)
             {
                 customer.totalTimeAvailable -= Time.deltaTime;
             }
+
             //Here be mood enhancing magiks
         }
     }
 
 
+    void ProcessCSV()
+    {
+
+        string[,] grid = CSVReader.SplitCsvGrid(csv.text);
+        //string[] lines = CSVReader.SplitCsvLine(csv.text);
+        //Debug.Log(lines.Length);
+        //Debug.Log(lines[3]);
+        Debug.Log(grid.GetLength(1));
+
+
+        int sexIndex = 0;
+        int ageIndex = 1;
+        int ethnicityIndex = 2;
+        int scenarioIndex = 3;
+        int npsIndex = 6;
+        int timeAvailableIndex = 7;
+        int bestZoneIndex = 8;
+        int secondBestZoneIndex = 9;
+        int upsellIndex = 10;
+        int spendIndex = 11;
+
+        for (int y = 0; y < grid.GetLength(0); y++)
+            {
+                if (grid[sexIndex, y] != "Male" && grid[sexIndex, y] != "Female") continue;
+
+                
+                string sex = grid[sexIndex, y];
+                string age = grid[ageIndex , y];
+                string ethnicity = grid[ ethnicityIndex , y];
+                string scenario = grid[scenarioIndex , y ];
+                string nps = grid[npsIndex , y ];
+                string timeAvailable = grid[timeAvailableIndex , y];
+                string bestZone = grid[bestZoneIndex , y ];
+                string secondBestZone = grid[secondBestZoneIndex , y ];
+                string upsell = grid[ upsellIndex , y ];
+                string spend = grid[spendIndex, y ];
+
+
+                //for (int x = 0; x < grid.GetLength(1); x++)
+                //{
+
+                //}
+        }
+        //foreach (string[] customerLine in grid.)
+        //{
+        //    if (customerLine[0] != "Male" && customerLine[0] != "Female")
+        //    {
+        //        continue;
+        //    }
+        //}
+        
+        //Debug.Log(grid[0, 0]);
+        //Debug.Log(grid[0, 1]);
+        //Debug.Log(grid[0, 2]);
+        //Debug.Log(grid[1, 2]);
+
+        //CSVReader.DebugOutputGrid();
+       
+    }
+
     void Update()
     {
+        UpdateCustomers();
         
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("God IS PUSHING");
-            //Start();
             TestingGame();
             customerPanelManager.Hide();
         }

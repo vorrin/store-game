@@ -34,6 +34,12 @@ public class ZoneView : MonoBehaviour {
 
 	
 	}
+
+    public void UpdateProgressIndicator(float percentageOfCompletion)
+    {
+
+    }
+
     void OnDrop(GameObject customer)
     {
         CustomerView customerView = customer.GetComponent<CustomerView>();
@@ -42,8 +48,6 @@ public class ZoneView : MonoBehaviour {
             if (zone.queueOpen)
             {
                 customerView.CustomerDroppedInZone(zone);
-                Debug.Log("ASDASDASDAD ASDAJAJAAJ");
-
             }
             else
             {

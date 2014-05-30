@@ -11,9 +11,16 @@ using System.Collections;
     public Zone currentZone;
 	public bool waiting = false;
 
-
-    public  void Create()
+    public enum CustomerSex
     {
+        Male,
+        Female
+    }
+
+    public  void Create(string sex ,string age ,string ethnicity ,string scenario ,string nps ,string timeAvailable ,string bestZone ,string secondBestZone ,string upsell ,string spend  )
+    {
+        
+           
         Debug.Log("CUSTOMER CRREATION CALLED");
         scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
         mood = 1f;

@@ -74,7 +74,9 @@ public class Zone : MonoBehaviour {
         }
         else if (processingCustomer == true)
         {
+            
             float percentageOfCompletion = (Time.time - processingStartTime) / ( processingTimeInSecondsAtHundredPercent / staffPower );
+            zoneView.UpdateProgressIndicator(percentageOfCompletion);
             if (percentageOfCompletion >= 1f)
             {
                 CustomerSuccesfullyProcessed();
