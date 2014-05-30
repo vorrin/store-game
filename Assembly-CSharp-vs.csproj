@@ -198,6 +198,7 @@
      <Compile Include="Assets\scripts\ScrollviewScrollButton.cs" />
      <Compile Include="Assets\scripts\UIExtensions.cs" />
      <Compile Include="Assets\scripts\Zone.cs" />
+     <Compile Include="Assets\scripts\ZoneGrid.cs" />
      <Compile Include="Assets\scripts\ZoneView.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.5.6.txt" />

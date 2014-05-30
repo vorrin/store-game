@@ -11,16 +11,20 @@ using System.Collections;
     public Zone currentZone;
 	public bool waiting = false;
 
-    public enum CustomerSex
-    {
-        Male,
-        Female
-    }
+    //public enum CustomerSex
+    //{
+    //    Male,
+    //    Female
+    //}
 
-    public  void Create(string sex ,string age ,string ethnicity ,string scenario ,string nps ,string timeAvailable ,string bestZone ,string secondBestZone ,string upsell ,string spend  )
+
+    //public  void Create(string sex ,string age ,string ethnicity ,string scenario ,string nps ,string timeAvailable ,string bestZone ,string secondBestZone ,string upsell ,string spend  )
+    public  void Create( )
     {
-        
-           
+        //I think validating data for customers here would be a good idea.
+        // Ie. sex, age, ethnicity, nps (range 1 -10), upsell (yes/no)
+
+        //System.Enum.IsDefined(typeof(CustomerSex), sex);
         Debug.Log("CUSTOMER CRREATION CALLED");
         scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
         mood = 1f;

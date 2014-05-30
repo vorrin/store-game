@@ -165,6 +165,7 @@ public class God : MonoBehaviour {
 
         for (int y = 0; y < grid.GetLength(0); y++)
             {
+                //Checks if the line is a customer line or not at all.
                 if (grid[sexIndex, y] != "Male" && grid[sexIndex, y] != "Female") continue;
 
                 
@@ -180,26 +181,11 @@ public class God : MonoBehaviour {
                 string spend = grid[spendIndex, y ];
 
 
-                //for (int x = 0; x < grid.GetLength(1); x++)
-                //{
+                //Customer objects get created here and stored somewhere. (possibleCustomersPool)
 
-                //}
+                
         }
-        //foreach (string[] customerLine in grid.)
-        //{
-        //    if (customerLine[0] != "Male" && customerLine[0] != "Female")
-        //    {
-        //        continue;
-        //    }
-        //}
         
-        //Debug.Log(grid[0, 0]);
-        //Debug.Log(grid[0, 1]);
-        //Debug.Log(grid[0, 2]);
-        //Debug.Log(grid[1, 2]);
-
-        //CSVReader.DebugOutputGrid();
-       
     }
 
     void Update()
