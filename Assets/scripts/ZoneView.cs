@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class ZoneView : MonoBehaviour {
-    public Zone zone;
+    public Zone zoneModel;
     public GameObject queue;
     public UILabel customerNumberLabel;
     public UISprite icon;
@@ -12,20 +12,29 @@ public class ZoneView : MonoBehaviour {
 
     public void UpdateCustomerNumber()
     {
-        customerNumberLabel.text = zone.customers.Count.ToString();
+        customerNumberLabel.text = zoneModel.customers.Count.ToString();
         HSBColor red = new HSBColor(Color.red);
         HSBColor green = new HSBColor(Color.green);
 
-        icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zone.customers.Count / zone.maxQueue)); 
+        icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zoneModel.customers.Count / zoneModel.maxQueue)); 
         //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
     }
 
 	void OnClick () {
-		Debug.Log ("clicKed on zone");
+		
+        GetComponent<UIPlayAnimation>().Play(true);
+        //EventDelegate displayZoneScreen = new EventDelegate(God.instance.zonePanelManager,"Display");
+        //EventDelegate.Parameter parameter = new EventDelegate.Parameter();
+        //parameter.obj = zoneModel;
+        
+        //displayZoneScreen.parameters = new EventDelegate.Parameter[1]{ parameter};
+        God.instance.zonePanelManager.Display(zoneModel);
+        //GetComponent<UIPlayAnimation>().onFinished = 
+
 	}
 	// Use this for initialization
 	void Start () {
-        zone = GetComponent<Zone>();
+        zoneModel = GetComponent<Zone>();
         queue = GameObject.Find("Queue");
 	}
 	
@@ -45,9 +54,9 @@ public class ZoneView : MonoBehaviour {
         CustomerView customerView = customer.GetComponent<CustomerView>();
         if (customerView)
         {
-            if (zone.queueOpen)
+            if (zoneModel.queueOpen)
             {
-                customerView.CustomerDroppedInZone(zone);
+                customerView.CustomerDroppedInZone(zoneModel);
             }
             else
             {
@@ -63,4 +72,6 @@ public class ZoneView : MonoBehaviour {
         }
         
     }
+
+
 }

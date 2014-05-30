@@ -14,10 +14,30 @@ public class ZoneGrid : UIGrid {
     }
 
 
-    //Transform SortQueue(Transform a, Transform b)
-    //{
-    //    return transform.parent.
-    //}
+    private int SortQueue(Transform a, Transform b)
+    {
+        int aIndex = 0;
+        int bIndex = 0;
+        for (int i = 0; i < a.parent.GetChildCount(); i++ ){
+            Transform currentTransform = a.parent.GetChild(i);
+            if (currentTransform == a)
+            {
+                aIndex = i;
+            }
+            else if (currentTransform == b)
+            {
+                bIndex = i;
+            }
+       }
+        if (aIndex > bIndex)
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
 
     public override void Reposition()
 
@@ -42,25 +62,37 @@ public class ZoneGrid : UIGrid {
         if (sorting != Sorting.None )
         {
             BetterList<Transform> list = new BetterList<Transform>();
+
+            BetterList<Transform> actualItems = new BetterList<Transform>();
+
             foreach (Transform childTransform in transform)
             {
                 if (childTransform.gameObject.name == "Spot")
                 {
                     list.Add(childTransform);
                 }
+                else
+                {
+                    if (childTransform && (!hideInactive || NGUITools.GetActive(childTransform.gameObject))) actualItems.Add(childTransform);
+                }
             }
 
-            BetterList<Transform> actualItems = new BetterList<Transform>();
 
-            for (int i = 0; i < myTrans.childCount; ++i)
-            {
-                Transform t = myTrans.GetChild(i);
-                if (t && (!hideInactive || NGUITools.GetActive(t.gameObject))) actualItems.Add(t);
-            }
+            //for (int i = 0; i < myTrans.childCount; ++i)
+            //{
+                
+            //    Transform t = myTrans.GetChild(i);
+               
+            //}
 
           //  SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
 
-            actualItems.Sort(SortVertical);
+            //actualItems.Sort(SortVertical);
+            actualItems.Sort(SortQueue);
+            
+            
+            
+            
             //if (sorting == Sorting.Alphabetic) list.Sort(SortByName);
             //else if (sorting == Sorting.Horizontal) list.Sort(SortHorizontal);
             //else if (sorting == Sorting.Vertical) list.Sort(SortVertical);

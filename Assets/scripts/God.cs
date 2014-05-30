@@ -22,6 +22,7 @@ public class God : MonoBehaviour {
     public GameObject gameScreen;
     public GameObject feedbackIconPrefab;
     public CustomerPanelManager customerPanelManager;
+    public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public Customer[] possibleCustomersPool;
 	
