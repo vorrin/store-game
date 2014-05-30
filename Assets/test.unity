@@ -332,7 +332,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1094,7 +1094,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1696,7 +1696,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -2325,7 +2325,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -5490,7 +5490,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -5747,7 +5747,7 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     avatarName: customer
     upsellChance: .5
-    totalTimeAvailable: 600
+    totalTimeAvailable: 60
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -6364,7 +6364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098987472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -372, y: -5.07440186, z: 0}
+  m_LocalPosition: {x: -372, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 171879437}
@@ -6468,7 +6468,7 @@ MonoBehaviour:
   startingRenderQueue: 3017
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 158, y: 10, z: 392, w: 88}
+  mClipRange: {x: 144, y: 10, z: 364, w: 88}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 9
   mSortingOrder: 0
