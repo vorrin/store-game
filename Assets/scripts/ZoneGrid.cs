@@ -67,7 +67,7 @@ public class ZoneGrid : UIGrid {
 
             foreach (Transform childTransform in transform)
             {
-                if (childTransform.gameObject.name == "Spot")
+                if (childTransform.gameObject.name.Contains("Spot"))
                 {
                     list.Add(childTransform);
                 }

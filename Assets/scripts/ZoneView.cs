@@ -7,16 +7,20 @@ public class ZoneView : MonoBehaviour {
     public GameObject queue;
     public UILabel customerNumberLabel;
     public UISprite icon;
+    public UISprite progressIndicator;  
 
 
 
     public void UpdateCustomerNumber()
     {
         customerNumberLabel.text = zoneModel.customers.Count.ToString();
-        HSBColor red = new HSBColor(Color.red);
-        HSBColor green = new HSBColor(Color.green);
+        float transparency = .3f;
+        HSBColor red = new HSBColor(new Color(1f,0f,0f,transparency));
+        HSBColor green = new HSBColor(new Color(0f,1f,0f,transparency));
 
-        icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zoneModel.customers.Count / zoneModel.maxQueue)); 
+        icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zoneModel.customers.Count / zoneModel.maxQueue));
+        progressIndicator.color = icon.color;
+        progressIndicator.fillAmount = 0f;
         //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
     }
 
@@ -46,7 +50,7 @@ public class ZoneView : MonoBehaviour {
 
     public void UpdateProgressIndicator(float percentageOfCompletion)
     {
-
+        progressIndicator.fillAmount = percentageOfCompletion;
     }
 
     void OnDrop(GameObject customer)
