@@ -26,12 +26,7 @@ public class God : MonoBehaviour {
     public TextAsset csv;
     public Customer[] possibleCustomersPool;
 
-    public string[] sexTypes = new string[] {
-        "Male",
-        "Female"
-    }
     
-	
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
 	public static God instance {
@@ -192,7 +187,7 @@ public class God : MonoBehaviour {
 
 
                 //Customer objects get created here and stored somewhere. (possibleCustomersPool)
-
+                
                 
         }
         
