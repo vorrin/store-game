@@ -25,6 +25,12 @@ public class God : MonoBehaviour {
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public Customer[] possibleCustomersPool;
+
+    public string[] sexTypes = new string[] {
+        "Male",
+        "Female"
+    }
+    
 	
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
@@ -163,14 +169,17 @@ public class God : MonoBehaviour {
         int secondBestZoneIndex = 9;
         int upsellIndex = 10;
         int spendIndex = 11;
-
+        List<Customer> generatedCustomers = new List<Customer>();
+        
         for (int y = 0; y < grid.GetLength(0); y++)
             {
                 //Checks if the line is a customer line or not at all.
                 if (grid[sexIndex, y] != "Male" && grid[sexIndex, y] != "Female") continue;
 
-                
+
                 string sex = grid[sexIndex, y];
+                
+
                 string age = grid[ageIndex , y];
                 string ethnicity = grid[ ethnicityIndex , y];
                 string scenario = grid[scenarioIndex , y ];
