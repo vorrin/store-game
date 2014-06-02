@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class ZonePanelManager : MonoBehaviour {
 
@@ -29,6 +31,17 @@ public class ZonePanelManager : MonoBehaviour {
 
     }
 
+    public void ReorderCustomerList( BetterList<Transform> list ){
+        if (list.size == 0) return;
+        List<Customer> customers = new List<Customer>();
+        foreach (Transform customerTransform in list)
+        {
+            customers.Add(customerTransform.GetComponent<CustomerView>().customerModel);
+        }
+        currentZone.customers = customers;
+        //currentZone.currentlyProcessedCustomer.waiting = false;
+        currentZone.StartCustomerProcessing();
+    }
 
     public void PopulateZonePanel()
     {

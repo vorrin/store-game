@@ -47,8 +47,10 @@ public class Zone : MonoBehaviour {
         }
     }
 
-    void StartCustomerProcessing()
+    public void StartCustomerProcessing()
     {
+        
+        if (currentlyProcessedCustomer != null ) currentlyProcessedCustomer.waiting = true; // in case another customer was already being processed but switched out.
         processingStartTime = Time.time;
         //processingStartTime = Time.time;
         currentlyProcessedCustomer = customers[0];

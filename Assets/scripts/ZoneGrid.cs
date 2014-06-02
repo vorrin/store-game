@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ZoneGrid : UIGrid {
 
+    public ZonePanelManager zonePanelManager;
+
     protected override void Start()
     {
         base.Start();
@@ -40,7 +42,6 @@ public class ZoneGrid : UIGrid {
     }
 
     public override void Reposition()
-
     {
 
         if (Application.isPlaying && !mInitDone && NGUITools.GetActive(this))
@@ -105,7 +106,7 @@ public class ZoneGrid : UIGrid {
                
             //}
 
-          //  SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
+          //SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
 
             actualItems.Sort(SortVertical);
             spotsList.Sort(SortVertical);
@@ -153,6 +154,7 @@ public class ZoneGrid : UIGrid {
                     ++y;
                 }
             }
+            zonePanelManager.ReorderCustomerList(actualItems);
         }
         else
         {
