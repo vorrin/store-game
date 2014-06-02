@@ -72,7 +72,6 @@ public class ZoneGrid : UIGrid {
             {
                 if (childTransform.gameObject.name.Contains("Spot"))
                 {
-                    Debug.Log(childTransform.gameObject.name.Substring(4, 2));
 
                     //spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
                     spotsList.Add(childTransform);
@@ -155,6 +154,7 @@ public class ZoneGrid : UIGrid {
                 }
             }
             zonePanelManager.ReorderCustomerList(actualItems);
+            //print(" THE LIST IS SIZED SO : " + list.size);
         }
         else
         {

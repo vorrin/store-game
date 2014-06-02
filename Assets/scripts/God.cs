@@ -27,6 +27,31 @@ public class God : MonoBehaviour {
     public Customer[] possibleCustomersPool;
     public UIPlayAnimation fader;
 
+
+    public ScoreTracker score; 
+        //public int totalCustomersProcessed = 0;
+        //public int totalCustomersLost = 0;
+        //public float totalNPSForTheDay = 0;
+
+
+
+    public void CustomerLost(Customer customer)
+    {
+        
+        score.totalCustomersLost++;
+        score.totalCustomersProcessed++;
+        customers.Remove(customer);
+        score.totalNPSForTheDay += 1f;
+
+    }
+
+    public void CustomerProcessedSuccesfully(Customer customer)
+    {
+        score.totalCustomersProcessed++;
+        customers.Remove(customer);
+        score.totalNPSForTheDay += customer.mood;
+    }
+
     
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.

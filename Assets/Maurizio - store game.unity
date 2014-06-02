@@ -1748,6 +1748,10 @@ MonoBehaviour:
   csv: {fileID: 4900000, guid: 07c7a377575c4b14ba4db512282269c0, type: 3}
   possibleCustomersPool: []
   fader: {fileID: 1814919597}
+  score:
+    totalCustomersProcessed: 0
+    totalCustomersLost: 0
+    totalNPSForTheDay: 0
 --- !u!4 &197690411
 Transform:
   m_ObjectHideFlags: 0
@@ -2651,7 +2655,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: staffPower
-      value: 1.60000002
+      value: 8.77000046
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
@@ -4439,12 +4443,12 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3020
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 21
+  mDepth: 22
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!111 &953546237
@@ -4704,7 +4708,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: mDepth
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 11400012, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: startingRenderQueue
@@ -6697,7 +6701,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3021
+  startingRenderQueue: 3018
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -7990,7 +7994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staffs: []
   customers: []
-  staffPower: 1.60000002
+  staffPower: 8.77000046
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}

@@ -20,7 +20,6 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Display(Zone zone)
     {
-
         currentZone = zone;
         ClearZonePanel();
         //DEBUG tmp hack
@@ -32,6 +31,7 @@ public class ZonePanelManager : MonoBehaviour {
     }
 
     public void ReorderCustomerList( BetterList<Transform> list ){
+        //print(" THE LIST IS SIZED SO : " + list.size);
         if (list.size == 0) return;
         List<Customer> customers = new List<Customer>();
         foreach (Transform customerTransform in list)
@@ -40,7 +40,12 @@ public class ZonePanelManager : MonoBehaviour {
         }
         currentZone.customers = customers;
         //currentZone.currentlyProcessedCustomer.waiting = false;
-        currentZone.StartCustomerProcessing();
+        if (customers[0] != currentZone.currentlyProcessedCustomer) // First customer has changed.
+        {
+            Debug.Log("ALL IS DIFFERENT FOREVERS " );
+            print("ALL IS DIFFERENT FOREVERS " + customers[0] + " and " + currentZone.currentlyProcessedCustomer);
+            currentZone.StartCustomerProcessing();
+        }
     }
 
     public void PopulateZonePanel()
@@ -66,8 +71,26 @@ public class ZonePanelManager : MonoBehaviour {
         {
             if (!child.name.Contains("Spot"))
             {
-                Destroy(child.gameObject);
+                print("CLEARING!");
+
+                
+                DestroyImmediate(child.gameObject);
             }
+        }
+    }
+
+    public void RemoveProcessedCustomer(Customer processedCustomer)
+    {
+        
+        foreach (Transform customerView in queue.transform)
+        {
+            if (customerView.name.Contains("Spot")) continue;
+            if (customerView.GetComponent<CustomerView>().customerModel == processedCustomer)
+            {
+                DestroyImmediate(customerView.gameObject);
+                queue.Reposition();
+            }
+            
         }
     }
 
