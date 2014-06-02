@@ -34,14 +34,21 @@ public class God : MonoBehaviour {
         //public float totalNPSForTheDay = 0;
 
 
+    //List<Customer> customersToRemove; 
 
     public void CustomerLost(Customer customer)
     {
+        if (customer.currentZone != null ){
+            customer.currentZone.RemoveCustomer(customer);
+        }
         
         score.totalCustomersLost++;
         score.totalCustomersProcessed++;
-        customers.Remove(customer);
         score.totalNPSForTheDay += 1f;
+        List<Customer> removedList = new List<Customer>(customers);
+        removedList.Remove(customer);
+        customers = removedList;
+
 
     }
 
@@ -164,6 +171,10 @@ public class God : MonoBehaviour {
             if (customer.waiting)
             {
                 customer.totalTimeAvailable -= Time.deltaTime;
+                if (customer.totalTimeAvailable <= 0f)
+                {
+                    customer.Die();
+                }
             }
 
             //Here be mood enhancing magiks

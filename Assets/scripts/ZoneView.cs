@@ -20,6 +20,7 @@ public class ZoneView : MonoBehaviour {
 
         icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zoneModel.customers.Count / zoneModel.maxQueue));
         progressIndicator.color = icon.color;
+
         progressIndicator.fillAmount = 0f;
         //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
     }

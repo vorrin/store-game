@@ -30,7 +30,7 @@ public class ZonePanelManager : MonoBehaviour {
 
     }
 
-    public void ReorderCustomerList( BetterList<Transform> list ){
+    public void ReorderCustomerList( BetterList<Transform> list ){ // THIS HAPPENS IN REPOSITION, ZoneGrid.cs !!!! 
         //print(" THE LIST IS SIZED SO : " + list.size);
         if (list.size == 0) return;
         List<Customer> customers = new List<Customer>();
@@ -42,7 +42,7 @@ public class ZonePanelManager : MonoBehaviour {
         //currentZone.currentlyProcessedCustomer.waiting = false;
         if (customers[0] != currentZone.currentlyProcessedCustomer) // First customer has changed.
         {
-            Debug.Log("ALL IS DIFFERENT FOREVERS " );
+            //Debug.Log("ALL IS DIFFERENT FOREVERS " );
             print("ALL IS DIFFERENT FOREVERS " + customers[0] + " and " + currentZone.currentlyProcessedCustomer);
             currentZone.StartCustomerProcessing();
         }
@@ -74,21 +74,27 @@ public class ZonePanelManager : MonoBehaviour {
                 print("CLEARING!");
 
                 
-                DestroyImmediate(child.gameObject);
+                Destroy(child.gameObject);
+                child.parent = null;
             }
         }
     }
 
-    public void RemoveProcessedCustomer(Customer processedCustomer)
+    public void RemoveCustomer(Customer processedCustomer)
     {
-        
+        if (!this.enabled)
+        {
+            return;
+        }
         foreach (Transform customerView in queue.transform)
         {
             if (customerView.name.Contains("Spot")) continue;
             if (customerView.GetComponent<CustomerView>().customerModel == processedCustomer)
             {
-                DestroyImmediate(customerView.gameObject);
+                Destroy(customerView.gameObject);
+                customerView.parent = null;
                 queue.Reposition();
+                return;
             }
             
         }

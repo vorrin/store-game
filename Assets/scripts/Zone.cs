@@ -13,7 +13,7 @@ public class Zone : MonoBehaviour {
     public ZoneView zoneView;
     public Customer currentlyProcessedCustomer;
     public bool processingCustomer = false;
-    float processingStartTime;
+    public float processingStartTime;
     public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
 
 
@@ -31,11 +31,22 @@ public class Zone : MonoBehaviour {
 
     public void AddCustomer(Customer customer)
     {
+        customer.currentZone = this;
         customers.Add(customer);
+
         zoneView.UpdateCustomerNumber();
         CheckIfQueueIsFull();
-        
     }
+    public void RemoveCustomer(Customer customer)
+    {
+        // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
+        God.instance.zonePanelManager.RemoveCustomer(customer);
+        customers.Remove(customer);
+        zoneView.UpdateCustomerNumber();
+        CheckIfQueueIsFull();
+       // StartCustomerProcessing();
+    }
+
 
     void CheckIfQueueIsFull()
     {
@@ -61,6 +72,12 @@ public class Zone : MonoBehaviour {
 
     }
 
+
+    //void CustomerLeftForTimeout()
+    //{
+
+    //}
+
     void CustomerSuccesfullyProcessed()
     {
         
@@ -71,7 +88,7 @@ public class Zone : MonoBehaviour {
         CheckIfQueueIsFull();
         if (God.instance.zonePanelManager.enabled)
         {// This simply removes the customer from the zonepanel if the customer gets processed in that time.
-            God.instance.zonePanelManager.RemoveProcessedCustomer(currentlyProcessedCustomer);
+            God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
         }
     }
 

@@ -52,6 +52,31 @@ using System.Collections;
         }
     }
 
+    public void Die()
+    {
+        //Customer dies while in zone...
+        if (currentZone != null)
+        {
+            currentZone.RemoveCustomer(this);
+            //Die in zone 
+        }
+            //customer dies while in queue...
+        else
+        {
+            foreach (Transform customerViewTrans in God.instance.customersQueue.transform)
+            {
+                CustomerView customerView = customerViewTrans.GetComponent<CustomerView>();
+                if (customerView.customerModel == this)
+                {
+                    GameObject.Destroy(customerView.gameObject);
+                    God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
+                }
+            }
+        }
+
+        God.instance.CustomerLost(this);
+    }
+
    
 
 	// Use this for initialization

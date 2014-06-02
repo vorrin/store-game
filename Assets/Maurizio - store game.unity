@@ -457,6 +457,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &59013750
 MonoBehaviour:
@@ -1076,6 +1077,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &150140713
 MonoBehaviour:
@@ -1334,6 +1336,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &159598762
 MonoBehaviour:
@@ -2249,6 +2252,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &439612542
 MonoBehaviour:
@@ -2835,6 +2839,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &626608161
 MonoBehaviour:
@@ -3529,6 +3534,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &786816487
 MonoBehaviour:
@@ -7749,6 +7755,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &1837919991
 MonoBehaviour:
@@ -8007,6 +8014,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &1841164079
 MonoBehaviour:
