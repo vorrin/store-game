@@ -4,6 +4,7 @@ using System.Collections;
 public class ZonePanelManager : MonoBehaviour {
 
     public Zone currentZone;
+    public ZoneGrid queue;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +18,46 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Display(Zone zone)
     {
-        //     gameObject.SetActiveRecursively(true);
+
+        currentZone = zone;
+        ClearZonePanel();
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
         God.instance.fader.clipName = "ZoneFaderAnim";
         God.instance.fader.Play(true);
-        currentZone = zone;
+        PopulateZonePanel();
+
     }
+
+
+    public void PopulateZonePanel()
+    {
+        //ClearZonePanel();
+
+        if (currentZone.customers.Count == 0) return;
+        foreach (Customer customer in currentZone.customers)
+        {
+            GameObject currentCustomer  = NGUITools.AddChild(queue.gameObject, God.instance.customerPrefab);
+
+            //GameObject currentCustomer = Instantiate(God.instance.customerPrefab) as GameObject;
+            currentCustomer.transform.localScale = Vector3.one;
+            currentCustomer.GetComponent<CustomerView>().Create(customer);
+            currentCustomer.transform.parent = queue.transform;
+        }
+        queue.Reposition();
+    }
+
+    public void ClearZonePanel()
+    {
+        foreach (Transform child in queue.transform)
+        {
+            if (!child.name.Contains("Spot"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
 
     public void Hide()
     {

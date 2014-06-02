@@ -18,7 +18,7 @@ public class ZoneGrid : UIGrid {
     {
         int aIndex = 0;
         int bIndex = 0;
-        for (int i = 0; i < a.parent.GetChildCount(); i++ ){
+        for (int i = 0; i < a.parent.childCount; i++ ){
             Transform currentTransform = a.parent.GetChild(i);
             if (currentTransform == a)
             {
@@ -61,6 +61,8 @@ public class ZoneGrid : UIGrid {
 
         if (sorting != Sorting.None )
         {
+
+
             BetterList<Transform> spotsList = new BetterList<Transform>();
 
             BetterList<Transform> actualItems = new BetterList<Transform>();
@@ -71,8 +73,8 @@ public class ZoneGrid : UIGrid {
                 {
                     Debug.Log(childTransform.gameObject.name.Substring(4, 2));
 
-                    spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
-                    //spotsList.Add(childTransform);
+                    //spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
+                    spotsList.Add(childTransform);
                 }
                 else
                 {
@@ -80,9 +82,19 @@ public class ZoneGrid : UIGrid {
                 }
             }
 
-            Debug.Log("SPOTNAME " + spotsList[0].name);
-            Debug.Log("SPOTNAME " + spotsList[3].name);
-            Debug.Log("SPOTNAME " + spotsList[6].name);
+            //foreach (Transform spot in spotsList)
+            //{
+            //    spotsList.Remove(spot);
+            //    spotsList.Insert(int.Parse(spot.gameObject.name.Substring(4, 2)) - 1, spot);
+
+            //}
+
+            //Debug.Log("SPOTNAME " + spotsList[0].name);
+            //Debug.Log("SPOTNAME " + spotsList[1].name);
+            //Debug.Log("SPOTNAME " + spotsList[2].name);
+            //Debug.Log("SPOTNAME " + spotsList[3].name);
+            //Debug.Log("SPOTNAME " + spotsList[4].name);
+            //Debug.Log("SPOTNAME " + spotsList[5].name);
 
             Debug.Log(spotsList);   
 
@@ -96,6 +108,7 @@ public class ZoneGrid : UIGrid {
           //  SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
 
             actualItems.Sort(SortVertical);
+            spotsList.Sort(SortVertical);
 
             //actualItems.Sort(SortQueue);
             

@@ -116,6 +116,7 @@ public class God : MonoBehaviour {
 
 
         GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
+        customerView.transform.localPosition = new Vector3(customersQueue.GetComponent<UIGrid>().cellWidth * customersQueue.transform.childCount + 100f, customerView.transform.localPosition.y, 0f);
         customerView.GetComponent<CustomerView>().Create(customer);
 
         customersQueue.GetComponent<UIGrid>().Reposition();
