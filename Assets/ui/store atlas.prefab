@@ -40,9 +40,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 6ecb215aa4f26d94496a5bde57806456, type: 2}
   mSprites:
+  - name: backgroundFadeIn
+    x: 0
+    y: 224
+    width: 480
+    height: 800
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: box_customerQUEUE_01
-    x: 481
-    y: 1283
+    x: 0
+    y: 86
     width: 441
     height: 137
     borderLeft: 0
@@ -54,8 +67,8 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 1
   - name: box_MAIN_customerprofile_01
-    x: 0
-    y: 636
+    x: 1443
+    y: 413
     width: 346
     height: 611
     borderLeft: 0
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 10
   - name: box_TEXT_customerprofile_01
-    x: 0
-    y: 450
+    x: 481
+    y: 38
     width: 297
     height: 185
     borderLeft: 0
@@ -80,8 +93,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 15
   - name: customer0
-    x: 991
-    y: 1961
+    x: 442
+    y: 143
     width: 26
     height: 36
     borderLeft: 0
@@ -93,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: customer1
-    x: 962
-    y: 1917
+    x: 442
+    y: 106
     width: 26
     height: 36
     borderLeft: 0
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Fail
-    x: 923
-    y: 1325
+    x: 779
+    y: 128
     width: 96
     height: 95
     borderLeft: 0
@@ -119,8 +132,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: fillingZoneIcon
-    x: 923
-    y: 1254
+    x: 0
+    y: 15
     width: 70
     height: 70
     borderLeft: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Full
-    x: 0
-    y: 355
+    x: 779
+    y: 33
     width: 92
     height: 94
     borderLeft: 0
@@ -145,8 +158,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: main_ingame_02
-    x: 0
-    y: 1248
+    x: 481
+    y: 224
     width: 480
     height: 800
     borderLeft: 0
@@ -158,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sliceSpriteZone
-    x: 962
-    y: 1954
+    x: 442
+    y: 180
     width: 28
     height: 43
     borderLeft: 0
@@ -171,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: store-game
-    x: 481
-    y: 1421
+    x: 962
+    y: 397
     width: 480
     height: 627
     borderLeft: 0
@@ -184,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zoneIcon
-    x: 962
-    y: 1998
+    x: 71
+    y: 35
     width: 50
     height: 50
     borderLeft: 0

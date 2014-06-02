@@ -25,6 +25,7 @@ public class God : MonoBehaviour {
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public Customer[] possibleCustomersPool;
+    public UIPlayAnimation fader;
 
     
 	// This defines a static instance property that attempts to find the manager object in the scene and

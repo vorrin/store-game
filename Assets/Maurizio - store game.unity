@@ -2005,6 +2005,7 @@ MonoBehaviour:
   zonePanelManager: {fileID: 1545613486}
   csv: {fileID: 4900000, guid: 07c7a377575c4b14ba4db512282269c0, type: 3}
   possibleCustomersPool: []
+  fader: {fileID: 1814919597}
 --- !u!4 &197690411
 Transform:
   m_ObjectHideFlags: 0
@@ -3687,6 +3688,7 @@ Transform:
   m_LocalScale: {x: .00249999994, y: .00249999994, z: .00249999994}
   m_Children:
   - {fileID: 953546232}
+  - {fileID: 1814919592}
   - {fileID: 1058849864}
   - {fileID: 1545613483}
   - {fileID: 171879437}
@@ -4271,12 +4273,12 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3025
+  startingRenderQueue: 3024
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 12
+  mDepth: 23
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &834977698
@@ -5003,7 +5005,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 10
+  mDepth: 21
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!111 &953546237
@@ -5126,7 +5128,7 @@ Prefab:
       objectReference: {fileID: 740606782}
     - target: {fileID: 11400004, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: startingRenderQueue
-      value: 3018
+      value: 3001
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: clipName
@@ -5196,7 +5198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: startingRenderQueue
-      value: 3026
+      value: 3001
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: mClipRange.x
@@ -5260,6 +5262,22 @@ Prefab:
     - target: {fileID: 400000, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
+      propertyPath: mDepth
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
+      propertyPath: startingRenderQueue
+      value: 3001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
+      propertyPath: mDepth
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400020, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
+      propertyPath: mDepth
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b18f5bb15f213842b9b903b1fb641cd, type: 2}
@@ -6955,12 +6973,12 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3024
+  startingRenderQueue: 3025
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 3, y: 11, z: 230, w: 186}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 11
+  mDepth: 23
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!1 &1287306979
@@ -8156,7 +8174,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 10
+  mDepth: 21
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!1 &1605693612
@@ -8650,7 +8668,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3027
+  startingRenderQueue: 3018
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -8915,6 +8933,197 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &1814919591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1814919592}
+  - 114: {fileID: 1814919596}
+  - 54: {fileID: 1814919595}
+  - 65: {fileID: 1814919594}
+  - 114: {fileID: 1814919593}
+  - 111: {fileID: 1814919598}
+  - 114: {fileID: 1814919597}
+  m_Layer: 9
+  m_Name: Fader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1814919592
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 693120554}
+--- !u!114 &1814919593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 0}
+  mPivot: 4
+  mWidth: 480
+  mHeight: 800
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .600000024
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: backgroundFadeIn
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+--- !u!65 &1814919594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 480, y: 800, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1814919595
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1814919596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  showInPanelTool: 1
+  generateNormals: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  alwaysOnScreen: 0
+  anchorOffset: 0
+  renderQueue: 0
+  startingRenderQueue: 3018
+  mAlpha: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 300, w: 200}
+  mClipSoftness: {x: 4, y: 4}
+  mDepth: 20
+  mSortingOrder: 0
+  mClipOffset: {x: 0, y: 0}
+--- !u!114 &1814919597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f093ad5830afe44aba6efa8b8a5d5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1814919598}
+  animator: {fileID: 0}
+  clipName: FaderAnim
+  trigger: 0
+  playDirection: 1
+  resetOnPlay: 0
+  clearSelection: 0
+  ifDisabledOnPlay: 1
+  disableWhenFinished: -1
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+--- !u!111 &1814919598
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: c7ccae237f7d6e24b9e23190c675b94e, type: 2}
+  - {fileID: 7400000, guid: 070a187140b161345815a855c6bf7ca9, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1837919986
 GameObject:
   m_ObjectHideFlags: 0
@@ -9692,7 +9901,7 @@ MonoBehaviour:
   mClipping: 3
   mClipRange: {x: -56, y: -82, z: 250, w: 88}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 12
+  mDepth: 24
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 167}
 --- !u!1 &1892838550

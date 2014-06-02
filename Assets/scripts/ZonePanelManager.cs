@@ -20,12 +20,16 @@ public class ZonePanelManager : MonoBehaviour {
         //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
+        God.instance.fader.clipName = "ZoneFaderAnim";
+        God.instance.fader.Play(true);
         currentZone = zone;
     }
 
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
+        God.instance.fader.clipName = "FaderAnim";
+        God.instance.fader.Play(false);
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
         currentZone.GetComponent<UIPlayAnimation>().Play(false);
     }
