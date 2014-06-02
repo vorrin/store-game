@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ZoneGrid : UIGrid {
 
+    public ZonePanelManager zonePanelManager;
+
     protected override void Start()
     {
         base.Start();
@@ -18,7 +20,7 @@ public class ZoneGrid : UIGrid {
     {
         int aIndex = 0;
         int bIndex = 0;
-        for (int i = 0; i < a.parent.GetChildCount(); i++ ){
+        for (int i = 0; i < a.parent.childCount; i++ ){
             Transform currentTransform = a.parent.GetChild(i);
             if (currentTransform == a)
             {
@@ -40,7 +42,6 @@ public class ZoneGrid : UIGrid {
     }
 
     public override void Reposition()
-
     {
 
         if (Application.isPlaying && !mInitDone && NGUITools.GetActive(this))
@@ -61,6 +62,8 @@ public class ZoneGrid : UIGrid {
 
         if (sorting != Sorting.None )
         {
+
+
             BetterList<Transform> spotsList = new BetterList<Transform>();
 
             BetterList<Transform> actualItems = new BetterList<Transform>();
@@ -69,10 +72,9 @@ public class ZoneGrid : UIGrid {
             {
                 if (childTransform.gameObject.name.Contains("Spot"))
                 {
-                    //Debug.Log(childTransform.gameObject.name.Substring(4, 2));
 
-                    spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
-                    //spotsList.Add(childTransform);
+                    //spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
+                    spotsList.Add(childTransform);
                 }
                 else
                 {
@@ -80,9 +82,6 @@ public class ZoneGrid : UIGrid {
                 }
             }
 
-            //Debug.Log("SPOTNAME " + spotsList[0].name);
-            //Debug.Log("SPOTNAME " + spotsList[3].name);
-            //Debug.Log("SPOTNAME " + spotsList[6].name);
 
             //Debug.Log(spotsList);   
 
@@ -93,9 +92,10 @@ public class ZoneGrid : UIGrid {
                
             //}
 
-          //  SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
+          //SortHorizontal (Transform a, Transform b) { return a.localPosition.x.CompareTo(b.localPosition.x); }
 
             actualItems.Sort(SortVertical);
+            spotsList.Sort(SortVertical);
 
             //actualItems.Sort(SortQueue);
             
@@ -140,6 +140,9 @@ public class ZoneGrid : UIGrid {
                     ++y;
                 }
             }
+
+            zonePanelManager.ReorderCustomerList(actualItems);
+            //print(" THE LIST IS SIZED SO : " + list.size);
         }
         else
         {

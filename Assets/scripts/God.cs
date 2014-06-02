@@ -25,6 +25,39 @@ public class God : MonoBehaviour {
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
+    public UIPlayAnimation fader;
+
+
+    public ScoreTracker score; 
+        //public int totalCustomersProcessed = 0;
+        //public int totalCustomersLost = 0;
+        //public float totalNPSForTheDay = 0;
+
+
+    //List<Customer> customersToRemove; 
+
+    public void CustomerLost(Customer customer)
+    {
+        if (customer.currentZone != null ){
+            customer.currentZone.RemoveCustomer(customer);
+        }
+        
+        score.totalCustomersLost++;
+        score.totalCustomersProcessed++;
+        score.totalNPSForTheDay += 1f;
+        List<Customer> removedList = new List<Customer>(customers);
+        removedList.Remove(customer);
+        customers = removedList;
+
+
+    }
+
+    public void CustomerProcessedSuccesfully(Customer customer)
+    {
+        score.totalCustomersProcessed++;
+        customers.Remove(customer);
+        score.totalNPSForTheDay += customer.mood;
+    }
 
     
 	// This defines a static instance property that attempts to find the manager object in the scene and
@@ -122,6 +155,7 @@ public class God : MonoBehaviour {
 
 
         GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
+        customerView.transform.localPosition = new Vector3(customersQueue.GetComponent<UIGrid>().cellWidth * customersQueue.transform.childCount + 100f, customerView.transform.localPosition.y, 0f);
         customerView.GetComponent<CustomerView>().Create(customer);
 
         customersQueue.GetComponent<UIGrid>().Reposition();
@@ -144,6 +178,10 @@ public class God : MonoBehaviour {
             if (customer.waiting)
             {
                 customer.totalTimeAvailable -= Time.deltaTime;
+                if (customer.totalTimeAvailable <= 0f)
+                {
+                    customer.Die();
+                }
             }
 
             //Here be mood enhancing magiks

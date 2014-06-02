@@ -17,6 +17,8 @@ public class CustomerPanelManager : MonoBehaviour {
    //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
+        God.instance.fader.clipName = "FaderAnim";
+        God.instance.fader.Play(true);
 
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "1" ;
@@ -28,6 +30,8 @@ public class CustomerPanelManager : MonoBehaviour {
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
+        God.instance.fader.Play(false);
+
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }
 
