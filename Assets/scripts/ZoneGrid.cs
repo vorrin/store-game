@@ -69,7 +69,7 @@ public class ZoneGrid : UIGrid {
             {
                 if (childTransform.gameObject.name.Contains("Spot"))
                 {
-                    Debug.Log(childTransform.gameObject.name.Substring(4, 2));
+                    //Debug.Log(childTransform.gameObject.name.Substring(4, 2));
 
                     spotsList.Insert(int.Parse(childTransform.gameObject.name.Substring(4, 2) ) - 1, childTransform);
                     //spotsList.Add(childTransform);
@@ -80,11 +80,11 @@ public class ZoneGrid : UIGrid {
                 }
             }
 
-            Debug.Log("SPOTNAME " + spotsList[0].name);
-            Debug.Log("SPOTNAME " + spotsList[3].name);
-            Debug.Log("SPOTNAME " + spotsList[6].name);
+            //Debug.Log("SPOTNAME " + spotsList[0].name);
+            //Debug.Log("SPOTNAME " + spotsList[3].name);
+            //Debug.Log("SPOTNAME " + spotsList[6].name);
 
-            Debug.Log(spotsList);   
+            //Debug.Log(spotsList);   
 
             //for (int i = 0; i < myTrans.childCount; ++i)
             //{
@@ -118,7 +118,7 @@ public class ZoneGrid : UIGrid {
                 if (!NGUITools.GetActive(t.gameObject) && hideInactive) continue;
 
                 float depth = t.localPosition.z;
-                Debug.Log("POSITION NOW ");
+                //Debug.Log("POSITION NOW ");
                 //Vector3 pos = t.parent.InverseTransformPoint(list[i].position);
                 Vector3 pos = spotsList[i].localPosition;
                 //Vector3 pos = (arrangement == Arrangement.Horizontal) ?
