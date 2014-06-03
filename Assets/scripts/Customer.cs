@@ -54,11 +54,11 @@ using System.Collections;
     {
         //HERE THE DIFFERENT RESULTS WILL COME AND MAKE ICONS
         int res = 1;
-        if (res == 1 ) // best
+        if (zone.zoneName == bestZone ) // best
         {
             return ZoneMatchingResults.Best;
         }
-        else if (res == 2) {
+        else if (zone.zoneName == secondBestZone) {
             return ZoneMatchingResults.SecondBest;
         }
         else

@@ -40,19 +40,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 6ecb215aa4f26d94496a5bde57806456, type: 2}
   mSprites:
-  - name: Angry
-    x: 71
-    y: 17
-    width: 72
-    height: 68
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 15
-    paddingRight: 13
-    paddingTop: 17
-    paddingBottom: 15
   - name: backgroundFadeIn
     x: 0
     y: 224
@@ -66,6 +53,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: BestOption
+    x: 71
+    y: 17
+    width: 72
+    height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 13
+    paddingTop: 17
+    paddingBottom: 15
   - name: box_customerQUEUE_01
     x: 0
     y: 86
@@ -170,19 +170,6 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 6
     paddingBottom: 0
-  - name: Happy
-    x: 144
-    y: 17
-    width: 72
-    height: 68
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 15
-    paddingRight: 13
-    paddingTop: 17
-    paddingBottom: 15
   - name: icons_clock
     x: 876
     y: 135
@@ -274,6 +261,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: SecondBestOption
+    x: 144
+    y: 17
+    width: 72
+    height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 13
+    paddingTop: 17
+    paddingBottom: 15
   - name: sliceSpriteZone
     x: 442
     y: 180

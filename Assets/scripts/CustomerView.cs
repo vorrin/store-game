@@ -41,6 +41,10 @@ public class CustomerView : MonoBehaviour {
         if (result == Customer.ZoneMatchingResults.Fail)
         {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
+            GetComponent<UIDragDropItem>().enabled = false;
+            customerModel.Die();
+            Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+            return;
         }
         else if (result == Customer.ZoneMatchingResults.SecondBest)
         {

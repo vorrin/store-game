@@ -254,7 +254,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3007
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -381,7 +381,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
   mText: 0
-  mFontSize: 30
+  mFontSize: 39
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
