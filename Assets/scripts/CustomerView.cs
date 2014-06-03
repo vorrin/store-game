@@ -8,10 +8,7 @@ public class CustomerView : MonoBehaviour {
 	public GameObject[] spots;
 	private TweenPosition tweener;
 	private UIDragObject Dragger;
-	private bool beingDragged = false; 
-	private Vector3 dragOffset = Vector3.zero;
-	public GameObject EntranceStart;
-	public GameObject EntranceEnd;
+
     public float dragStartTime;
     GoTween hoverTween;
 
@@ -28,16 +25,32 @@ public class CustomerView : MonoBehaviour {
 
         //Go.defaultUpdateType = GoUpdateType.FixedUpdate;
 
-        GoTweenConfig hoverTweenConfig = new GoTweenConfig().localPosition(new Vector3(0f, 10f, 0f),true).startPaused();
-        hoverTween = new GoTween(gameObject.transform, 0.1f, hoverTweenConfig);
-        hoverTween.autoRemoveOnComplete = false;
-        Go.addTween(hoverTween);
+        //GoTweenConfig hoverTweenConfig = new GoTweenConfig().localPosition(new Vector3(0f, 10f, 0f),true).startPaused();
+        //hoverTween = new GoTween(gameObject.transform, 0.1f, hoverTweenConfig);
+        //hoverTween.autoRemoveOnComplete = false;
+        //Go.addTween(hoverTween);
 
 	}
 
 
     public void CustomerDroppedInZone(Zone zone)
     {
+
+        GameObject feedbackIcon = Instantiate(God.instance.feedbackIconPrefab, transform.position, Quaternion.identity) as GameObject;
+        Customer.ZoneMatchingResults result = customerModel.DroppedInZone(zone);
+        if (result == Customer.ZoneMatchingResults.Fail)
+        {
+            feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
+        }
+        else if (result == Customer.ZoneMatchingResults.SecondBest)
+        {
+            feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.SecondBestOption;
+        }
+        else
+        {
+            feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.BestOption;
+        }
+
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
@@ -58,10 +71,8 @@ public class CustomerView : MonoBehaviour {
 
     public void OnHover(bool isOver)
     {
-        Debug.Log("ASDASD");
         if (isOver)
         {
-            Debug.Log(" FASDASD " + hoverTween);
             //hoverTween.playForward();
             
             //Go.t
@@ -73,59 +84,59 @@ public class CustomerView : MonoBehaviour {
         }
     }
 
-	void OnPress(bool isDown) {
-        return;
-		if (isDown){
-            //dragStartTime = Time.time;
-            //dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            God.instance.FadeZones(true);
+    //void OnPress(bool isDown) {
+    //    return;
+    //    if (isDown){
+    //        //dragStartTime = Time.time;
+    //        //dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+    //        God.instance.FadeZones(true);
 		
-		}
-		else{
-            //beingDragged = false;
-            God.instance.FadeZones(false);
+    //    }
+    //    else{
+    //        //beingDragged = false;
+    //        God.instance.FadeZones(false);
 
-            //if (Time.time - dragStartTime > 0.2f)
-            //{
-            //    Ray cast = UICamera.mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+    //        //if (Time.time - dragStartTime > 0.2f)
+    //        //{
+    //        //    Ray cast = UICamera.mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
 
-            //    RaycastHit[] hits;
-            //    hits = Physics.RaycastAll(cast);
-            //    bool hitAnotherZone = false;
-            //    foreach (RaycastHit hit in hits)
-            //    {
-            //        if (hit.collider.name.Contains("Zone"))
-            //        {
-            //            Zone currentZone = hit.collider.GetComponent<Zone>();
-            //            customerModel.ChangeZone(currentZone);
-            //            //User dropped in the Entrance zone again.
-            //            //if (currentZone != God.instance.entrance)
-            //            //{
-            //            //    Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
-            //            //}
-            //            //else
-            //            //{
-            //            //    WalkToRandomSpot();
-            //            //}
-            //            hitAnotherZone = true;
-            //        }
-            //    }
+    //        //    RaycastHit[] hits;
+    //        //    hits = Physics.RaycastAll(cast);
+    //        //    bool hitAnotherZone = false;
+    //        //    foreach (RaycastHit hit in hits)
+    //        //    {
+    //        //        if (hit.collider.name.Contains("Zone"))
+    //        //        {
+    //        //            Zone currentZone = hit.collider.GetComponent<Zone>();
+    //        //            customerModel.ChangeZone(currentZone);
+    //        //            //User dropped in the Entrance zone again.
+    //        //            //if (currentZone != God.instance.entrance)
+    //        //            //{
+    //        //            //    Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+    //        //            //}
+    //        //            //else
+    //        //            //{
+    //        //            //    WalkToRandomSpot();
+    //        //            //}
+    //        //            hitAnotherZone = true;
+    //        //        }
+    //        //    }
 
-           //     if (!hitAnotherZone)
-           //     {
-           //  //       WalkToRandomSpot();
-           ////         customerModel.ChangeZone(God.instance.entrance);
-           //     }
+    //       //     if (!hitAnotherZone)
+    //       //     {
+    //       //  //       WalkToRandomSpot();
+    //       ////         customerModel.ChangeZone(God.instance.entrance);
+    //       //     }
 
 
-            //}
+    //        //}
 
 						
-		}
-	}
+    //    }
+    //}
 
 
-    private void DestroyCustomerView(AbstractGoTween obj)
+    public void DestroyCustomerView(AbstractGoTween obj)
     {
         GetComponent<CustomSpriteAnimation>().enabled = false;
         Destroy(gameObject);

@@ -20,6 +20,7 @@ public class ZoneView : MonoBehaviour {
 
         icon.color = HSBColor.ToColor( HSBColor.Lerp(green, red, (float)zoneModel.customers.Count / zoneModel.maxQueue));
         progressIndicator.color = icon.color;
+
         progressIndicator.fillAmount = 0f;
         //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
     }
@@ -55,6 +56,7 @@ public class ZoneView : MonoBehaviour {
 
     void OnDrop(GameObject customer)
     {
+        print("SOMETHING DROPPED ON ZONE");
         CustomerView customerView = customer.GetComponent<CustomerView>();
         if (customerView)
         {
@@ -64,14 +66,8 @@ public class ZoneView : MonoBehaviour {
             }
             else
             {
-                
-                GameObject failIcon = Instantiate(God.instance.feedbackIconPrefab , customer.transform.position, Quaternion.identity) as GameObject;
-                
-                failIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Full;
-
-                //returns the customer to its grid and display/plays something?
-                //customer.transform.parent = queue.transform;
-                //customerView.GetComponent<ExampleDragDropItem>()
+                GameObject fullIcon = Instantiate(God.instance.feedbackIconPrefab , customer.transform.position, Quaternion.identity) as GameObject;
+                fullIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Full;
             }
         }
         

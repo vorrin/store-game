@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Zone : MonoBehaviour {
 
+    
     public List<GameObject> staffs;
     public List<Customer> customers;
     public float staffPower = .3f; //this is a percentage (.3f = 30%) 
@@ -12,8 +13,8 @@ public class Zone : MonoBehaviour {
     public ZoneView zoneView;
     public Customer currentlyProcessedCustomer;
     public bool processingCustomer = false;
-    float processingStartTime;
-    public float processingTimeInSecondsAtHundredPercent = 40f;
+    public float processingStartTime;
+    public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
 
 
 
@@ -25,15 +26,27 @@ public class Zone : MonoBehaviour {
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
+        
 	}
 
     public void AddCustomer(Customer customer)
     {
+        customer.currentZone = this;
         customers.Add(customer);
+
         zoneView.UpdateCustomerNumber();
         CheckIfQueueIsFull();
-        
     }
+    public void RemoveCustomer(Customer customer)
+    {
+        // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
+        God.instance.zonePanelManager.RemoveCustomer(customer);
+        customers.Remove(customer);
+        zoneView.UpdateCustomerNumber();
+        CheckIfQueueIsFull();
+       // StartCustomerProcessing();
+    }
+
 
     void CheckIfQueueIsFull()
     {
@@ -47,8 +60,10 @@ public class Zone : MonoBehaviour {
         }
     }
 
-    void StartCustomerProcessing()
+    public void StartCustomerProcessing()
     {
+        
+        if (currentlyProcessedCustomer != null ) currentlyProcessedCustomer.waiting = true; // in case another customer was already being processed but switched out.
         processingStartTime = Time.time;
         //processingStartTime = Time.time;
         currentlyProcessedCustomer = customers[0];
@@ -57,13 +72,24 @@ public class Zone : MonoBehaviour {
 
     }
 
+
+    //void CustomerLeftForTimeout()
+    //{
+
+    //}
+
     void CustomerSuccesfullyProcessed()
     {
+        
+        God.instance.CustomerProcessedSuccesfully(currentlyProcessedCustomer);
         customers.RemoveAt(0);
         processingCustomer = false;
         zoneView.UpdateCustomerNumber();
         CheckIfQueueIsFull();
-
+        if (God.instance.zonePanelManager.enabled)
+        {// This simply removes the customer from the zonepanel if the customer gets processed in that time.
+            God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
+        }
     }
 
 	// Update is called once per frame
