@@ -26,30 +26,28 @@ public class God : MonoBehaviour {
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
     public UIPlayAnimation fader;
+    public float totalTimeForTheDay = 600f;
+    //public List<string, UILabel> scoreLabels;
 
 
-    public ScoreTracker score; 
-        //public int totalCustomersProcessed = 0;
-        //public int totalCustomersLost = 0;
-        //public float totalNPSForTheDay = 0;
 
+    public ScoreTracker score;
+    public MainScreenIconDictionary scoreLabels;
 
-    //List<Customer> customersToRemove; 
+    //SCORE TRACKING BITS
 
     public void CustomerLost(Customer customer)
     {
         if (customer.currentZone != null ){
             customer.currentZone.RemoveCustomer(customer);
         }
-        
         score.totalCustomersLost++;
         score.totalCustomersProcessed++;
         score.totalNPSForTheDay += 1f;
         List<Customer> removedList = new List<Customer>(customers);
         removedList.Remove(customer);
         customers = removedList;
-
-
+        UpdateScoresMenu();
     }
 
     public void CustomerProcessedSuccesfully(Customer customer)
@@ -57,6 +55,14 @@ public class God : MonoBehaviour {
         score.totalCustomersProcessed++;
         customers.Remove(customer);
         score.totalNPSForTheDay += customer.nps;
+        UpdateScoresMenu();
+    }
+
+    void UpdateScoresMenu()
+    {
+        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay).ToString("00");
+        scoreLabels.totalCustomersLabel.text = Mathf.Floor(customers.Count).ToString("00");
+        scoreLabels.totalCustomersProcessedLabel.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("00");
     }
 
     
@@ -92,9 +98,13 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
+        UpdateScoresMenu();
+        
+        
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
         StartCoroutine(DelayedAddingOfCustomers());
+
 
     }
 
@@ -162,6 +172,8 @@ public class God : MonoBehaviour {
         customerView.GetComponent<CustomerView>().Create(customer);
 
         customersQueue.GetComponent<UIGrid>().Reposition();
+
+        UpdateScoresMenu();
         //customersQueue.GetComponent<UIPanel>().Refresh();
         //BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
       //  customerView.GetComponent<UISprite>().panel.Refresh() ;
@@ -197,6 +209,9 @@ public class God : MonoBehaviour {
     void Update()
     {
         UpdateCustomers();
+
+        totalTimeForTheDay -= Time.deltaTime;
+        scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
         
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
