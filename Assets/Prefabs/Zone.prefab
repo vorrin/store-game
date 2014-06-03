@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2faa2bdb8b7ef4d9a92a40beb8eaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneName: 
   staffs: []
   customers: []
   staffPower: 30
@@ -179,14 +180,21 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
+  processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
 --- !u!114 &11400002
 MonoBehaviour:
@@ -246,7 +254,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3013
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -371,7 +379,7 @@ MonoBehaviour:
   aspectRatio: 1.17857146
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 7a48ea22e80d1ac4b97fdd87f9009546, type: 2}
+  mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
   mText: 0
   mFontSize: 30
   mFontStyle: 0
