@@ -41,12 +41,17 @@ public class God : MonoBehaviour {
         if (customer.currentZone != null ){
             customer.currentZone.RemoveCustomer(customer);
         }
+        if (customerPanelManager.currentCustomer == customer)
+        {
+            customerPanelManager.Hide();
+        }
         score.totalCustomersLost++;
         score.totalCustomersProcessed++;
         score.totalNPSForTheDay += 1f;
         List<Customer> removedList = new List<Customer>(customers);
         removedList.Remove(customer);
         customers = removedList;
+        
         UpdateScoresMenu();
     }
 

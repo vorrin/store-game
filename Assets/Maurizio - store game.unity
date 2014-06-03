@@ -1949,6 +1949,7 @@ MonoBehaviour:
   csv: {fileID: 4900000, guid: 07c7a377575c4b14ba4db512282269c0, type: 3}
   possibleCustomersPool: []
   fader: {fileID: 1814919597}
+  totalTimeForTheDay: 600
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
