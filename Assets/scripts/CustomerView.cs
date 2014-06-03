@@ -8,10 +8,7 @@ public class CustomerView : MonoBehaviour {
 	public GameObject[] spots;
 	private TweenPosition tweener;
 	private UIDragObject Dragger;
-	private bool beingDragged = false; 
-	private Vector3 dragOffset = Vector3.zero;
-	public GameObject EntranceStart;
-	public GameObject EntranceEnd;
+
     public float dragStartTime;
     GoTween hoverTween;
 
