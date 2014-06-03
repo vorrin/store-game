@@ -29,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -124, y: .59677124, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!65 &6500000
@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 46, z: 0}
+  m_Size: {x: 50, y: 57, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -121,17 +121,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerModel:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 600
-    elapsedTime: 0
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   spots: []
-  EntranceStart: {fileID: 0}
-  EntranceEnd: {fileID: 0}
   dragStartTime: 0
 --- !u!114 &11400010
 MonoBehaviour:
