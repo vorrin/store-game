@@ -56,7 +56,7 @@ public class God : MonoBehaviour {
     {
         score.totalCustomersProcessed++;
         customers.Remove(customer);
-        score.totalNPSForTheDay += customer.mood;
+        score.totalNPSForTheDay += customer.nps;
     }
 
     
@@ -121,7 +121,10 @@ public class God : MonoBehaviour {
         //newCustomer.Create();
 
 
-		int num = Random.Range(1, 28); // This is only a test
+		int num = Random.Range(0, 27); // This is only a test
+        //You did the range wrong, 1 , 28 brings results... well, between 1 and 27. As the array size is 27, that means:
+        //1- you never get the array[0] element
+        //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
 
 		AddCustomer(possibleCustomersPool[num]);
 

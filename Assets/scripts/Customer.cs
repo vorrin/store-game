@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
+
 [System.Serializable] public class Customer {
 	public string sex;
 	public string age;

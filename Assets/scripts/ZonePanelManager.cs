@@ -50,7 +50,7 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void PopulateZonePanel()
     {
-        //ClearZonePanel();
+        ClearZonePanel();
 
         if (currentZone.customers.Count == 0) return;
         foreach (Customer customer in currentZone.customers)

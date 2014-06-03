@@ -449,11 +449,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1069,11 +1075,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -1328,11 +1340,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -2244,11 +2262,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -2831,11 +2855,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -3526,11 +3556,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -4488,11 +4524,17 @@ MonoBehaviour:
   avatarWindow: {fileID: 631723333}
   scenarioLabel: {fileID: 1884711539}
   currentCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 600
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   timerLabel: {fileID: 740606782}
@@ -7747,11 +7789,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
@@ -8006,11 +8054,17 @@ MonoBehaviour:
   queueOpen: 1
   zoneView: {fileID: 0}
   currentlyProcessedCustomer:
-    mood: 1
+    sex: 
+    age: 
+    ethnicity: 
     scenario: I want to buy them things, fast!
+    nps: 1
     avatarName: customer
-    upsellChance: .5
+    upsell: 0
     totalTimeAvailable: 60
+    bestZone: 
+    secondBestZone: 
+    spend: 0
     currentZone: {fileID: 0}
     waiting: 0
   processingCustomer: 0
