@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Zone : MonoBehaviour {
 
-    
+
+    public string zoneName;
     public List<GameObject> staffs;
     public List<Customer> customers;
     public float staffPower = .3f; //this is a percentage (.3f = 30%) 

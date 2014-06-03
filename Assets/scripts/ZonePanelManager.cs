@@ -7,6 +7,9 @@ public class ZonePanelManager : MonoBehaviour {
 
     public Zone currentZone;
     public ZoneGrid queue;
+    public UILabel staffTrainingPercent;
+    public UILabel staffNumber;
+
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +53,10 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void PopulateZonePanel()
     {
+        //Updating labels
+        staffTrainingPercent.text = Mathf.Floor((currentZone.staffPower * 100)).ToString() + "%";
+        staffNumber.text = (Mathf.Floor(currentZone.staffPower) + 1).ToString();
+        //Customers adding etc
         ClearZonePanel();
 
         if (currentZone.customers.Count == 0) return;

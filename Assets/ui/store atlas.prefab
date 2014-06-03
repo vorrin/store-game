@@ -183,6 +183,84 @@ MonoBehaviour:
     paddingRight: 13
     paddingTop: 17
     paddingBottom: 15
+  - name: icons_clock
+    x: 876
+    y: 135
+    width: 43
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 4
+    paddingTop: 6
+    paddingBottom: 2
+  - name: icons_customers_status
+    x: 429
+    y: 42
+    width: 44
+    height: 43
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 3
+    paddingTop: 8
+    paddingBottom: 4
+  - name: icons_customersSERVED
+    x: 876
+    y: 178
+    width: 53
+    height: 45
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 5
+    paddingBottom: 5
+  - name: icons_NPS
+    x: 217
+    y: 42
+    width: 71
+    height: 43
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 2
+    paddingTop: 9
+    paddingBottom: 3
+  - name: icons_scrollARROW_actual_01
+    x: 289
+    y: 15
+    width: 43
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 2
+    paddingBottom: 3
+  - name: icons_scrollARROW_actual_02
+    x: 333
+    y: 17
+    width: 44
+    height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 4
+    paddingTop: 3
+    paddingBottom: 4
   - name: main_ingame_02
     x: 481
     y: 224
@@ -223,7 +301,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zoneIcon
-    x: 217
+    x: 378
     y: 35
     width: 50
     height: 50
