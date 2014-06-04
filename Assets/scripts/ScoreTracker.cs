@@ -6,6 +6,7 @@ using System.Collections;
     public int totalCustomersProcessed = 0;
     public int totalCustomersLost = 0;
     public float totalNPSForTheDay = 0f;
+    public float totalSpendForTheDay = 0f;
 
 
 }

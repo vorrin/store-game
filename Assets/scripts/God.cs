@@ -58,9 +58,14 @@ public class God : MonoBehaviour {
 
     public void CustomerProcessedSuccesfully(Customer customer)
     {
+        //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
         score.totalCustomersProcessed++;
         customers.Remove(customer);
         score.totalNPSForTheDay += customer.nps;
+        score.totalSpendForTheDay += customer.spend;
+
+        
+
         UpdateScoresMenu();
     }
 
