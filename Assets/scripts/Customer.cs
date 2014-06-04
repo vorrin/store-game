@@ -39,7 +39,7 @@ using System.Collections;
 		this.ethnicity = ethnicity;
 		this.scenario = scenario;
 		this.nps = npsValue;
-		this.totalTimeAvailable = timeMins;
+		this.totalTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
 		this.bestZone = bestZone;
 		this.secondBestZone = secondBestZone;
 		this.upsell = upSellVal;
