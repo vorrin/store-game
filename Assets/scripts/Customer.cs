@@ -70,11 +70,13 @@ using System.Collections;
 
     public void Die()
     {
+
+        
         //Customer dies while in zone...
         if (currentZone != null)
         {
+            //Zone takes care of zonepanel removing too, so this all we need if the customer is in a zone.
             currentZone.RemoveCustomer(this);
-            //Die in zone 
         }
             //customer dies while in queue...
         else
@@ -85,13 +87,21 @@ using System.Collections;
             //    if (customerView.customerModel == this)
             //    {
             //        GameObject.Destroy(customerView.gameObject);
+        // THIS SHOULD ALL BE MOVED IN CUSTOMERVIEW...
             if (customerView.gameObject)
             {
-                if (customerView.GetComponent<DragDropCustomer>().dragging) customerView.EndDrag();
-                GameObject.Destroy(customerView.gameObject);
+                if (customerView.GetComponent<DragDropCustomer>().dragging)
+                {
+                    //This is so if the customer dies of running out of time when dragged, all looks good.
+                    customerView.EndDrag();
+                    GameObject.Destroy(customerView.gameObject);
+                }
+                else
+                {
+                    God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
+                }
                 
             }
-            God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
             //    }
             //}
         }

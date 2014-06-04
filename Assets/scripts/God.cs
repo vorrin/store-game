@@ -228,7 +228,6 @@ public class God : MonoBehaviour {
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("God IS PUSHING");
             TestingGame();
             customerPanelManager.Hide();
         }

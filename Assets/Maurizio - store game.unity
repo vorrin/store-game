@@ -2003,6 +2003,7 @@ MonoBehaviour:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
     totalNPSForTheDay: 0
+    totalSpendForTheDay: 0
   scoreLabels:
     totalCustomersLabel: {fileID: 1239605535}
     totalTimeLabel: {fileID: 613691151}

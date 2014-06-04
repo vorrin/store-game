@@ -21,16 +21,6 @@ public class CustomerView : MonoBehaviour {
         customerModel = customer;
         GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName;
         customerModel.customerView = this;
-
-
-
-        //Go.defaultUpdateType = GoUpdateType.FixedUpdate;
-
-        //GoTweenConfig hoverTweenConfig = new GoTweenConfig().localPosition(new Vector3(0f, 10f, 0f),true).startPaused();
-        //hoverTween = new GoTween(gameObject.transform, 0.1f, hoverTweenConfig);
-        //hoverTween.autoRemoveOnComplete = false;
-        //Go.addTween(hoverTween);
-
 	}
 
 
