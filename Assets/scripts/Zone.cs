@@ -81,7 +81,6 @@ public class Zone : MonoBehaviour {
 
     void CustomerSuccesfullyProcessed()
     {
-        
         God.instance.CustomerProcessedSuccesfully(currentlyProcessedCustomer);
         customers.RemoveAt(0);
         processingCustomer = false;
