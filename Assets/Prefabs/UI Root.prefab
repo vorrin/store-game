@@ -594,6 +594,7 @@ GameObject:
   - 114: {fileID: 11400136}
   - 111: {fileID: 11100010}
   - 114: {fileID: 11400138}
+  - 114: {fileID: 11400264}
   m_Layer: 9
   m_Name: Customer Info Panel
   m_TagString: Untagged
@@ -1086,13 +1087,14 @@ GameObject:
   - 114: {fileID: 11400206}
   - 111: {fileID: 11100016}
   - 114: {fileID: 11400210}
+  - 114: {fileID: 11400262}
   m_Layer: 9
   m_Name: Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100124
 GameObject:
   m_ObjectHideFlags: 1
@@ -1677,7 +1679,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 533, y: 60, z: 0}
+  m_LocalPosition: {x: 504.790009, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400044}
@@ -3347,6 +3349,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -3681,6 +3684,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -3860,6 +3864,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -4494,6 +4499,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -4861,6 +4867,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -5018,7 +5025,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: .768211901
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: customer0
+  mSpriteName: customer1
   mType: 0
   mFillDirection: 1
   mFillAmount: 1
@@ -5652,19 +5659,20 @@ MonoBehaviour:
   avatarWindow: {fileID: 11400108}
   scenarioLabel: {fileID: 11400240}
   currentCustomer:
-    sex: 
-    age: 
-    ethnicity: 
-    scenario: I want to buy them things, fast!
-    nps: 1
+    sex: FEMALE
+    age: Middle Aged (Casual)
+    ethnicity: Fair
+    scenario: I am just browsing, keen to see what's available these days.
+    nps: 8
     avatarName: customer
-    upsell: 0
-    totalTimeAvailable: 600
-    bestZone: 
-    secondBestZone: 
-    spend: 0
+    upsell: 1
+    totalTimeAvailable: 173.219833
+    bestZone: PRODUCT DISPLAY
+    secondBestZone: DISCOVERY ZONE
+    spend: 200
     currentZone: {fileID: 0}
-    waiting: 0
+    waiting: 1
+    customerView: {fileID: 0}
   timerLabel: {fileID: 11400118}
 --- !u!114 &11400138
 MonoBehaviour:
@@ -7186,7 +7194,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: .588235259, g: .583909988, b: .583909988, a: 0}
+  mColor: {r: .588235259, g: .583909988, b: .583909988, a: 1}
   mPivot: 4
   mWidth: 480
   mHeight: 800
@@ -7243,7 +7251,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3020
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -7334,6 +7342,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -7513,6 +7522,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -7735,10 +7745,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 7a48ea22e80d1ac4b97fdd87f9009546, type: 2}
-  mText: "hello this is some test text that fits in here for testing purposes, isn't
-    it. Terrubke how silly this whole thing is. spo test testitesting. asdas asd asdas
-    \ asdas \nasd asdasd asd \nasd asd\n\nasd\nas\nd \nasd\nasd\nasd\nasdasd\n\nasd\n\nasd\n\n\n\nasd\n\n\nasdasdasda
-    asdasd\nasdasdasdkasjd a hksjdha kjsd asd jhaskdj hasd"
+  mText: I am just browsing, keen to see what's available these days.
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 1
@@ -8153,6 +8160,34 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+--- !u!114 &11400262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ee607e1177db1479c3cbf94cac327e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+--- !u!114 &11400264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ee607e1177db1479c3cbf94cac327e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -18,17 +18,23 @@ public class Zone : MonoBehaviour {
     public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
 
 
-
-
-
-
 	// Use this for initialization
 	void Start () {
+        
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
         
+        
 	}
+
+    public void OnDeserialized()
+    {
+        //if (LevelSerializer.IsDeserializing)
+        //{
+        //    //Zone is being reloaded from save
+       zoneView.UpdateCustomerNumber();
+    }
 
     public void AddCustomer(Customer customer)
     {
@@ -65,7 +71,7 @@ public class Zone : MonoBehaviour {
     {
         
         if (currentlyProcessedCustomer != null ) currentlyProcessedCustomer.waiting = true; // in case another customer was already being processed but switched out.
-        processingStartTime = Time.time;
+        processingStartTime = 0f;
         //processingStartTime = Time.time;
         currentlyProcessedCustomer = customers[0];
         processingCustomer = true;
@@ -73,11 +79,6 @@ public class Zone : MonoBehaviour {
 
     }
 
-
-    //void CustomerLeftForTimeout()
-    //{
-
-    //}
 
     void CustomerSuccesfullyProcessed()
     {
@@ -100,15 +101,13 @@ public class Zone : MonoBehaviour {
         }
         else if (processingCustomer == true)
         {
-            
-            float percentageOfCompletion = (Time.time - processingStartTime) / ( processingTimeInSecondsAtHundredPercent / staffPower );
+            processingStartTime += Time.deltaTime;
+            float percentageOfCompletion = (processingStartTime) / ( processingTimeInSecondsAtHundredPercent / staffPower );
             zoneView.UpdateProgressIndicator(percentageOfCompletion);
             if (percentageOfCompletion >= 1f)
             {
                 CustomerSuccesfullyProcessed();
             }
         }
-
-
 	}
 }

@@ -15,6 +15,8 @@ GameObject:
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400008}
   m_Layer: 9
   m_Name: Customer
   m_TagString: customer
@@ -29,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 507, y: -349, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,8 +136,45 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
-  spots: []
+    customerView: {fileID: 0}
   dragStartTime: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 5d641bb6-a3af-474e-94d6-1f3ff0cac3b9
+  classId: 772c93c0-8de3-46da-8385-ca0261a2d7ea
+  StoreAllComponents: 0
+  Components:
+  - CustomerView
+  - UnityEngine.Transform
+  - UISprite
+  - CustomSpriteAnimation
+  - UnityEngine.BoxCollider
+  - UIDragScrollView
+  - DragDropCustomer
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 5d641bb6-a3af-474e-94d6-1f3ff0cac3b9
+  classId: a1948df1-76eb-4dac-b775-314e14ad90a2
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

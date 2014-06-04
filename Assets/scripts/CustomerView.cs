@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class CustomerView : MonoBehaviour {
 
 	public Customer customerModel;
-	public GameObject[] spots;
 	private TweenPosition tweener;
 	private UIDragObject Dragger;
 
@@ -169,18 +168,18 @@ public class CustomerView : MonoBehaviour {
 		}
 	}
 
-	void WalkToRandomSpot ( ) {
-		EventDelegate newDelegate = new EventDelegate();
-		newDelegate.target = this;
-		newDelegate.methodName = "WalkToRandomSpot";
-		newDelegate.oneShot = true;
-		tweener.SetOnFinished(newDelegate);
+    //void WalkToRandomSpot ( ) {
+    //    EventDelegate newDelegate = new EventDelegate();
+    //    newDelegate.target = this;
+    //    newDelegate.methodName = "WalkToRandomSpot";
+    //    newDelegate.oneShot = true;
+    //    tweener.SetOnFinished(newDelegate);
 
-        Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
-        Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
+    //    Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
+    //    Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
 
-		TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
-	}
+    //    TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
+    //}
 
 
 	// Update is called once per frame

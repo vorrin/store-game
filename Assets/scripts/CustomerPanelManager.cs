@@ -9,7 +9,7 @@ public class CustomerPanelManager : MonoBehaviour {
 
     void Start()
     {
-        gameObject.SetActiveRecursively(false);           
+        //gameObject.SetActiveRecursively(false);           
     }
 
     public void Display(Customer customer)
@@ -38,7 +38,10 @@ public class CustomerPanelManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        
+        if (currentCustomer == null)
+        {
+            return;
+        }
         int minutes =  (int) Mathf.Floor(currentCustomer.totalTimeAvailable / 60) ;
         int seconds = (int) currentCustomer.totalTimeAvailable % 60;
         timerLabel.text = minutes + ":" + seconds; 

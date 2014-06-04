@@ -231,6 +231,31 @@ public class God : MonoBehaviour {
             TestingGame();
             customerPanelManager.Hide();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //LevelSerializer.SaveGame("test");
+            LevelSerializer.Checkpoint();
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+
+            //LevelSerializer.SavedGames[LevelSerializer.SavedGames.Count - 1];
+            LevelSerializer.Resume();
+            return;
+            //LevelSerializer.LoadNow(LevelSerializer)
+            //List<LevelSerializer.SaveEntry> tmp =  LevelSerializer.SavedGames.Get<string>(LevelSerializer.PlayerName);
+            
+            
+            foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName]){
+                if (currentSvae.Name == "test")
+                {
+                    LevelSerializer.LoadSavedLevel(currentSvae.Data);
+                }
+            }
+           
+        } 
     }
 	
 
