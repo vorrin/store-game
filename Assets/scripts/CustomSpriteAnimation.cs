@@ -1,7 +1,5 @@
-﻿//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
+﻿//Created by Mau
+// Makes it so that the sprite animation does NOT reset the sprite to its full size at every frame, cause that's very disruptive
 
 using UnityEngine;
 using System.Collections.Generic;

@@ -13,7 +13,8 @@ public class God : MonoBehaviour {
 	
 	private static God s_Instance = null;
 
-    public int customerCountDown = 5;
+    public float[] customerSpawnMinMax;
+
     public GameObject customersQueue;
 	//public  List<GameObject> zones = new List<GameObject>();
     public GameObject[] zones;
@@ -150,7 +151,8 @@ public class God : MonoBehaviour {
     IEnumerator DelayedAddingOfCustomers()
     {
         TestingGame();
-        yield return new WaitForSeconds(customerCountDown);
+
+        yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         StartCoroutine(DelayedAddingOfCustomers());
 
     }

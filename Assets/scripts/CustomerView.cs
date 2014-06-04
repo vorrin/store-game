@@ -20,6 +20,7 @@ public class CustomerView : MonoBehaviour {
 	public void Create (Customer customer) {
         customerModel = customer;
         GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName;
+        customerModel.customerView = this;
 
 
 

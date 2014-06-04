@@ -544,6 +544,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -1227,6 +1228,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -1493,6 +1495,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -1939,7 +1942,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: Happy
+  mSpriteName: BestOption
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -1978,7 +1981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d388555b526c9498c7c60ec73b136f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerCountDown: 5
+  customerSpawnMinMax:
+  - 5
+  - 15
   customersQueue: {fileID: 2098987472}
   zones:
   - {fileID: 150140708}
@@ -2597,6 +2602,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -3255,6 +3261,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -4049,6 +4056,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -4832,6 +4840,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   timerLabel: {fileID: 740606782}
 --- !u!114 &953546239
 MonoBehaviour:
@@ -7076,7 +7085,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: Angry
+  mSpriteName: SecondBestOption
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -7554,6 +7563,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -7820,6 +7830,7 @@ MonoBehaviour:
     spend: 0
     currentZone: {fileID: 0}
     waiting: 0
+    customerView: {fileID: 0}
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40

@@ -17,6 +17,7 @@ using System.Collections;
     //public float elapsedTime = 0f;
     public Zone currentZone;
 	public bool waiting = false;
+    public CustomerView customerView;
 
 	public  enum ZoneMatchingResults {
 		Fail,
@@ -78,15 +79,21 @@ using System.Collections;
             //customer dies while in queue...
         else
         {
-            foreach (Transform customerViewTrans in God.instance.customersQueue.transform)
+            //foreach (Transform customerViewTrans in God.instance.customersQueue.transform)
+            //{
+            //    CustomerView customerView = customerViewTrans.GetComponent<CustomerView>();
+            //    if (customerView.customerModel == this)
+            //    {
+            //        GameObject.Destroy(customerView.gameObject);
+            if (customerView.gameObject)
             {
-                CustomerView customerView = customerViewTrans.GetComponent<CustomerView>();
-                if (customerView.customerModel == this)
-                {
-                    GameObject.Destroy(customerView.gameObject);
-                    God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
-                }
+                if (customerView.GetComponent<DragDropCustomer>().dragging) customerView.EndDrag();
+                GameObject.Destroy(customerView.gameObject);
+                
             }
+            God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
+            //    }
+            //}
         }
 
         God.instance.CustomerLost(this);
