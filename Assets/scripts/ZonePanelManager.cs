@@ -10,6 +10,8 @@ public class ZonePanelManager : MonoBehaviour {
     public UILabel staffTrainingPercent;
     public UILabel staffNumber;
     public UILabel zoneName;
+    public UIButton backButton;
+    public bool displayingZone = false;
 
 
 	// Use this for initialization
@@ -24,7 +26,9 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Display(Zone zone)
     {
+        //  God.instance.fader.SetActive(true);
         currentZone = zone;
+        displayingZone = true;
         ClearZonePanel();
         zoneName.text = zone.zoneName;
         //DEBUG tmp hack
@@ -112,6 +116,7 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Hide()
     {
+        displayingZone = true;
         GetComponent<UIPlayAnimation>().Play(false);
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);

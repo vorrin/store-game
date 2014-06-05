@@ -143,8 +143,7 @@ public class CustomerImporter {
 
                 //double spendVal = double.Parse(spend);
 
-                Customer player = new Customer();
-                player.Create(sex, age, ethnicity, scenario, npsValue, timeMins, bestZone, secondBestZone, upSellVal, spendVal);
+                Customer player = new Customer (sex, age, ethnicity, scenario, npsValue, timeMins, bestZone, secondBestZone, upSellVal, spendVal);
                 generatedCustomers.Add(player);
 
 

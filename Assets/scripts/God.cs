@@ -147,7 +147,7 @@ public class God : MonoBehaviour {
         //1- you never get the array[0] element
         //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
 
-		AddCustomer(possibleCustomersPool[num]);
+		AddCustomer(new Customer(possibleCustomersPool[num]));
 
         //AddCustomer(newCustomer);
 

@@ -26,7 +26,7 @@ public class ZoneView : MonoBehaviour {
     }
 
 	void OnClick () {
-		
+
         GetComponent<UIPlayAnimation>().Play(true);
         //EventDelegate displayZoneScreen = new EventDelegate(God.instance.zonePanelManager,"Display");
         //EventDelegate.Parameter parameter = new EventDelegate.Parameter();

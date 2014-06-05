@@ -5178,8 +5178,6 @@ MonoBehaviour:
     Id: b9479685-cfa6-4d96-bfbd-86f595a0e1d5
   - gameObject: {fileID: 1837919986}
     Id: 4bfe5c8d-78ae-46a5-a332-c4dd33a8b726
-  - gameObject: {fileID: 0}
-    Id: f3fda4dd-dc18-4310-ba59-fa3aed92b85a
 --- !u!1 &1005204116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6632,6 +6630,8 @@ MonoBehaviour:
   staffTrainingPercent: {fileID: 388049434}
   staffNumber: {fileID: 1685017666}
   zoneName: {fileID: 1440114811}
+  backButton: {fileID: 868810638}
+  displayingZone: 0
 --- !u!65 &1545613487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7759,7 +7759,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3010
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}

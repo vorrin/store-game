@@ -19,8 +19,16 @@ public class CustomerPanelManager : MonoBehaviour {
    //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
+        //if (!God.instance.zonePanelManager.displayingZone)
+        //{
+
+        if (!God.instance.zonePanelManager.displayingZone)
+        {
+            God.instance.zonePanelManager.backButton.enabled = false;
+        }
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
+        //}
 
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
@@ -49,7 +57,11 @@ public class CustomerPanelManager : MonoBehaviour {
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-        God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
+        if (!God.instance.zonePanelManager.displayingZone)
+        {
+            God.instance.zonePanelManager.backButton.enabled = true;
+            God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
+        }
 
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }

@@ -21,15 +21,27 @@ using System.Collections;
 	public bool waiting = false;
     public CustomerView customerView;
 
+
+
 	public  enum ZoneMatchingResults {
 		Fail,
 		SecondBest,
 		Best
 	}
 
-	public void Create(string gender, string age, string ethnicity, string scenario, int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
-
+    public Customer()
     {
+
+    }
+
+    public Customer(string gender, string age, string ethnicity, string scenario, int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
+    {
+
+    //}
+
+    //public void Create(string gender, string age, string ethnicity, string scenario, int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
+
+    //{
         //I think validating data for customers here would be a good idea.
         // Ie. sex, age, ethnicity, nps (range 1 -10), upsell (yes/no)
 
@@ -54,6 +66,25 @@ using System.Collections;
 
         waiting = true;
         //ChangeZone(God.instance.entrance.GetComponent<Zone>());
+    }
+
+    public Customer(Customer customerCloneBase)
+    {
+
+        this.sex = customerCloneBase.sex;
+        this.age = customerCloneBase.age;
+        this.ethnicity = customerCloneBase.ethnicity;
+        this.scenario = customerCloneBase.scenario;
+        this.nps = customerCloneBase.nps;
+
+        this.initialTimeAvailable = customerCloneBase.initialTimeAvailable;
+        this.currentTimeAvailable = customerCloneBase.initialTimeAvailable;
+
+        this.bestZone = customerCloneBase.bestZone;
+        this.secondBestZone = customerCloneBase.secondBestZone;
+        this.upsellable = customerCloneBase.upsellable;
+        this.spend = customerCloneBase.spend;
+        waiting = true;
     }
 
     public ZoneMatchingResults DroppedInZone(Zone zone)
