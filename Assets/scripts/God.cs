@@ -26,8 +26,14 @@ public class God : MonoBehaviour {
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
-    public UIPlayAnimation fader;
+    public GameObject fader;
     public float totalTimeForTheDay = 600f;
+
+    [DoNotSerialize] public static float amberMoodTreshold = 7;
+    [DoNotSerialize] public static float redMoodTreshold = 5;
+
+    
+
     //public List<string, UILabel> scoreLabels;
 
 
@@ -147,7 +153,7 @@ public class God : MonoBehaviour {
         //1- you never get the array[0] element
         //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
 
-		AddCustomer(possibleCustomersPool[num]);
+		AddCustomer(new Customer(possibleCustomersPool[num]));
 
         //AddCustomer(newCustomer);
 
@@ -204,8 +210,8 @@ public class God : MonoBehaviour {
 
             if (customer.waiting)
             {
-                customer.totalTimeAvailable -= Time.deltaTime;
-                if (customer.totalTimeAvailable <= 0f)
+                customer.currentTimeAvailable -= Time.deltaTime;
+                if (customer.currentTimeAvailable <= 0f)
                 {
                     customer.Die();
                 }
@@ -216,6 +222,26 @@ public class God : MonoBehaviour {
     }
 
 
+    public void SaveState()
+    {
+        fader.SetActive(true);
+        LevelSerializer.Checkpoint();
+        fader.SetActive(false);
+    }
+
+    public void LoadState()
+    {
+        LevelSerializer.Resume();
+        //fader.SetActiveRecursively(true);
+
+
+    }
+
+    public void OnDeserialized()
+    {
+        print("deSERIALIZING GOD");
+        fader.SetActive(false);
+    }
 
 
     void Update()
@@ -228,10 +254,34 @@ public class God : MonoBehaviour {
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("God IS PUSHING");
             TestingGame();
             customerPanelManager.Hide();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //LevelSerializer.SaveGame("test");
+            SaveState();
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+
+            //LevelSerializer.SavedGames[LevelSerializer.SavedGames.Count - 1];
+            LoadState();
+            return;
+            //LevelSerializer.LoadNow(LevelSerializer)
+            //List<LevelSerializer.SaveEntry> tmp =  LevelSerializer.SavedGames.Get<string>(LevelSerializer.PlayerName);
+            
+            
+            foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName]){
+                if (currentSvae.Name == "test")
+                {
+                    LevelSerializer.LoadSavedLevel(currentSvae.Data);
+                }
+            }
+           
+        } 
     }
 	
 

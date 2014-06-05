@@ -9,6 +9,9 @@ public class ZonePanelManager : MonoBehaviour {
     public ZoneGrid queue;
     public UILabel staffTrainingPercent;
     public UILabel staffNumber;
+    public UILabel zoneName;
+    public UIButton backButton;
+    public bool displayingZone = false;
 
 
 	// Use this for initialization
@@ -23,12 +26,15 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Display(Zone zone)
     {
+        //  God.instance.fader.SetActive(true);
         currentZone = zone;
+        displayingZone = true;
         ClearZonePanel();
+        zoneName.text = zone.zoneName;
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
-        God.instance.fader.clipName = "ZoneFaderAnim";
-        God.instance.fader.Play(true);
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "ZoneFaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
         PopulateZonePanel();
 
     }
@@ -63,6 +69,7 @@ public class ZonePanelManager : MonoBehaviour {
         foreach (Customer customer in currentZone.customers)
         {
             GameObject currentCustomer  = NGUITools.AddChild(queue.gameObject, God.instance.customerPrefab);
+            currentCustomer.RemoveComponent(typeof(StoreInformation));
 
             //GameObject currentCustomer = Instantiate(God.instance.customerPrefab) as GameObject;
             currentCustomer.transform.localScale = Vector3.one;
@@ -110,9 +117,10 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Hide()
     {
+        displayingZone = false;
         GetComponent<UIPlayAnimation>().Play(false);
-        God.instance.fader.clipName = "FaderAnim";
-        God.instance.fader.Play(false);
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
         currentZone.GetComponent<UIPlayAnimation>().Play(false);
     }

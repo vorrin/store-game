@@ -6,10 +6,19 @@ public class CustomerPanelManager : MonoBehaviour {
     public UILabel scenarioLabel;
     public Customer currentCustomer;
     public UILabel timerLabel;
+    public UILabel totalTimeLabel;
+    public UILabel currentZoneLabel;
+    public UISprite moodBubble;
 
     void Start()
     {
-        gameObject.SetActiveRecursively(false);           
+        //gameObject.SetActiveRecursively(false);           
+    }
+
+
+    public void SetMoodSprite()
+    {
+        moodBubble.spriteName = "mood_" + currentCustomer.GetMoodColor() + "_PROFILE";
     }
 
     public void Display(Customer customer)
@@ -17,31 +26,66 @@ public class CustomerPanelManager : MonoBehaviour {
    //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
-        God.instance.fader.clipName = "FaderAnim";
-        God.instance.fader.Play(true);
+        //if (!God.instance.zonePanelManager.displayingZone)
+        //{
+
+        if (God.instance.zonePanelManager.displayingZone)
+        {
+            //God.instance.zonePanelManager.backButton.enabled = false;
+            God.instance.zonePanelManager.backButton.isEnabled = false;
+        }
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
+        //}
 
         currentCustomer = customer;
-        avatarWindow.spriteName = customer.avatarName + "1" ;
+        avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
         scenarioLabel.text = customer.scenario;
+        SetMoodSprite();
+        GetComponentInChildren<UpsellButton>().setUpselling(customer.attemptingUpsell);
+        if (currentCustomer.currentZone == null)
+        {
+            currentZoneLabel.text = "Queue";
+        }
+        else
+        {
+            currentZoneLabel.text = currentCustomer.currentZone.zoneName;
+        }
+        totalTimeLabel.text = FormatSecondsIntoTimerDisplay(customer.initialTimeAvailable);
         GetComponentInChildren<UIScrollView>().ResetPosition();
         scenarioLabel.ResizeCollider();
+    }
+
+    public string FormatSecondsIntoTimerDisplay(float totalSeconds)
+    {
+        int minutes = (int)Mathf.Floor(totalSeconds / 60);
+        int seconds = (int)totalSeconds % 60;
+        return minutes + ":" + seconds.ToString("00");
     }
 
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-        God.instance.fader.Play(false);
-
+        if (God.instance.zonePanelManager.displayingZone)
+        {
+            God.instance.zonePanelManager.backButton.isEnabled = true;
+        }
+        else
+        {
+            God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
+        }
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }
 
 
 	// Update is called once per frame
 	void Update () {
-        
-        int minutes =  (int) Mathf.Floor(currentCustomer.totalTimeAvailable / 60) ;
-        int seconds = (int) currentCustomer.totalTimeAvailable % 60;
-        timerLabel.text = minutes + ":" + seconds; 
+        if (currentCustomer == null)
+        {
+            return;
+        }
+
+        timerLabel.text = FormatSecondsIntoTimerDisplay(currentCustomer.currentTimeAvailable);
 
 	}
 }

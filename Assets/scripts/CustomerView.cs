@@ -5,11 +5,9 @@ using System.Collections.Generic;
 public class CustomerView : MonoBehaviour {
 
 	public Customer customerModel;
-	public GameObject[] spots;
 	private TweenPosition tweener;
-	private UIDragObject Dragger;
+    public UISprite moodBubble;
 
-    public float dragStartTime;
     GoTween hoverTween;
 
 
@@ -19,24 +17,15 @@ public class CustomerView : MonoBehaviour {
 	// Use this for initialization
 	public void Create (Customer customer) {
         customerModel = customer;
-        GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName;
+        GetComponent<UISprite>().spriteName = customerModel.avatarName + "_QUEUE";
+        GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName + "_QUEUE" ;
         customerModel.customerView = this;
-
-
-
-        //Go.defaultUpdateType = GoUpdateType.FixedUpdate;
-
-        //GoTweenConfig hoverTweenConfig = new GoTweenConfig().localPosition(new Vector3(0f, 10f, 0f),true).startPaused();
-        //hoverTween = new GoTween(gameObject.transform, 0.1f, hoverTweenConfig);
-        //hoverTween.autoRemoveOnComplete = false;
-        //Go.addTween(hoverTween);
-
+        SetMoodSprite();
 	}
 
 
     public void CustomerDroppedInZone(Zone zone)
     {
-
         GameObject feedbackIcon = Instantiate(God.instance.feedbackIconPrefab, transform.position, Quaternion.identity) as GameObject;
         Customer.ZoneMatchingResults result = customerModel.DroppedInZone(zone);
         if (result == Customer.ZoneMatchingResults.Fail)
@@ -44,7 +33,7 @@ public class CustomerView : MonoBehaviour {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
             GetComponent<UIDragDropItem>().enabled = false;
             customerModel.Die();
-            Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+            //Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
             return;
         }
         else if (result == Customer.ZoneMatchingResults.SecondBest)
@@ -55,12 +44,30 @@ public class CustomerView : MonoBehaviour {
         {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.BestOption;
         }
-
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
     }
 
+    public void SetMoodSprite()
+    {
+        moodBubble.spriteName = "mood_" + customerModel.GetMoodColor() + "_QUEUE";
+        //float nps = customerModel.nps;
+        //string moodColor = "green";
+        //if (nps > God.amberMoodTreshold)
+        //{
+        //    moodColor = "green";
+        //}
+        //else if (nps > God.redMoodTreshold)
+        //{
+        //    moodColor = "amber";
+        //}
+        //else
+        //{
+        //    moodColor = "red";
+        //}
+        //moodBubble.spriteName = "mood_" + moodColor + "_QUEUE";
+    }
 
     public void StartDrag() 
     {
@@ -158,45 +165,42 @@ public class CustomerView : MonoBehaviour {
 
 	void OnRelease(){
 	}
-
-
-
-    //void SetToWaiting() {
-    //    customerModel.waiting = true;
-    //    collider.enabled = true;
+	
+    //void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
+    //    tweener.from = startPos;
+    //    tweener.to = endPos; 
+    //    tweener.duration = duration;
+    //    tweener.delay = delay;
+    //    tweener.ResetToBeginning();
+    //    tweener.Play();
+    //    foreach (EventDelegate currentDelegate in onFinished) {
+    //        tweener.AddOnFinished(currentDelegate);
+    //    }
     //}
 
-	
-	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
-		tweener.from = startPos;
-		tweener.to = endPos; 
-		tweener.duration = duration;
-		tweener.delay = delay;
-		tweener.ResetToBeginning();
-		tweener.Play();
-		foreach (EventDelegate currentDelegate in onFinished) {
-			tweener.AddOnFinished(currentDelegate);
-		}
-	}
+    //void WalkToRandomSpot ( ) {
+    //    EventDelegate newDelegate = new EventDelegate();
+    //    newDelegate.target = this;
+    //    newDelegate.methodName = "WalkToRandomSpot";
+    //    newDelegate.oneShot = true;
+    //    tweener.SetOnFinished(newDelegate);
 
-	void WalkToRandomSpot ( ) {
-		EventDelegate newDelegate = new EventDelegate();
-		newDelegate.target = this;
-		newDelegate.methodName = "WalkToRandomSpot";
-		newDelegate.oneShot = true;
-		tweener.SetOnFinished(newDelegate);
+    //    Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
+    //    Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
 
-        Debug.Log("SPOT ZERO POS: " + spots[0].transform.localPosition);
-        Debug.Log("INVERSE SPOT POS: " + transform.parent.InverseTransformPoint( spots[0].transform.position ));
-
-		TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
-	}
+    //    TweenToPosition (this.transform.localPosition,  transform.parent.InverseTransformPoint( spots [Random.Range (0, spots.Length)].transform.position   ), 1f, 1f, new EventDelegate[] { newDelegate});
+    //}
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
-	
-	}
+    void FixedUpdate()
+    {
+
+    }
+    void Update()
+    {
+
+    }
 
     void LateUpdate()
     {
