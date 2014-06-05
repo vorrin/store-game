@@ -3342,7 +3342,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -3678,7 +3679,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -3859,7 +3861,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -4495,7 +4498,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -4864,7 +4868,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -5670,7 +5675,8 @@ MonoBehaviour:
     scenario: I am just browsing, keen to see what's available these days.
     nps: 8
     avatarName: customer
-    upsell: 1
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: PRODUCT DISPLAY
@@ -6656,6 +6662,8 @@ MonoBehaviour:
   staffTrainingPercent: {fileID: 11400072}
   staffNumber: {fileID: 11400196}
   zoneName: {fileID: 0}
+  backButton: {fileID: 0}
+  displayingZone: 0
 --- !u!114 &11400182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7344,7 +7352,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -7525,7 +7534,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 

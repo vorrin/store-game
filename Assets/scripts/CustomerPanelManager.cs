@@ -22,9 +22,10 @@ public class CustomerPanelManager : MonoBehaviour {
         //if (!God.instance.zonePanelManager.displayingZone)
         //{
 
-        if (!God.instance.zonePanelManager.displayingZone)
+        if (God.instance.zonePanelManager.displayingZone)
         {
-            God.instance.zonePanelManager.backButton.enabled = false;
+            //God.instance.zonePanelManager.backButton.enabled = false;
+            God.instance.zonePanelManager.backButton.active = false;
         }
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
@@ -57,9 +58,12 @@ public class CustomerPanelManager : MonoBehaviour {
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-        if (!God.instance.zonePanelManager.displayingZone)
+        if (God.instance.zonePanelManager.displayingZone)
         {
-            God.instance.zonePanelManager.backButton.enabled = true;
+            God.instance.zonePanelManager.backButton.active = true;
+        }
+        else
+        {
             God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         }
 

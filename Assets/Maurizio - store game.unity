@@ -2535,6 +2535,7 @@ GameObject:
   - 114: {fileID: 439612541}
   - 114: {fileID: 439612540}
   - 114: {fileID: 439612539}
+  - 114: {fileID: 439612548}
   m_Layer: 9
   m_Name: ZoneWelcome
   m_TagString: zone
@@ -2787,6 +2788,22 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &439612548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439612537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: e7b9993c-782d-4dbb-98db-ab1f783e1bcb
+  classId: fc34909c-fe3b-4eab-9e1e-750b5e253e4d
+  StoreAllComponents: 1
+  Components: []
 --- !u!1 &462889839
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,6 +5195,8 @@ MonoBehaviour:
     Id: b9479685-cfa6-4d96-bfbd-86f595a0e1d5
   - gameObject: {fileID: 1837919986}
     Id: 4bfe5c8d-78ae-46a5-a332-c4dd33a8b726
+  - gameObject: {fileID: 439612537}
+    Id: e7b9993c-782d-4dbb-98db-ab1f783e1bcb
 --- !u!1 &1005204116
 GameObject:
   m_ObjectHideFlags: 0

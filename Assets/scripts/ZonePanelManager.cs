@@ -69,6 +69,7 @@ public class ZonePanelManager : MonoBehaviour {
         foreach (Customer customer in currentZone.customers)
         {
             GameObject currentCustomer  = NGUITools.AddChild(queue.gameObject, God.instance.customerPrefab);
+            currentCustomer.RemoveComponent(typeof(StoreInformation));
 
             //GameObject currentCustomer = Instantiate(God.instance.customerPrefab) as GameObject;
             currentCustomer.transform.localScale = Vector3.one;
