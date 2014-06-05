@@ -8,10 +8,17 @@ public class CustomerPanelManager : MonoBehaviour {
     public UILabel timerLabel;
     public UILabel totalTimeLabel;
     public UILabel currentZoneLabel;
+    public UISprite moodBubble;
 
     void Start()
     {
         //gameObject.SetActiveRecursively(false);           
+    }
+
+
+    public void SetMoodSprite()
+    {
+        moodBubble.spriteName = "mood_" + currentCustomer.GetMoodColor() + "_PROFILE";
     }
 
     public void Display(Customer customer)
@@ -25,7 +32,7 @@ public class CustomerPanelManager : MonoBehaviour {
         if (God.instance.zonePanelManager.displayingZone)
         {
             //God.instance.zonePanelManager.backButton.enabled = false;
-            God.instance.zonePanelManager.backButton.active = false;
+            God.instance.zonePanelManager.backButton.isEnabled = false;
         }
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
@@ -34,6 +41,7 @@ public class CustomerPanelManager : MonoBehaviour {
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
         scenarioLabel.text = customer.scenario;
+        SetMoodSprite();
         GetComponentInChildren<UpsellButton>().setUpselling(customer.attemptingUpsell);
         if (currentCustomer.currentZone == null)
         {
@@ -60,13 +68,12 @@ public class CustomerPanelManager : MonoBehaviour {
         GetComponent<UIPlayAnimation>().Play(false);
         if (God.instance.zonePanelManager.displayingZone)
         {
-            God.instance.zonePanelManager.backButton.active = true;
+            God.instance.zonePanelManager.backButton.isEnabled = true;
         }
         else
         {
             God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         }
-
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }
 

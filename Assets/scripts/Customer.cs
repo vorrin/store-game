@@ -132,12 +132,11 @@ using System.Collections;
                     //This is so if the customer dies of running out of time when dragged, all looks good.
                     customerView.EndDrag();
                 }
-                else
+                else// Customer is still in the queue
                 {
-
+                    GameObject.Destroy(customerView.gameObject);
                     God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
                 }
-                GameObject.Destroy(customerView.gameObject);
 
                 
             }
@@ -148,6 +147,26 @@ using System.Collections;
         God.instance.CustomerLost(this);
     }
 
+    public string GetMoodColor()
+    {
+
+       
+        string moodColor = "green";
+        if (nps > God.amberMoodTreshold)
+        {
+            moodColor = "green";
+        }
+        else if (nps > God.redMoodTreshold)
+        {
+            moodColor = "amber";
+        }
+        else
+        {
+            moodColor = "red";
+        }
+        return moodColor;
+
+    }
    
 
 	// Use this for initialization

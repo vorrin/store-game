@@ -28,6 +28,12 @@ public class God : MonoBehaviour {
     public List<Customer> possibleCustomersPool = new List<Customer>();
     public GameObject fader;
     public float totalTimeForTheDay = 600f;
+
+    [DoNotSerialize] public static float amberMoodTreshold = 7;
+    [DoNotSerialize] public static float redMoodTreshold = 5;
+
+    
+
     //public List<string, UILabel> scoreLabels;
 
 

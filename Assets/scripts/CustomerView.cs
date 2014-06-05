@@ -6,9 +6,8 @@ public class CustomerView : MonoBehaviour {
 
 	public Customer customerModel;
 	private TweenPosition tweener;
-	private UIDragObject Dragger;
+    public UISprite moodBubble;
 
-    public float dragStartTime;
     GoTween hoverTween;
 
 
@@ -21,6 +20,7 @@ public class CustomerView : MonoBehaviour {
         GetComponent<UISprite>().spriteName = customerModel.avatarName + "_QUEUE";
         GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName + "_QUEUE" ;
         customerModel.customerView = this;
+        SetMoodSprite();
 	}
 
 
@@ -33,7 +33,7 @@ public class CustomerView : MonoBehaviour {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
             GetComponent<UIDragDropItem>().enabled = false;
             customerModel.Die();
-            Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+            //Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
             return;
         }
         else if (result == Customer.ZoneMatchingResults.SecondBest)
@@ -47,6 +47,26 @@ public class CustomerView : MonoBehaviour {
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+    }
+
+    public void SetMoodSprite()
+    {
+        moodBubble.spriteName = "mood_" + customerModel.GetMoodColor() + "_QUEUE";
+        //float nps = customerModel.nps;
+        //string moodColor = "green";
+        //if (nps > God.amberMoodTreshold)
+        //{
+        //    moodColor = "green";
+        //}
+        //else if (nps > God.redMoodTreshold)
+        //{
+        //    moodColor = "amber";
+        //}
+        //else
+        //{
+        //    moodColor = "red";
+        //}
+        //moodBubble.spriteName = "mood_" + moodColor + "_QUEUE";
     }
 
     public void StartDrag() 
@@ -173,9 +193,14 @@ public class CustomerView : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void FixedUpdate () {
-	
-	}
+    void FixedUpdate()
+    {
+
+    }
+    void Update()
+    {
+
+    }
 
     void LateUpdate()
     {

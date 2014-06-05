@@ -42,7 +42,7 @@ MonoBehaviour:
   mSprites:
   - name: backgroundFadeIn
     x: 0
-    y: 447
+    y: 1248
     width: 480
     height: 800
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 5
   - name: customer0
-    x: 440
-    y: 114
+    x: 451
+    y: 57
     width: 26
     height: 36
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: customer1
-    x: 451
-    y: 57
+    x: 440
+    y: 114
     width: 26
     height: 36
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: icons_clock
-    x: 2004
-    y: 1832
+    x: 1933
+    y: 1571
     width: 43
     height: 42
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 3
   - name: icons_scrollARROW_actual_01
-    x: 1994
-    y: 1978
+    x: 2004
+    y: 1804
     width: 43
     height: 70
     borderLeft: 0
@@ -313,9 +313,22 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 3
     paddingBottom: 4
+  - name: icons_scrollARROW_OFF
+    x: 1994
+    y: 1978
+    width: 43
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 2
+    paddingBottom: 3
   - name: icons_UPsell_01
-    x: 355
-    y: 94
+    x: 393
+    y: 346
     width: 84
     height: 100
     borderLeft: 0
@@ -340,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icons_UPsell_03
-    x: 393
-    y: 346
+    x: 355
+    y: 94
     width: 84
     height: 100
     borderLeft: 0
@@ -354,7 +367,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_ingame_02
     x: 0
-    y: 1248
+    y: 447
     width: 480
     height: 800
     borderLeft: 0
