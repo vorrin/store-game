@@ -10,7 +10,8 @@ using System.Collections;
 	public float nps = 1f;
 	public string avatarName = "customer";
 	public bool upsell;
-	public float totalTimeAvailable = 60f; // 1f == 1 second
+    public float currentTimeAvailable = 60f; // 1f == 1 second
+    public float initialTimeAvailable = 60f; // 1f == 1 second
 	public string bestZone;
 	public string secondBestZone;
 	public float spend;
@@ -39,7 +40,10 @@ using System.Collections;
 		this.ethnicity = ethnicity;
 		this.scenario = scenario;
 		this.nps = npsValue;
-		this.totalTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
+
+        this.initialTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
+        this.currentTimeAvailable = this.initialTimeAvailable;
+
 		this.bestZone = bestZone;
 		this.secondBestZone = secondBestZone;
 		this.upsell = upSellVal;

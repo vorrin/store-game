@@ -6,6 +6,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public UILabel scenarioLabel;
     public Customer currentCustomer;
     public UILabel timerLabel;
+    public UILabel totalTimeLabel;
 
     void Start()
     {
@@ -23,8 +24,16 @@ public class CustomerPanelManager : MonoBehaviour {
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "1" ;
         scenarioLabel.text = customer.scenario;
+        totalTimeLabel.text = FormatSecondsIntoTimerDisplay(customer.initialTimeAvailable);
         GetComponentInChildren<UIScrollView>().ResetPosition();
         scenarioLabel.ResizeCollider();
+    }
+
+    public string FormatSecondsIntoTimerDisplay(float totalSeconds)
+    {
+        int minutes = (int)Mathf.Floor(totalSeconds / 60);
+        int seconds = (int)totalSeconds % 60;
+        return minutes + ":" + seconds.ToString("00");
     }
 
     public void Hide()
@@ -42,9 +51,8 @@ public class CustomerPanelManager : MonoBehaviour {
         {
             return;
         }
-        int minutes =  (int) Mathf.Floor(currentCustomer.totalTimeAvailable / 60) ;
-        int seconds = (int) currentCustomer.totalTimeAvailable % 60;
-        timerLabel.text = minutes + ":" + seconds; 
+
+        timerLabel.text = FormatSecondsIntoTimerDisplay(currentCustomer.currentTimeAvailable);
 
 	}
 }

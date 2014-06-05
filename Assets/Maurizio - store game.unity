@@ -538,7 +538,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -1193,7 +1194,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -1460,7 +1462,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -2548,7 +2551,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -3207,7 +3211,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -3842,7 +3847,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 740606780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.35696411, y: 0, z: 0}
+  m_LocalPosition: {x: -4.35696411, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 834977695}
@@ -3877,18 +3882,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 88
-  mHeight: 52
+  mWidth: 66
+  mHeight: 38
   mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.69230771
+  aspectRatio: 1.73684216
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
-  mText: 3:12
-  mFontSize: 52
+  mText: 9:55
+  mFontSize: 38
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -4084,7 +4089,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 834977694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.8232422, y: 171, z: 0}
+  m_LocalPosition: {x: -79.084259, y: 168.144287, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 740606781}
@@ -4141,7 +4146,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3014
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -4180,15 +4185,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 161
-  mHeight: 76
+  mWidth: 126
+  mHeight: 88
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.11842108
-  mAtlas: {fileID: 11400000, guid: 2f2473f73b9ca724f9080d6d76009ea2, type: 2}
-  mSpriteName: Light
+  aspectRatio: 1.43181813
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: box_TIME_customerPROFILE
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -4200,6 +4205,147 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+--- !u!1 &866973954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100058, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 866973955}
+  - 114: {fileID: 866973958}
+  - 54: {fileID: 866973957}
+  - 114: {fileID: 866973956}
+  m_Layer: 9
+  m_Name: TotalTimePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &866973955
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400058, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866973954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 132.926331, y: 222.313354, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 920467622}
+  m_Father: {fileID: 953546232}
+--- !u!114 &866973956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400124, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866973954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 126
+  mHeight: 88
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.43181813
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: box_TIMEstore_cPROFILE_01
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+--- !u!54 &866973957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400018, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866973954}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &866973958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400122, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866973954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  showInPanelTool: 1
+  generateNormals: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  alwaysOnScreen: 0
+  anchorOffset: 0
+  renderQueue: 0
+  startingRenderQueue: 3013
+  mAlpha: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 300, w: 200}
+  mClipSoftness: {x: 4, y: 4}
+  mDepth: 23
+  mSortingOrder: 0
+  mClipOffset: {x: 0, y: 0}
 --- !u!1 &868810635
 GameObject:
   m_ObjectHideFlags: 0
@@ -4320,6 +4466,96 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
+--- !u!1 &920467621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100052, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 920467622}
+  - 114: {fileID: 920467623}
+  m_Layer: 9
+  m_Name: TotalTimeLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920467622
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400052, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920467621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.35696411, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 866973955}
+--- !u!114 &920467623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400118, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920467621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 66
+  mHeight: 38
+  mDepth: 1
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.73684216
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
+  mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
+  mText: 9:55
+  mFontSize: 38
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 2
+  mMaterial: {fileID: 0}
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &953546231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,6 +4593,7 @@ Transform:
   - {fileID: 27149510}
   - {fileID: 1257413048}
   - {fileID: 834977695}
+  - {fileID: 866973955}
   m_Father: {fileID: 693120554}
 --- !u!65 &953546233
 BoxCollider:
@@ -4520,7 +4757,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 600
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -4528,6 +4766,7 @@ MonoBehaviour:
     waiting: 0
     customerView: {fileID: 0}
   timerLabel: {fileID: 740606782}
+  totalTimeLabel: {fileID: 920467623}
 --- !u!114 &953546239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4590,8 +4829,6 @@ MonoBehaviour:
     Id: 051b681a-5a68-4b1b-85fb-963c97cfe059
   - gameObject: {fileID: 2098987472}
     Id: 305bc115-2023-4372-9ad0-18bd81874dc3
-  - gameObject: {fileID: 0}
-    Id: 2d2520cd-8751-4ef4-8e27-6029a3d7cbe9
 --- !u!1 &1005204116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6945,6 +7182,7 @@ GameObject:
   - 114: {fileID: 1814919593}
   - 111: {fileID: 1814919598}
   - 114: {fileID: 1814919597}
+  - 114: {fileID: 1814919599}
   m_Layer: 9
   m_Name: Fader
   m_TagString: Untagged
@@ -7128,6 +7366,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1814919599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814919591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 
+  classId: f832e6d8-9a5a-412c-8bdf-905b91ed0ba1
 --- !u!1 &1837919986
 GameObject:
   m_ObjectHideFlags: 0
@@ -7221,7 +7473,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -7489,7 +7742,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0

@@ -204,8 +204,8 @@ public class God : MonoBehaviour {
 
             if (customer.waiting)
             {
-                customer.totalTimeAvailable -= Time.deltaTime;
-                if (customer.totalTimeAvailable <= 0f)
+                customer.currentTimeAvailable -= Time.deltaTime;
+                if (customer.currentTimeAvailable <= 0f)
                 {
                     customer.Die();
                 }
