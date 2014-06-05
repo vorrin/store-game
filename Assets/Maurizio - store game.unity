@@ -462,6 +462,7 @@ GameObject:
   - 114: {fileID: 59013749}
   - 114: {fileID: 59013748}
   - 114: {fileID: 59013747}
+  - 114: {fileID: 59013756}
   m_Layer: 9
   m_Name: Zone
   m_TagString: zone
@@ -713,6 +714,24 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &59013756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59013745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: fb6b8ae4-e0a6-439c-b783-796aac5bcbbc
+  classId: cca6133f-b57c-4bc0-864d-aa52b7248171
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!1 &78834392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1137,7 @@ GameObject:
   - 114: {fileID: 150140712}
   - 114: {fileID: 150140711}
   - 114: {fileID: 150140710}
+  - 114: {fileID: 150140719}
   m_Layer: 9
   m_Name: ZoneSelfService
   m_TagString: zone
@@ -1369,6 +1389,24 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &150140719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150140708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: d9943735-3dff-4499-bc62-a589a703e5ec
+  classId: cca6133f-b57c-4bc0-864d-aa52b7248171
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!1 &159598757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1424,7 @@ GameObject:
   - 114: {fileID: 159598761}
   - 114: {fileID: 159598760}
   - 114: {fileID: 159598759}
+  - 114: {fileID: 159598768}
   m_Layer: 9
   m_Name: Zone
   m_TagString: zone
@@ -1637,6 +1676,24 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &159598768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159598757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 5f143091-5b30-4244-b655-2e2960cfbf80
+  classId: cca6133f-b57c-4bc0-864d-aa52b7248171
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!1 &171879436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3281,7 @@ GameObject:
   - 114: {fileID: 626608160}
   - 114: {fileID: 626608159}
   - 114: {fileID: 626608158}
+  - 114: {fileID: 626608167}
   m_Layer: 9
   m_Name: Zone
   m_TagString: zone
@@ -3475,6 +3533,24 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &626608167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626608156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: b9479685-cfa6-4d96-bfbd-86f595a0e1d5
+  classId: cca6133f-b57c-4bc0-864d-aa52b7248171
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!1 &631723331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,6 +3885,7 @@ GameObject:
   - 114: {fileID: 693120553}
   - 114: {fileID: 693120552}
   - 54: {fileID: 693120551}
+  - 114: {fileID: 693120555}
   m_Layer: 9
   m_Name: UI Root
   m_TagString: Untagged
@@ -3913,6 +3990,20 @@ Transform:
   - {fileID: 1287306980}
   - {fileID: 28854539}
   m_Father: {fileID: 0}
+--- !u!114 &693120555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693120550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: fbbe8778-d84d-4571-8d63-818cdde2f3af
+  classId: 2e5eaa90-25ca-4d2b-b176-c52a7fa63dd3
 --- !u!1 &740606780
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,6 +5011,20 @@ MonoBehaviour:
     Id: 051b681a-5a68-4b1b-85fb-963c97cfe059
   - gameObject: {fileID: 2098987472}
     Id: 305bc115-2023-4372-9ad0-18bd81874dc3
+  - gameObject: {fileID: 693120550}
+    Id: fbbe8778-d84d-4571-8d63-818cdde2f3af
+  - gameObject: {fileID: 1814919591}
+    Id: 64580aae-50d4-453c-a764-297782f95818
+  - gameObject: {fileID: 59013745}
+    Id: fb6b8ae4-e0a6-439c-b783-796aac5bcbbc
+  - gameObject: {fileID: 150140708}
+    Id: d9943735-3dff-4499-bc62-a589a703e5ec
+  - gameObject: {fileID: 159598757}
+    Id: 5f143091-5b30-4244-b655-2e2960cfbf80
+  - gameObject: {fileID: 626608156}
+    Id: b9479685-cfa6-4d96-bfbd-86f595a0e1d5
+  - gameObject: {fileID: 1837919986}
+    Id: 4bfe5c8d-78ae-46a5-a332-c4dd33a8b726
 --- !u!1 &1005204116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7560,7 +7665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 
+  _id: 64580aae-50d4-453c-a764-297782f95818
   classId: 31f15de4-7906-4101-af64-2f2a863e77d0
 --- !u!1 &1837919986
 GameObject:
@@ -7579,6 +7684,7 @@ GameObject:
   - 114: {fileID: 1837919990}
   - 114: {fileID: 1837919989}
   - 114: {fileID: 1837919988}
+  - 114: {fileID: 1837919997}
   m_Layer: 9
   m_Name: Zone
   m_TagString: zone
@@ -7830,6 +7936,24 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &1837919997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837919986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 4bfe5c8d-78ae-46a5-a332-c4dd33a8b726
+  classId: cca6133f-b57c-4bc0-864d-aa52b7248171
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!1 &1841164074
 GameObject:
   m_ObjectHideFlags: 0
