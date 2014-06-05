@@ -9,7 +9,8 @@ using System.Collections;
 	public string scenario;
 	public float nps = 1f;
 	public string avatarName = "customer";
-	public bool upsell;
+	public bool upsellable;
+    public bool attemptingUpsell = false;
     public float currentTimeAvailable = 60f; // 1f == 1 second
     public float initialTimeAvailable = 60f; // 1f == 1 second
 	public string bestZone;
@@ -46,7 +47,7 @@ using System.Collections;
 
 		this.bestZone = bestZone;
 		this.secondBestZone = secondBestZone;
-		this.upsell = upSellVal;
+		this.upsellable = upSellVal;
 		this.spend = spend;
 
         //scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";

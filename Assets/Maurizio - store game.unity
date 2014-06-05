@@ -538,7 +538,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -1213,7 +1214,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -1500,7 +1502,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -2607,7 +2610,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -2783,6 +2787,152 @@ MonoBehaviour:
   mDepth: 5
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!1 &462889839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 462889840}
+  - 114: {fileID: 462889844}
+  - 114: {fileID: 462889843}
+  - 65: {fileID: 462889842}
+  - 114: {fileID: 462889841}
+  - 114: {fileID: 462889845}
+  m_Layer: 9
+  m_Name: UpsellButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &462889840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 7c3a28b051e872b448d4808cfcf9199c, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 111.249084, y: -94.6927338, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 953546232}
+--- !u!114 &462889841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1a147c24165da4b8936f4a453da17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  state: 1
+--- !u!65 &462889842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: 7c3a28b051e872b448d4808cfcf9199c,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 84, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &462889843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 7c3a28b051e872b448d4808cfcf9199c,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 462889839}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: .573529422, g: .573529422, b: .573529422, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  duration: .200000003
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: icons_UPsell_02
+  disabledSprite: 
+  pixelSnap: 1
+  onClick: []
+--- !u!114 &462889844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 7c3a28b051e872b448d4808cfcf9199c,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 84
+  mHeight: 100
+  mDepth: 5
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .839999974
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: icons_UPsell_01
+  mType: 1
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+--- !u!114 &462889845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462889839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c4761f233800a4090038b83d399ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attemptingUpsell: 0
+  button: {fileID: 0}
+  normalSprite: 
+  pressedSprite: 
 --- !u!1 &463183451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3507,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -4771,6 +4922,7 @@ Transform:
   m_Children:
   - {fileID: 631723332}
   - {fileID: 27149510}
+  - {fileID: 462889840}
   - {fileID: 1257413048}
   - {fileID: 834977695}
   - {fileID: 866973955}
@@ -4937,7 +5089,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -7760,7 +7913,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -8047,7 +8201,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 

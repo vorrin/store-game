@@ -55,7 +55,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: BestOption
     x: 369
-    y: 179
+    y: 16
     width: 72
     height: 68
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 15
   - name: box_TIME_customerPROFILE
-    x: 190
-    y: 61
+    x: 298
+    y: 146
     width: 101
     height: 61
     borderLeft: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 14
   - name: box_TIMEstore_cPROFILE_01
     x: 298
-    y: 248
+    y: 85
     width: 99
     height: 60
     borderLeft: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: fillingZoneIcon
     x: 298
-    y: 177
+    y: 14
     width: 70
     height: 70
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: icons_clock
-    x: 371
-    y: 21
+    x: 1526
+    y: 1448
     width: 43
     height: 42
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 2
   - name: icons_customers_status
-    x: 371
-    y: 64
+    x: 1481
+    y: 1447
     width: 44
     height: 43
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: icons_customersSERVED
-    x: 416
-    y: 131
+    x: 1427
+    y: 1445
     width: 53
     height: 45
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: icons_NPS
-    x: 190
-    y: 17
+    x: 400
+    y: 164
     width: 71
     height: 43
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 3
   - name: icons_scrollARROW_actual_01
-    x: 298
-    y: 37
+    x: 1939
+    y: 1978
     width: 43
     height: 70
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: icons_scrollARROW_actual_02
-    x: 371
-    y: 108
+    x: 1382
+    y: 1422
     width: 44
     height: 68
     borderLeft: 0
@@ -287,6 +287,45 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 3
     paddingBottom: 4
+  - name: icons_UPsell_01
+    x: 383
+    y: 208
+    width: 84
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icons_UPsell_02
+    x: 190
+    y: 22
+    width: 84
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icons_UPsell_03
+    x: 298
+    y: 208
+    width: 84
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: main_ingame_02
     x: 0
     y: 447
@@ -301,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SecondBestOption
-    x: 298
-    y: 108
+    x: 1309
+    y: 1422
     width: 72
     height: 68
     borderLeft: 0
@@ -354,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: zoneIcon
     x: 398
-    y: 258
+    y: 95
     width: 50
     height: 50
     borderLeft: 0
