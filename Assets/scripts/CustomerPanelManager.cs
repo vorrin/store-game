@@ -12,7 +12,8 @@ public class CustomerPanelManager : MonoBehaviour {
 
     void Start()
     {
-        //gameObject.SetActiveRecursively(false);           
+        //gameObject.SetActiveRecursively(false);          
+        //print( " KAKKAMALE " + God.instance.moood);
     }
 
 

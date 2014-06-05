@@ -2049,6 +2049,7 @@ MonoBehaviour:
   possibleCustomersPool: []
   fader: {fileID: 1814919591}
   totalTimeForTheDay: 600
+  moood: 7
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0

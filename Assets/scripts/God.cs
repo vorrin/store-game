@@ -31,8 +31,14 @@ public class God : MonoBehaviour {
 
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
-
     
+    //public enum PossibleMoods {
+    //    green ,
+    //    amber ,
+    //    red 
+    //}
+
+    //public PossibleMoods moood;
 
     //public List<string, UILabel> scoreLabels;
 
