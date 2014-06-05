@@ -9,6 +9,7 @@ public class ZonePanelManager : MonoBehaviour {
     public ZoneGrid queue;
     public UILabel staffTrainingPercent;
     public UILabel staffNumber;
+    public UILabel zoneName;
 
 
 	// Use this for initialization
@@ -25,6 +26,7 @@ public class ZonePanelManager : MonoBehaviour {
     {
         currentZone = zone;
         ClearZonePanel();
+        zoneName.text = zone.zoneName;
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
         God.instance.fader.clipName = "ZoneFaderAnim";
