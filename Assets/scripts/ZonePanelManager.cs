@@ -29,8 +29,8 @@ public class ZonePanelManager : MonoBehaviour {
         zoneName.text = zone.zoneName;
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
-        God.instance.fader.clipName = "ZoneFaderAnim";
-        God.instance.fader.Play(true);
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "ZoneFaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
         PopulateZonePanel();
 
     }
@@ -113,8 +113,8 @@ public class ZonePanelManager : MonoBehaviour {
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-        God.instance.fader.clipName = "FaderAnim";
-        God.instance.fader.Play(false);
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
         currentZone.GetComponent<UIPlayAnimation>().Play(false);
     }

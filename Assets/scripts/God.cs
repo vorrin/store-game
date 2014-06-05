@@ -26,7 +26,7 @@ public class God : MonoBehaviour {
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
-    public UIPlayAnimation fader;
+    public GameObject fader;
     public float totalTimeForTheDay = 600f;
     //public List<string, UILabel> scoreLabels;
 
@@ -216,6 +216,26 @@ public class God : MonoBehaviour {
     }
 
 
+    public void SaveState()
+    {
+        fader.SetActive(true);
+        LevelSerializer.Checkpoint();
+        fader.SetActive(false);
+    }
+
+    public void LoadState()
+    {
+        LevelSerializer.Resume();
+        //fader.SetActiveRecursively(true);
+
+
+    }
+
+    public void OnDeserialized()
+    {
+        print("deSERIALIZING GOD");
+        fader.SetActive(false);
+    }
 
 
     void Update()
@@ -234,7 +254,7 @@ public class God : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S))
         {
             //LevelSerializer.SaveGame("test");
-            LevelSerializer.Checkpoint();
+            SaveState();
 
         }
 
@@ -242,7 +262,7 @@ public class God : MonoBehaviour {
         {
 
             //LevelSerializer.SavedGames[LevelSerializer.SavedGames.Count - 1];
-            LevelSerializer.Resume();
+            LoadState();
             return;
             //LevelSerializer.LoadNow(LevelSerializer)
             //List<LevelSerializer.SaveEntry> tmp =  LevelSerializer.SavedGames.Get<string>(LevelSerializer.PlayerName);

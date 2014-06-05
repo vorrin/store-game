@@ -7,6 +7,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public Customer currentCustomer;
     public UILabel timerLabel;
     public UILabel totalTimeLabel;
+    public UILabel currentZoneLabel;
 
     void Start()
     {
@@ -18,12 +19,20 @@ public class CustomerPanelManager : MonoBehaviour {
    //     gameObject.SetActiveRecursively(true);
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
-        God.instance.fader.clipName = "FaderAnim";
-        God.instance.fader.Play(true);
+        God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
 
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "1" ;
         scenarioLabel.text = customer.scenario;
+        if (currentCustomer.currentZone == null)
+        {
+            currentZoneLabel.text = "Queue";
+        }
+        else
+        {
+            currentZoneLabel.text = currentCustomer.currentZone.zoneName;
+        }
         totalTimeLabel.text = FormatSecondsIntoTimerDisplay(customer.initialTimeAvailable);
         GetComponentInChildren<UIScrollView>().ResetPosition();
         scenarioLabel.ResizeCollider();
@@ -39,7 +48,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public void Hide()
     {
         GetComponent<UIPlayAnimation>().Play(false);
-        God.instance.fader.Play(false);
+        God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
 
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
     }

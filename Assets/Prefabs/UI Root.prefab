@@ -3343,7 +3343,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -3678,7 +3679,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -3858,7 +3860,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -4493,7 +4496,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -4861,7 +4865,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -5666,7 +5671,8 @@ MonoBehaviour:
     nps: 8
     avatarName: customer
     upsell: 1
-    totalTimeAvailable: 173.219833
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: PRODUCT DISPLAY
     secondBestZone: DISCOVERY ZONE
     spend: 200
@@ -5674,6 +5680,8 @@ MonoBehaviour:
     waiting: 1
     customerView: {fileID: 0}
   timerLabel: {fileID: 11400118}
+  totalTimeLabel: {fileID: 0}
+  currentZoneLabel: {fileID: 0}
 --- !u!114 &11400138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6647,6 +6655,7 @@ MonoBehaviour:
   queue: {fileID: 11400258}
   staffTrainingPercent: {fileID: 11400072}
   staffNumber: {fileID: 11400196}
+  zoneName: {fileID: 0}
 --- !u!114 &11400182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7336,7 +7345,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -7516,7 +7526,8 @@ MonoBehaviour:
     nps: 1
     avatarName: customer
     upsell: 0
-    totalTimeAvailable: 60
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
