@@ -18,6 +18,7 @@ public class CustomerView : MonoBehaviour {
 	// Use this for initialization
 	public void Create (Customer customer) {
         customerModel = customer;
+        GetComponent<UISprite>().spriteName = customerModel.avatarName + "_QUEUE";
         GetComponent<CustomSpriteAnimation>().namePrefix = customerModel.avatarName + "_QUEUE" ;
         customerModel.customerView = this;
 	}

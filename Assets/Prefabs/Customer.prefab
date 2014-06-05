@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -880, y: 68, z: 0}
+  m_LocalPosition: {x: 833, y: 98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 65, y: 65, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 59.7866669, y: 108.878052, z: 0}
+  m_Center: {x: 1.01333237, y: -2.52032471, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,15 +90,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 50
-  mHeight: 57
+  mWidth: 76
+  mHeight: 124
   mDepth: 16
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .877192974
+  aspectRatio: .612903237
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: customer1
+  mSpriteName: customer_QUEUE
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -128,7 +128,8 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
+    upsellable: 0
+    attemptingUpsell: 0
     currentTimeAvailable: 60
     initialTimeAvailable: 60
     bestZone: 
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 96943ee0-aeb7-4a47-ac18-130baab442dc
+  _id: f3fda4dd-dc18-4310-ba59-fa3aed92b85a
   classId: 772c93c0-8de3-46da-8385-ca0261a2d7ea
   StoreAllComponents: 0
   Components:

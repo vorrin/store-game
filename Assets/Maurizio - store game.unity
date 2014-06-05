@@ -3760,15 +3760,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 232
-  mHeight: 302
+  mWidth: 176
+  mHeight: 288
   mDepth: 6
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .768211901
+  aspectRatio: .611111104
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: customer0
+  mSpriteName: customer_PROFILE
   mType: 0
   mFillDirection: 1
   mFillAmount: 1
@@ -4477,7 +4477,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3012
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -4669,7 +4669,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3013
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -5178,6 +5178,8 @@ MonoBehaviour:
     Id: b9479685-cfa6-4d96-bfbd-86f595a0e1d5
   - gameObject: {fileID: 1837919986}
     Id: 4bfe5c8d-78ae-46a5-a332-c4dd33a8b726
+  - gameObject: {fileID: 0}
+    Id: f3fda4dd-dc18-4310-ba59-fa3aed92b85a
 --- !u!1 &1005204116
 GameObject:
   m_ObjectHideFlags: 0
@@ -8884,7 +8886,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098987472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -388, y: -5, z: 0}
+  m_LocalPosition: {x: -388, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 171879437}
@@ -8904,7 +8906,7 @@ MonoBehaviour:
   sorting: 2
   pivot: 3
   maxPerLine: 0
-  cellWidth: 65
+  cellWidth: 80
   cellHeight: 50
   animateSmoothly: 1
   hideInactive: 1
@@ -9006,7 +9008,7 @@ MonoBehaviour:
   startingRenderQueue: 3010
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 145, y: 13, z: 374, w: 114}
+  mClipRange: {x: 145, y: 18, z: 398, w: 172}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 9
   mSortingOrder: 0

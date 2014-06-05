@@ -23,8 +23,9 @@ public class CustomerPanelManager : MonoBehaviour {
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
 
         currentCustomer = customer;
-        avatarWindow.spriteName = customer.avatarName + "1" ;
+        avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
         scenarioLabel.text = customer.scenario;
+        GetComponentInChildren<UpsellButton>().setUpselling(customer.attemptingUpsell);
         if (currentCustomer.currentZone == null)
         {
             currentZoneLabel.text = "Queue";
