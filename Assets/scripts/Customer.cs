@@ -106,7 +106,8 @@ using System.Collections;
 
     public void Die()
     {
-
+        
+        Debug.Log("cUSTOMER DYING");
         
         //Customer dies while in zone...
         if (currentZone != null)
@@ -130,12 +131,14 @@ using System.Collections;
                 {
                     //This is so if the customer dies of running out of time when dragged, all looks good.
                     customerView.EndDrag();
-                    GameObject.Destroy(customerView.gameObject);
                 }
                 else
                 {
+
                     God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
                 }
+                GameObject.Destroy(customerView.gameObject);
+
                 
             }
             //    }

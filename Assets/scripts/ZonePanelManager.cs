@@ -117,7 +117,7 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void Hide()
     {
-        displayingZone = true;
+        displayingZone = false;
         GetComponent<UIPlayAnimation>().Play(false);
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);

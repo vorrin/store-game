@@ -26,7 +26,6 @@ public class CustomerView : MonoBehaviour {
 
     public void CustomerDroppedInZone(Zone zone)
     {
-
         GameObject feedbackIcon = Instantiate(God.instance.feedbackIconPrefab, transform.position, Quaternion.identity) as GameObject;
         Customer.ZoneMatchingResults result = customerModel.DroppedInZone(zone);
         if (result == Customer.ZoneMatchingResults.Fail)
@@ -45,12 +44,10 @@ public class CustomerView : MonoBehaviour {
         {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.BestOption;
         }
-
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
     }
-
 
     public void StartDrag() 
     {
@@ -148,26 +145,18 @@ public class CustomerView : MonoBehaviour {
 
 	void OnRelease(){
 	}
-
-
-
-    //void SetToWaiting() {
-    //    customerModel.waiting = true;
-    //    collider.enabled = true;
-    //}
-
 	
-	void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
-		tweener.from = startPos;
-		tweener.to = endPos; 
-		tweener.duration = duration;
-		tweener.delay = delay;
-		tweener.ResetToBeginning();
-		tweener.Play();
-		foreach (EventDelegate currentDelegate in onFinished) {
-			tweener.AddOnFinished(currentDelegate);
-		}
-	}
+    //void TweenToPosition(Vector3 startPos, Vector3 endPos, float duration, float delay, EventDelegate[] onFinished ) {
+    //    tweener.from = startPos;
+    //    tweener.to = endPos; 
+    //    tweener.duration = duration;
+    //    tweener.delay = delay;
+    //    tweener.ResetToBeginning();
+    //    tweener.Play();
+    //    foreach (EventDelegate currentDelegate in onFinished) {
+    //        tweener.AddOnFinished(currentDelegate);
+    //    }
+    //}
 
     //void WalkToRandomSpot ( ) {
     //    EventDelegate newDelegate = new EventDelegate();
