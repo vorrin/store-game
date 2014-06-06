@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -2.01847315, y: -.696971476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -190,8 +190,10 @@ MonoBehaviour:
     scenario: I want to buy them things, fast!
     nps: 1
     avatarName: customer
-    upsell: 0
-    totalTimeAvailable: 60
+    upsellable: 0
+    attemptingUpsell: 0
+    currentTimeAvailable: 60
+    initialTimeAvailable: 60
     bestZone: 
     secondBestZone: 
     spend: 0
@@ -519,10 +521,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 5f08e819-41fa-4f67-b57b-73f033f81359
+  _id: 47d02b37-7ac1-43e1-ad5c-7b68bd167602
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
-  StoreAllComponents: 1
-  Components: []
+  StoreAllComponents: 0
+  Components:
+  - Zone
+  - ZoneView
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -535,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 4c338f52-db76-45f8-9346-c5fdcfe0d667
+  _id: 1af3f89f-02c1-493e-8893-57e922e38b90
   classId: 3d666f60-d2f5-41d1-87fb-0ff5f68df542
   StoreAllComponents: 1
   Components: []
@@ -551,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 15a8ab37-2bdd-4e1c-b607-c88d3a006375
+  _id: 34a2d37b-c5d2-48a1-b8f2-60e9844485d8
   classId: dd1ba823-3678-48e6-b283-c7f4d09b7f77
   StoreAllComponents: 1
   Components: []
@@ -567,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: eb569087-d6a0-49f7-b15d-a683b9a687cc
+  _id: 1f605ab3-e28d-429d-b700-087a77d91875
   classId: a1ce5368-0820-4eff-ae17-16e5e443cf58
   StoreAllComponents: 1
   Components: []
