@@ -68,17 +68,68 @@ public class God : MonoBehaviour {
         UpdateScoresMenu();
     }
 
-    public void CustomerProcessedSuccesfully(Customer customer)
+
+    public void CustomerProcessedSuccessfully(Customer customer, bool upselling = false )
     {
-        //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
+        if (upselling)
+        {
+            print("UPSELLING yO");
+            customer.spend = customer.spend * 2;
+        }
         score.totalCustomersProcessed++;
-        customers.Remove(customer);
         score.totalNPSForTheDay += customer.nps;
         score.totalSpendForTheDay += customer.spend;
-
-        
-
+        customers.Remove(customer);
         UpdateScoresMenu();
+    } 
+
+    public void CustomerProcessingCompleteGod(Customer customer)
+    {
+        //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
+        if (customer.attemptingUpsell)
+        {
+            string currentMood = customer.GetMoodColor();
+            if (!customer.upsellable)
+            {
+                if (currentMood == "green")
+                {
+                    //nothing happens ,sale completes normally.
+                    CustomerProcessedSuccessfully(customer);
+                    return;
+                }
+                else
+                {
+                    CustomerLost(customer);
+                    return;
+                }
+            }
+            else //customer upsellable and upsold
+            {
+                if (currentMood == "red")
+                {
+                    CustomerLost(customer);
+                    return;
+                }
+                else
+                {
+                    //SUCCESS CUSTOMER UPSELLABLE AND UPSOLD
+                    CustomerProcessedSuccessfully(customer,true);
+                    return;
+
+                }
+            }
+
+            
+            //Feedback for upsellfail somehow?
+
+        }
+        else
+        {
+            //Upsell not attempted
+            CustomerProcessedSuccessfully(customer);
+            return;
+        }
+
     }
 
     void UpdateScoresMenu()

@@ -33,8 +33,10 @@ public class ZonePanelManager : MonoBehaviour {
         zoneName.text = zone.zoneName;
         //DEBUG tmp hack
         GetComponent<UIPlayAnimation>().Play(true);
+        EventDelegate asd = new EventDelegate();
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "ZoneFaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
+
         PopulateZonePanel();
 
     }

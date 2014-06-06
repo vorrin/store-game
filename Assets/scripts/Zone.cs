@@ -80,11 +80,11 @@ public class Zone : MonoBehaviour {
     }
 
 
-    void CustomerSuccesfullyProcessed()
+    void CustomerProcessingCompleteZone()
     {
-        God.instance.CustomerProcessedSuccesfully(currentlyProcessedCustomer);
-        customers.RemoveAt(0);
+        God.instance.CustomerProcessingCompleteGod(currentlyProcessedCustomer);
         processingCustomer = false;
+        customers.RemoveAt(0);
         zoneView.UpdateCustomerNumber();
         CheckIfQueueIsFull();
         if (God.instance.zonePanelManager.enabled)
@@ -106,7 +106,7 @@ public class Zone : MonoBehaviour {
             zoneView.UpdateProgressIndicator(percentageOfCompletion);
             if (percentageOfCompletion >= 1f)
             {
-                CustomerSuccesfullyProcessed();
+                CustomerProcessingCompleteZone();
             }
         }
 	}
