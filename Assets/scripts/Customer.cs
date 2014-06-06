@@ -21,6 +21,7 @@ using System.Collections;
 	public bool waiting = false;
     public CustomerView customerView;
 
+
     
 
 	public  enum ZoneMatchingResults {
@@ -68,6 +69,8 @@ using System.Collections;
         //ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
 
+
+
     public Customer(Customer customerCloneBase)
     {
 
@@ -90,12 +93,14 @@ using System.Collections;
     public ZoneMatchingResults DroppedInZone(Zone zone)
     {
         //HERE THE DIFFERENT RESULTS WILL COME AND MAKE ICONS
-        int res = 1;
+      
         if (zone.zoneName == bestZone ) // best
         {
             return ZoneMatchingResults.Best;
         }
         else if (zone.zoneName == secondBestZone) {
+            nps = nps - God.instance.moodModifierForSecondBestChoice;
+            if (nps < 1f) nps = 1;
             return ZoneMatchingResults.SecondBest;
         }
         else
@@ -145,6 +150,16 @@ using System.Collections;
         }
 
         God.instance.CustomerLost(this);
+    }
+
+
+    public void BackToQueueFromZone()
+    {
+        currentZone.RemoveCustomer(this);
+        waiting = true;
+        currentZone = null; 
+        God.instance.customers.Remove(this); //avoids doubleadding
+        God.instance.AddCustomer(this);
     }
 
     public string GetMoodColor()

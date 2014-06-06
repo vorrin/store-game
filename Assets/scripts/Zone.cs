@@ -49,8 +49,13 @@ public class Zone : MonoBehaviour {
         // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
         God.instance.zonePanelManager.RemoveCustomer(customer);
         customers.Remove(customer);
+        customer.currentZone = null;
         zoneView.UpdateCustomerNumber();
-        CheckIfQueueIsFull();
+        if (customer == currentlyProcessedCustomer)
+        {
+            processingCustomer = false;
+        }
+            CheckIfQueueIsFull();
        // StartCustomerProcessing();
     }
 

@@ -29,6 +29,9 @@ public class God : MonoBehaviour {
     public GameObject fader;
     public float totalTimeForTheDay = 600f;
 
+    public float moodModifierForSecondBestChoice = 3f;
+
+
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
     
