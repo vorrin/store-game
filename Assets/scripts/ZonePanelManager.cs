@@ -36,9 +36,7 @@ public class ZonePanelManager : MonoBehaviour {
         EventDelegate asd = new EventDelegate();
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "ZoneFaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
-
         PopulateZonePanel();
-
     }
 
     public void ReorderCustomerList( BetterList<Transform> list ){ // THIS HAPPENS IN REPOSITION, ZoneGrid.cs !!!! 
@@ -53,8 +51,6 @@ public class ZonePanelManager : MonoBehaviour {
         //currentZone.currentlyProcessedCustomer.waiting = false;
         if (customers[0] != currentZone.currentlyProcessedCustomer) // First customer has changed.
         {
-            //Debug.Log("ALL IS DIFFERENT FOREVERS " );
-            print("ALL IS DIFFERENT FOREVERS " + customers[0] + " and " + currentZone.currentlyProcessedCustomer);
             currentZone.StartCustomerProcessing();
         }
     }
@@ -66,6 +62,7 @@ public class ZonePanelManager : MonoBehaviour {
         staffNumber.text = (Mathf.Floor(currentZone.staffPower) + 1).ToString();
         //Customers adding etc
         ClearZonePanel();
+
 
         if (currentZone.customers.Count == 0) return;
         foreach (Customer customer in currentZone.customers)
@@ -81,20 +78,27 @@ public class ZonePanelManager : MonoBehaviour {
         queue.Reposition();
     }
 
+
+
     public void ClearZonePanel()
     {
+        
+        List<GameObject> customersToBeDestroyed = new List<GameObject>();
         foreach (Transform child in queue.transform)
         {
             if (!child.name.Contains("Spot"))
             {
-                print("CLEARING!");
-
-                
-                Destroy(child.gameObject);
-                child.parent = null;
+                customersToBeDestroyed.Add(child.gameObject);
             }
         }
+        foreach (GameObject customer in customersToBeDestroyed)
+        {
+            customer.transform.parent = null;
+            Destroy(customer);
+        }
     }
+
+    
 
     public void RemoveCustomer(Customer processedCustomer)
     {

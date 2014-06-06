@@ -138,7 +138,7 @@ public class God : MonoBehaviour {
 
     void UpdateScoresMenu()
     {
-        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / customers.Count ).ToString("00");
+        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("00");
         scoreLabels.totalCustomersLabel.text = Mathf.Floor(customers.Count).ToString("00");
         scoreLabels.totalCustomersProcessedLabel.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("00");
     }
