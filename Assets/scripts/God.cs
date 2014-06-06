@@ -350,8 +350,20 @@ public class God : MonoBehaviour {
         UpdateCustomers();
 
         totalTimeForTheDay -= Time.deltaTime;
-        scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
+        if (totalTimeForTheDay <= 0)
+        {
+            scoreLabels.totalTimeLabel.text = "0"; 
+            //DO SOMETHING LIKE MAKE CUSTOMERS DISAPPEAR AND BRING UP THE END SCREEN. 
+
+
+        }
+        else
+        {
+            scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
+        }
         
+
+
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {

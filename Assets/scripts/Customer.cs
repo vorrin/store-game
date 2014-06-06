@@ -63,6 +63,17 @@ using System.Collections;
 		this.upsellable = upSellVal;
 		this.spend = spend;
 
+
+        //DEBUG NOT THE RIGHT WAY, DO DIFFERENT LATER.
+        if (Random.value < 0.5f)
+        {
+            avatarName = "customer";
+        }
+        else
+        {
+            avatarName = "customer1";
+        }
+
         //scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
 
         waiting = true;
@@ -79,7 +90,8 @@ using System.Collections;
         this.ethnicity = customerCloneBase.ethnicity;
         this.scenario = customerCloneBase.scenario;
         this.nps = customerCloneBase.nps;
-
+        //DEBUG avatarname not to be used?
+        this.avatarName = customerCloneBase.avatarName;
         this.initialTimeAvailable = customerCloneBase.initialTimeAvailable;
         this.currentTimeAvailable = customerCloneBase.initialTimeAvailable;
 
