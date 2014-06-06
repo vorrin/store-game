@@ -132,6 +132,7 @@ public class God : MonoBehaviour {
 
     }
 
+
     void UpdateScoresMenu()
     {
         scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / customers.Count ).ToString("00");
@@ -160,25 +161,63 @@ public class God : MonoBehaviour {
 			return s_Instance;
 		}
 	}
-	
+
+    void OnApplicationPause(bool isPaused)
+    {
+        print("PAUSING AND " + isPaused);
+        if (isPaused)
+        {
+            SaveState();
+        }
+    }
+
 	// Ensure that the instance is destroyed when the game is stopped in the editor.
+
 	void OnApplicationQuit() {
+    //    SaveState();
 		s_Instance = null;
 	}
 
+    public void DeleteOldSavegames()
+    {
+        //PlayerPrefs.GetString(PlayerName + "__RESUME__") = 
+        PlayerPrefs.DeleteKey(LevelSerializer.PlayerName + "__RESUME__");
+        Application.LoadLevel(0);
+        foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
+        {
+            currentSvae.Delete();
+        }
+
+    }
 
 	private List<Customer> test = new List<Customer>();
+
+    public void OnApplicationFocus(bool isInFocus)
+    {
+        if (isInFocus)
+        {
+            //LOADING FOR MOBILES GOES HERE
+         //   LoadState();
+            // not the right one ... actually should work better... //if (LevelSerializer.CanResume) LoadState();
+        }
+        else
+        {
+            print("PAUSING AND SAVING ");
+        }
+    }
+
 
 
     public void Start()
     {
+
+        
         UpdateScoresMenu();
         
         
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
         StartCoroutine(DelayedAddingOfCustomers());
-
 
     }
 
@@ -297,7 +336,9 @@ public class God : MonoBehaviour {
     public void OnDeserialized()
     {
         print("deSERIALIZING GOD");
+
         fader.SetActive(false);
+        UpdateScoresMenu();
     }
 
 
