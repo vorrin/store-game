@@ -105,12 +105,14 @@ using System.Collections;
     public ZoneMatchingResults DroppedInZone(Zone zone)
     {
         //HERE THE DIFFERENT RESULTS WILL COME AND MAKE ICONS
+
       
-        if (zone.zoneName == bestZone ) // best
+        if (zone.zoneName == bestZone.Trim() ) // best
         {
             return ZoneMatchingResults.Best;
         }
-        else if (zone.zoneName == secondBestZone) {
+        else if (zone.zoneName == secondBestZone.Trim())
+        {
             nps = nps - God.instance.moodModifierForSecondBestChoice;
             if (nps < 1f) nps = 1;
             return ZoneMatchingResults.SecondBest;

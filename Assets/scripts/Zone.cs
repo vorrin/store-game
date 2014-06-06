@@ -20,12 +20,9 @@ public class Zone : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
-        
-        
 	}
 
     public void OnDeserialized()
