@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.01847315, y: -.696971476, z: 0}
+  m_LocalPosition: {x: .743537664, y: -.172178701, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -521,12 +521,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 47d02b37-7ac1-43e1-ad5c-7b68bd167602
+  _id: 0629b12e-9720-4784-a763-eda2358aa56f
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
   - Zone
   - ZoneView
+  - UIPanel
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 1af3f89f-02c1-493e-8893-57e922e38b90
+  _id: 24e6c829-46f9-40a4-ac6b-a9cf383c77a0
   classId: 3d666f60-d2f5-41d1-87fb-0ff5f68df542
   StoreAllComponents: 1
   Components: []
@@ -555,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 34a2d37b-c5d2-48a1-b8f2-60e9844485d8
+  _id: ad6c73f0-963d-4579-9bf4-6e5f94286429
   classId: dd1ba823-3678-48e6-b283-c7f4d09b7f77
   StoreAllComponents: 1
   Components: []
@@ -571,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 1f605ab3-e28d-429d-b700-087a77d91875
+  _id: 8ad8e96e-d75c-41c0-a5f9-ebb8f5eb0b39
   classId: a1ce5368-0820-4eff-ae17-16e5e443cf58
   StoreAllComponents: 1
   Components: []
