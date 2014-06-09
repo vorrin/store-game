@@ -543,7 +543,7 @@ MonoBehaviour:
   zoneName: CONSULTATION AREA
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -567,6 +567,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &59013750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,7 +1416,7 @@ MonoBehaviour:
   zoneName: SELF SERVICE
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 1
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -1439,6 +1440,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &150140713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1704,7 +1706,7 @@ MonoBehaviour:
   zoneName: ATTRACTION AREA
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -1728,6 +1730,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &159598762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,6 +2355,7 @@ MonoBehaviour:
   fader: {fileID: 1814919591}
   totalTimeForTheDay: 600
   moodModifierForSecondBestChoice: 3
+  endOfDayPhase: 0
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
@@ -3175,7 +3179,7 @@ MonoBehaviour:
   zoneName: PRODUCT DISPLAY
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -3199,6 +3203,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &439612542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3555,10 +3560,12 @@ Transform:
   m_LocalPosition: {x: 92, y: -55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1425493834}
   - {fileID: 1685017665}
   - {fileID: 388049433}
   - {fileID: 194941611}
   - {fileID: 1754175770}
+  - {fileID: 1280345310}
   m_Father: {fileID: 1545613483}
 --- !u!114 &463183453
 MonoBehaviour:
@@ -4091,7 +4098,7 @@ MonoBehaviour:
   zoneName: STORE MANAGER
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -4115,6 +4122,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &626608161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6870,6 +6878,126 @@ MonoBehaviour:
   mDepth: 23
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!1 &1280345308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100062, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1280345310}
+  - 114: {fileID: 1280345312}
+  - 114: {fileID: 1280345309}
+  - 65: {fileID: 1280345311}
+  m_Layer: 9
+  m_Name: HireButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1280345309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400128, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1280345308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1280345308}
+  hover: {r: .882352948, g: .784313738, b: .588235319, a: 1}
+  pressed: {r: .717647076, g: .639215708, b: .482352942, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  duration: .200000003
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: icons_scrollARROW_actual_02
+  disabledSprite: icons_scrollARROW_OFF
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1545613486}
+    mMethodName: HireStaff
+    mParameters: []
+    oneShot: 0
+--- !u!4 &1280345310
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400062, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1280345308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -109.871643, y: 25.5761356, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 463183452}
+--- !u!65 &1280345311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500020, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1280345308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 43, y: 71, z: 0}
+  m_Center: {x: -.5, y: .5, z: 0}
+--- !u!114 &1280345312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400130, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1280345308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 50
+  mHeight: 76
+  mDepth: 100
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .657894731
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: icons_scrollARROW_actual_01
+  mType: 1
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
 --- !u!1 &1292278833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7484,6 +7612,126 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361130316}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1425493832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100062, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1425493834}
+  - 114: {fileID: 1425493836}
+  - 114: {fileID: 1425493833}
+  - 65: {fileID: 1425493835}
+  m_Layer: 9
+  m_Name: TrainButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1425493833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400128, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425493832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1425493832}
+  hover: {r: .882352948, g: .784313738, b: .588235319, a: 1}
+  pressed: {r: .717647076, g: .639215708, b: .482352942, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  duration: .200000003
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: icons_scrollARROW_actual_02
+  disabledSprite: icons_scrollARROW_OFF
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1545613486}
+    mMethodName: TrainStaff
+    mParameters: []
+    oneShot: 0
+--- !u!4 &1425493834
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400062, guid: 895989cb11b1aec458f3bb01b71bb1ac, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425493832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -109.871704, y: -44.0594482, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 463183452}
+--- !u!65 &1425493835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500020, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425493832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 43, y: 71, z: 0}
+  m_Center: {x: -.5, y: .5, z: 0}
+--- !u!114 &1425493836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400130, guid: 895989cb11b1aec458f3bb01b71bb1ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425493832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 50
+  mHeight: 76
+  mDepth: 100
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .657894731
+  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mSpriteName: icons_scrollARROW_actual_01
+  mType: 1
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mFillCenter: 1
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
 --- !u!1 &1434185434
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,7 +8127,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545613482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -529, y: 61, z: 0}
+  m_LocalPosition: {x: -529, y: 60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 868810636}
@@ -7947,6 +8195,8 @@ MonoBehaviour:
   zoneName: {fileID: 1440114811}
   backButton: {fileID: 868810638}
   displayingZone: 0
+  hireButton: {fileID: 1280345309}
+  trainButton: {fileID: 1425493833}
 --- !u!65 &1545613487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9376,7 +9626,7 @@ MonoBehaviour:
   zoneName: DISCOVERY ZONE
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -9400,6 +9650,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &1837919991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9665,7 +9916,7 @@ MonoBehaviour:
   zoneName: SUPPORT AREA
   staffs: []
   customers: []
-  staffPower: .300000012
+  staffPower: 20
   maxQueue: 5
   queueOpen: 1
   zoneView: {fileID: 0}
@@ -9689,6 +9940,7 @@ MonoBehaviour:
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
+  staffNumber: 1
 --- !u!114 &1841164079
 MonoBehaviour:
   m_ObjectHideFlags: 0

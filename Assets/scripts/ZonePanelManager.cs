@@ -12,6 +12,9 @@ public class ZonePanelManager : MonoBehaviour {
     public UILabel zoneName;
     public UIButton backButton;
     public bool displayingZone = false;
+    public UIButton hireButton;
+    public UIButton trainButton;
+
 
 
 	// Use this for initialization
@@ -27,6 +30,7 @@ public class ZonePanelManager : MonoBehaviour {
     public void Display(Zone zone)
     {
         //  God.instance.fader.SetActive(true);
+
         currentZone = zone;
         displayingZone = true;
         ClearZonePanel();
@@ -37,6 +41,41 @@ public class ZonePanelManager : MonoBehaviour {
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "ZoneFaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
         PopulateZonePanel();
+        if (God.instance.endOfDayPhase)
+        {
+            RefreshStaffButtons();
+        }
+    }
+
+    public void RefreshStaffButtons()
+    {
+        print(currentZone.staffPower % 1);
+        if (currentZone.staffPower  % 100 == 0) // Unity float weirdness
+        {
+            print("modulo as exp");
+            hireButton.gameObject.SetActive(true);
+            trainButton.gameObject.SetActive(false);           
+        }
+        else
+        {
+            hireButton.gameObject.SetActive(false);
+            trainButton.gameObject.SetActive(true);           
+        }
+        PopulateZonePanel();
+    }
+
+    public void HireStaff()
+    {
+        //Some cost shall be elicited
+        currentZone.staffNumber += 1;
+        currentZone.staffPower += 20;
+        RefreshStaffButtons();
+    }
+
+    public void TrainStaff()
+    {
+        currentZone.staffPower += 20;
+        RefreshStaffButtons();
     }
 
     public void ReorderCustomerList( BetterList<Transform> list ){ // THIS HAPPENS IN REPOSITION, ZoneGrid.cs !!!! 
@@ -58,8 +97,8 @@ public class ZonePanelManager : MonoBehaviour {
     public void PopulateZonePanel()
     {
         //Updating labels
-        staffTrainingPercent.text = Mathf.Floor((currentZone.staffPower * 100)).ToString() + "%";
-        staffNumber.text = (Mathf.Floor(currentZone.staffPower) + 1).ToString();
+        staffTrainingPercent.text = currentZone.staffPower.ToString() + "%";
+        staffNumber.text = currentZone.staffNumber.ToString();
         //Customers adding etc
         ClearZonePanel();
 
@@ -129,6 +168,9 @@ public class ZonePanelManager : MonoBehaviour {
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
         currentZone.GetComponent<UIPlayAnimation>().Play(false);
+        hireButton.gameObject.SetActive(false);
+        trainButton.gameObject.SetActive(false);
+
     }
 
 }
