@@ -22,6 +22,7 @@ using System.Collections;
     public CustomerView customerView;
 
 
+    
 
 	public  enum ZoneMatchingResults {
 		Fail,
@@ -62,11 +63,24 @@ using System.Collections;
 		this.upsellable = upSellVal;
 		this.spend = spend;
 
+
+        //DEBUG NOT THE RIGHT WAY, DO DIFFERENT LATER.
+        if (Random.value < 0.5f)
+        {
+            avatarName = "customer";
+        }
+        else
+        {
+            avatarName = "customer1";
+        }
+
         //scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
 
         waiting = true;
         //ChangeZone(God.instance.entrance.GetComponent<Zone>());
     }
+
+
 
     public Customer(Customer customerCloneBase)
     {
@@ -76,7 +90,8 @@ using System.Collections;
         this.ethnicity = customerCloneBase.ethnicity;
         this.scenario = customerCloneBase.scenario;
         this.nps = customerCloneBase.nps;
-
+        //DEBUG avatarname not to be used?
+        this.avatarName = customerCloneBase.avatarName;
         this.initialTimeAvailable = customerCloneBase.initialTimeAvailable;
         this.currentTimeAvailable = customerCloneBase.initialTimeAvailable;
 
@@ -90,12 +105,16 @@ using System.Collections;
     public ZoneMatchingResults DroppedInZone(Zone zone)
     {
         //HERE THE DIFFERENT RESULTS WILL COME AND MAKE ICONS
-        int res = 1;
-        if (zone.zoneName == bestZone ) // best
+
+      
+        if (zone.zoneName == bestZone.Trim() ) // best
         {
             return ZoneMatchingResults.Best;
         }
-        else if (zone.zoneName == secondBestZone) {
+        else if (zone.zoneName == secondBestZone.Trim())
+        {
+            nps = nps - God.instance.moodModifierForSecondBestChoice;
+            if (nps < 1f) nps = 1;
             return ZoneMatchingResults.SecondBest;
         }
         else
@@ -145,6 +164,16 @@ using System.Collections;
         }
 
         God.instance.CustomerLost(this);
+    }
+
+
+    public void BackToQueueFromZone()
+    {
+        currentZone.RemoveCustomer(this);
+        waiting = true;
+        currentZone = null; 
+        God.instance.customers.Remove(this); //avoids doubleadding
+        God.instance.AddCustomer(this);
     }
 
     public string GetMoodColor()

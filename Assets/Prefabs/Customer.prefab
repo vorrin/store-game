@@ -32,6 +32,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400008}
+  - 114: {fileID: 11400016}
   m_Layer: 9
   m_Name: MoodCloud
   m_TagString: Untagged
@@ -46,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.4860344, y: -715.167908, z: 0}
+  m_LocalPosition: {x: -821.224854, y: -682.145081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8d5e75d7-f982-4134-9229-019ae714c720
+  _id: 357fb762-2c09-4f7d-a4d9-f7acdb75b553
   classId: 772c93c0-8de3-46da-8385-ca0261a2d7ea
   StoreAllComponents: 0
   Components:
@@ -307,6 +308,24 @@ MonoBehaviour:
   cloneOnDrag: 0
   dragging: 0
   customerView: {fileID: 0}
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 1fc50353-7c03-4260-af2d-cd11ed3d3637
+  classId: e49a893f-6efd-4d12-986e-89cd31b48377
+  StoreAllComponents: 0
+  Components:
+  - UISprite
+  - UnityEngine.Transform
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

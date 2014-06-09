@@ -29,10 +29,19 @@ public class God : MonoBehaviour {
     public GameObject fader;
     public float totalTimeForTheDay = 600f;
 
+    public float moodModifierForSecondBestChoice = 3f;
+    public bool endOfDayPhase = false;
+
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
-
     
+    //public enum PossibleMoods {
+    //    green ,
+    //    amber ,
+    //    red 
+    //}
+
+    //public PossibleMoods moood;
 
     //public List<string, UILabel> scoreLabels;
 
@@ -62,22 +71,74 @@ public class God : MonoBehaviour {
         UpdateScoresMenu();
     }
 
-    public void CustomerProcessedSuccesfully(Customer customer)
+
+    public void CustomerProcessedSuccessfully(Customer customer, bool upselling = false )
     {
-        //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
+        if (upselling)
+        {
+            print("UPSELLING yO");
+            customer.spend = customer.spend * 2;
+        }
         score.totalCustomersProcessed++;
-        customers.Remove(customer);
         score.totalNPSForTheDay += customer.nps;
         score.totalSpendForTheDay += customer.spend;
-
-        
-
+        customers.Remove(customer);
         UpdateScoresMenu();
+    } 
+
+    public void CustomerProcessingCompleteGod(Customer customer)
+    {
+        //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
+        if (customer.attemptingUpsell)
+        {
+            string currentMood = customer.GetMoodColor();
+            if (!customer.upsellable)
+            {
+                if (currentMood == "green")
+                {
+                    //nothing happens ,sale completes normally.
+                    CustomerProcessedSuccessfully(customer);
+                    return;
+                }
+                else
+                {
+                    CustomerLost(customer);
+                    return;
+                }
+            }
+            else //customer upsellable and upsold
+            {
+                if (currentMood == "red")
+                {
+                    CustomerLost(customer);
+                    return;
+                }
+                else
+                {
+                    //SUCCESS CUSTOMER UPSELLABLE AND UPSOLD
+                    CustomerProcessedSuccessfully(customer,true);
+                    return;
+
+                }
+            }
+
+            
+            //Feedback for upsellfail somehow?
+
+        }
+        else
+        {
+            //Upsell not attempted
+            CustomerProcessedSuccessfully(customer);
+            return;
+        }
+
     }
+
 
     void UpdateScoresMenu()
     {
-        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay).ToString("00");
+        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("00");
         scoreLabels.totalCustomersLabel.text = Mathf.Floor(customers.Count).ToString("00");
         scoreLabels.totalCustomersProcessedLabel.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("00");
     }
@@ -103,25 +164,63 @@ public class God : MonoBehaviour {
 			return s_Instance;
 		}
 	}
-	
+
+    void OnApplicationPause(bool isPaused)
+    {
+        print("PAUSING AND " + isPaused);
+        if (isPaused)
+        {
+            SaveState();
+        }
+    }
+
 	// Ensure that the instance is destroyed when the game is stopped in the editor.
+
 	void OnApplicationQuit() {
+    //    SaveState();
 		s_Instance = null;
 	}
 
+    public void DeleteOldSavegames()
+    {
+        //PlayerPrefs.GetString(PlayerName + "__RESUME__") = 
+        PlayerPrefs.DeleteKey(LevelSerializer.PlayerName + "__RESUME__");
+        Application.LoadLevel(0);
+        foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
+        {
+            currentSvae.Delete();
+        }
+
+    }
 
 	private List<Customer> test = new List<Customer>();
+
+    public void OnApplicationFocus(bool isInFocus)
+    {
+        if (isInFocus)
+        {
+            //LOADING FOR MOBILES GOES HERE
+         //   LoadState();
+            // not the right one ... actually should work better... //if (LevelSerializer.CanResume) LoadState();
+        }
+        else
+        {
+            print("PAUSING AND SAVING ");
+        }
+    }
+
 
 
     public void Start()
     {
+
+        
         UpdateScoresMenu();
         
         
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
         StartCoroutine(DelayedAddingOfCustomers());
-
 
     }
 
@@ -240,7 +339,9 @@ public class God : MonoBehaviour {
     public void OnDeserialized()
     {
         print("deSERIALIZING GOD");
+
         fader.SetActive(false);
+        UpdateScoresMenu();
     }
 
 
@@ -249,8 +350,20 @@ public class God : MonoBehaviour {
         UpdateCustomers();
 
         totalTimeForTheDay -= Time.deltaTime;
-        scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
+        if (totalTimeForTheDay <= 0)
+        {
+            scoreLabels.totalTimeLabel.text = "0"; 
+            //DO SOMETHING LIKE MAKE CUSTOMERS DISAPPEAR AND BRING UP THE END SCREEN. 
+
+
+        }
+        else
+        {
+            scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
+        }
         
+
+
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
         {

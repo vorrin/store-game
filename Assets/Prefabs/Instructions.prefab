@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400002}
+  - 65: {fileID: 6500000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Instructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!65 &6500000
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 350, y: 750, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollView: {fileID: 0}
+  draggablePanel: {fileID: 0}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 350
+  mHeight: 750
+  mDepth: 0
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .466666669
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: 3b317ee38eb5aec4d897b67344dcabe3, type: 3}
+  mFont: {fileID: 0}
+  mText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat,
+    libero at eleifend faucibus, odio magna hendrerit nisl, sit amet porta nunc nisl
+    vestibulum massa. Nulla accumsan velit quis augue ornare, id blandit dolor ornare.
+    Donec tempor nisi id diam tincidunt tristique. Maecenas consectetur mauris risus,
+    non commodo libero dignissim eu. Cras tellus massa, auctor a magna vitae, ullamcorper
+    imperdiet dolor. In neque risus, ullamcorper et laoreet vitae, posuere id ipsum.
+    Vestibulum tempus in tellus et lacinia. Praesent enim nisl, vehicula at tincidunt
+    pretium, pretium id velit. Suspendisse pellentesque condimentum diam at rhoncus.\r\n\r\nDonec
+    consectetur eleifend orci non imperdiet. Nunc non felis quis dui elementum accumsan.
+    Etiam vel lacinia velit. Suspendisse lectus sapien, egestas non lorem nec, imperdiet
+    feugiat elit. Praesent eget hendrerit erat. Aliquam quis dolor non nibh condimentum
+    posuere id in nibh. Sed tristique, dolor sed tincidunt pharetra, tortor risus
+    rhoncus tellus, non iaculis erat sem vitae nisi. Nam ut libero at justo pulvinar
+    suscipit a eget risus.\r\n\r\nVivamus in quam id nunc tempus congue. Pellentesque
+    quis imperdiet mi. Donec iaculis volutpat libero sed tempus. Suspendisse id mauris
+    consectetur, faucibus nibh vulputate, facilisis metus. Maecenas varius, turpis
+    ut tempus venenatis, ante elit lacinia mauris, non interdum massa diam vitae nisl.
+    Nunc convallis purus non faucibus eleifend. Nunc aliquam, metus nec varius placerat,
+    risus libero feugiat nunc, vitae molestie lacus metus a metus. Sed ut metus interdum,
+    pellentesque elit vitae, condimentum nisi. Curabitur rutrum, nisl sit amet porttitor
+    elementum, augue justo vehicula nibh, vel ultricies purus erat ac eros. Suspendisse
+    cursus leo sed interdum ultrices. Duis tristique tincidunt tellus, sit amet sodales
+    enim tincidunt id. Etiam id velit egestas, molestie lorem ac, porta mauris. Aenean
+    sit amet ornare enim, sed elementum odio. In tincidunt, nunc eu adipiscing facilisis,
+    eros nibh laoreet sem, nec varius tortor mi et metus."
+  mFontSize: 16
+  mFontStyle: 0
+  mAlignment: 1
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 1
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

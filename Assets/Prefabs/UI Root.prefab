@@ -1,4 +1,4 @@
-%YAML 1.1
+	%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100000
 GameObject:
@@ -5688,6 +5688,8 @@ MonoBehaviour:
   timerLabel: {fileID: 11400118}
   totalTimeLabel: {fileID: 0}
   currentZoneLabel: {fileID: 0}
+  moodBubble: {fileID: 0}
+  backToQueueButton: {fileID: 0}
 --- !u!114 &11400138
 MonoBehaviour:
   m_ObjectHideFlags: 1
