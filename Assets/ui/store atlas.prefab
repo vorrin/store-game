@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: icons_clock
-    x: 734
-    y: 471
+    x: 616
+    y: 262
     width: 43
     height: 42
     borderLeft: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 2
   - name: icons_customers_status
-    x: 689
+    x: 794
     y: 470
     width: 44
     height: 43
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: icons_customersSERVED
-    x: 616
-    y: 279
+    x: 740
+    y: 468
     width: 53
     height: 45
     borderLeft: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: icons_scrollARROW_actual_01
     x: 419
-    y: 266
+    y: 205
     width: 43
     height: 70
     borderLeft: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: icons_scrollARROW_actual_02
     x: 616
-    y: 376
+    y: 305
     width: 44
     height: 68
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 4
   - name: icons_scrollARROW_OFF
-    x: 419
-    y: 195
+    x: 616
+    y: 374
     width: 43
     height: 70
     borderLeft: 0
@@ -547,6 +547,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: staffBuyCoin
+    x: 419
+    y: 276
+    width: 60
+    height: 60
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: store-game
     x: 481
     y: 1421
@@ -574,8 +587,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: zoneIcon
-    x: 616
-    y: 325
+    x: 689
+    y: 463
     width: 50
     height: 50
     borderLeft: 0

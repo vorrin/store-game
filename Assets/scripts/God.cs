@@ -31,6 +31,7 @@ public class God : MonoBehaviour {
 
     public float moodModifierForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
+    public EndOfDayPanelManager endScreenPanel;
 
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
@@ -136,6 +137,36 @@ public class God : MonoBehaviour {
     }
 
 
+    //void TestTweens(AbstractGoTween asd )
+    //{
+    //    Debug.Log(asd);
+    //    print("GGIGIGIGIO");
+    //}
+    void EndWorkingDay()
+    {
+        
+        zonePanelManager.Hide();
+        customerPanelManager.Hide();
+        endOfDayPhase = true;
+        customers = new List<Customer>();   
+        foreach (GameObject zone in zones)
+        {
+            zone.GetComponent<Zone>().ClearZone();
+            zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+        }
+        foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customer"))
+        {
+            Destroy(customerView);
+        }
+        StopCoroutine("DelayedAddingOfCustomers");
+        
+        endScreenPanel.Display( (x) => {
+            print("ASDASD");//CALLBACK -> do whatever you like / attach a method / whatever really!
+        } );
+        
+
+    }
+
     void UpdateScoresMenu()
     {
         scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("00");
@@ -146,41 +177,7 @@ public class God : MonoBehaviour {
     
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
-	public static God instance {
-		get {
-			if (s_Instance == null) {
-				// This is where the magic happens.
-				//  FindObjectOfType(...) returns the first AManager object in the scene.
-				s_Instance =  FindObjectOfType(typeof (God)) as God;
-			}
-			
-			// If it is still null, create a new instance
-			if (s_Instance == null) {
-				GameObject obj = new GameObject("AManager");
-				s_Instance = obj.AddComponent(typeof (God)) as God;
-				Debug.Log ("Could not locate an AManager object.  AManager was Generated Automaticly.");
-			}
-			
-			return s_Instance;
-		}
-	}
-
-    void OnApplicationPause(bool isPaused)
-    {
-        print("PAUSING AND " + isPaused);
-        if (isPaused)
-        {
-            SaveState();
-        }
-    }
-
-	// Ensure that the instance is destroyed when the game is stopped in the editor.
-
-	void OnApplicationQuit() {
-    //    SaveState();
-		s_Instance = null;
-	}
-
+	
     public void DeleteOldSavegames()
     {
         //PlayerPrefs.GetString(PlayerName + "__RESUME__") = 
@@ -263,7 +260,10 @@ public class God : MonoBehaviour {
         TestingGame();
 
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
-        StartCoroutine(DelayedAddingOfCustomers());
+        if (!endOfDayPhase)
+        {
+            StartCoroutine(DelayedAddingOfCustomers());
+        }
 
     }
 
@@ -332,14 +332,27 @@ public class God : MonoBehaviour {
     {
         LevelSerializer.Resume();
         //fader.SetActiveRecursively(true);
-
-
     }
+
+    void OnApplicationPause(bool isPaused) // THIS IS WHAT SAVES THE GAME ON MOBILE! 
+    {
+        print("PAUSING AND " + isPaused);
+        if (isPaused)
+        {
+            SaveState();
+        }
+    }
+
+
 
     public void OnDeserialized()
     {
         print("deSERIALIZING GOD");
 
+        foreach (GameObject zone in zones)
+        {
+            zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+        }
         fader.SetActive(false);
         UpdateScoresMenu();
     }
@@ -376,6 +389,13 @@ public class God : MonoBehaviour {
             SaveState();
 
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            EndWorkingDay();
+
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -396,6 +416,36 @@ public class God : MonoBehaviour {
            
         } 
     }
-	
+    public static God instance
+    {
+        get
+        {
+            if (s_Instance == null)
+            {
+                // This is where the magic happens.
+                //  FindObjectOfType(...) returns the first AManager object in the scene.
+                s_Instance = FindObjectOfType(typeof(God)) as God;
+            }
+
+            // If it is still null, create a new instance
+            if (s_Instance == null)
+            {
+                GameObject obj = new GameObject("AManager");
+                s_Instance = obj.AddComponent(typeof(God)) as God;
+                Debug.Log("Could not locate an AManager object.  AManager was Generated Automaticly.");
+            }
+
+            return s_Instance;
+        }
+    }
+
+    // Ensure that the instance is destroyed when the game is stopped in the editor.
+
+    void OnApplicationQuit()
+    {
+        //    SaveState();
+        s_Instance = null;
+    }
+
 
 }

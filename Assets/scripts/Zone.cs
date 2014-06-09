@@ -6,9 +6,8 @@ public class Zone : MonoBehaviour {
 
 
     public string zoneName;
-    public List<GameObject> staffs;
     public List<Customer> customers;
-    public float staffPower = .3f; //this is a percentage (.3f = 30%) 
+    public int staffPower = 20; //this is a percentage (.3f = 30%) 
     public int maxQueue = 5;
     public bool queueOpen = true;
     public ZoneView zoneView;
@@ -16,6 +15,7 @@ public class Zone : MonoBehaviour {
     public bool processingCustomer = false;
     public float processingStartTime;
     public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
+    public int staffNumber = 1;
 
 
 	// Use this for initialization
@@ -24,6 +24,13 @@ public class Zone : MonoBehaviour {
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
 	}
+
+    public void ClearZone()
+    {
+        customers = new List<Customer>();
+        processingCustomer = false;
+        zoneView.UpdateCustomerNumber();
+    }
 
     public void OnDeserialized()
     {
@@ -104,7 +111,7 @@ public class Zone : MonoBehaviour {
         else if (processingCustomer == true)
         {
             processingStartTime += Time.deltaTime;
-            float percentageOfCompletion = (processingStartTime) / ( processingTimeInSecondsAtHundredPercent / staffPower );
+            float percentageOfCompletion = (processingStartTime) / ( processingTimeInSecondsAtHundredPercent  / ( staffPower /100f)  );
             zoneView.UpdateProgressIndicator(percentageOfCompletion);
             if (percentageOfCompletion >= 1f)
             {
