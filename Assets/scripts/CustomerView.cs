@@ -23,6 +23,10 @@ public class CustomerView : MonoBehaviour {
         SetMoodSprite();
 	}
 
+    public void OnDeserialized()
+    {
+        SetMoodSprite();
+    }
 
     public void CustomerDroppedInZone(Zone zone)
     {

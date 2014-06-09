@@ -20,12 +20,9 @@ public class Zone : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
-        
-        
 	}
 
     public void OnDeserialized()
@@ -49,8 +46,13 @@ public class Zone : MonoBehaviour {
         // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
         God.instance.zonePanelManager.RemoveCustomer(customer);
         customers.Remove(customer);
+        customer.currentZone = null;
         zoneView.UpdateCustomerNumber();
-        CheckIfQueueIsFull();
+        if (customer == currentlyProcessedCustomer)
+        {
+            processingCustomer = false;
+        }
+            CheckIfQueueIsFull();
        // StartCustomerProcessing();
     }
 
@@ -80,11 +82,11 @@ public class Zone : MonoBehaviour {
     }
 
 
-    void CustomerSuccesfullyProcessed()
+    void CustomerProcessingCompleteZone()
     {
-        God.instance.CustomerProcessedSuccesfully(currentlyProcessedCustomer);
-        customers.RemoveAt(0);
+        God.instance.CustomerProcessingCompleteGod(currentlyProcessedCustomer);
         processingCustomer = false;
+        customers.RemoveAt(0);
         zoneView.UpdateCustomerNumber();
         CheckIfQueueIsFull();
         if (God.instance.zonePanelManager.enabled)
@@ -106,7 +108,7 @@ public class Zone : MonoBehaviour {
             zoneView.UpdateProgressIndicator(percentageOfCompletion);
             if (percentageOfCompletion >= 1f)
             {
-                CustomerSuccesfullyProcessed();
+                CustomerProcessingCompleteZone();
             }
         }
 	}

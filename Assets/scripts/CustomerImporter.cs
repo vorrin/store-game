@@ -159,7 +159,7 @@ public class CustomerImporter {
         bool match = false;
         foreach (string check in checkWords)
         {
-            if (word.ToUpper() == check.ToUpper())
+            if (word.ToUpper().Trim() == check.ToUpper().Trim())
             {
                 match = true;
                 break;

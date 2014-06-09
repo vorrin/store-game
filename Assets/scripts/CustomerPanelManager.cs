@@ -9,6 +9,8 @@ public class CustomerPanelManager : MonoBehaviour {
     public UILabel totalTimeLabel;
     public UILabel currentZoneLabel;
     public UISprite moodBubble;
+    public GameObject backToQueueButton;
+
 
     void Start()
     {
@@ -16,6 +18,11 @@ public class CustomerPanelManager : MonoBehaviour {
         //print( " KAKKAMALE " + God.instance.moood);
     }
 
+    public void SendCurrentCustomerBackToQueue()
+    {
+        currentCustomer.BackToQueueFromZone();
+        backToQueueButton.SetActive(false);
+    }
 
     public void SetMoodSprite()
     {
@@ -35,6 +42,8 @@ public class CustomerPanelManager : MonoBehaviour {
             //God.instance.zonePanelManager.backButton.enabled = false;
             God.instance.zonePanelManager.backButton.isEnabled = false;
         }
+        backToQueueButton.SetActive(God.instance.zonePanelManager.displayingZone);
+
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
         //}
