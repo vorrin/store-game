@@ -37,6 +37,10 @@ public class CustomerView : MonoBehaviour {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
             GetComponent<UIDragDropItem>().enabled = false;
             customerModel.Die();
+
+            //AbstractGoTween asd = new AbstractGoTween();
+            //asd.setOnCompleteHandler(AbstractGoTween);
+            //new GoTweenConfig().onComplete(c => { Debug.Log("ciao"); CustomerDroppedInZone(new Zone()); });
             //Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
             return;
         }

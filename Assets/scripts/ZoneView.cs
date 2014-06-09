@@ -6,8 +6,12 @@ public class ZoneView : MonoBehaviour {
     public Zone zoneModel;
     public GameObject queue;
     public UILabel customerNumberLabel;
+    public UILabel staffNumberLabel;
     public UISprite icon;
-    public UISprite progressIndicator;  
+    public UISprite progressIndicator;
+    public GameObject staffBuyingIndicatorSet;
+    public GameObject customersPresenceIndicatorSet;
+
 
 
 
@@ -23,6 +27,26 @@ public class ZoneView : MonoBehaviour {
 
         progressIndicator.fillAmount = 0f;
         //icon.color = Color.Lerp(Color.green, Color.red, (float) zone.customers.Count / zone.maxQueue );
+    }
+
+    public void UpdateStaffNumber()
+    {
+        staffNumberLabel.text = zoneModel.staffNumber.ToString();
+    }
+
+    public void ZoneViewStateSetup() // switches between endofday and day displays
+    {
+        bool theDayIsOver = God.instance.endOfDayPhase;
+        customersPresenceIndicatorSet.SetActive(!theDayIsOver);
+        staffBuyingIndicatorSet.SetActive(theDayIsOver);
+        if (theDayIsOver)
+        {
+            UpdateStaffNumber();
+        }
+        else
+        {
+            UpdateCustomerNumber();
+        }
     }
 
 	void OnClick () {

@@ -6,7 +6,6 @@ public class Zone : MonoBehaviour {
 
 
     public string zoneName;
-    public List<GameObject> staffs;
     public List<Customer> customers;
     public int staffPower = 20; //this is a percentage (.3f = 30%) 
     public int maxQueue = 5;
@@ -25,6 +24,13 @@ public class Zone : MonoBehaviour {
         customers = new List<Customer>();
         zoneView = GetComponent<ZoneView>();
 	}
+
+    public void ClearZone()
+    {
+        customers = new List<Customer>();
+        processingCustomer = false;
+        zoneView.UpdateCustomerNumber();
+    }
 
     public void OnDeserialized()
     {
