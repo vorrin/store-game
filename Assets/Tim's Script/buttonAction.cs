@@ -13,13 +13,22 @@ public class buttonAction: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnClick()
 	{
+		if (returnMenu == true)
+		{
+			MainMenu.buttonDisable = false;
+		}
+		else
+		{
+			MainMenu.buttonDisable = true;
+		}
 
 		MainMenu.MenuNav(buttonName, returnMenu);
+
 		//print("Clicked");
 		//GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(true);
 	}

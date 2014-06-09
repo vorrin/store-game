@@ -5,9 +5,11 @@ public class MainMenu : MonoBehaviour {
 
 	public static bool musicSound;
 	public static bool sfxSound;
+	public static bool buttonDisable;
 
 	// Use this for initialization
 	void Start () {
+		buttonDisable = false;
 		if (PlayerPrefs.GetInt("Music") == 1)
 		{
 			GameObject.Find("Music").GetComponent<UIToggle>().value = true;
@@ -37,12 +39,27 @@ public class MainMenu : MonoBehaviour {
 		print(buttonName);
 		if (returnMenu == true)
 		{
+			//GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(false);
+			print("Should be playing");
 			GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(false);
 			GameObject.Find("Panel " + buttonName).GetComponent<UIPlayAnimation>().Play(false);
+			buttonName = "";
 		}
 		else if (buttonName == "Option" || buttonName == "Leader")
 		{
+			if (buttonName == "Option")
+			{
+				GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().clipName = "Move Left";
+			}
+			else if (buttonName == "Leader")
+			{
+				GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().clipName = "Menu Right";
+			}
 			GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(true);
+			GameObject.Find("Panel " + buttonName).GetComponent<UIPlayAnimation>().Play(true);
+		}
+		else
+		{
 			GameObject.Find("Panel " + buttonName).GetComponent<UIPlayAnimation>().Play(true);
 		}
 

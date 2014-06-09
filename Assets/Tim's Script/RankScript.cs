@@ -4,6 +4,7 @@ using System.Collections;
 public class RankScript : MonoBehaviour {
 
 	public UILabel rankNumber;
+	public UILabel rankName;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,9 @@ public class RankScript : MonoBehaviour {
 	
 	}
 
-	public void setInformation(int r)
+	public void setInformation(int r, string n)
 	{
 		rankNumber.text = r.ToString();
+		rankName.text = n.ToString();
 	}
 }

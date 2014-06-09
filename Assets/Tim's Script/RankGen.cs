@@ -17,7 +17,7 @@ public class RankGen : MonoBehaviour {
 
 			GameObject bar = NGUITools.AddChild(transform.gameObject, rank);
 			bar.transform.localPosition = new Vector3(transform.position.x, transform.position.y - (i * 50), transform.position.z);
-			bar.GetComponent<RankScript>().setInformation(i);
+			bar.GetComponent<RankScript>().setInformation(i, "None");
 		}
 	}
 	
