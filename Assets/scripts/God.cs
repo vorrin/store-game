@@ -61,6 +61,17 @@ public class God : MonoBehaviour {
 
     //SCORE TRACKING BITS
 
+
+    public IEnumerator LoadDebugXML(string xmlName)
+    {
+        print("trying");
+        //Root is project root-root (assets/ cd ../../)
+        WWW www = new WWW("file://"+ xmlName);
+        yield return www;
+        string text = www.text;
+        Debug.Log(" CI E IL NOME! " + text);
+    }
+
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
         customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
@@ -247,6 +258,9 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
+        //LoadDebugXML("ciao.xml");
+
+        StartCoroutine("LoadDebugXML", "ciao.xml");
         if (currentLevel >= difficultyLevels.Length)
         {
             //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
