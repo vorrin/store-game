@@ -55,8 +55,8 @@ public class ZoneView : MonoBehaviour {
     {
 
         bool theDayIsOver = God.instance.endOfDayPhase;
-        Debug.Log("DEBUGGING + " +  theDayIsOver);
         customersPresenceIndicatorSet.GetComponent<UILabel>().enabled = !theDayIsOver;
+        //Disabling the single elements cause else the saving system gets confused, I think.
         foreach (UISprite sprite in customersPresenceIndicatorSet.GetComponentsInChildren<UISprite>())
         {
             sprite.enabled = !theDayIsOver;

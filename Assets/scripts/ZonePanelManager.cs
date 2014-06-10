@@ -47,6 +47,11 @@ public class ZonePanelManager : MonoBehaviour {
         }
     }
 
+    public void OnDeserialized()
+    {
+        RefreshStaffButtons();
+    }
+
     public void RefreshStaffButtons()
     {
         print(currentZone.staffPower % 1);

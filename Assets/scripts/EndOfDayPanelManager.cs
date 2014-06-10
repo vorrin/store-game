@@ -4,6 +4,13 @@ using System.Collections;
 
 public class EndOfDayPanelManager : MonoBehaviour {
     public GoTween endOfDayPanelTween;
+    public UILabel npsLabel;
+    public UILabel totalSpendLabel;
+    public UILabel resultSpendLabel;
+    public UILabel totalStaffLabel;
+    
+    public UILabel averageStaffLabel;
+
 
 	// Use this for initialization
 	void Start () {
@@ -11,9 +18,31 @@ public class EndOfDayPanelManager : MonoBehaviour {
         endOfDayPanelTween.autoRemoveOnComplete = false;
 	}
 
+    public void PopulateEndOfDayScreen(ScoreTracker currentScores)
+    {
+        npsLabel.text = (currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed).ToString("0.0");
+        totalSpendLabel.text = (currentScores.totalSpendForTheDay).ToString("0");
+        resultSpendLabel.text = (((currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay).ToString("0");
+        int totalStaff = 0;
+        float totalStaffExp = 0f;
+        God.instance.zones.ForEach(zone =>
+        {
+            print("looping)");
+            totalStaff += zone.staffNumber;
+            totalStaffExp += zone.staffPower;
+        });
+        totalStaffLabel.text = totalStaff.ToString();
+        print("STASKOSASOAKDOKDSA DOK " + totalStaffExp);
+        averageStaffLabel.text = ((totalStaffExp) / totalStaff).ToString("0.0") + "%";
+             
+    }
 
     public void Display( Action<AbstractGoTween> callback = null)
     {
+        PopulateEndOfDayScreen(God.instance.score);
+
+
+
 
         endOfDayPanelTween.playForward();
         endOfDayPanelTween.setOnCompleteHandler(callback );

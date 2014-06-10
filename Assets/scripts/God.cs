@@ -217,21 +217,26 @@ public class God : MonoBehaviour {
         Debug.Log("GODISSTARTING");
         
         UpdateScoresMenu();
-        
-        
-        possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
-        //GameObject[] zoneTagObjects = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
 
-        //zones = new List<Zone>();
-        //foreach (GameObject possibleZone in zoneTagObjects)
-        //{
-        //    if (possibleZone.GetComponent<Zone>() != null)
-        //    {
-        //        zones.Add(possibleZone.GetComponent<Zone>());
-        //    }
-        //}
+        FindTheZones();
+        possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
+        
         StartCoroutine(DelayedAddingOfCustomers());
 
+    }
+
+    public void FindTheZones()
+    {
+        GameObject[] zoneTagObjects = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
+
+        zones = new List<Zone>();
+        foreach (GameObject possibleZone in zoneTagObjects)
+        {
+            if (possibleZone.GetComponent<Zone>() != null)
+            {
+                zones.Add(possibleZone.GetComponent<Zone>());
+            }
+        }
     }
 
    
@@ -365,7 +370,7 @@ public class God : MonoBehaviour {
     public void OnDeserialized()
     {
         print("deSERIALIZING GOD");
-
+        FindTheZones();
         foreach (Zone zone in zones)
         {
             zone.zoneViews.ForEach((zoneView) =>
