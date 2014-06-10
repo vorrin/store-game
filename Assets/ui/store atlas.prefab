@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BestOption
-    x: 1599
-    y: 1422
+    x: 616
+    y: 445
     width: 72
     height: 68
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 11
   - name: SecondBestOption
-    x: 616
-    y: 445
+    x: 1599
+    y: 1422
     width: 72
     height: 68
     borderLeft: 0

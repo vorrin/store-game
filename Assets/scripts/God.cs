@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// instance, so other objects that need to access it can just call:
 ///        AManager.instance.DoSomeThing();
 ///
-public class God : MonoBehaviour {
+public class God : MonoBehaviourEx {
 	// s_Instance is used to cache the instance found in the scene so we don't have to look it up every time.
 
 	
@@ -17,7 +17,7 @@ public class God : MonoBehaviour {
 
     public GameObject customersQueue;
 	//public  List<GameObject> zones = new List<GameObject>();
-    public List<Zone> zones;
+    public List<Zone> zones = new List<Zone>();
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
     public GameObject gameScreen;
@@ -214,13 +214,15 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
-
+        Debug.Log("GODISSTARTING");
         
         UpdateScoresMenu();
         
         
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         GameObject[] zoneTagObjects = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
+
+        zones = new List<Zone>();
         foreach (GameObject possibleZone in zoneTagObjects)
         {
             if (possibleZone.GetComponent<Zone>() != null)

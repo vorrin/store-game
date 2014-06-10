@@ -53,7 +53,9 @@ public class ZoneView : MonoBehaviour {
 
     public void ZoneViewStateSetup() // switches between endofday and day displays
     {
+
         bool theDayIsOver = God.instance.endOfDayPhase;
+        Debug.Log("DEBUGGING + " +  theDayIsOver);
         customersPresenceIndicatorSet.SetActive(!theDayIsOver);
         staffBuyingIndicatorSet.SetActive(theDayIsOver);
         if (theDayIsOver)

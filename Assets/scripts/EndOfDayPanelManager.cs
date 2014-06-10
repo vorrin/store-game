@@ -35,13 +35,8 @@ public class EndOfDayPanelManager : MonoBehaviour {
     }
 
     public void Hide(){
-        //endOfDayPanelTween.playBackwards();
-        print("caccca");
-        //endOfDayPanelTween.reverse();
-       // endOfDayPanelTween.setOnCompleteHandler(x => { });
         endOfDayPanelTween.setOnCompleteHandler(null);
         ActualHiding();
-    //    endOfDayPanelTween.play();
     }
 
     public void ActualHiding()

@@ -239,7 +239,7 @@ MonoBehaviour:
   staffPower: 20
   maxQueue: 5
   queueOpen: 1
-  zoneView: {fileID: 0}
+  zoneViews: []
   currentlyProcessedCustomer:
     sex: 
     age: 
@@ -319,7 +319,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3001
+  startingRenderQueue: 3003
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -448,7 +448,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
-  mText: 0
+  mText: 1
   mFontSize: 39
   mFontStyle: 0
   mAlignment: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: .823529422, g: .806824982, b: .217993096, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 50
   mHeight: 50
@@ -687,7 +687,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: .996078432, b: 0, a: 1}
+  mColor: {r: 0, g: 1, b: 0, a: .300000012}
   mPivot: 4
   mWidth: 70
   mHeight: 70
