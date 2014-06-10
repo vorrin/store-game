@@ -108,11 +108,12 @@ using System.Collections;
       
         if (zone.zoneName == bestZone.Trim() ) // best
         {
+            nps += Mathf.Clamp(God.instance.moodModifierBonusForBestChoice, 1f, 10f);
             return ZoneMatchingResults.Best;
         }
         else if (zone.zoneName == secondBestZone.Trim())
         {
-            nps = nps - God.instance.moodModifierForSecondBestChoice;
+            nps = nps - God.instance.moodModifierMalusForSecondBestChoice;
             if (nps < 1f) nps = 1;
             return ZoneMatchingResults.SecondBest;
         }

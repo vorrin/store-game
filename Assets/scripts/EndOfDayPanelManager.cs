@@ -22,7 +22,8 @@ public class EndOfDayPanelManager : MonoBehaviour {
     {
         npsLabel.text = (currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed).ToString("0.0");
         totalSpendLabel.text = (currentScores.totalSpendForTheDay).ToString("0");
-        God.instance.score.resultSpending = ((currentScores.totalNPSForTheDay / (float) currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay;
+        
+        God.instance.score.resultSpending = Mathf.Ceil(((currentScores.totalNPSForTheDay / (float) currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay);
         if (float.IsNaN(God.instance.score.resultSpending))
         {
             God.instance.score.resultSpending = 0f;
@@ -45,10 +46,6 @@ public class EndOfDayPanelManager : MonoBehaviour {
     public void Display( Action<AbstractGoTween> callback = null)
     {
         PopulateEndOfDayScreen(God.instance.score);
-
-
-
-
         endOfDayPanelTween.playForward();
         endOfDayPanelTween.setOnCompleteHandler(callback );
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);

@@ -27,14 +27,19 @@ public class God : MonoBehaviour {
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
     public GameObject fader;
-    public float totalTimeForTheDay = 600f;
+    public float totalTimeForDay = 600f;
+    public float daytimeRemaining = 600f;
     public GameObject buyPanel;
 
-    public float moodModifierForSecondBestChoice = 3f;
+    public float moodModifierBonusForBestChoice = 2f;
+    public float moodModifierMalusForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
     public EndOfDayPanelManager endScreenPanel;
     public float trainingStepCost = 20f;
     public float hireNewStaffCost = 80f;
+    public int currentLevel = 0;
+
+    public DifficultyLevelEntry[] difficultyLevels;
 
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
@@ -55,6 +60,11 @@ public class God : MonoBehaviour {
     public MainScreenIconDictionary scoreLabels;
 
     //SCORE TRACKING BITS
+
+    public void SetDifficultyLevel(DifficultyLevelEntry level)
+    {
+        customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
+    }
 
     public void CustomerLost(Customer customer)
     {
@@ -218,10 +228,26 @@ public class God : MonoBehaviour {
     }
 
 
+    public void StartNextDay()
+    {
+        currentLevel += 1;
+        endOfDayPhase = false;
+        daytimeRemaining = totalTimeForDay;
+        RefreshStaffBuyingMenu();
+        foreach (Zone zone in zones)
+        {
+            zone.zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.ZoneViewStateSetup();
+            });
+            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+        };
+        Start();
+    }
 
     public void Start()
     {
-        Debug.Log("GODISSTARTING");
+        SetDifficultyLevel(difficultyLevels[currentLevel]);
         
         UpdateScoresMenu();
 
@@ -229,7 +255,6 @@ public class God : MonoBehaviour {
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         
         StartCoroutine(DelayedAddingOfCustomers());
-
     }
 
     public void FindTheZones()
@@ -398,29 +423,13 @@ public class God : MonoBehaviour {
             child.gameObject.SetActive( endOfDayPhase);
             
         };
-        buyPanel.GetComponentInChildren<UILabel>().text = score.resultSpending.ToString("0");
+        if (endOfDayPhase) buyPanel.GetComponentInChildren<UILabel>().text = score.resultSpending.ToString("0");
             
     }
 
 
     void Update()
     {
-        UpdateCustomers();
-
-        totalTimeForTheDay -= Time.deltaTime;
-        if (totalTimeForTheDay <= 0)
-        {
-            scoreLabels.totalTimeLabel.text = "0"; 
-            //DO SOMETHING LIKE MAKE CUSTOMERS DISAPPEAR AND BRING UP THE END SCREEN. 
-
-
-        }
-        else
-        {
-            scoreLabels.totalTimeLabel.text = Mathf.Ceil(totalTimeForTheDay / 60f).ToString();
-        }
-        
-
 
         //DEBUG AREA
         if (Input.GetKeyDown(KeyCode.Space))
@@ -450,16 +459,40 @@ public class God : MonoBehaviour {
             return;
             //LevelSerializer.LoadNow(LevelSerializer)
             //List<LevelSerializer.SaveEntry> tmp =  LevelSerializer.SavedGames.Get<string>(LevelSerializer.PlayerName);
-            
-            
-            foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName]){
+
+
+            foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
+            {
                 if (currentSvae.Name == "test")
                 {
                     LevelSerializer.LoadSavedLevel(currentSvae.Data);
                 }
             }
-           
+
         } 
+
+        //END OF DEBUG
+
+
+        daytimeRemaining -= Time.deltaTime;
+        if (endOfDayPhase) return;
+
+        UpdateCustomers();
+
+        if (daytimeRemaining <= 0 )
+        {
+            scoreLabels.totalTimeLabel.text = "0"; 
+            //DO SOMETHING LIKE MAKE CUSTOMERS DISAPPEAR AND BRING UP THE END SCREEN. 
+            EndWorkingDay();
+        }
+        else
+        {
+            scoreLabels.totalTimeLabel.text = Mathf.Ceil(daytimeRemaining / 60f).ToString();
+        }
+        
+
+
+        
     }
     public static God instance
     {
