@@ -28,6 +28,7 @@ public class God : MonoBehaviour {
     public List<Customer> possibleCustomersPool = new List<Customer>();
     public GameObject fader;
     public float totalTimeForTheDay = 600f;
+    public GameObject buyPanel;
 
     public float moodModifierForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
@@ -142,6 +143,9 @@ public class God : MonoBehaviour {
     //    Debug.Log(asd);
     //    print("GGIGIGIGIO");
     //}
+
+    
+
     void EndWorkingDay()
     {
         
@@ -165,7 +169,10 @@ public class God : MonoBehaviour {
         StopCoroutine("DelayedAddingOfCustomers");
         
         endScreenPanel.Display( (x) => {
-            print("ASDASD");//CALLBACK -> do whatever you like / attach a method / whatever really!
+            foreach (Transform child in buyPanel.transform)
+            {
+                child.gameObject.active = true;
+            };//CALLBACK -> do whatever you like / attach a method / whatever really!
         } );
         
 
@@ -381,6 +388,10 @@ public class God : MonoBehaviour {
         }
         fader.SetActive(false);
         UpdateScoresMenu();
+        foreach (Transform child in buyPanel.transform)
+        {
+            child.gameObject.active = endOfDayPhase;
+        };
     }
 
 
