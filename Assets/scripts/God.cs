@@ -33,6 +33,8 @@ public class God : MonoBehaviour {
     public float moodModifierForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
     public EndOfDayPanelManager endScreenPanel;
+    public float trainingStepCost = 20f;
+    public float hireNewStaffCost = 80f;
 
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
@@ -169,10 +171,8 @@ public class God : MonoBehaviour {
         StopCoroutine("DelayedAddingOfCustomers");
         
         endScreenPanel.Display( (x) => {
-            foreach (Transform child in buyPanel.transform)
-            {
-                child.gameObject.active = true;
-            };//CALLBACK -> do whatever you like / attach a method / whatever really!
+            RefreshStaffBuyingMenu();
+            //CALLBACK -> do whatever you like / attach a method / whatever really!
         } );
         
 
@@ -388,10 +388,18 @@ public class God : MonoBehaviour {
         }
         fader.SetActive(false);
         UpdateScoresMenu();
+        RefreshStaffBuyingMenu();
+    }
+
+    public void RefreshStaffBuyingMenu()
+    {
         foreach (Transform child in buyPanel.transform)
         {
-            child.gameObject.active = endOfDayPhase;
+            child.gameObject.SetActive( endOfDayPhase);
+            
         };
+        buyPanel.GetComponentInChildren<UILabel>().text = score.resultSpending.ToString("0");
+            
     }
 
 

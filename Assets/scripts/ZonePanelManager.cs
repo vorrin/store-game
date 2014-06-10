@@ -54,17 +54,33 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void RefreshStaffButtons()
     {
-        print(currentZone.staffPower % 1);
         if (currentZone.staffPower  % 100 == 0) // Unity float weirdness
         {
             print("modulo as exp");
             hireButton.gameObject.SetActive(true);
-            trainButton.gameObject.SetActive(false);           
+            trainButton.gameObject.SetActive(false);
+            if (God.instance.score.resultSpending < God.instance.hireNewStaffCost)
+            {
+                hireButton.isEnabled = false;
+            }
+            else
+            {
+                hireButton.isEnabled = true;
+            }
+
         }
         else
         {
             hireButton.gameObject.SetActive(false);
-            trainButton.gameObject.SetActive(true);           
+            trainButton.gameObject.SetActive(true);
+            if (God.instance.score.resultSpending < God.instance.trainingStepCost)
+            {
+                trainButton.isEnabled = false;
+            }
+            else
+            {
+                trainButton.isEnabled = true;
+            }
         }
         PopulateZonePanel();
     }
@@ -72,18 +88,26 @@ public class ZonePanelManager : MonoBehaviour {
     public void HireStaff()
     {
         //Some cost shall be elicited
+        God god = God.instance;
+        god.score.resultSpending -= god.hireNewStaffCost;
+        god.RefreshStaffBuyingMenu();
         currentZone.staffNumber += 1;
         currentZone.staffPower += 20;
         currentZone.zoneViews.ForEach((zoneView) =>
         {
            zoneView.UpdateStaffNumber() ;
         });
+
         //currentZone.zoneViews.UpdateStaffNumber();
         RefreshStaffButtons();
     }
 
     public void TrainStaff()
     {
+        God god = God.instance;
+        god.score.resultSpending -= god.trainingStepCost;
+        god.RefreshStaffBuyingMenu();
+
         currentZone.staffPower += 20;
         RefreshStaffButtons();
     }

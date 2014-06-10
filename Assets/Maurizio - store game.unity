@@ -1131,11 +1131,14 @@ MonoBehaviour:
   moodModifierForSecondBestChoice: 3
   endOfDayPhase: 0
   endScreenPanel: {fileID: 1343082781}
+  trainingStepCost: 20
+  hireNewStaffCost: 80
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
     totalNPSForTheDay: 0
     totalSpendForTheDay: 0
+    resultSpending: 0
   scoreLabels:
     totalCustomersLabel: {fileID: 1239605535}
     totalTimeLabel: {fileID: 613691151}
@@ -1750,7 +1753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &288307542
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,7 +2486,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3006
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -3060,7 +3063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &618989204
 Transform:
   m_ObjectHideFlags: 0
@@ -3994,7 +3997,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3014
+  startingRenderQueue: 3013
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -4186,7 +4189,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3015
+  startingRenderQueue: 3014
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -4670,7 +4673,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3008
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -5814,7 +5817,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3010
+  startingRenderQueue: 3009
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 3, y: 11, z: 230, w: 186}
@@ -6315,7 +6318,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3010
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -7220,7 +7223,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3005
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -8550,7 +8553,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3017
+  startingRenderQueue: 3016
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -9878,7 +9881,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3015
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: -7, y: -81, z: 276, w: 106}

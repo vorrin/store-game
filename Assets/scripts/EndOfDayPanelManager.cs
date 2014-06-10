@@ -22,7 +22,12 @@ public class EndOfDayPanelManager : MonoBehaviour {
     {
         npsLabel.text = (currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed).ToString("0.0");
         totalSpendLabel.text = (currentScores.totalSpendForTheDay).ToString("0");
-        resultSpendLabel.text = (((currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay).ToString("0");
+        God.instance.score.resultSpending = ((currentScores.totalNPSForTheDay / (float) currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay;
+        if (float.IsNaN(God.instance.score.resultSpending))
+        {
+            God.instance.score.resultSpending = 0f;
+        }
+        resultSpendLabel.text = God.instance.score.resultSpending.ToString("0");
         int totalStaff = 0;
         float totalStaffExp = 0f;
         God.instance.zones.ForEach(zone =>
