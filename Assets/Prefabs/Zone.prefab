@@ -41,7 +41,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 1
@@ -319,7 +319,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3001
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: afb0791b-021d-4a1b-a73a-77dd9ed9dc7a
+  _id: e5e20698-43cf-44d9-a827-1eccd9e17650
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &11400018
 MonoBehaviour:
@@ -546,13 +546,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: b19e9879-a835-4a67-a845-8a9d04e700fa
+  _id: 3736ea1a-c847-4c78-bc5f-708b4e650574
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
   - Zone
   - ZoneView
-  - UIPanel
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2928f034-0704-4d73-96b6-9f720b502710
+  _id: 2105121d-797f-4a8e-aa93-9d1862a98c24
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &11400022
 MonoBehaviour:
@@ -579,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 69e752fe-682d-4d11-979d-382c905c7073
+  _id: 6f42f9e3-326b-4183-8c72-3cadd5ea8d73
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &11400024
 MonoBehaviour:
@@ -593,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6835d6c8-309d-4e7c-b842-672138d88b4e
+  _id: daa6b51f-485b-4d2a-ada1-9dcb78f2ddab
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &11400026
 MonoBehaviour:
@@ -607,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6c024492-81b8-444d-aa63-5b96506fda2f
+  _id: 6ef284cd-1995-40a4-a7cc-98442c88bd4b
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &11400028
 MonoBehaviour:

@@ -56,8 +56,17 @@ public class ZoneView : MonoBehaviour {
 
         bool theDayIsOver = God.instance.endOfDayPhase;
         Debug.Log("DEBUGGING + " +  theDayIsOver);
-        customersPresenceIndicatorSet.SetActive(!theDayIsOver);
-        staffBuyingIndicatorSet.SetActive(theDayIsOver);
+        customersPresenceIndicatorSet.GetComponent<UILabel>().enabled = !theDayIsOver;
+        foreach (UISprite sprite in customersPresenceIndicatorSet.GetComponentsInChildren<UISprite>())
+        {
+            sprite.enabled = !theDayIsOver;
+        }
+
+        staffBuyingIndicatorSet.GetComponent<UILabel>().enabled = theDayIsOver;
+        foreach (UISprite sprite in staffBuyingIndicatorSet.GetComponentsInChildren<UISprite>())
+        {
+            sprite.enabled = theDayIsOver;
+        }
         if (theDayIsOver)
         {
             UpdateStaffNumber();
