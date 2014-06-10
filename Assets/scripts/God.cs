@@ -66,10 +66,21 @@ public class God : MonoBehaviour {
     {
         print("trying");
         //Root is project root-root (assets/ cd ../../)
-        WWW www = new WWW("file://"+ xmlName);
+        print(Application.dataPath);
+        WWW www;
+        if (Application.isWebPlayer)
+        {
+            www = new WWW(Application.dataPath + @"/" + xmlName);
+        }
+        else
+        {
+            www = new WWW("file://" + xmlName);
+        }
+
         yield return www;
         string text = www.text;
         Debug.Log(" CI E IL NOME! " + text);
+        GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
     }
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
