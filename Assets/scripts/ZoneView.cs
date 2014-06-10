@@ -63,7 +63,7 @@ public class ZoneView : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-        zoneModel = GetComponent<Zone>();
+        if (zoneModel == null) zoneModel = GetComponent<Zone>();
         queue = GameObject.Find("Queue");
 	}
 	
