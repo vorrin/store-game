@@ -69,7 +69,11 @@ public class ZonePanelManager : MonoBehaviour {
         //Some cost shall be elicited
         currentZone.staffNumber += 1;
         currentZone.staffPower += 20;
-        currentZone.zoneView.UpdateStaffNumber();
+        currentZone.zoneViews.ForEach((zoneView) =>
+        {
+           zoneView.UpdateStaffNumber() ;
+        });
+        //currentZone.zoneViews.UpdateStaffNumber();
         RefreshStaffButtons();
     }
 
@@ -168,7 +172,13 @@ public class ZonePanelManager : MonoBehaviour {
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
         GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
-        if (currentZone != null) currentZone.GetComponent<UIPlayAnimation>().Play(false);
+        if (currentZone != null)
+        {
+            currentZone.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(false);
+            });
+        };
         hireButton.gameObject.SetActive(false);
         trainButton.gameObject.SetActive(false);
 

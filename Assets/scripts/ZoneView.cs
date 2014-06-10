@@ -12,6 +12,23 @@ public class ZoneView : MonoBehaviour {
     public GameObject staffBuyingIndicatorSet;
     public GameObject customersPresenceIndicatorSet;
 
+    // Use this for initialization
+    void Start()
+    {
+        if (zoneModel == null)
+        {
+            zoneModel = GetComponent<Zone>();
+        }
+        queue = GameObject.Find("Queue");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
+
 
 
 
@@ -50,8 +67,11 @@ public class ZoneView : MonoBehaviour {
     }
 
 	void OnClick () {
+        zoneModel.zoneViews.ForEach(zoneView =>
+        {
+            zoneView.GetComponent<UIPlayAnimation>().Play(true);
+        });
 
-        GetComponent<UIPlayAnimation>().Play(true);
         //EventDelegate displayZoneScreen = new EventDelegate(God.instance.zonePanelManager,"Display");
         //EventDelegate.Parameter parameter = new EventDelegate.Parameter();
         //parameter.obj = zoneModel;
@@ -61,18 +81,7 @@ public class ZoneView : MonoBehaviour {
         //GetComponent<UIPlayAnimation>().onFinished = 
 
 	}
-	// Use this for initialization
-	void Start () {
-        if (zoneModel == null) zoneModel = GetComponent<Zone>();
-        queue = GameObject.Find("Queue");
-	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	
-	}
-
     public void UpdateProgressIndicator(float percentageOfCompletion)
     {
         progressIndicator.fillAmount = percentageOfCompletion;

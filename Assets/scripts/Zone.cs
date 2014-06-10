@@ -10,7 +10,7 @@ public class Zone : MonoBehaviour {
     public int staffPower = 20; //this is a percentage (.3f = 30%) 
     public int maxQueue = 5;
     public bool queueOpen = true;
-    public ZoneView zoneView;
+    public List<ZoneView> zoneViews = new List<ZoneView>();
     public Customer currentlyProcessedCustomer;
     public bool processingCustomer = false;
     public float processingStartTime;
@@ -22,14 +22,21 @@ public class Zone : MonoBehaviour {
 	void Start () {
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
-        zoneView = GetComponent<ZoneView>();
+        foreach (ZoneView view in GetComponentsInChildren<ZoneView>())
+        {
+            zoneViews.Add(view);
+        };
+
 	}
 
     public void ClearZone()
     {
         customers = new List<Customer>();
         processingCustomer = false;
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
     }
 
     public void OnDeserialized()
@@ -37,7 +44,10 @@ public class Zone : MonoBehaviour {
         //if (LevelSerializer.IsDeserializing)
         //{
         //    //Zone is being reloaded from save
-       zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
     }
 
     public void AddCustomer(Customer customer)
@@ -45,7 +55,10 @@ public class Zone : MonoBehaviour {
         customer.currentZone = this;
         customers.Add(customer);
 
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
         CheckIfQueueIsFull();
     }
     public void RemoveCustomer(Customer customer)
@@ -54,7 +67,10 @@ public class Zone : MonoBehaviour {
         God.instance.zonePanelManager.RemoveCustomer(customer);
         customers.Remove(customer);
         customer.currentZone = null;
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
         if (customer == currentlyProcessedCustomer)
         {
             processingCustomer = false;
@@ -94,7 +110,10 @@ public class Zone : MonoBehaviour {
         God.instance.CustomerProcessingCompleteGod(currentlyProcessedCustomer);
         processingCustomer = false;
         customers.RemoveAt(0);
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
         CheckIfQueueIsFull();
         if (God.instance.zonePanelManager.enabled)
         {// This simply removes the customer from the zonepanel if the customer gets processed in that time.
@@ -112,7 +131,10 @@ public class Zone : MonoBehaviour {
         {
             processingStartTime += Time.deltaTime;
             float percentageOfCompletion = (processingStartTime) / ( processingTimeInSecondsAtHundredPercent  / ( staffPower /100f)  );
-            zoneView.UpdateProgressIndicator(percentageOfCompletion);
+            zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.UpdateProgressIndicator(percentageOfCompletion);
+            });
             if (percentageOfCompletion >= 1f)
             {
                 CustomerProcessingCompleteZone();

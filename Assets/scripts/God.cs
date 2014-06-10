@@ -17,7 +17,7 @@ public class God : MonoBehaviour {
 
     public GameObject customersQueue;
 	//public  List<GameObject> zones = new List<GameObject>();
-    public GameObject[] zones;
+    public List<Zone> zones;
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
     public GameObject gameScreen;
@@ -149,10 +149,14 @@ public class God : MonoBehaviour {
         customerPanelManager.Hide();
         endOfDayPhase = true;
         customers = new List<Customer>();   
-        foreach (GameObject zone in zones)
+        foreach (Zone zone in zones)
         {
-            zone.GetComponent<Zone>().ClearZone();
-            zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+            zone.ClearZone();
+            zone.zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.ZoneViewStateSetup();
+            });
+            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
         foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customer"))
         {
@@ -216,7 +220,14 @@ public class God : MonoBehaviour {
         
         
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
-        zones = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
+        GameObject[] zoneTagObjects = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
+        foreach (GameObject possibleZone in zoneTagObjects)
+        {
+            if (possibleZone.GetComponent<Zone>() != null)
+            {
+                zones.Add(possibleZone.GetComponent<Zone>());
+            }
+        }
         StartCoroutine(DelayedAddingOfCustomers());
 
     }
@@ -270,9 +281,13 @@ public class God : MonoBehaviour {
 
     public void FadeZones(bool inOrOut)
     {
-        foreach (GameObject zone in zones)
+        print("fadzones");
+        foreach (Zone zone in zones)
         {
-            zone.GetComponent<UIPlayAnimation>().Play(inOrOut);
+            zone.zoneViews.ForEach( (zoneView) =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(inOrOut);
+            });
         }
     }
 
@@ -349,9 +364,13 @@ public class God : MonoBehaviour {
     {
         print("deSERIALIZING GOD");
 
-        foreach (GameObject zone in zones)
+        foreach (Zone zone in zones)
         {
-            zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+            zone.zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.ZoneViewStateSetup();
+            });
+            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
         fader.SetActive(false);
         UpdateScoresMenu();
