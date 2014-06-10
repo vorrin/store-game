@@ -247,7 +247,15 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
-        SetDifficultyLevel(difficultyLevels[currentLevel]);
+        if (currentLevel >= difficultyLevels.Length)
+        {
+            //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
+            SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
+        }
+        else
+        {
+            SetDifficultyLevel(difficultyLevels[currentLevel]);
+        }
         
         UpdateScoresMenu();
 
