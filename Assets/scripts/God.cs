@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections; 
-using System.Collections.Generic; 
+using System.Collections.Generic;
+//using System.Xml;
 
 /// AManager is a singleton.
 /// To avoid having to manually link an instance to every class that needs it, it has a static property called
@@ -27,7 +28,7 @@ public class God : MonoBehaviour {
     public TextAsset csv;
     public List<Customer> possibleCustomersPool = new List<Customer>();
     public GameObject fader;
-    public float totalTimeForDay = 600f;
+    public float daytimeTotal = 600f;
     public float daytimeRemaining = 600f;
     public GameObject buyPanel;
 
@@ -62,6 +63,8 @@ public class God : MonoBehaviour {
     //SCORE TRACKING BITS
 
 
+
+    //DEBUG XML LOADER BAD
     public IEnumerator LoadDebugXML(string xmlName)
     {
         print("trying");
@@ -78,7 +81,19 @@ public class God : MonoBehaviour {
         }
 
         yield return www;
+        DifficultyLevelEntry debugDifficulty = XmlSupport.DeserializeXml<DifficultyLevelEntry>(www.text);
+        difficultyLevels[0] = debugDifficulty;
+        SetDifficultyLevel(difficultyLevels[0]);
+        currentLevel = 0;
+        StopCoroutine("DelayedAddingOfCustomers") ;
+        StartCoroutine(DelayedAddingOfCustomers());
+
+        //Start();
         string text = www.text;
+        //XmlDocument xmlDoc = new XmlDocument();
+        //xmlDoc.LoadXml(text);
+        //Debug.Log(xmlDoc);
+        
         Debug.Log(" CI E IL NOME! " + text);
         GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
     }
@@ -254,7 +269,7 @@ public class God : MonoBehaviour {
     {
         currentLevel += 1;
         endOfDayPhase = false;
-        daytimeRemaining = totalTimeForDay;
+        daytimeRemaining = daytimeTotal;
         RefreshStaffBuyingMenu();
         foreach (Zone zone in zones)
         {
@@ -271,7 +286,7 @@ public class God : MonoBehaviour {
     {
         //LoadDebugXML("ciao.xml");
 
-        StartCoroutine("LoadDebugXML", "ciao.xml");
+        StartCoroutine("LoadDebugXML", "DebugSettings.xml");
         if (currentLevel >= difficultyLevels.Length)
         {
             //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 

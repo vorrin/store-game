@@ -6,5 +6,6 @@ using System.Collections;
     public float minSpawnTime = 0f;
     public float maxSpawnTime = 0f;
     public float percentageOfHardCustomers = 0f;
+    public float durationOfDay = 600f;
 
 }
