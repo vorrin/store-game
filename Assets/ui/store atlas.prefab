@@ -42,7 +42,7 @@ MonoBehaviour:
   mSprites:
   - name: backgroundFadeIn
     x: 0
-    y: 447
+    y: 1248
     width: 480
     height: 800
     borderLeft: 0
@@ -54,18 +54,18 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BestOption
-    x: 764
-    y: 445
-    width: 72
-    height: 68
+    x: 1933
+    y: 1942
+    width: 105
+    height: 106
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 15
-    paddingRight: 13
-    paddingTop: 17
-    paddingBottom: 15
+    paddingLeft: 3
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
   - name: box_customerQUEUE_01
     x: 874
     y: 1283
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 5
   - name: customer0
-    x: 2018
-    y: 1519
+    x: 616
+    y: 284
     width: 26
     height: 36
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: customer1
-    x: 2018
-    y: 1576
+    x: 719
+    y: 426
     width: 26
     height: 36
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 4
   - name: customer1_QUEUE
-    x: 701
-    y: 396
+    x: 481
+    y: 43
     width: 62
     height: 117
     borderLeft: 0
@@ -237,30 +237,30 @@ MonoBehaviour:
     paddingBottom: 1
   - name: DeathInQueue
     x: 1933
-    y: 1861
-    width: 96
-    height: 95
+    y: 1835
+    width: 105
+    height: 106
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 3
+    paddingLeft: 3
+    paddingRight: 2
     paddingTop: 2
-    paddingBottom: 3
+    paddingBottom: 2
   - name: Fail
     x: 1933
-    y: 1765
-    width: 96
-    height: 95
+    y: 1645
+    width: 105
+    height: 106
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 3
+    paddingLeft: 3
+    paddingRight: 2
     paddingTop: 2
-    paddingBottom: 3
+    paddingBottom: 2
   - name: fillingZoneIcon
     x: 400
     y: 107
@@ -276,20 +276,20 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Full
     x: 1933
-    y: 1657
-    width: 92
-    height: 94
+    y: 1432
+    width: 105
+    height: 105
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 6
-    paddingBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 3
+    paddingBottom: 2
   - name: icons_CASH_end
-    x: 1933
-    y: 1957
+    x: 616
+    y: 422
     width: 102
     height: 91
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: icons_clock
-    x: 701
-    y: 282
+    x: 824
+    y: 471
     width: 43
     height: 42
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 2
   - name: icons_customers_status
-    x: 818
-    y: 401
+    x: 770
+    y: 424
     width: 44
     height: 43
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: icons_customersSERVED
-    x: 764
-    y: 399
+    x: 770
+    y: 468
     width: 53
     height: 45
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: icons_NPS
-    x: 616
-    y: 268
+    x: 1606
+    y: 1447
     width: 71
     height: 43
     borderLeft: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 6
   - name: icons_scrollARROW_actual_01
-    x: 701
-    y: 325
+    x: 779
+    y: 528
     width: 43
     height: 70
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: icons_scrollARROW_actual_02
-    x: 745
-    y: 327
+    x: 823
+    y: 530
     width: 44
     height: 68
     borderLeft: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: icons_UPsell_02
     x: 616
-    y: 413
+    y: 321
     width: 84
     height: 100
     borderLeft: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icons_UPsell_03
-    x: 616
-    y: 312
+    x: 701
+    y: 321
     width: 84
     height: 100
     borderLeft: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: main_ingame_02
     x: 0
-    y: 1248
+    y: 447
     width: 480
     height: 800
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 15
   - name: mood_red_QUEUE
-    x: 779
-    y: 535
+    x: 1933
+    y: 1771
     width: 94
     height: 63
     borderLeft: 0
@@ -548,21 +548,21 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 10
   - name: SecondBestOption
-    x: 1606
-    y: 1422
-    width: 72
-    height: 68
+    x: 1933
+    y: 1538
+    width: 105
+    height: 106
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 15
-    paddingRight: 13
-    paddingTop: 17
-    paddingBottom: 15
+    paddingLeft: 3
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
   - name: sliceSpriteZone
-    x: 2018
-    y: 1613
+    x: 824
+    y: 427
     width: 28
     height: 43
     borderLeft: 0
@@ -600,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UpsellFail
-    x: 1933
-    y: 1556
+    x: 786
+    y: 321
     width: 84
     height: 100
     borderLeft: 0
@@ -613,8 +613,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UpsellFine
-    x: 1933
-    y: 1455
+    x: 481
+    y: 161
     width: 84
     height: 100
     borderLeft: 0
@@ -639,8 +639,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: zoneIcon
-    x: 790
-    y: 345
+    x: 719
+    y: 463
     width: 50
     height: 50
     borderLeft: 0
