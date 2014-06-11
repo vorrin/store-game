@@ -23,6 +23,7 @@ public class God : MonoBehaviour {
     public GameObject customerPrefab;
     public GameObject gameScreen;
     public GameObject feedbackIconPrefab;
+    public GameObject zoneFeedbackIconPrefab;
     public CustomerPanelManager customerPanelManager;
     public ZonePanelManager zonePanelManager;
     public TextAsset csv;
@@ -146,15 +147,19 @@ public class God : MonoBehaviour {
         {
             string currentMood = customer.GetMoodColor();
             if (!customer.upsellable)
+                //customer is NOT upsellable
             {
                 if (currentMood == "green")
                 {
                     //nothing happens ,sale completes normally.
+                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
                     CustomerProcessedSuccessfully(customer);
                     return;
                 }
                 else
                 {
+                    //Customer sale fails through upselling
+                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
                     CustomerLost(customer);
                     return;
                 }
@@ -163,12 +168,14 @@ public class God : MonoBehaviour {
             {
                 if (currentMood == "red")
                 {
+                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
                     CustomerLost(customer);
                     return;
                 }
                 else
                 {
                     //SUCCESS CUSTOMER UPSELLABLE AND UPSOLD
+                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFine);
                     CustomerProcessedSuccessfully(customer,true);
                     return;
 
@@ -182,6 +189,8 @@ public class God : MonoBehaviour {
         else
         {
             //Upsell not attempted
+            customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
+
             CustomerProcessedSuccessfully(customer);
             return;
         }
@@ -286,8 +295,6 @@ public class God : MonoBehaviour {
 
     public void Start()
     {
-        //LoadDebugXML("ciao.xml");
-
         StartCoroutine("LoadDebugXML", "DebugSettings.xml");
         if (currentLevel >= difficultyLevels.Length)
         {

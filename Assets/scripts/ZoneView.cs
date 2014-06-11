@@ -11,6 +11,7 @@ public class ZoneView : MonoBehaviour {
     public UISprite progressIndicator;
     public GameObject staffBuyingIndicatorSet;
     public GameObject customersPresenceIndicatorSet;
+    public GameObject feedbackIconSpawner;
 
     // Use this for initialization
     void Start()
@@ -96,6 +97,13 @@ public class ZoneView : MonoBehaviour {
     public void UpdateProgressIndicator(float percentageOfCompletion)
     {
         progressIndicator.fillAmount = percentageOfCompletion;
+    }
+
+    public void FireFeedback(ZoneFeedbackIcon.Icons icon)
+    {
+        GameObject feedbackIcon = Instantiate(God.instance.zoneFeedbackIconPrefab, feedbackIconSpawner.transform.position, Quaternion.identity) as GameObject;
+        feedbackIcon.GetComponent<ZoneFeedbackIcon>().zoneIcon = icon;
+        feedbackIcon.SetParent(feedbackIconSpawner);
     }
 
     void OnDrop(GameObject customer)

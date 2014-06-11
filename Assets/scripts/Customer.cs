@@ -132,7 +132,8 @@ using System.Collections;
         if (currentZone != null)
         {
             //Zone takes care of zonepanel removing too, so this all we need if the customer is in a zone.
-            currentZone.RemoveCustomer(this);
+            currentZone.CustomerDeadInQueue(this);
+            //currentZone.RemoveCustomer(this);
         }
             //customer dies while in queue...
         else

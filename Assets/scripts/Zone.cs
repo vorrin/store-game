@@ -61,6 +61,27 @@ public class Zone : MonoBehaviour {
         });
         CheckIfQueueIsFull();
     }
+
+
+
+    public void CustomerDeadInQueue(Customer customer)
+    {
+
+        FireFeedbackToZones(ZoneFeedbackIcon.Icons.DeathInQueue);
+        RemoveCustomer(customer);
+    }
+
+    public void FireFeedbackToZones(ZoneFeedbackIcon.Icons icon){
+        if (God.instance.zonePanelManager.displayingZone)
+        {
+            // Here you got to fire up feedback in the zone too... 
+        }
+        zoneViews.ForEach(zoneView =>
+        {
+            zoneView.FireFeedback(icon);
+        });
+    }
+
     public void RemoveCustomer(Customer customer)
     {
         // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
@@ -101,7 +122,6 @@ public class Zone : MonoBehaviour {
         currentlyProcessedCustomer = customers[0];
         processingCustomer = true;
         customers[0].waiting = false ;
-
     }
 
 
