@@ -54,7 +54,7 @@ public class CustomerView : MonoBehaviour {
         }
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
-        Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
+        DestroyCustomerView();
     }
 
     public void SetMoodSprite()
@@ -155,11 +155,26 @@ public class CustomerView : MonoBehaviour {
     //    }
     //}
 
-
-    public void DestroyCustomerView(AbstractGoTween obj)
+    public void DestroyCustomerView()
     {
+        Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(goTween =>
+        {
+            Destroy(gameObject);
+        }));
         GetComponent<CustomSpriteAnimation>().enabled = false;
-        Destroy(gameObject);
+        collider.enabled = false;
+    }
+    public void DestroyCustomerView(System.Action action)
+    {
+        print("THISCALLLLLLL");
+        Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete( goTween => {
+            print("GOTWEEN FINIS");
+            Destroy(gameObject);
+            action();
+        }));
+        GetComponent<CustomSpriteAnimation>().enabled = false;
+        collider.enabled = false;
+       // Destroy(gameObject);
         Debug.Log("THIS WAS CALLED");
     }
 

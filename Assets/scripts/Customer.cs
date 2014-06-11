@@ -143,7 +143,6 @@ using System.Collections;
             //    CustomerView customerView = customerViewTrans.GetComponent<CustomerView>();
             //    if (customerView.customerModel == this)
             //    {
-            //        GameObject.Destroy(customerView.gameObject);
         // THIS SHOULD ALL BE MOVED IN CUSTOMERVIEW...
             if (customerView.gameObject)
             {
@@ -154,8 +153,7 @@ using System.Collections;
                 }
                 else// Customer is still in the queue
                 {
-                    GameObject.Destroy(customerView.gameObject);
-                    God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
+                    customerView.DestroyCustomerView(new System.Action(() => God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true));
                 }
 
                 

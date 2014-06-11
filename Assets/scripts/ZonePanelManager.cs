@@ -167,7 +167,7 @@ public class ZonePanelManager : MonoBehaviour {
         foreach (GameObject customer in customersToBeDestroyed)
         {
             customer.transform.parent = null;
-            Destroy(customer);
+            customer.GetComponent<CustomerView>().DestroyCustomerView();
         }
     }
 
@@ -195,10 +195,16 @@ public class ZonePanelManager : MonoBehaviour {
                 feedbackIcon.SetParent(gameObject);
                 feedbackIcon.transform.localPosition = transform.parent.InverseTransformPoint(customerView.transform.position);
 
-                
-                Destroy(customerView.gameObject);
-                customerView.parent = null;
-                queue.Reposition();
+
+                customerView.GetComponent<CustomerView>().DestroyCustomerView(
+                    new System.Action(
+                        () =>
+                        {
+                            customerView.parent = null;
+                            queue.Reposition();
+                        }
+                        )
+                    );
                 return;
             }
             

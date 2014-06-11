@@ -230,7 +230,7 @@ public class God : MonoBehaviour {
         }
         foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customer"))
         {
-            Destroy(customerView);
+            customerView.GetComponent<CustomerView>().DestroyCustomerView();
         }
         StopCoroutine("DelayedAddingOfCustomers");
         

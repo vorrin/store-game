@@ -3065,7 +3065,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: staffPower
-      value: 800
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
@@ -8196,7 +8196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneName: DISCOVERY ZONE
   customers: []
-  staffPower: 800
+  staffPower: 60
   maxQueue: 5
   queueOpen: 1
   zoneViews: []
