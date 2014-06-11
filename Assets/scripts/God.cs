@@ -95,12 +95,14 @@ public class God : MonoBehaviour {
         //Debug.Log(xmlDoc);
         
         Debug.Log(" CI E IL NOME! " + text);
-        GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
+     //   GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
     }
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
         customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
+        daytimeTotal = level.durationOfDay;
+        daytimeRemaining = daytimeTotal;
     }
 
     public void CustomerLost(Customer customer)
