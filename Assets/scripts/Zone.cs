@@ -67,25 +67,27 @@ public class Zone : MonoBehaviour {
     public void CustomerDeadInQueue(Customer customer)
     {
 
-        FireFeedbackToZones(ZoneFeedbackIcon.Icons.DeathInQueue);
-        RemoveCustomer(customer);
+   //     FireFeedbackToZones(ZoneFeedbackIcon.Icons.DeathInQueue);
+        RemoveCustomer(customer, ZoneFeedbackIcon.Icons.DeathInQueue);
     }
 
-    public void FireFeedbackToZones(ZoneFeedbackIcon.Icons icon){
-        if (God.instance.zonePanelManager.displayingZone)
-        {
-            // Here you got to fire up feedback in the zone too... 
-        }
+    public void FireFeedbackToZones(ZoneFeedbackIcon.Icons icon, Customer customer){
+        //if (God.instance.zonePanelManager.displayingZone)
+        //{
+        //    God.instance.zonePanelManager.FireFeedbackZonePanel( icon);
+        //    // Here you got to fire up feedback in the zone too... 
+        //}
         zoneViews.ForEach(zoneView =>
         {
             zoneView.FireFeedback(icon);
         });
     }
 
-    public void RemoveCustomer(Customer customer)
+    public void RemoveCustomer(Customer customer, ZoneFeedbackIcon.Icons icon)
     {
         // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
-        God.instance.zonePanelManager.RemoveCustomer(customer);
+        FireFeedbackToZones(icon, customer);
+        God.instance.zonePanelManager.RemoveCustomer(customer, icon);
         customers.Remove(customer);
         customer.currentZone = null;
         zoneViews.ForEach((zoneView) =>
@@ -128,17 +130,17 @@ public class Zone : MonoBehaviour {
     void CustomerProcessingCompleteZone()
     {
         God.instance.CustomerProcessingCompleteGod(currentlyProcessedCustomer);
-        processingCustomer = false;
-        customers.RemoveAt(0);
-        zoneViews.ForEach((zoneView) =>
-        {
-            zoneView.UpdateCustomerNumber();
-        });
-        CheckIfQueueIsFull();
-        if (God.instance.zonePanelManager.enabled)
-        {// This simply removes the customer from the zonepanel if the customer gets processed in that time.
-            God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
-        }
+        //processingCustomer = false;
+        //customers.RemoveAt(0);
+        //zoneViews.ForEach((zoneView) =>
+        //{
+        //    zoneView.UpdateCustomerNumber();
+        //});
+        //CheckIfQueueIsFull();
+        //if (God.instance.zonePanelManager.enabled)
+        //{// This simply removes the customer from the zonepanel if the customer gets processed in that time.
+        //    God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
+        //}
     }
 
 	// Update is called once per frame

@@ -170,7 +170,7 @@ using System.Collections;
 
     public void BackToQueueFromZone()
     {
-        currentZone.RemoveCustomer(this);
+        currentZone.RemoveCustomer(this, ZoneFeedbackIcon.Icons.Null);
         waiting = true;
         currentZone = null; 
         God.instance.customers.Remove(this); //avoids doubleadding

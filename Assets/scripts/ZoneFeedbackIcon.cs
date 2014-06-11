@@ -3,9 +3,10 @@ using System.Collections;
 
 public class ZoneFeedbackIcon : MonoBehaviour {
 
-    
+    public Vector3 scale = Vector3.one * .5f;
     public enum Icons
     {
+        Null,
         SaleFine,
         UpsellFine,
         UpsellFail,
@@ -21,10 +22,15 @@ public class ZoneFeedbackIcon : MonoBehaviour {
 
 	// Use this for initialization
 	public void Start () {
+        if (zoneIcon == Icons.Null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         GetComponent<UISprite>().spriteName = zoneIcon.ToString();
         GetComponent<UISprite>().MakePixelPerfect();
         transform.parent = God.instance.gameScreen.transform;
-        transform.localScale = Vector3.one * .5f;
+        transform.localScale = scale;
 
 	}
 	

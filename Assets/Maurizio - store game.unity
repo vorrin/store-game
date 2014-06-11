@@ -2058,7 +2058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: daa6b51f-485b-4d2a-ada1-9dcb78f2ddab
+  _id: 5354de3e-13e4-4764-aeaa-db7841ce8317
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &385213230
 MonoBehaviour:
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2105121d-797f-4a8e-aa93-9d1862a98c24
+  _id: e07c3f06-5f4b-4cf2-8024-671cc336516f
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &524233101
 MonoBehaviour:
@@ -3062,6 +3062,10 @@ Prefab:
     - target: {fileID: 100002, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
+      propertyPath: staffPower
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0bf9f750048f8444b9fc19800f50e1e, type: 2}
@@ -3484,7 +3488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6ef284cd-1995-40a4-a7cc-98442c88bd4b
+  _id: 4e432f25-75b1-4a17-b671-6a61fb0a5652
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &661676560
 MonoBehaviour:
@@ -5244,7 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3736ea1a-c847-4c78-bc5f-708b4e650574
+  _id: 769deaa7-8c7a-4aba-9453-c300d6dc9b8f
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
@@ -6115,6 +6119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dae299c1251ba04093c40fc9020efcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scale: {x: .5, y: .5, z: .5}
   zoneIcon: 0
 --- !u!54 &1258388320
 Rigidbody:
@@ -6168,12 +6173,12 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3005
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 50
+  mDepth: 21
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &1258388322
@@ -8191,7 +8196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneName: DISCOVERY ZONE
   customers: []
-  staffPower: 60
+  staffPower: 800
   maxQueue: 5
   queueOpen: 1
   zoneViews: []
@@ -8657,7 +8662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6f42f9e3-326b-4183-8c72-3cadd5ea8d73
+  _id: b5e60dfb-5db3-46f3-b304-bcc6817448dd
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &1674203089
 MonoBehaviour:
@@ -10648,7 +10653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e5e20698-43cf-44d9-a827-1eccd9e17650
+  _id: 64278703-d223-4906-b219-0d01c4e563c0
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &2114998567
 MonoBehaviour:

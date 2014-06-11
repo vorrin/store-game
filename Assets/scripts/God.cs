@@ -109,7 +109,7 @@ public class God : MonoBehaviour {
     public void CustomerLost(Customer customer)
     {
         if (customer.currentZone != null ){
-            customer.currentZone.RemoveCustomer(customer);
+            customer.currentZone.RemoveCustomer(customer,ZoneFeedbackIcon.Icons.DeathInQueue);
         }
         if (customerPanelManager.currentCustomer == customer)
         {
@@ -152,14 +152,17 @@ public class God : MonoBehaviour {
                 if (currentMood == "green")
                 {
                     //nothing happens ,sale completes normally.
-                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
+                    customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.SaleFine);
+                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
                     CustomerProcessedSuccessfully(customer);
                     return;
                 }
                 else
                 {
                     //Customer sale fails through upselling
-                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
+                    customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFail);
+
+                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
                     CustomerLost(customer);
                     return;
                 }
@@ -168,14 +171,18 @@ public class God : MonoBehaviour {
             {
                 if (currentMood == "red")
                 {
-                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
+                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
+                    customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFail);
+
                     CustomerLost(customer);
                     return;
                 }
                 else
                 {
                     //SUCCESS CUSTOMER UPSELLABLE AND UPSOLD
-                    customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFine);
+                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFine);
+                    customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFine);
+
                     CustomerProcessedSuccessfully(customer,true);
                     return;
 
@@ -189,8 +196,7 @@ public class God : MonoBehaviour {
         else
         {
             //Upsell not attempted
-            customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
-
+            customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.SaleFine);
             CustomerProcessedSuccessfully(customer);
             return;
         }

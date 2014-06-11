@@ -171,9 +171,12 @@ public class ZonePanelManager : MonoBehaviour {
         }
     }
 
+    public void FireFeedbackZonePanel(Customer customer, ZoneFeedbackIcon.Icons icon ){
+
+    }
     
 
-    public void RemoveCustomer(Customer processedCustomer)
+    public void RemoveCustomer(Customer processedCustomer, ZoneFeedbackIcon.Icons icon)
     {
         if (!this.enabled)
         {
@@ -184,6 +187,15 @@ public class ZonePanelManager : MonoBehaviour {
             if (customerView.name.Contains("Spot")) continue;
             if (customerView.GetComponent<CustomerView>().customerModel == processedCustomer)
             {
+                GameObject feedbackIcon = Instantiate(God.instance.zoneFeedbackIconPrefab, customerView.transform.localPosition, Quaternion.identity) as GameObject;
+                feedbackIcon.GetComponent<ZoneFeedbackIcon>().scale = Vector3.one;
+                feedbackIcon.GetComponent<ZoneFeedbackIcon>().zoneIcon = icon;
+                feedbackIcon.GetComponent<UIPanel>().depth = 50;
+                feedbackIcon.GetComponent<UIPanel>().Refresh();
+                feedbackIcon.SetParent(gameObject);
+                feedbackIcon.transform.localPosition = transform.parent.InverseTransformPoint(customerView.transform.position);
+
+                
                 Destroy(customerView.gameObject);
                 customerView.parent = null;
                 queue.Reposition();
