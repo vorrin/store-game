@@ -399,6 +399,7 @@ Transform:
   m_Children:
   - {fileID: 2145404814}
   - {fileID: 1878166742}
+  - {fileID: 435838734}
   - {fileID: 3458518}
   - {fileID: 522509008}
   - {fileID: 1639449698}
@@ -1126,7 +1127,7 @@ MonoBehaviour:
   csv: {fileID: 4900000, guid: 07c7a377575c4b14ba4db512282269c0, type: 3}
   possibleCustomersPool: []
   fader: {fileID: 1814919591}
-  totalTimeForDay: 600
+  daytimeTotal: 600
   daytimeRemaining: 600
   buyPanel: {fileID: 201587817}
   moodModifierBonusForBestChoice: 2
@@ -1140,18 +1141,23 @@ MonoBehaviour:
   - minSpawnTime: 20
     maxSpawnTime: 30
     percentageOfHardCustomers: 0
+    durationOfDay: 600
   - minSpawnTime: 15
     maxSpawnTime: 28
     percentageOfHardCustomers: 20
+    durationOfDay: 600
   - minSpawnTime: 12
     maxSpawnTime: 24
     percentageOfHardCustomers: 40
+    durationOfDay: 600
   - minSpawnTime: 10
     maxSpawnTime: 20
     percentageOfHardCustomers: 60
+    durationOfDay: 600
   - minSpawnTime: 5
     maxSpawnTime: 17
     percentageOfHardCustomers: 80
+    durationOfDay: 600
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
@@ -2010,7 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: daa6b51f-485b-4d2a-ada1-9dcb78f2ddab
+  _id: 5354de3e-13e4-4764-aeaa-db7841ce8317
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &385213230
 MonoBehaviour:
@@ -2221,6 +2227,95 @@ Prefab:
   m_RootGameObject: {fileID: 1105554448}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &435838733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435838734}
+  - 114: {fileID: 435838735}
+  m_Layer: 9
+  m_Name: DebugLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &435838734
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435838733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 115.645805, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 104964215}
+--- !u!114 &435838735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435838733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 190
+  mHeight: 42
+  mDepth: 59
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 4.52380943
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
+  mFont: {fileID: 11400000, guid: 29056518aafb01b49a5b08faf8e30cff, type: 2}
+  mText: New Label
+  mFontSize: 41
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &462889839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2105121d-797f-4a8e-aa93-9d1862a98c24
+  _id: e07c3f06-5f4b-4cf2-8024-671cc336516f
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &524233101
 MonoBehaviour:
@@ -3303,7 +3398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6ef284cd-1995-40a4-a7cc-98442c88bd4b
+  _id: 4e432f25-75b1-4a17-b671-6a61fb0a5652
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &661676560
 MonoBehaviour:
@@ -5010,7 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3736ea1a-c847-4c78-bc5f-708b4e650574
+  _id: 769deaa7-8c7a-4aba-9453-c300d6dc9b8f
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
@@ -8194,7 +8289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6f42f9e3-326b-4183-8c72-3cadd5ea8d73
+  _id: b5e60dfb-5db3-46f3-b304-bcc6817448dd
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &1674203089
 MonoBehaviour:
@@ -10201,7 +10296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e5e20698-43cf-44d9-a827-1eccd9e17650
+  _id: 64278703-d223-4906-b219-0d01c4e563c0
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &2114998567
 MonoBehaviour:

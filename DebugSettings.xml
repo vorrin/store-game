@@ -1,6 +1,14 @@
 <DifficultyLevelEntry>
-    <minSpawnTime> 15 </minSpawnTime>
-    <maxSpawnTime> 25 </maxSpawnTime>
-    <percentageOfHardCustomers> 20 </percentageOfHardCustomers>
-    <durationOfDay> 300 </durationOfDay>
+    <minSpawnTime>
+        15 
+    </minSpawnTime>
+    <maxSpawnTime>
+        25
+    </maxSpawnTime>
+    <percentageOfHardCustomers> 
+        20 
+    </percentageOfHardCustomers>
+    <durationOfDay> 
+        300 
+    </durationOfDay>
 </DifficultyLevelEntry>
