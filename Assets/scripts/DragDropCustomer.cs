@@ -15,20 +15,27 @@ public class DragDropCustomer : UIDragDropItem
     protected override void OnDragDropRelease(GameObject surface)
     {
 
-        customerView.EndDrag();
-        dragging = false;
         if (surface != null)
         {
-            Zone possibleZone = surface.GetComponent<Zone>();
+            Zone possibleZone = surface.GetComponent<ZoneView>().zoneModel;
             if (possibleZone && !possibleZone.queueOpen)
             //if (!surface.GetComponent<Zone>().queueOpen)
             //If queue is full, send the customer object back.
             {
                 surface = null;
             }
+            //else if (possibleZone)
+            //{
+            //    possibleZone.zoneViews[0].OnDrop(gameObject);
+            //    return;
+            //}
         }
-        
         base.OnDragDropRelease(surface);
+
+        dragging = false;
+        customerView.EndDrag();
+
+        
     }
     protected override void OnDragDropStart()
     {

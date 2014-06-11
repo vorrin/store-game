@@ -18,7 +18,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400018}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Zone
   m_TagString: zone
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400020}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: StaffNumberLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FeedbackIconSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400022}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400024}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ProgressIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 114: {fileID: 11400036}
   - 114: {fileID: 11400026}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CustomerNumberLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

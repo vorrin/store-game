@@ -78,6 +78,47 @@ public class ZoneView : MonoBehaviour {
         }
     }
 
+    void OnHover(bool isHovering)
+    {
+        //if (isHovering)
+        //{
+        //    GetComponent<UIPlayAnimation>().Play(true);
+        //}
+        //else
+        //{
+        //    GetComponent<UIPlayAnimation>().Play(false);
+        //}
+    }
+
+
+    public void OnCustomHover(bool isOver)
+    {
+        if (God.instance.customerDragging && isOver)
+        {
+            foreach (GameObject zone in GameObject.FindGameObjectsWithTag("zone"))
+            {
+                
+                if (zone.GetComponent<ZoneView>().zoneModel != zoneModel)
+                {
+
+                    zone.GetComponent<ZoneView>().zoneModel.zoneViews.ForEach(zoneView =>
+                        zoneView.GetComponent<UIPlayAnimation>().Play(false)
+                        );
+                }
+            }
+        }
+        
+        
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isOver);
+            });
+        
+            
+        
+
+    }
+
 	void OnClick () {
         zoneModel.zoneViews.ForEach(zoneView =>
         {
@@ -106,9 +147,24 @@ public class ZoneView : MonoBehaviour {
         feedbackIcon.SetParent(feedbackIconSpawner);
     }
 
-    void OnDrop(GameObject customer)
+    public void OnDrop(GameObject customer)
     {
+
+        //if (!God.instance.customerDragging)
+        //{
+        //    return;
+        //    Debug.Log("NODRAGING " );
+
+        //}
+        if (customer.tag != "customer")
+        {
+            return;
+        }
+
+        Debug.Log("TAT STAT OF THINGS INI " + customer.GetComponent<DragDropCustomer>().dragging);
         print("SOMETHING DROPPED ON ZONE");
+
+    //    customer.collider.enabled = false;
         CustomerView customerView = customer.GetComponent<CustomerView>();
         if (customerView)
         {

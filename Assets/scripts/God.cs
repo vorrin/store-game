@@ -32,6 +32,8 @@ public class God : MonoBehaviour {
     public float daytimeTotal = 600f;
     public float daytimeRemaining = 600f;
     public GameObject buyPanel;
+    public bool customerDragging = false;
+    
 
     public float moodModifierBonusForBestChoice = 2f;
     public float moodModifierMalusForSecondBestChoice = 3f;
@@ -62,6 +64,8 @@ public class God : MonoBehaviour {
     public MainScreenIconDictionary scoreLabels;
 
     //SCORE TRACKING BITS
+
+
 
 
 
@@ -98,6 +102,119 @@ public class God : MonoBehaviour {
         Debug.Log(" CI E IL NOME! " + text);
      //   GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
     }
+
+
+    //Homemade Hover
+    private List<ZoneView> hoveredPreviously = new List<ZoneView>();
+    public IEnumerator CheckHoveredObjects (){
+        print("over and over");
+
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.touchCount > 0)
+            {
+
+
+                Touch touch = Input.GetTouch(0);
+                // if touch ended
+                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                {
+                    hoveredPreviously.ForEach(zoneView =>
+                    {
+                        zoneView.OnCustomHover(false);
+                    });
+                    hoveredPreviously = new List<ZoneView>();
+                    //  Input.mousePosition = new Vector3(-500f, -500f, 0f);
+                }
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+                
+            }
+        }
+        
+
+        //    if (hoveredPreviously.Count == 0)
+        //    {
+        //        print("going hooom");
+        //        yield return new WaitForSeconds(0.1f);
+        //    }
+            
+        //}
+        GameObject hoveredObject;
+        RaycastHit lastHit;
+        UICamera cam = UICamera.mainCamera.GetComponent<UICamera>();
+        Camera mainCam = UICamera.mainCamera;
+
+        Vector3 position;
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.touchCount > 0)
+            {
+                position = Input.GetTouch(0).position;
+            }
+            else
+            {
+                position = new Vector3(-5080f, -5080f, 0f);
+            }
+        }
+        else
+        {
+            position = Input.mousePosition;
+        }
+
+        Ray ray = mainCam.ScreenPointToRay(position);
+        float dist = (cam.rangeDistance > 0f) ? cam.rangeDistance : mainCam.farClipPlane - mainCam.nearClipPlane;
+        int mask = mainCam.cullingMask & (int)cam.eventReceiverMask; // NOT NEEDED WE GOT ONLY ZONES
+
+        print (LayerMask.NameToLayer("Zone"));
+
+        RaycastHit[] hits = Physics.RaycastAll(ray, dist, 1 << LayerMask.NameToLayer("Zone"));
+
+        
+        List<ZoneView> hoveredCurrently = new List<ZoneView>();
+
+        foreach (RaycastHit hit in hits)
+        {
+            ZoneView view = hit.collider.GetComponent<ZoneView>();
+            if (!view) continue;
+            if (!hoveredPreviously.Contains(hit.collider.GetComponent<ZoneView>()))
+            {
+                view.OnCustomHover(true);
+            }
+            hoveredCurrently.Add(view);
+        }
+        foreach (ZoneView zoneView in hoveredPreviously)
+        {
+            if (!hoveredCurrently.Contains(zoneView))
+            {
+                zoneView.OnCustomHover(false);
+            }
+        }
+
+        if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) && Input.touchCount == 0)
+        {
+            print("I AM ANDROID AND A M GOINBAK ");
+            hoveredPreviously = new List<ZoneView>();
+        }
+        else
+        {
+            hoveredPreviously = hoveredCurrently;
+
+        }
+
+
+        
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(CheckHoveredObjects());
+        //if (!UICamera.Raycast(Input.mousePosition, out lastHit)) ;
+	//	Debug.Log(lastHit.collider.name);
+		//if (hoveredObject == null) hoveredObject = genericEventHandler;
+	//	for (int i = 0; i < 3; ++i) mMouse[i].current = hoveredObject;
+    }
+
+
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
@@ -302,6 +419,7 @@ public class God : MonoBehaviour {
     public void Start()
     {
         StartCoroutine("LoadDebugXML", "DebugSettings.xml");
+
         if (currentLevel >= difficultyLevels.Length)
         {
             //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
@@ -316,6 +434,8 @@ public class God : MonoBehaviour {
 
         FindTheZones();
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
+
+        StartCoroutine(CheckHoveredObjects());
         
         StartCoroutine(DelayedAddingOfCustomers());
     }
@@ -494,7 +614,9 @@ public class God : MonoBehaviour {
     void Update()
     {
 
+
         //DEBUG AREA
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TestingGame();
