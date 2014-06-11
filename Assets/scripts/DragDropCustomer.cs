@@ -17,13 +17,22 @@ public class DragDropCustomer : UIDragDropItem
 
         if (surface != null)
         {
-            Zone possibleZone = surface.GetComponent<ZoneView>().zoneModel;
-            if (possibleZone && !possibleZone.queueOpen)
-            //if (!surface.GetComponent<Zone>().queueOpen)
-            //If queue is full, send the customer object back.
+            if (surface.GetComponent<ZoneView>() == null)
             {
                 surface = null;
             }
+            else
+            {
+                Zone possibleZone = surface.GetComponent<ZoneView>().zoneModel;
+                if (possibleZone && !possibleZone.queueOpen)
+                //if (!surface.GetComponent<Zone>().queueOpen)
+                //If queue is full, send the customer object back.
+                {
+                    surface = null;
+                }
+
+            }
+            
             //else if (possibleZone)
             //{
             //    possibleZone.zoneViews[0].OnDrop(gameObject);
