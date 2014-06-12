@@ -62,6 +62,7 @@ public class God : MonoBehaviour {
 
     public ScoreTracker score;
     public MainScreenIconDictionary scoreLabels;
+    public GameObject mainMenuContainer;
 
     //SCORE TRACKING BITS
 
@@ -643,6 +644,7 @@ public class God : MonoBehaviour {
     public void OnDeserialized()
     {
         print("deSERIALIZING GOD");
+        mainMenuContainer.GetComponent<UITweener>().PlayForward();
         FindTheZones();
         foreach (Zone zone in zones)
         {
