@@ -10,7 +10,18 @@ public class ContinueButton : MonoBehaviour {
             GetComponent<UIButton>().isEnabled = false;
         }
 	}
-	
+
+    void OnClick()
+    {
+        if (God.instance.gameStarted)
+        {
+            God.instance.mainMenuContainer.GetComponent<UITweener>().PlayForward();
+        }
+        else
+        {
+            God.instance.LoadState();
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 	

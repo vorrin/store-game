@@ -45,6 +45,7 @@ public class God : MonoBehaviour {
 
     public DifficultyLevelEntry[] difficultyLevels;
     public UILabel difficultyLevelLabel;
+    public bool gameStarted = false;
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
     
@@ -476,27 +477,79 @@ public class God : MonoBehaviour {
 
     public void BeginGame()
     {
+        //if (PlayerPrefs.GetInt("playedBefore") == 0)
+        //{
+     //   print(PlayerPrefs.GetInt("playedBefore"));
 
-        StartCoroutine("LoadDebugXML", "DebugSettings.xml");
+      
 
-        if (currentLevel >= difficultyLevels.Length)
+        if (gameStarted == true)
         {
-            //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
-            SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
-        }
-        else
-        {
-            SetDifficultyLevel(difficultyLevels[currentLevel]);
+            LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
+            StartCoroutine("DelayedAddingOfCustomers");
+            return;
+            //customers = new List<Customer>();
+            //zones.ForEach(zone =>
+            //{
+            //    zone.ClearZone();
+            //});
+            //ResetScoresAtEndOfDay();
+            //score.totalSpendForTheDay = 0;
+            //currentLevel = 0;
+            //SetDifficultyLevel(difficultyLevels[currentLevel]);
+            //UpdateScoresMenu();
+            //StartCoroutine(DelayedAddingOfCustomers());
+
         }
         
-        UpdateScoresMenu();
+        else {
+            StartCoroutine("LoadDebugXML", "DebugSettings.xml");
+            gameStarted = true;
+            if (currentLevel >= difficultyLevels.Length)
+            {
+                //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
+                SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
+            }
+            else
+            {
+                SetDifficultyLevel(difficultyLevels[currentLevel]);
+            }
 
-        FindTheZones();
-        possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
+            UpdateScoresMenu();
+
+            FindTheZones();
+            possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
+            LevelSerializer.SaveGame("base");
+            StartCoroutine(DelayedAddingOfCustomers());
+        }
 
       //  StartCoroutine(CheckHoveredObjects());
         
-        StartCoroutine(DelayedAddingOfCustomers());
+        //StartCoroutine(DelayedAddingOfCustomers());
+
+        //    print("NEVER PLAYED");
+        //    print("creating only game");
+
+        //    LevelSerializer.SaveGame("base");
+
+            //LevelSerializer.load
+         //   PlayerPrefs.SetInt("playedBefore", 1);
+
+        //}
+        //else
+        //{
+        //    print("LOADING only game");
+        ////    PlayerPrefs.SetInt("playedBefore", 0);
+        //    StopCoroutine("DelayedAddingOfCustomers");
+
+        //    foreach (LevelSerializer.SaveEntry save in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
+        //    {
+        //        print("found " + save.Name);
+        //    }
+        //    LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
+        //    StartCoroutine(DelayedAddingOfCustomers());
+
+        //}
     }
 
     public void FindTheZones()
@@ -630,6 +683,15 @@ public class God : MonoBehaviour {
         //fader.SetActiveRecursively(true);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    void OnApplicationQuit()
+    {
+        s_Instance = null;
+        SaveState();
+    }
     void OnApplicationPause(bool isPaused) // THIS IS WHAT SAVES THE GAME ON MOBILE! 
     {
         print("PAUSING AND " + isPaused);
@@ -657,6 +719,7 @@ public class God : MonoBehaviour {
         fader.SetActive(false);
         UpdateScoresMenu();
         RefreshStaffBuyingMenu();
+        customersQueue.GetComponent<UIGrid>().Reposition();
     }
 
     public void RefreshStaffBuyingMenu()
@@ -771,11 +834,6 @@ public class God : MonoBehaviour {
 
     // Ensure that the instance is destroyed when the game is stopped in the editor.
 
-    void OnApplicationQuit()
-    {
-        //    SaveState();
-        s_Instance = null;
-    }
 
 
 }
