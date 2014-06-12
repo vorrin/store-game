@@ -78,16 +78,24 @@ public class ZoneView : MonoBehaviour {
         }
     }
 
+
     void OnHover(bool isHovering)
     {
-        //if (isHovering)
-        //{
-        //    GetComponent<UIPlayAnimation>().Play(true);
-        //}
-        //else
-        //{
-        //    GetComponent<UIPlayAnimation>().Play(false);
-        //}
+        return;
+        if (isHovering)
+        {
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isHovering);
+            });
+        }
+        else
+        {
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isHovering);
+            });
+        }
     }
 
 

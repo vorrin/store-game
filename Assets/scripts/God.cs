@@ -106,32 +106,48 @@ public class God : MonoBehaviour {
 
     //Homemade Hover
     private List<ZoneView> hoveredPreviously = new List<ZoneView>();
-    public IEnumerator CheckHoveredObjects (){
+    private float touchStart = 0f;
+    public void  CheckHoveredObjects (){
         print("over and over");
-
-        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        Vector3 inputPosition;
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android || true )
         {
             if (Input.touchCount > 0)
             {
-
+                if (touchStart == 0f)
+                {
+                    touchStart = Time.time;
+                }
 
                 Touch touch = Input.GetTouch(0);
-                // if touch ended
-                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-                {
-                    hoveredPreviously.ForEach(zoneView =>
-                    {
-                        zoneView.OnCustomHover(false);
-                    });
-                    hoveredPreviously = new List<ZoneView>();
-                    //  Input.mousePosition = new Vector3(-500f, -500f, 0f);
-                }
+                //// if touch ended
+                //if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                //{
+                //    hoveredPreviously = new List<ZoneView>();
+                //    return;
+                //    //  Input.mousePosition = new Vector3(-500f, -500f, 0f);
+                //}
+                inputPosition = touch.position;
+              //  print(Input.GetTouch(0).deltaTime);
             }
             else
             {
-                yield return new WaitForSeconds(0.1f);
+                float touchTime = Time.time - touchStart;
+                touchStart = 0f;
+                if (touchTime > .3f)
+                {
+                  //  print ("long");
+                    inputPosition = new Vector3(-5080f, -5080f, 0f);
+                }
+                else {
+                    hoveredPreviously = new List<ZoneView>();
+                    return;
+                }
                 
             }
+        }
+        else {
+            inputPosition = Input.mousePosition;
         }
         
 
@@ -147,24 +163,23 @@ public class God : MonoBehaviour {
         UICamera cam = UICamera.mainCamera.GetComponent<UICamera>();
         Camera mainCam = UICamera.mainCamera;
 
-        Vector3 position;
-        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
-        {
-            if (Input.touchCount > 0)
-            {
-                position = Input.GetTouch(0).position;
-            }
-            else
-            {
-                position = new Vector3(-5080f, -5080f, 0f);
-            }
-        }
-        else
-        {
-            position = Input.mousePosition;
-        }
+        //if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        //{
+        //    if (Input.touchCount > 0)
+        //    {
+        //        inputPosition = Input.GetTouch(0).position;
+        //    }
+        //    else
+        //    {
+        //        inputPosition = new Vector3(-5080f, -5080f, 0f);
+        //    }
+        //}
+        //else
+        //{
+        //    inputPosition = Input.mousePosition;
+        //}
 
-        Ray ray = mainCam.ScreenPointToRay(position);
+        Ray ray = mainCam.ScreenPointToRay(inputPosition);
         float dist = (cam.rangeDistance > 0f) ? cam.rangeDistance : mainCam.farClipPlane - mainCam.nearClipPlane;
         int mask = mainCam.cullingMask & (int)cam.eventReceiverMask; // NOT NEEDED WE GOT ONLY ZONES
 
@@ -177,6 +192,7 @@ public class God : MonoBehaviour {
 
         foreach (RaycastHit hit in hits)
         {
+            Debug.Log("COLLIDER + " + hit.collider.name);
             ZoneView view = hit.collider.GetComponent<ZoneView>();
             if (!view) continue;
             if (!hoveredPreviously.Contains(hit.collider.GetComponent<ZoneView>()))
@@ -205,9 +221,9 @@ public class God : MonoBehaviour {
         }
 
 
-        
-        yield return new WaitForSeconds(0.1f);
-        StartCoroutine(CheckHoveredObjects());
+        return; 
+     //   yield return new WaitForSeconds(0.1f);
+    //    StartCoroutine(CheckHoveredObjects());
         //if (!UICamera.Raycast(Input.mousePosition, out lastHit)) ;
 	//	Debug.Log(lastHit.collider.name);
 		//if (hoveredObject == null) hoveredObject = genericEventHandler;
@@ -435,7 +451,7 @@ public class God : MonoBehaviour {
         FindTheZones();
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
 
-        StartCoroutine(CheckHoveredObjects());
+      //  StartCoroutine(CheckHoveredObjects());
         
         StartCoroutine(DelayedAddingOfCustomers());
     }
@@ -610,10 +626,13 @@ public class God : MonoBehaviour {
             
     }
 
+    void OnGUI()
+    {
+    //    CheckHoveredObjects();
+    }
 
     void Update()
     {
-
 
         //DEBUG AREA
 
