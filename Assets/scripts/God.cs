@@ -413,6 +413,15 @@ public class God : MonoBehaviour {
         scoreLabels.totalCustomersProcessedLabel.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("00");
     }
 
+    void ResetScoresAtEndOfDay()
+    {
+        score.totalSpendForTheDay = score.resultSpending;
+        score.totalCustomersLost = 0;
+        score.totalCustomersProcessed = 0;
+        score.totalNPSForTheDay = 0;
+        score.resultSpending = 0;
+    }
+
     
 	// This defines a static instance property that attempts to find the manager object in the scene and
 	// returns it to the caller.
@@ -442,12 +451,14 @@ public class God : MonoBehaviour {
         else
         {
             print("PAUSING AND SAVING ");
+            SaveState();
         }
     }
 
 
     public void StartNextDay()
     {
+        ResetScoresAtEndOfDay();
         currentLevel += 1;
         endOfDayPhase = false;
         daytimeRemaining = daytimeTotal;
@@ -458,13 +469,13 @@ public class God : MonoBehaviour {
             {
                 zoneView.ZoneViewStateSetup();
             });
-            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         };
-        Start();
+        BeginGame();
     }
 
-    public void Start()
+    public void BeginGame()
     {
+
         StartCoroutine("LoadDebugXML", "DebugSettings.xml");
 
         if (currentLevel >= difficultyLevels.Length)
