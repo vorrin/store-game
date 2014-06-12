@@ -54,6 +54,7 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void RefreshStaffButtons()
     {
+
         if (currentZone.staffPower  % 100 == 0) // Unity float weirdness
         {
             print("modulo as exp");
@@ -83,6 +84,13 @@ public class ZonePanelManager : MonoBehaviour {
             }
         }
         PopulateZonePanel();
+    }
+
+    public void RemoveStaffHiringButtons()
+    {
+        trainButton.isEnabled = false;
+        hireButton.isEnabled = false;
+
     }
 
     public void HireStaff()

@@ -465,6 +465,7 @@ public class God : MonoBehaviour {
         endOfDayPhase = false;
         daytimeRemaining = daytimeTotal;
         RefreshStaffBuyingMenu();
+        zonePanelManager.RemoveStaffHiringButtons();
         foreach (Zone zone in zones)
         {
             zone.zoneViews.ForEach((zoneView) =>
@@ -485,8 +486,24 @@ public class God : MonoBehaviour {
 
         if (gameStarted == true)
         {
+
             LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
+
+            foreach (Zone zone in zones)
+            {
+                zone.ClearZone();
+                zone.zoneViews.ForEach((zoneView) =>
+                {
+                    zoneView.ZoneViewStateSetup();
+                });
+                //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+            }
+        //    RefreshStaffBuyingMenu();
+            zonePanelManager.RemoveStaffHiringButtons();
+
+            print("ASD KDKK ADLKSDAKLDALSK ASD " + endOfDayPhase);
             StartCoroutine("DelayedAddingOfCustomers");
+
             return;
             //customers = new List<Customer>();
             //zones.ForEach(zone =>
