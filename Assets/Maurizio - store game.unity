@@ -3617,6 +3617,95 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &678147254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 678147255}
+  - 114: {fileID: 678147256}
+  m_Layer: 9
+  m_Name: MoodLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &678147255
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678147254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.13220215, y: 87.9999847, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1745924934}
+--- !u!114 &678147256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678147254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 30
+  mHeight: 58
+  mDepth: 6
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .517241359
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
+  mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
+  mText: 9
+  mFontSize: 58
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 2
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .492647052, g: .492647052, b: .492647052, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &685946715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,6 +4969,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: 
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -4897,6 +4988,7 @@ MonoBehaviour:
   currentZoneLabel: {fileID: 615168008}
   moodBubble: {fileID: 1745924935}
   backToQueueButton: {fileID: 243432020}
+  moodBubbleLabel: {fileID: 678147256}
 --- !u!114 &953546239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5267,6 +5359,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -8161,6 +8255,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -9381,7 +9477,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 678147255}
   m_Father: {fileID: 953546232}
 --- !u!114 &1745924935
 MonoBehaviour:
@@ -9626,6 +9723,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0

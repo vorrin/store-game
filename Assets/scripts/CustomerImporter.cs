@@ -19,6 +19,9 @@ public class CustomerImporter {
         int ageIndex = 1;
         int ethnicityIndex = 2;
         int scenarioIndex = 3;
+        int typeIndex = 4;
+        int experienceLoopIndex = 5;
+
         int npsIndex = 6;
         int timeAvailableIndex = 7;
         int bestZoneIndex = 8;
@@ -70,6 +73,8 @@ public class CustomerImporter {
 
 
                 string scenario = grid[scenarioIndex, y];
+                string type = grid[typeIndex, y];
+                string experienceLoop = grid[experienceLoopIndex, y];
                 string nps = grid[npsIndex, y];
                 string[] npsWords = nps.Split(' ');
                 int npsValue = 0;
@@ -143,7 +148,7 @@ public class CustomerImporter {
 
                 //double spendVal = double.Parse(spend);
 
-                Customer player = new Customer (sex, age, ethnicity, scenario, npsValue, timeMins, bestZone, secondBestZone, upSellVal, spendVal);
+                Customer player = new Customer (sex, age, ethnicity, scenario, type, experienceLoop, npsValue, timeMins, bestZone, secondBestZone, upSellVal, spendVal);
                 generatedCustomers.Add(player);
 
 

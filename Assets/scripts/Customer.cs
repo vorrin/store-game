@@ -7,6 +7,8 @@ using System.Collections;
 	public string age;
 	public string ethnicity;
 	public string scenario;
+    public string type;
+    public string experienceLoop;
 	public float nps = 1f;
 	public string avatarName = "customer";
 	public bool upsellable;
@@ -35,7 +37,7 @@ using System.Collections;
 
     }
 
-    public Customer(string gender, string age, string ethnicity, string scenario, int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
+    public Customer(string gender, string age, string ethnicity, string scenario, string type, string experienceLoop , int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
     {
     //}
 
@@ -52,6 +54,8 @@ using System.Collections;
 		this.age = age;
 		this.ethnicity = ethnicity;
 		this.scenario = scenario;
+        this.type = type;
+        this.experienceLoop = experienceLoop;
 		this.nps = npsValue;
 
         this.initialTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
@@ -88,6 +92,8 @@ using System.Collections;
         this.age = customerCloneBase.age;
         this.ethnicity = customerCloneBase.ethnicity;
         this.scenario = customerCloneBase.scenario;
+        this.type = customerCloneBase.type;
+        this.experienceLoop = customerCloneBase.experienceLoop;
         this.nps = customerCloneBase.nps;
         //DEBUG avatarname not to be used?
         this.avatarName = customerCloneBase.avatarName;

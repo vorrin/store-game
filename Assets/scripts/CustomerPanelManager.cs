@@ -10,7 +10,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public UILabel currentZoneLabel;
     public UISprite moodBubble;
     public GameObject backToQueueButton;
-
+    public UILabel moodBubbleLabel;
 
     void Start()
     {
@@ -27,6 +27,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public void SetMoodSprite()
     {
         moodBubble.spriteName = "mood_" + currentCustomer.GetMoodColor() + "_PROFILE";
+        moodBubbleLabel.text = Mathf.Floor(currentCustomer.nps).ToString("0");
     }
 
     public void Display(Customer customer)
@@ -50,7 +51,7 @@ public class CustomerPanelManager : MonoBehaviour {
 
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
-        scenarioLabel.text = customer.scenario;
+        scenarioLabel.text = customer.scenario + "\n" + "Type: " + customer.type + "\nExperience: " + customer.experienceLoop;
         SetMoodSprite();
         GetComponentInChildren<UpsellButton>().setUpselling(customer.attemptingUpsell);
         if (currentCustomer.currentZone == null)
