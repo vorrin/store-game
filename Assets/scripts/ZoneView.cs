@@ -101,6 +101,7 @@ public class ZoneView : MonoBehaviour {
 
     public void OnCustomHover(bool isOver)
     {
+        print("custover is " + isOver);
         if (God.instance.customerDragging && isOver)
         {
             foreach (GameObject zone in GameObject.FindGameObjectsWithTag("zone"))

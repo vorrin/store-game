@@ -1171,6 +1171,7 @@ MonoBehaviour:
     totalTimeLabel: {fileID: 613691151}
     totalCustomersProcessedLabel: {fileID: 685946717}
     totalNPSLabel: {fileID: 1720270290}
+  hoveredPreviously: []
 --- !u!4 &197690411
 Transform:
   m_ObjectHideFlags: 0
@@ -9863,7 +9864,7 @@ GameObject:
   - 114: {fileID: 1814919593}
   - 111: {fileID: 1814919598}
   - 114: {fileID: 1814919597}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
