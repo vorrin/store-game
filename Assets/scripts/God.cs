@@ -720,6 +720,11 @@ public class God : MonoBehaviour {
         UpdateScoresMenu();
         RefreshStaffBuyingMenu();
         customersQueue.GetComponent<UIGrid>().Reposition();
+       // customersQueue.GetComponent<UIScrollView>().UpdatePosition();
+
+
+        //customersQueue.GetComponent<UIScrollView>().contentPivot = UIWidget.Pivot.Left;
+
     }
 
     public void RefreshStaffBuyingMenu()
