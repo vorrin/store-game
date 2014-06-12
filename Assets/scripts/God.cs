@@ -689,6 +689,10 @@ public class God : MonoBehaviour {
             SaveState();
 
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DeleteOldSavegames();
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
             EndWorkingDay();
