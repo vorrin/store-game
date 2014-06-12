@@ -44,11 +44,12 @@ public class DragDropCustomer : UIDragDropItem
         dragging = false;
         customerView.EndDrag();
         RaycastHit[] hits = RaycastForZones();
-        ZoneView possibleZoneView = hits[0].collider.GetComponent<ZoneView>();
-        if (possibleZoneView)
+        if (hits.Length >0)
         {
+            ZoneView possibleZoneView = hits[0].collider.GetComponent<ZoneView>();
             possibleZoneView.OnCustomDrop(gameObject);
         }
+
 
         
     }
