@@ -27,6 +27,7 @@ public class CustomerPanelManager : MonoBehaviour {
     public void SetMoodSprite()
     {
         moodBubble.spriteName = "mood_" + currentCustomer.GetMoodColor() + "_PROFILE";
+
         moodBubbleLabel.text = Mathf.Floor(currentCustomer.nps).ToString("0");
     }
 

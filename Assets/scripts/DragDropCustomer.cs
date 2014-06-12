@@ -43,14 +43,18 @@ public class DragDropCustomer : UIDragDropItem
 
         dragging = false;
         customerView.EndDrag();
+        RaycastHit[] hits = RaycastForZones();
+        ZoneView possibleZoneView = hits[0].collider.GetComponent<ZoneView>();
+        if (possibleZoneView)
+        {
+            possibleZoneView.OnCustomDrop(gameObject);
+        }
 
         
     }
 
-    protected override void OnDragDropMove(Vector3 delta)
+    RaycastHit[] RaycastForZones()
     {
-        //Fades zones in when dragging customer.
-        base.OnDragDropMove(delta);
         Vector3 inputPosition;
         if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
         {
@@ -61,14 +65,22 @@ public class DragDropCustomer : UIDragDropItem
             inputPosition = Input.mousePosition;
         }
 
-        GameObject hoveredObject;
-        RaycastHit lastHit;
         UICamera cam = UICamera.mainCamera.GetComponent<UICamera>();
         Camera mainCam = UICamera.mainCamera;
         Ray ray = mainCam.ScreenPointToRay(inputPosition);
         float dist = (cam.rangeDistance > 0f) ? cam.rangeDistance : mainCam.farClipPlane - mainCam.nearClipPlane;
         int mask = mainCam.cullingMask & (int)cam.eventReceiverMask; // NOT NEEDED WE GOT ONLY ZONES
         RaycastHit[] hits = Physics.RaycastAll(ray, dist, 1 << LayerMask.NameToLayer("Zone"));
+        return hits;
+
+    }
+
+    protected override void OnDragDropMove(Vector3 delta)
+    {
+        //Fades zones in when dragging customer.
+        base.OnDragDropMove(delta);
+
+        RaycastHit[] hits = RaycastForZones();
         foreach (RaycastHit hit in hits)
         {
 

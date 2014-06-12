@@ -30,9 +30,6 @@ public class ZoneView : MonoBehaviour {
 
     }
 
-
-
-
     public void UpdateCustomerNumber()
     {
         customerNumberLabel.text = zoneModel.customers.Count.ToString();
@@ -156,8 +153,9 @@ public class ZoneView : MonoBehaviour {
         feedbackIcon.SetParent(feedbackIconSpawner);
     }
 
-    public void OnDrop(GameObject customer)
+    public void OnCustomDrop(GameObject customer)
     {
+        print("dropping ");
 
         //if (!God.instance.customerDragging)
         //{

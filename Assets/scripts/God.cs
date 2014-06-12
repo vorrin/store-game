@@ -44,7 +44,7 @@ public class God : MonoBehaviour {
     public int currentLevel = 0;
 
     public DifficultyLevelEntry[] difficultyLevels;
-
+    public UILabel difficultyLevelLabel;
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
     
@@ -89,24 +89,18 @@ public class God : MonoBehaviour {
         DifficultyLevelEntry debugDifficulty = XmlSupport.DeserializeXml<DifficultyLevelEntry>(www.text);
         difficultyLevels[0] = debugDifficulty;
         SetDifficultyLevel(difficultyLevels[0]);
-        currentLevel = 0;
+        //currentLevel = 0;
         StopCoroutine("DelayedAddingOfCustomers") ;
         StartCoroutine(DelayedAddingOfCustomers());
 
-        //Start();
         string text = www.text;
-        //XmlDocument xmlDoc = new XmlDocument();
-        //xmlDoc.LoadXml(text);
-        //Debug.Log(xmlDoc);
         
-        Debug.Log(" CI E IL NOME! " + text);
-     //   GameObject.Find("DebugLabel").GetComponent<UILabel>().text = www.text;
     }
 
 
     //Homemade Hover
-    public List<ZoneView> hoveredPreviously = new List<ZoneView>();
-    private float touchStart = 0f;
+    //public List<ZoneView> hoveredPreviously = new List<ZoneView>();
+    //private float touchStart = 0f;
     //public void  CustomHover (){
     //    print("over and over");
     //    Vector3 inputPosition = new Vector3(-500f, -500f, 0f);
@@ -270,6 +264,7 @@ public class God : MonoBehaviour {
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
+        difficultyLevelLabel.text = (currentLevel + 1).ToString();
         customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
         daytimeTotal = level.durationOfDay;
         daytimeRemaining = daytimeTotal;
