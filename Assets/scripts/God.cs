@@ -107,164 +107,164 @@ public class God : MonoBehaviour {
     //Homemade Hover
     public List<ZoneView> hoveredPreviously = new List<ZoneView>();
     private float touchStart = 0f;
-    public void  CustomHover (){
-        print("over and over");
-        Vector3 inputPosition = new Vector3(-500f, -500f, 0f);
-        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android || true )
-        {
-            if (Input.touchCount > 0)
-            {
-                if (touchStart == 0f)
-                {
-                    touchStart = Time.time;
-                }
+    //public void  CustomHover (){
+    //    print("over and over");
+    //    Vector3 inputPosition = new Vector3(-500f, -500f, 0f);
+    //    if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android || true )
+    //    {
+    //        if (Input.touchCount > 0)
+    //        {
+    //            if (touchStart == 0f)
+    //            {
+    //                touchStart = Time.time;
+    //            }
 
-                Touch touch = Input.GetTouch(0);
-                // if touch ended
+    //            Touch touch = Input.GetTouch(0);
+    //            // if touch ended
 
-                inputPosition = touch.position;
+    //            inputPosition = touch.position;
 
-                if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-                {
-                    float touchTime = Time.time - touchStart;
-                    if (touchTime < .3f)
-                    {
-                        hoveredPreviously = new List<ZoneView>();
-                        inputPosition = new Vector3(-500f, -500f, 0f);
+    //            if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+    //            {
+    //                float touchTime = Time.time - touchStart;
+    //                if (touchTime < .3f)
+    //                {
+    //                    hoveredPreviously = new List<ZoneView>();
+    //                    inputPosition = new Vector3(-500f, -500f, 0f);
 
-                        return;
-                    }
-                    else
-                    {
-                        inputPosition = new Vector3(-500f, -500f, 0f);
-                    }
-                    // hoveredPreviously = new List<ZoneView>();
-                    touchStart = 0f;
-                    //  Input.mousePosition = new Vector3(-500f, -500f, 0f);
-                }
-              //  print(Input.GetTouch(0).deltaTime);
-            }
-            //else
-            //{
+    //                    return;
+    //                }
+    //                else
+    //                {
+    //                    inputPosition = new Vector3(-500f, -500f, 0f);
+    //                }
+    //                // hoveredPreviously = new List<ZoneView>();
+    //                touchStart = 0f;
+    //                //  Input.mousePosition = new Vector3(-500f, -500f, 0f);
+    //            }
+    //          //  print(Input.GetTouch(0).deltaTime);
+    //        }
+    //        //else
+    //        //{
 
-            //    float touchTime = Time.time - touchStart;
-            //    if (touchTime < .3f && touchStart!=0f)
-            //    {
-            //        //was just a tap
-            //        print("tappp");
-            //        hoveredPreviously = new List<ZoneView>();
-            //        return;
+    //        //    float touchTime = Time.time - touchStart;
+    //        //    if (touchTime < .3f && touchStart!=0f)
+    //        //    {
+    //        //        //was just a tap
+    //        //        print("tappp");
+    //        //        hoveredPreviously = new List<ZoneView>();
+    //        //        return;
 
-            //    }
-            //    else {
+    //        //    }
+    //        //    else {
 
-            //        //       print("WAS NOT A TAP");
-            //        //  print ("long");
-            //        inputPosition = new Vector3(-5080f, -5080f, 0f);
+    //        //        //       print("WAS NOT A TAP");
+    //        //        //  print ("long");
+    //        //        inputPosition = new Vector3(-5080f, -5080f, 0f);
 
-            //    }
-            //    touchStart = 0f;
+    //        //    }
+    //        //    touchStart = 0f;
 
                 
-            //}
-        }
-        else {
-            inputPosition = Input.mousePosition;
-        }
+    //        //}
+    //    }
+    //    else {
+    //        inputPosition = Input.mousePosition;
+    //    }
         
 
-        //    if (hoveredPreviously.Count == 0)
-        //    {
-        //        print("going hooom");
-        //        yield return new WaitForSeconds(0.1f);
-        //    }
+    //    //    if (hoveredPreviously.Count == 0)
+    //    //    {
+    //    //        print("going hooom");
+    //    //        yield return new WaitForSeconds(0.1f);
+    //    //    }
             
-        //}
-        GameObject hoveredObject;
-        RaycastHit lastHit;
-        UICamera cam = UICamera.mainCamera.GetComponent<UICamera>();
-        Camera mainCam = UICamera.mainCamera;
+    //    //}
+    //    GameObject hoveredObject;
+    //    RaycastHit lastHit;
+    //    UICamera cam = UICamera.mainCamera.GetComponent<UICamera>();
+    //    Camera mainCam = UICamera.mainCamera;
 
-        //if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
-        //{
-        //    if (Input.touchCount > 0)
-        //    {
-        //        inputPosition = Input.GetTouch(0).position;
-        //    }
-        //    else
-        //    {
-        //        inputPosition = new Vector3(-5080f, -5080f, 0f);
-        //    }
-        //}
-        //else
-        //{
-        //    inputPosition = Input.mousePosition;
-        //}
+    //    //if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+    //    //{
+    //    //    if (Input.touchCount > 0)
+    //    //    {
+    //    //        inputPosition = Input.GetTouch(0).position;
+    //    //    }
+    //    //    else
+    //    //    {
+    //    //        inputPosition = new Vector3(-5080f, -5080f, 0f);
+    //    //    }
+    //    //}
+    //    //else
+    //    //{
+    //    //    inputPosition = Input.mousePosition;
+    //    //}
 
-        Ray ray = mainCam.ScreenPointToRay(inputPosition);
-        float dist = (cam.rangeDistance > 0f) ? cam.rangeDistance : mainCam.farClipPlane - mainCam.nearClipPlane;
-        int mask = mainCam.cullingMask & (int)cam.eventReceiverMask; // NOT NEEDED WE GOT ONLY ZONES
+    //    Ray ray = mainCam.ScreenPointToRay(inputPosition);
+    //    float dist = (cam.rangeDistance > 0f) ? cam.rangeDistance : mainCam.farClipPlane - mainCam.nearClipPlane;
+    //    int mask = mainCam.cullingMask & (int)cam.eventReceiverMask; // NOT NEEDED WE GOT ONLY ZONES
 
-     //   print (LayerMask.NameToLayer("Zone"));
+    // //   print (LayerMask.NameToLayer("Zone"));
 
-        RaycastHit[] hits = Physics.RaycastAll(ray, dist, 1 << LayerMask.NameToLayer("Zone"));
+    //    RaycastHit[] hits = Physics.RaycastAll(ray, dist, 1 << LayerMask.NameToLayer("Zone"));
 
         
-        List<ZoneView> hoveredCurrently = new List<ZoneView>();
+    //    List<ZoneView> hoveredCurrently = new List<ZoneView>();
 
-        foreach (RaycastHit hit in hits)
-        {
+    //    foreach (RaycastHit hit in hits)
+    //    {
             
-           // Debug.Log("COLLIDER + " + hit.collider.name);
-            if (hit.collider.name == "Fader")
-            {
-                print("TOUCHING FADERRR");
-                hoveredCurrently = new List<ZoneView>();
-                break;
-            }
-            ZoneView view = hit.collider.GetComponent<ZoneView>();
-            if (!view)
-            {
-                Debug.Log("CONTINUINGNGGG");
-                continue;
-            }
-            if (!hoveredPreviously.Contains(hit.collider.GetComponent<ZoneView>()))
-            {
-                view.OnCustomHover(true);
-            }
-            hoveredCurrently.Add(view);
+    //       // Debug.Log("COLLIDER + " + hit.collider.name);
+    //        if (hit.collider.name == "Fader")
+    //        {
+    //            print("TOUCHING FADERRR");
+    //            hoveredCurrently = new List<ZoneView>();
+    //            break;
+    //        }
+    //        ZoneView view = hit.collider.GetComponent<ZoneView>();
+    //        if (!view)
+    //        {
+    //            Debug.Log("CONTINUINGNGGG");
+    //            continue;
+    //        }
+    //        if (!hoveredPreviously.Contains(hit.collider.GetComponent<ZoneView>()))
+    //        {
+    //            view.OnCustomHover(true);
+    //        }
+    //        hoveredCurrently.Add(view);
 
-        }
-        foreach (ZoneView zoneView in hoveredPreviously)
-        {
-            if (!hoveredCurrently.Contains(zoneView))
-            {
-                zoneView.OnCustomHover(false);
-            }
-        }
+    //    }
+    //    foreach (ZoneView zoneView in hoveredPreviously)
+    //    {
+    //        if (!hoveredCurrently.Contains(zoneView))
+    //        {
+    //            zoneView.OnCustomHover(false);
+    //        }
+    //    }
 
-        hoveredPreviously = hoveredCurrently;
+    //    hoveredPreviously = hoveredCurrently;
 
-        //if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || true) && Input.touchCount == 0)
-        //{
-        //    print("I AM ANDROID AND A M GOINBAK ");
-        //    hoveredPreviously = new List<ZoneView>();
-        //}
-        //else
-        //{
-        //    hoveredPreviously = hoveredCurrently;
+    //    //if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || true) && Input.touchCount == 0)
+    //    //{
+    //    //    print("I AM ANDROID AND A M GOINBAK ");
+    //    //    hoveredPreviously = new List<ZoneView>();
+    //    //}
+    //    //else
+    //    //{
+    //    //    hoveredPreviously = hoveredCurrently;
 
-        //}
+    //    //}
 
 
-        return; 
-     //   yield return new WaitForSeconds(0.1f);
-    //    StartCoroutine(CheckHoveredObjects());
-        //if (!UICamera.Raycast(Input.mousePosition, out lastHit)) ;
-	//	Debug.Log(lastHit.collider.name);
-		//if (hoveredObject == null) hoveredObject = genericEventHandler;
-	//	for (int i = 0; i < 3; ++i) mMouse[i].current = hoveredObject;
-    }
+    //    return; 
+    // //   yield return new WaitForSeconds(0.1f);
+    ////    StartCoroutine(CheckHoveredObjects());
+    //    //if (!UICamera.Raycast(Input.mousePosition, out lastHit)) ;
+    ////	Debug.Log(lastHit.collider.name);
+    //    //if (hoveredObject == null) hoveredObject = genericEventHandler;
+    ////	for (int i = 0; i < 3; ++i) mMouse[i].current = hoveredObject;
+    //}
 
 
 

@@ -49,7 +49,7 @@ public class DragDropCustomer : UIDragDropItem
 
     protected override void OnDragDropMove(Vector3 delta)
     {
-        print("Drag drag dragging");
+        //Fades zones in when dragging customer.
         base.OnDragDropMove(delta);
         Vector3 inputPosition;
         if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
@@ -73,11 +73,6 @@ public class DragDropCustomer : UIDragDropItem
         {
 
             ZoneView view = hit.collider.GetComponent<ZoneView>();
-            //if (!view)
-            //{
-            //    Debug.Log("CONTINUINGNGGG");
-            //    continue;
-            //}
             view.zoneModel.zoneViews.ForEach(zonView =>
             {
                 zonView.GetComponent<UIPlayAnimation>().Play(true);
@@ -92,12 +87,6 @@ public class DragDropCustomer : UIDragDropItem
                     });
                 }
             }
-
-            //if (!hoveredPreviously.Contains(hit.collider.GetComponent<ZoneView>()))
-            //{
-            //    view.OnCustomHover(true);
-            //}
-            //hoveredCurrently.Add(view);
 
         }
 
