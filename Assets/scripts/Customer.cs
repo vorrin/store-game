@@ -156,6 +156,8 @@ using System.Collections;
                 {
                     //This is so if the customer dies of running out of time when dragged, all looks good.
                     customerView.EndDrag();
+                    customerView.DestroyCustomerView();
+
                 }
                 else// Customer is still in the queue
                 {

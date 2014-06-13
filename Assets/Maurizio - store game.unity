@@ -15178,7 +15178,7 @@ MonoBehaviour:
   resetOnPlay: 0
   clearSelection: 0
   ifDisabledOnPlay: 1
-  disableWhenFinished: -1
+  disableWhenFinished: 0
   onFinished: []
   eventReceiver: {fileID: 0}
   callWhenFinished: 

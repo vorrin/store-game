@@ -644,7 +644,7 @@ public class God : MonoBehaviour {
         {
             return;
         }
-        print("fadzones");
+     //   print("fadzones");
         foreach (Zone zone in zones)
         {
             zone.zoneViews.ForEach( (zoneView) =>

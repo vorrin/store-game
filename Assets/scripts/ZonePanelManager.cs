@@ -226,7 +226,7 @@ public class ZonePanelManager : MonoBehaviour {
         GetComponent<UIPlayAnimation>().Play(false);
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
-        GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
+        //GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
         if (currentZone != null)
         {
             currentZone.zoneViews.ForEach(zoneView =>
