@@ -1,42 +1,42 @@
 SimStore Game Customer Profiles,,,,,,,,,,,
 Gender,Age,Ethnicity,Requirement,Type,Experience Cycle,NPS,Time Available,Ideal Response,2nd Best Response,Upsell?,Spend
-Female,Aspiring,Dark,I've come in because I need to top up the Sim card for my old phone. I'm on my lunch break so don't have long.,Driver,Connect,10 (Green),10 mins,Self Service,Support Area,Yes,10
-Female,Family (pregnant/baby),Mid,I would like to upgrade my current plan as I run out of data every month.,Amiable,Discover ,8 (Amber),30 mins,Discovery Zone,Consultation Area ,Yes,100
-Female,Family (pregnant/baby),Fair,I need a phone I can have handy for emergency situations.,Amiable,Connect,5 (Red),10 mins,Product Display,Discovery Zone,Yes,50
-Female,Family (pregnant/baby),Fair,My husband asked me to come in and look for a plan that will take care of our home and mobile needs.,Analytical,Discover ,4 (Red),60 mins,Consultation Area ,Discovery Zone,yes,300
-Female,Middle Aged (Business),Mid,I just purchased this smart pad and want to hook it up with my mobile plan.,Driver,excite,7 (Amber),30 mins,Consultation Area ,Discovery Zone,yes,250
-Female,Middle Aged (Business),Mid,my husband and I operate our own business from home.  We need a package which will allow us to stay on top of our workload and customer calls regardless of where we are.,Expressive,Discover ,9 (Green),60 mins,Consultation Area ,Discovery Zone,yes,400
-Female,Middle Aged (Casual),Dark,I am wanting to connect all my devices onto one plan.,Driver,Discover ,7 (Amber),30 mins,Discovery Zone,Consultation Area ,Yes,800
-Female,Middle Aged (Casual),Fair,"I am just browsing, keen to see what's available these days.",Expressive,Connect,8 (Amber),30 mins,Product Display,Discovery Zone,yes,200
-Female,Middle Aged (Casual),Mid,I am just having a look at the best deals around.,Analytical,Connect,7 (Amber),30 mins,Product Display,Discovery Zone,no,50
-female,Pensioner,Fair,I need some help to find something I can use for talking to my daughter on the internet but not sure what that is?,Amiable,Connect,6 ( Red),60 mins,Discovery Zone,Consultation Area ,no,50
-Female,Pensioner,Dark,my friends and I were chatting over a game of golf about their new data plans and all the things they are able to do.  I would like to do the same.,Expressive,excite,10 (Green),30 mins,Product Display,Discovery Zone,Yes,300
-Female,Teens,Fair,I just received some money for my birthday and want to get the latest smart phone.,Expressive,excite,9 (Green),30 mins,Product Display,Discovery Zone,yes,300
-Female,Teens,Dark,I need to get a data plan for my smart pad so I can use it at school and for homework.,Amiable,Discover ,9 (Green),60 mins,Discovery Zone,Consultation Area ,no,100
-Female,Teens,Dark,I am wanting to get my first mobile.,Driver,excite,9 (Green),60 mins,Product Display,Discovery Zone,Yes,50
-Male,Aspiring,Mid,I am wanting to upgrade my mobile package which will include good roaming options.,Driver,Discover ,7 (Amber),30 mins,Discovery Zone,Consultation Area ,Yes,600
-Male,Aspiring,Dark,I am over my current provider and need telco to actually do what they promise.,Analytical,Connect,5 (Red),30 mins,Discovery Zone,Consultation Area ,yes,150
-Male,Aspiring,Fair,What can Vodafone offer in terms of high data usage?,Amiable,Discover ,10 (Green),30 mins,Attraction Area,Consultation Area ,yes,400
-Male,Middle Aged (Business),Fair,I need to work smarter on the road and manage my customers more efficiently.,Amiable,Discover ,9 (Green),10 mins,Discovery Zone,Consultation Area ,no,150
-Male,Middle Aged (Business),Fair,Many of my customers are overseas and I need a plan that doesn't cost the earth.,Driver,Connect,4 (Red),30 mins,Discovery Zone,Consultation Area ,Yes,300
-Male,Middle Aged (Business),Mid,I need to modernise my business communications.,Analytical,Discover ,9 (Green),30 mins,Consultation Area ,Discovery Zone,yes,300
-Male,Middle Aged (Casual),Fair,I am looking for the best deal on offer for pre-pay on smart phones.,Expressive,Discover ,8 (Amber),30 mins,Discovery Zone,Consultation Area ,no,150
-Male,Middle Aged (Casual),Dark,"I see you have some new deals in the market, I'd like to hear more.",Expressive,Connect,8 (Amber),10 mins,Attraction Area,Discovery Zone,Yes,100
-Male,Pensioner,Fair,I want a phone handy to make calls to ask the wife questions from time to time.,Analytical,Connect,7 (Amber),30 mins,Discovery Zone,Consultation Area ,no,40
-Male,Pensioner,Fair,"I'm out fishing quite a bit with my mates, and would like to use the phone to get data on weather, good fishing spots, etc.  Can Vodafone do that?",Driver,Connect,6 ( Red),30 mins,Discovery Zone,Consultation Area ,Yes,80
-Male,Teens,Mid,I need to pay my bill.,Analytical,Connect,6 ( Red),10 mins,Self Service,Support Area,no,30
-Male,Teens,Fair,I just need a pre pay top up please.,Amiable,confirm,9 (Green),10 mins,Self Service,Support Area,Yes,50
-Male,Teens,Dark,I'm looking for a plan which will give me heaps of data so I can check in on my friends and keep up to date on what's happening around the city.,Expressive,excite,10 (Green),30 mins,Discovery Zone,Product Display,Yes,145
+Female,Aspiring,Dark,I've come in because I need to top up the Sim card for my old phone. I'm on my lunch break so don't have long.,Driver,Connect,10 (Green),10 mins,Top Up Point,Service & Support,Yes,10
+Female,Family (pregnant/baby),Mid,I would like to upgrade my current plan as I run out of data every month.,Amiable,Discover ,8 (Amber),30 mins,Discovery Zone,Consultation ,Yes,100
+Female,Family (pregnant/baby),Fair,I need a phone I can have handy for emergency situations.,Amiable,Connect,5 (Red),10 mins,Vodafone Services,Discovery Zone,Yes,50
+Female,Family (pregnant/baby),Fair,My husband asked me to come in and look for a plan that will take care of our home and mobile needs.,Analytical,Discover ,4 (Red),60 mins,Consultation ,Discovery Zone,yes,300
+Female,Middle Aged (Business),Mid,I just purchased this smart pad and want to hook it up with my mobile plan.,Driver,excite,7 (Amber),30 mins,Consultation ,Discovery Zone,yes,250
+Female,Middle Aged (Business),Mid,my husband and I operate our own business from home.  We need a package which will allow us to stay on top of our workload and customer calls regardless of where we are.,Expressive,Discover ,9 (Green),60 mins,Consultation ,Discovery Zone,yes,400
+Female,Middle Aged (Casual),Dark,I am wanting to connect all my devices onto one plan.,Driver,Discover ,7 (Amber),30 mins,Discovery Zone,Consultation ,Yes,800
+Female,Middle Aged (Casual),Fair,"I am just browsing, keen to see what's available these days.",Expressive,Connect,8 (Amber),30 mins,Vodafone Services,Discovery Zone,yes,200
+Female,Middle Aged (Casual),Mid,I am just having a look at the best deals around.,Analytical,Connect,7 (Amber),30 mins,Vodafone Services,Discovery Zone,no,50
+female,Pensioner,Fair,I need some help to find something I can use for talking to my daughter on the internet but not sure what that is?,Amiable,Connect,6 ( Red),60 mins,Discovery Zone,Consultation ,no,50
+Female,Pensioner,Dark,my friends and I were chatting over a game of golf about their new data plans and all the things they are able to do.  I would like to do the same.,Expressive,excite,10 (Green),30 mins,Vodafone Services,Discovery Zone,Yes,300
+Female,Teens,Fair,I just received some money for my birthday and want to get the latest smart phone.,Expressive,excite,9 (Green),30 mins,Vodafone Services,Discovery Zone,yes,300
+Female,Teens,Dark,I need to get a data plan for my smart pad so I can use it at school and for homework.,Amiable,Discover ,9 (Green),60 mins,Discovery Zone,Consultation ,no,100
+Female,Teens,Dark,I am wanting to get my first mobile.,Driver,excite,9 (Green),60 mins,Vodafone Services,Discovery Zone,Yes,50
+Male,Aspiring,Mid,I am wanting to upgrade my mobile package which will include good roaming options.,Driver,Discover ,7 (Amber),30 mins,Discovery Zone,Consultation ,Yes,600
+Male,Aspiring,Dark,I am over my current provider and need telco to actually do what they promise.,Analytical,Connect,5 (Red),30 mins,Discovery Zone,Consultation ,yes,150
+Male,Aspiring,Fair,What can Vodafone offer in terms of high data usage?,Amiable,Discover ,10 (Green),30 mins,Attraction ,Consultation ,yes,400
+Male,Middle Aged (Business),Fair,I need to work smarter on the road and manage my customers more efficiently.,Amiable,Discover ,9 (Green),10 mins,Discovery Zone,Consultation ,no,150
+Male,Middle Aged (Business),Fair,Many of my customers are overseas and I need a plan that doesn't cost the earth.,Driver,Connect,4 (Red),30 mins,Discovery Zone,Consultation ,Yes,300
+Male,Middle Aged (Business),Mid,I need to modernise my business communications.,Analytical,Discover ,9 (Green),30 mins,Consultation ,Discovery Zone,yes,300
+Male,Middle Aged (Casual),Fair,I am looking for the best deal on offer for pre-pay on smart phones.,Expressive,Discover ,8 (Amber),30 mins,Discovery Zone,Consultation ,no,150
+Male,Middle Aged (Casual),Dark,"I see you have some new deals in the market, I'd like to hear more.",Expressive,Connect,8 (Amber),10 mins,Attraction ,Discovery Zone,Yes,100
+Male,Pensioner,Fair,I want a phone handy to make calls to ask the wife questions from time to time.,Analytical,Connect,7 (Amber),30 mins,Discovery Zone,Consultation ,no,40
+Male,Pensioner,Fair,"I'm out fishing quite a bit with my mates, and would like to use the phone to get data on weather, good fishing spots, etc.  Can Vodafone do that?",Driver,Connect,6 ( Red),30 mins,Discovery Zone,Consultation ,Yes,80
+Male,Teens,Mid,I need to pay my bill.,Analytical,Connect,6 ( Red),10 mins,Top Up Point,Service & Support,no,30
+Male,Teens,Fair,I just need a pre pay top up please.,Amiable,confirm,9 (Green),10 mins,Top Up Point,Service & Support,Yes,50
+Male,Teens,Dark,I'm looking for a plan which will give me heaps of data so I can check in on my friends and keep up to date on what's happening around the city.,Expressive,excite,10 (Green),30 mins,Discovery Zone,Vodafone Services,Yes,145
 ,,,,,,,,,,,
 ,,,,,,,,,,,
 Gender,Age,Ethnicity,,Type,Experience,NPS,Time,Zone,Explanation,,
-Male,Teens,Fair,,Amiable,Connect,1 (Red),10 mins,Product Display,"Service Area - Vodafone services, products and stories ",,
-Female,Aspiring,Mid,,Driver,Discover ,2 (Red),30 mins,Attraction Area, Uncluttered windows & eye-catching displays invite & entice customers in,,
+Male,Teens,Fair,,Amiable,Connect,1 (Red),10 mins,Vodafone Services,"Service Area - Vodafone services, products and stories ",,
+Female,Aspiring,Mid,,Driver,Discover ,2 (Red),30 mins,Attraction , Uncluttered windows & eye-catching displays invite & entice customers in,,
 ,Family (pregnant/baby),Dark,,Expressive,Excite,3 (Red),60 mins,Discovery Zone,Clear browsing zone allows customers to play and discover,,
-,Middle Aged (Casual),,,Analytical,Confirm,4 (Red),,Consultation Area ,Points throughout the store for helping customers - associated with a Store Advisor,,
-,Middle Aged (Business),,,,Deliver,5 (Red),,Support Area,"Iconic Tech area providing advice, set-up & support",,
-,Pensioner,,,,,6 ( Red),,Self Service, Top Up Kiosks,,
-,,,,,,7 (Amber),,Store Manager,Can respond to irate customers & fill in for missing staff,,
-,,,,,,8 (Amber),,Seating Area,Provides a 'holding' area whilst advisord become available,,
+,Middle Aged (Casual),,,Analytical,Confirm,4 (Red),,Consultation ,Points throughout the store for helping customers - associated with a Store Advisor,,
+,Middle Aged (Business),,,,Deliver,5 (Red),,Service & Support,"Iconic Tech area providing advice, set-up & support",,
+,Pensioner,,,,,6 ( Red),,Top Up Point, Self Service Kiosks,,
+,,,,,,7 (Amber),,Engagement,Initial Greeting Area,,
+,,,,,,8 (Amber),,,,,
 ,,,,,,9 (Green),,,,,
 ,,,,,,10 (Green),,,,,
