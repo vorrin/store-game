@@ -542,7 +542,7 @@ public class God : MonoBehaviour {
             possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
             LevelSerializer.SaveGame("base");
             AddRandomCustomer();
-            StartCoroutine(DelayedAddingOfCustomers());
+            StartCoroutine("DelayedAddingOfCustomers");
         }
 
       //  StartCoroutine(CheckHoveredObjects());
@@ -632,7 +632,7 @@ public class God : MonoBehaviour {
         if (!endOfDayPhase)
         {
             AddRandomCustomer();
-            StartCoroutine(DelayedAddingOfCustomers());
+            StartCoroutine("DelayedAddingOfCustomers");
         }
 
     }
@@ -709,7 +709,7 @@ public class God : MonoBehaviour {
     public void LoadState()
     {
         LevelSerializer.Resume();
-        StartCoroutine(DelayedAddingOfCustomers());
+        StartCoroutine("DelayedAddingOfCustomers");
         //fader.SetActiveRecursively(true);
     }
 
