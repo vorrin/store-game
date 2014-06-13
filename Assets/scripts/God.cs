@@ -622,6 +622,15 @@ public class God : MonoBehaviour {
     {
         AddRandomCustomer();
 
+        //var x = new WaitForSeconds(2);
+        //var tp = x.GetType();
+        //var p = tp.GetProperty("m_seconds");
+        
+        //var m = p.GetGetMethod();
+        //var v = m.Invoke(x, null);
+
+ 
+
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         if (!endOfDayPhase)
         {

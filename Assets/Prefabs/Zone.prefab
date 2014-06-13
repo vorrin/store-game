@@ -233,8 +233,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 94, y: 344, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 79, y: 322, z: 0}
+  m_Center: {x: 2.5, y: 0, z: 0}
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -272,6 +272,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -346,7 +348,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3008
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -382,7 +384,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: .931034565, a: .00392156886}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 94
   mHeight: 344
@@ -392,7 +394,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: .273255825
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: sliceSpriteZone
+  mSpriteName: zones_CONSULTATION
   mType: 1
   mFillDirection: 4
   mFillAmount: 1

@@ -131,7 +131,9 @@ public class SerializeWaitForSeconds : SerializerExtensionBase<WaitForSeconds>
 	
 	public override object Load (object[] data, object instance)
 	{
-		return base.Load(data, instance);
+        return new WaitForSeconds((float)data[0]);
+
+		//return base.Load(data, instance);
 	}
 }
 
