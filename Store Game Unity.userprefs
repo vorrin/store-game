@@ -1,12 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\God.cs">
     <Files>
-      <File FileName="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs" Line="98" Column="77" />
+      <File FileName="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs" Line="98" Column="74" />
+      <File FileName="Assets\scripts\God.cs" Line="626" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Shiny\Desktop\storegame\Store Game Unity\Assets\scripts\God.cs" line="627" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

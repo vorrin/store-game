@@ -459,10 +459,12 @@ public class God : MonoBehaviour {
     }
 
 
+
     public void StartNextDay()
     {
         ResetScoresAtEndOfDay();
         currentLevel += 1;
+        SetDifficultyLevel(difficultyLevels[currentLevel]);
         endOfDayPhase = false;
         daytimeRemaining = daytimeTotal;
         RefreshStaffBuyingMenu();
@@ -503,6 +505,7 @@ public class God : MonoBehaviour {
             zonePanelManager.RemoveStaffHiringButtons();
 
             print("ASD KDKK ADLKSDAKLDALSK ASD " + endOfDayPhase);
+            AddRandomCustomer();
             StartCoroutine("DelayedAddingOfCustomers");
 
             return;
@@ -538,6 +541,7 @@ public class God : MonoBehaviour {
             FindTheZones();
             possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
             LevelSerializer.SaveGame("base");
+            AddRandomCustomer();
             StartCoroutine(DelayedAddingOfCustomers());
         }
 
@@ -620,20 +624,14 @@ public class God : MonoBehaviour {
 
     IEnumerator DelayedAddingOfCustomers()
     {
-        AddRandomCustomer();
-
-        //var x = new WaitForSeconds(2);
-        //var tp = x.GetType();
-        //var p = tp.GetProperty("m_seconds");
-        
-        //var m = p.GetGetMethod();
-        //var v = m.Invoke(x, null);
+      //  AddRandomCustomer();
 
  
 
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         if (!endOfDayPhase)
         {
+            AddRandomCustomer();
             StartCoroutine(DelayedAddingOfCustomers());
         }
 
@@ -711,6 +709,7 @@ public class God : MonoBehaviour {
     public void LoadState()
     {
         LevelSerializer.Resume();
+        StartCoroutine(DelayedAddingOfCustomers());
         //fader.SetActiveRecursively(true);
     }
 
