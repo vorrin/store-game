@@ -46,6 +46,13 @@ public class DragDropCustomer : UIDragDropItem
         RaycastHit[] hits = RaycastForZones();
         if (hits.Length >0)
         {
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.name == "Fader")
+                {
+                    return;
+                }
+            }
             ZoneView possibleZoneView = hits[0].collider.GetComponent<ZoneView>();
             possibleZoneView.OnCustomDrop(gameObject);
         }
@@ -82,6 +89,13 @@ public class DragDropCustomer : UIDragDropItem
         base.OnDragDropMove(delta);
 
         RaycastHit[] hits = RaycastForZones();
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.name == "Fader")
+            {
+                return;
+            }
+        }
         foreach (RaycastHit hit in hits)
         {
 

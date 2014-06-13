@@ -93,6 +93,7 @@ public class God : MonoBehaviour {
         SetDifficultyLevel(difficultyLevels[0]);
         //currentLevel = 0;
         StopCoroutine("DelayedAddingOfCustomers") ;
+        
         StartCoroutine(DelayedAddingOfCustomers());
 
         string text = www.text;
@@ -600,7 +601,7 @@ public class God : MonoBehaviour {
             return go;
         }
 
-    void TestingGame()
+    void AddRandomCustomer()
     {
         //Customer newCustomer = new Customer();
         //newCustomer.Create();
@@ -619,7 +620,7 @@ public class God : MonoBehaviour {
 
     IEnumerator DelayedAddingOfCustomers()
     {
-        TestingGame();
+        AddRandomCustomer();
 
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         if (!endOfDayPhase)
@@ -632,6 +633,10 @@ public class God : MonoBehaviour {
 
     public void FadeZones(bool inOrOut)
     {
+        if (zonePanelManager.displayingZone)
+        {
+            return;
+        }
         print("fadzones");
         foreach (Zone zone in zones)
         {
@@ -767,7 +772,7 @@ public class God : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TestingGame();
+            AddRandomCustomer();
             customerPanelManager.Hide();
         }
         if (Input.GetKeyDown(KeyCode.S))

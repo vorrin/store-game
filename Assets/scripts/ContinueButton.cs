@@ -5,11 +5,16 @@ public class ContinueButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        RefreshActive();
+	}
+
+    public void RefreshActive()
+    {
         if (!LevelSerializer.CanResume)
         {
             GetComponent<UIButton>().isEnabled = false;
         }
-	}
+    }
 
     void OnClick()
     {

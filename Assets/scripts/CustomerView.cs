@@ -79,7 +79,6 @@ public class CustomerView : MonoBehaviour {
 
     public void StartDrag() 
     {
-        
         God.instance.FadeZones(true);
         God.instance.customerDragging = true;
     }
