@@ -3534,7 +3534,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358687964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .786885262, y: -.78585434, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1656428705}
@@ -17177,13 +17177,13 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -20499,7 +20499,7 @@ MonoBehaviour:
   startingRenderQueue: 3013
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 145, y: 18, z: 398, w: 172}
+  mClipRange: {x: 145, y: 18, z: 398, w: 1323.80005}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 9
   mSortingOrder: 0
