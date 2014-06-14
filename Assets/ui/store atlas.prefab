@@ -42,7 +42,7 @@ MonoBehaviour:
   mSprites:
   - name: backgroundFadeIn
     x: 0
-    y: 447
+    y: 1248
     width: 480
     height: 800
     borderLeft: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BestOption
-    x: 1933
-    y: 1538
+    x: 1465
+    y: 1384
     width: 105
     height: 106
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: box_customerQUEUE_01
-    x: 874
-    y: 1283
+    x: 723
+    y: 1190
     width: 441
     height: 137
     borderLeft: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: box_ENDOFDAY
     x: 481
-    y: 700
+    y: 1328
     width: 392
     height: 720
     borderLeft: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 10
   - name: box_MAIN_customerprofile_01
-    x: 962
+    x: 874
     y: 1437
     width: 346
     height: 611
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 10
   - name: box_MAIN_deptPROFILE_01
-    x: 1309
+    x: 1221
     y: 1491
     width: 373
     height: 557
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 10
   - name: box_TEXT_customerprofile_01
-    x: 481
-    y: 262
+    x: 723
+    y: 1004
     width: 297
     height: 185
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 15
   - name: box_TIME_customerPROFILE
-    x: 1309
-    y: 1429
+    x: 1221
+    y: 1349
     width: 101
     height: 61
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 14
   - name: box_TIMEstore_cPROFILE_01
-    x: 1506
-    y: 1430
+    x: 584
+    y: 885
     width: 99
     height: 60
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 15
   - name: customer_PROFILE
-    x: 723
-    y: 448
+    x: 1845
+    y: 1797
     width: 134
     height: 251
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 5
   - name: customer0
-    x: 2019
-    y: 1931
+    x: 1980
+    y: 1779
     width: 26
     height: 36
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: customer1
-    x: 2019
-    y: 1968
+    x: 2007
+    y: 1779
     width: 26
     height: 36
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 4
   - name: customer1_QUEUE
-    x: 874
-    y: 303
+    x: 1980
+    y: 1931
     width: 62
     height: 117
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 1
   - name: DeathInQueue
-    x: 725
-    y: 65
+    x: 1595
+    y: 1348
     width: 105
     height: 106
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: Fail
-    x: 1933
-    y: 1645
+    x: 1701
+    y: 1348
     width: 105
     height: 106
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Full
-    x: 1725
-    y: 1315
+    x: 1931
+    y: 1330
     width: 105
     height: 105
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: icons_CASH_end
-    x: 1916
-    y: 1329
+    x: 481
+    y: 854
     width: 102
     height: 91
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: icons_clock
-    x: 830
-    y: 275
+    x: 1890
+    y: 1754
     width: 43
     height: 42
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 2
   - name: icons_customers_status
-    x: 526
-    y: 2
+    x: 1845
+    y: 1753
     width: 44
     height: 43
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: icons_customersSERVED
-    x: 526
-    y: 46
+    x: 1980
+    y: 1816
     width: 53
     height: 45
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: icons_NPS
-    x: 1606
-    y: 1447
+    x: 1465
+    y: 1340
     width: 71
     height: 43
     borderLeft: 0
@@ -366,6 +366,32 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 6
   - name: icons_scrollARROW_actual_01
+    x: 1418
+    y: 1340
+    width: 43
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 2
+    paddingBottom: 3
+  - name: icons_scrollARROW_actual_02
+    x: 1980
+    y: 1862
+    width: 44
+    height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 4
+    paddingTop: 3
+    paddingBottom: 4
+  - name: icons_scrollARROW_OFF
     x: 419
     y: 205
     width: 43
@@ -378,35 +404,9 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 2
     paddingBottom: 3
-  - name: icons_scrollARROW_actual_02
-    x: 481
-    y: 23
-    width: 44
-    height: 68
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 4
-    paddingTop: 3
-    paddingBottom: 4
-  - name: icons_scrollARROW_OFF
-    x: 806
-    y: 191
-    width: 43
-    height: 70
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 3
-    paddingRight: 4
-    paddingTop: 2
-    paddingBottom: 3
   - name: icons_UPsell_01
-    x: 874
-    y: 825
+    x: 481
+    y: 652
     width: 84
     height: 100
     borderLeft: 0
@@ -418,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icons_UPsell_02
-    x: 874
-    y: 724
+    x: 566
+    y: 652
     width: 84
     height: 100
     borderLeft: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icons_UPsell_03
-    x: 874
-    y: 623
+    x: 481
+    y: 551
     width: 84
     height: 100
     borderLeft: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: MAIN_ingame
     x: 0
-    y: 1248
+    y: 447
     width: 480
     height: 800
     borderLeft: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mood_amber_PROFILE
-    x: 1683
-    y: 1752
+    x: 1595
+    y: 1455
     width: 249
     height: 296
     borderLeft: 0
@@ -470,8 +470,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 15
   - name: mood_amber_QUEUE
-    x: 1411
-    y: 1425
+    x: 1323
+    y: 1345
     width: 94
     height: 65
     borderLeft: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 10
   - name: mood_red_PROFILE
-    x: 1683
-    y: 1455
+    x: 1595
+    y: 1752
     width: 249
     height: 296
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 15
   - name: mood_red_QUEUE
-    x: 1933
-    y: 1776
+    x: 566
+    y: 588
     width: 94
     height: 63
     borderLeft: 0
@@ -548,8 +548,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 10
   - name: SecondBestOption
-    x: 1933
-    y: 1431
+    x: 1931
+    y: 1436
     width: 105
     height: 106
     borderLeft: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: sliceSpriteZone
-    x: 2019
-    y: 2005
+    x: 1934
+    y: 1753
     width: 28
     height: 43
     borderLeft: 0
@@ -586,22 +586,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: store-game
-    x: 481
-    y: 1421
-    width: 480
-    height: 627
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: UpsellFail
-    x: 874
-    y: 522
+    x: 566
+    y: 753
     width: 84
     height: 100
     borderLeft: 0
@@ -613,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UpsellFine
-    x: 874
-    y: 421
+    x: 481
+    y: 753
     width: 84
     height: 100
     borderLeft: 0
@@ -639,8 +626,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: zoneIcon
-    x: 779
-    y: 267
+    x: 1537
+    y: 1333
     width: 50
     height: 50
     borderLeft: 0
@@ -652,8 +639,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zones_ATTRACTION
-    x: 1316
-    y: 1336
+    x: 1165
+    y: 1243
     width: 408
     height: 84
     borderLeft: 0
@@ -665,8 +652,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 14
   - name: zones_CONSULTATION
-    x: 1933
-    y: 1840
+    x: 1931
+    y: 1543
     width: 85
     height: 208
     borderLeft: 0
@@ -679,7 +666,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: zones_DISCOVERYZONE
     x: 481
-    y: 448
+    y: 1076
     width: 241
     height: 251
     borderLeft: 0
@@ -691,8 +678,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 10
   - name: zones_ENGAGEMENT
-    x: 481
-    y: 92
+    x: 1221
+    y: 1411
     width: 243
     height: 79
     borderLeft: 0
@@ -704,8 +691,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 11
   - name: zones_SERVICE_SUPPORT
-    x: 481
-    y: 172
+    x: 874
+    y: 1347
     width: 324
     height: 89
     borderLeft: 0
@@ -717,8 +704,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 11
   - name: zones_TOPUPPOINT
-    x: 779
-    y: 318
+    x: 481
+    y: 946
     width: 84
     height: 129
     borderLeft: 0
@@ -730,8 +717,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 11
   - name: zones_VODAFONESERVICES1
-    x: 1831
-    y: 1295
+    x: 566
+    y: 950
     width: 84
     height: 125
     borderLeft: 0
@@ -743,8 +730,8 @@ MonoBehaviour:
     paddingTop: 15
     paddingBottom: 10
   - name: zones_VODAFONESERVICES2
-    x: 874
-    y: 926
+    x: 1845
+    y: 1395
     width: 85
     height: 356
     borderLeft: 0

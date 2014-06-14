@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: VodafoneNumbers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMat: {fileID: 0}
+  mUVRect:
+    serializedVersion: 2
+    x: .500976562
+    y: 0
+    width: .25
+    height: .25
+  mFont:
+    mSize: 128
+    mBase: 103
+    mWidth: 256
+    mHeight: 256
+    mSpriteName: voDanFont_0
+    mSaved:
+    - index: 0
+      x: 246
+      y: 58
+      width: 2
+      height: 1
+      offsetX: 0
+      offsetY: 127
+      advance: 22
+      channel: 15
+      kerning: 
+    - index: 37
+      x: 0
+      y: 0
+      width: 79
+      height: 78
+      offsetX: 0
+      offsetY: 26
+      advance: 79
+      channel: 15
+      kerning: 
+    - index: 48
+      x: 80
+      y: 0
+      width: 55
+      height: 78
+      offsetX: 1
+      offsetY: 26
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 49
+      x: 209
+      y: 79
+      width: 36
+      height: 75
+      offsetX: 6
+      offsetY: 28
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 50
+      x: 107
+      y: 79
+      width: 50
+      height: 77
+      offsetX: 3
+      offsetY: 26
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 51
+      x: 0
+      y: 79
+      width: 53
+      height: 77
+      offsetX: 1
+      offsetY: 27
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 52
+      x: 0
+      y: 157
+      width: 54
+      height: 76
+      offsetX: 2
+      offsetY: 27
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 53
+      x: 54
+      y: 79
+      width: 52
+      height: 77
+      offsetX: 1
+      offsetY: 27
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 54
+      x: 158
+      y: 79
+      width: 50
+      height: 77
+      offsetX: 4
+      offsetY: 27
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 55
+      x: 55
+      y: 157
+      width: 51
+      height: 76
+      offsetX: 4
+      offsetY: 27
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 56
+      x: 136
+      y: 0
+      width: 50
+      height: 78
+      offsetX: 4
+      offsetY: 26
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 57
+      x: 187
+      y: 0
+      width: 50
+      height: 78
+      offsetX: 3
+      offsetY: 26
+      advance: 57
+      channel: 15
+      kerning: 
+    - index: 58
+      x: 238
+      y: 0
+      width: 17
+      height: 57
+      offsetX: 3
+      offsetY: 47
+      advance: 23
+      channel: 15
+      kerning: 
+  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mReplacement: {fileID: 0}
+  mSymbols: []
+  mDynamicFont: {fileID: 0}
+  mDynamicFontSize: 16
+  mDynamicFontStyle: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
