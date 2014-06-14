@@ -709,7 +709,6 @@ public class God : MonoBehaviour {
     public void LoadState()
     {
         LevelSerializer.Resume();
-        StartCoroutine("DelayedAddingOfCustomers");
         //fader.SetActiveRecursively(true);
     }
 
@@ -720,12 +719,12 @@ public class God : MonoBehaviour {
     void OnApplicationQuit()
     {
         s_Instance = null;
-        SaveState();
+        if (gameStarted) SaveState();
     }
     void OnApplicationPause(bool isPaused) // THIS IS WHAT SAVES THE GAME ON MOBILE! 
     {
         print("PAUSING AND " + isPaused);
-        if (isPaused)
+        if (isPaused && gameStarted)
         {
             SaveState();
         }
@@ -750,6 +749,8 @@ public class God : MonoBehaviour {
         UpdateScoresMenu();
         RefreshStaffBuyingMenu();
         customersQueue.GetComponent<UIGrid>().Reposition();
+        StartCoroutine("DelayedAddingOfCustomers");
+
        // customersQueue.GetComponent<UIScrollView>().UpdatePosition();
 
 
