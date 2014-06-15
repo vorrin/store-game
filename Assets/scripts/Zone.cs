@@ -26,7 +26,6 @@ public class Zone : MonoBehaviour {
         {
             zoneViews.Add(view);
         };
-
 	}
 
     public void ClearZone()
@@ -58,7 +57,6 @@ public class Zone : MonoBehaviour {
     {
         customer.currentZone = this;
         customers.Add(customer);
-
         zoneViews.ForEach((zoneView) =>
         {
             zoneView.UpdateCustomerNumber();
@@ -75,6 +73,7 @@ public class Zone : MonoBehaviour {
         customerIcon.transform.parent = zoneViews[ Random.Range(0,zoneViews.Count) ].transform;
         customerIcon.GetComponent<CustomerIcon>().Init(customer);
         customerIcon.transform.localScale = Vector3.one * .5f;
+        customerIcon.GetComponent<UISprite>().depth = 1;
     }
 
     public void CustomerDeadInQueue(Customer customer)
