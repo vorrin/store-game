@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CustomerView : MonoBehaviour {
+public class CustomerView : MonoBehaviourEx {
 
 	public Customer customerModel;
 	private TweenPosition tweener;
@@ -13,6 +13,7 @@ public class CustomerView : MonoBehaviour {
 
 	delegate void MyDelegate();
 	MyDelegate myDelegate;
+    public bool markedForDestruction = false;
 
 	// Use this for initialization
 	public void Create (Customer customer) {
@@ -25,6 +26,11 @@ public class CustomerView : MonoBehaviour {
 
     public void OnDeserialized()
     {
+        if (markedForDestruction)
+        {
+            Destroy(gameObject); 
+            return;
+        }
         SetMoodSprite();
     }
 
@@ -37,25 +43,32 @@ public class CustomerView : MonoBehaviour {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
             GetComponent<UIDragDropItem>().enabled = false;
             customerModel.Die();
-
-            //AbstractGoTween asd = new AbstractGoTween();
-            //asd.setOnCompleteHandler(AbstractGoTween);
-            //new GoTweenConfig().onComplete(c => { Debug.Log("ciao"); CustomerDroppedInZone(new Zone()); });
-            //Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(DestroyCustomerView));
             return;
         }
         else if (result == Customer.ZoneMatchingResults.SecondBest)
         {
+            //Should create little icon customer here?
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.SecondBestOption;
         }
         else
         {
+            //Should create little icon customer here?
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.BestOption;
         }
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
+    //    transform.parent = null;
         DestroyCustomerView();
     }
+
+    //public void CreateCustomerIconInZone(Zone zone)
+    //{
+    //    GameObject customerIcon =  Instantiate(God.instance.customerIconPrefab, transform.position, Quaternion.identity) as GameObject;
+    //    customerIcon.GetComponent<CustomerIcon>().Init(this);
+    //    customerIcon.transform.parent = zone.transform;
+    //    customerIcon.transform.localScale = Vector3.one * .5f;
+
+    //}
 
     public void SetMoodSprite()
     {
@@ -159,25 +172,31 @@ public class CustomerView : MonoBehaviour {
 
     public void DestroyCustomerView()
     {
-        Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(goTween =>
-        {
-            Destroy(gameObject);
-        }));
-        GetComponent<CustomSpriteAnimation>().enabled = false;
-        collider.enabled = false;
+       // GetComponent<StoreInformation>().enabled = false;
+        DestroyCustomerView( () => { });
+        
+        //Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete(goTween =>
+        //{
+        //    Destroy(gameObject);
+        //}));
+        //GetComponent<CustomSpriteAnimation>().enabled = false;
+        //collider.enabled = false;
     }
     public void DestroyCustomerView(System.Action action)
     {
-        print("THISCALLLLLLL");
+        markedForDestruction = true;
+        //Destroy(GetComponent<StoreInformation>());
+        GetComponent<CustomSpriteAnimation>().enabled = false;
+        collider.enabled = false;
+      //  Debug.Break();
+        
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete( goTween => {
             print("GOTWEEN FINIS");
             Destroy(gameObject);
             action();
         }));
-        GetComponent<CustomSpriteAnimation>().enabled = false;
-        collider.enabled = false;
+      
        // Destroy(gameObject);
-        Debug.Log("THIS WAS CALLED");
     }
 
 

@@ -46,6 +46,7 @@ public class God : MonoBehaviour {
     public DifficultyLevelEntry[] difficultyLevels;
     public UILabel difficultyLevelLabel;
     public bool gameStarted = false;
+    public GameObject customerIconPrefab;
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
     
@@ -74,7 +75,6 @@ public class God : MonoBehaviour {
     //DEBUG XML LOADER BAD
     public IEnumerator LoadDebugXML(string xmlName)
     {
-        print("trying");
         //Root is project root-root (assets/ cd ../../)
         print(Application.dataPath);
         WWW www;
@@ -399,12 +399,17 @@ public class God : MonoBehaviour {
         {
             customerView.GetComponent<CustomerView>().DestroyCustomerView();
         }
+        foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customerIcon"))
+        {
+            customerView.GetComponent<CustomerIcon>().Die();
+        }
         StopCoroutine("DelayedAddingOfCustomers");
         
         endScreenPanel.Display( (x) => {
             RefreshStaffBuyingMenu();
             //CALLBACK -> do whatever you like / attach a method / whatever really!
         } );
+        FadeZones(false);
         
 
     }

@@ -48,6 +48,10 @@ public class Zone : MonoBehaviour {
         {
             zoneView.UpdateCustomerNumber();
         });
+        foreach (Customer customer in customers)
+        {
+            AddCustomerIcon(customer);
+        }
     }
 
     public void AddCustomer(Customer customer)
@@ -59,10 +63,19 @@ public class Zone : MonoBehaviour {
         {
             zoneView.UpdateCustomerNumber();
         });
+        AddCustomerIcon(customer);
         CheckIfQueueIsFull();
     }
 
+    
+    public void AddCustomerIcon(Customer customer)
+    {
+        GameObject customerIcon = Instantiate(God.instance.customerIconPrefab, transform.position, Quaternion.identity) as GameObject;
 
+        customerIcon.transform.parent = zoneViews[ Random.Range(0,zoneViews.Count) ].transform;
+        customerIcon.GetComponent<CustomerIcon>().Init(customer);
+        customerIcon.transform.localScale = Vector3.one * .5f;
+    }
 
     public void CustomerDeadInQueue(Customer customer)
     {
@@ -97,6 +110,13 @@ public class Zone : MonoBehaviour {
         if (customer == currentlyProcessedCustomer)
         {
             processingCustomer = false;
+        }
+        foreach (CustomerIcon customerIcon in GetComponentsInChildren<CustomerIcon>())
+        {
+            if (customerIcon.referredCustomer == customer)
+            {
+                customerIcon.Die();
+            }
         }
             CheckIfQueueIsFull();
        // StartCustomerProcessing();

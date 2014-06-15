@@ -155,6 +155,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -168,6 +170,7 @@ MonoBehaviour:
     waiting: 0
     customerView: {fileID: 0}
   moodBubble: {fileID: 11400008}
+  markedForDestruction: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +193,6 @@ MonoBehaviour:
   - CustomSpriteAnimation
   - UnityEngine.BoxCollider
   - UIDragScrollView
-  - DragDropCustomer
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
