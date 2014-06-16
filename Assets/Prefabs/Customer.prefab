@@ -52,6 +52,7 @@ Transform:
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -63,6 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
+  m_RootOrder: 0
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -155,6 +157,8 @@ MonoBehaviour:
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -167,7 +171,9 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   moodBubble: {fileID: 11400008}
+  markedForDestruction: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +196,6 @@ MonoBehaviour:
   - CustomSpriteAnimation
   - UnityEngine.BoxCollider
   - UIDragScrollView
-  - DragDropCustomer
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

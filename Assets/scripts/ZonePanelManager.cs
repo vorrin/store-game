@@ -47,34 +47,75 @@ public class ZonePanelManager : MonoBehaviour {
         }
     }
 
+    public void OnDeserialized()
+    {
+        RefreshStaffButtons();
+    }
+
     public void RefreshStaffButtons()
     {
-        print(currentZone.staffPower % 1);
+
         if (currentZone.staffPower  % 100 == 0) // Unity float weirdness
         {
             print("modulo as exp");
             hireButton.gameObject.SetActive(true);
-            trainButton.gameObject.SetActive(false);           
+            trainButton.gameObject.SetActive(false);
+            if (God.instance.score.resultSpending < God.instance.hireNewStaffCost)
+            {
+                hireButton.isEnabled = false;
+            }
+            else
+            {
+                hireButton.isEnabled = true;
+            }
+
         }
         else
         {
             hireButton.gameObject.SetActive(false);
-            trainButton.gameObject.SetActive(true);           
+            trainButton.gameObject.SetActive(true);
+            if (God.instance.score.resultSpending < God.instance.trainingStepCost)
+            {
+                trainButton.isEnabled = false;
+            }
+            else
+            {
+                trainButton.isEnabled = true;
+            }
         }
         PopulateZonePanel();
+    }
+
+    public void RemoveStaffHiringButtons()
+    {
+        trainButton.isEnabled = false;
+        hireButton.isEnabled = false;
+
     }
 
     public void HireStaff()
     {
         //Some cost shall be elicited
+        God god = God.instance;
+        god.score.resultSpending -= god.hireNewStaffCost;
+        god.RefreshStaffBuyingMenu();
         currentZone.staffNumber += 1;
         currentZone.staffPower += 20;
-        currentZone.zoneView.UpdateStaffNumber();
+        currentZone.zoneViews.ForEach((zoneView) =>
+        {
+           zoneView.UpdateStaffNumber() ;
+        });
+
+        //currentZone.zoneViews.UpdateStaffNumber();
         RefreshStaffButtons();
     }
 
     public void TrainStaff()
     {
+        God god = God.instance;
+        god.score.resultSpending -= god.trainingStepCost;
+        god.RefreshStaffBuyingMenu();
+
         currentZone.staffPower += 20;
         RefreshStaffButtons();
     }
@@ -134,13 +175,16 @@ public class ZonePanelManager : MonoBehaviour {
         foreach (GameObject customer in customersToBeDestroyed)
         {
             customer.transform.parent = null;
-            Destroy(customer);
+            customer.GetComponent<CustomerView>().DestroyCustomerView();
         }
     }
 
+    public void FireFeedbackZonePanel(Customer customer, ZoneFeedbackIcon.Icons icon ){
+
+    }
     
 
-    public void RemoveCustomer(Customer processedCustomer)
+    public void RemoveCustomer(Customer processedCustomer, ZoneFeedbackIcon.Icons icon)
     {
         if (!this.enabled)
         {
@@ -151,9 +195,24 @@ public class ZonePanelManager : MonoBehaviour {
             if (customerView.name.Contains("Spot")) continue;
             if (customerView.GetComponent<CustomerView>().customerModel == processedCustomer)
             {
-                Destroy(customerView.gameObject);
-                customerView.parent = null;
-                queue.Reposition();
+                GameObject feedbackIcon = Instantiate(God.instance.zoneFeedbackIconPrefab, customerView.transform.localPosition, Quaternion.identity) as GameObject;
+                feedbackIcon.GetComponent<ZoneFeedbackIcon>().scale = Vector3.one;
+                feedbackIcon.GetComponent<ZoneFeedbackIcon>().zoneIcon = icon;
+                feedbackIcon.GetComponent<UIPanel>().depth = 50;
+                feedbackIcon.GetComponent<UIPanel>().Refresh();
+                feedbackIcon.SetParent(gameObject);
+                feedbackIcon.transform.localPosition = transform.parent.InverseTransformPoint(customerView.transform.position);
+
+
+                customerView.GetComponent<CustomerView>().DestroyCustomerView(
+                    new System.Action(
+                        () =>
+                        {
+                            customerView.parent = null;
+                            queue.Reposition();
+                        }
+                        )
+                    );
                 return;
             }
             
@@ -167,8 +226,14 @@ public class ZonePanelManager : MonoBehaviour {
         GetComponent<UIPlayAnimation>().Play(false);
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(false);
-        GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
-        if (currentZone != null) currentZone.GetComponent<UIPlayAnimation>().Play(false);
+        //GetComponent<UIPlayAnimation>().disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
+        if (currentZone != null)
+        {
+            currentZone.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(false);
+            });
+        };
         hireButton.gameObject.SetActive(false);
         trainButton.gameObject.SetActive(false);
 

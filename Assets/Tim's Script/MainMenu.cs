@@ -34,6 +34,8 @@ public class MainMenu : MonoBehaviour {
 
 	}
 
+    
+
 	public static void MenuNav(string buttonName, bool returnMenu)
 	{
 		print(buttonName);
@@ -41,7 +43,7 @@ public class MainMenu : MonoBehaviour {
 		{
 			//GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(false);
 			print("Should be playing");
-			GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(false);
+			GameObject.Find("MainMenu").GetComponent<UIPlayAnimation>().Play(false);
 			GameObject.Find("Panel " + buttonName).GetComponent<UIPlayAnimation>().Play(false);
 			buttonName = "";
 		}

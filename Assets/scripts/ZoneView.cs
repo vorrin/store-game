@@ -11,9 +11,24 @@ public class ZoneView : MonoBehaviour {
     public UISprite progressIndicator;
     public GameObject staffBuyingIndicatorSet;
     public GameObject customersPresenceIndicatorSet;
+    public GameObject feedbackIconSpawner;
+
+    // Use this for initialization
+    void Start()
+    {
+        if (zoneModel == null)
+        {
+            zoneModel = GetComponent<Zone>();
+        }
+        queue = GameObject.Find("Queue");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
 
-
+    }
 
     public void UpdateCustomerNumber()
     {
@@ -36,9 +51,20 @@ public class ZoneView : MonoBehaviour {
 
     public void ZoneViewStateSetup() // switches between endofday and day displays
     {
+
         bool theDayIsOver = God.instance.endOfDayPhase;
-        customersPresenceIndicatorSet.SetActive(!theDayIsOver);
-        staffBuyingIndicatorSet.SetActive(theDayIsOver);
+        customersPresenceIndicatorSet.GetComponent<UILabel>().enabled = !theDayIsOver;
+        //Disabling the single elements cause else the saving system gets confused, I think.
+        foreach (UISprite sprite in customersPresenceIndicatorSet.GetComponentsInChildren<UISprite>())
+        {
+            sprite.enabled = !theDayIsOver;
+        }
+
+        staffBuyingIndicatorSet.GetComponent<UILabel>().enabled = theDayIsOver;
+        foreach (UISprite sprite in staffBuyingIndicatorSet.GetComponentsInChildren<UISprite>())
+        {
+            sprite.enabled = theDayIsOver;
+        }
         if (theDayIsOver)
         {
             UpdateStaffNumber();
@@ -49,9 +75,62 @@ public class ZoneView : MonoBehaviour {
         }
     }
 
-	void OnClick () {
 
-        GetComponent<UIPlayAnimation>().Play(true);
+    void OnHover(bool isHovering)
+    {
+        return;
+        if (isHovering)
+        {
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isHovering);
+            });
+        }
+        else
+        {
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isHovering);
+            });
+        }
+    }
+
+
+    public void OnCustomHover(bool isOver)
+    {
+        print("custover is " + isOver);
+        if (God.instance.customerDragging && isOver)
+        {
+            foreach (GameObject zone in GameObject.FindGameObjectsWithTag("zone"))
+            {
+                
+                if (zone.GetComponent<ZoneView>().zoneModel != zoneModel)
+                {
+
+                    zone.GetComponent<ZoneView>().zoneModel.zoneViews.ForEach(zoneView =>
+                        zoneView.GetComponent<UIPlayAnimation>().Play(false)
+                        );
+                }
+            }
+        }
+        
+        
+            zoneModel.zoneViews.ForEach(zoneView =>
+            {
+                zoneView.GetComponent<UIPlayAnimation>().Play(isOver);
+            });
+        
+            
+        
+
+    }
+
+	void OnClick () {
+        zoneModel.zoneViews.ForEach(zoneView =>
+        {
+            zoneView.GetComponent<UIPlayAnimation>().Play(true);
+        });
+
         //EventDelegate displayZoneScreen = new EventDelegate(God.instance.zonePanelManager,"Display");
         //EventDelegate.Parameter parameter = new EventDelegate.Parameter();
         //parameter.obj = zoneModel;
@@ -61,26 +140,38 @@ public class ZoneView : MonoBehaviour {
         //GetComponent<UIPlayAnimation>().onFinished = 
 
 	}
-	// Use this for initialization
-	void Start () {
-        zoneModel = GetComponent<Zone>();
-        queue = GameObject.Find("Queue");
-	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	
-	}
-
     public void UpdateProgressIndicator(float percentageOfCompletion)
     {
         progressIndicator.fillAmount = percentageOfCompletion;
     }
 
-    void OnDrop(GameObject customer)
+    public void FireFeedback(ZoneFeedbackIcon.Icons icon)
     {
+        GameObject feedbackIcon = Instantiate(God.instance.zoneFeedbackIconPrefab, feedbackIconSpawner.transform.position, Quaternion.identity) as GameObject;
+        feedbackIcon.GetComponent<ZoneFeedbackIcon>().zoneIcon = icon;
+        feedbackIcon.SetParent(feedbackIconSpawner);
+    }
+
+    public void OnCustomDrop(GameObject customer)
+    {
+        print("dropping ");
+
+        //if (!God.instance.customerDragging)
+        //{
+        //    return;
+        //    Debug.Log("NODRAGING " );
+
+        //}
+        if (customer.tag != "customer")
+        {
+            return;
+        }
+
+        Debug.Log("TAT STAT OF THINGS INI " + customer.GetComponent<DragDropCustomer>().dragging);
         print("SOMETHING DROPPED ON ZONE");
+
+    //    customer.collider.enabled = false;
         CustomerView customerView = customer.GetComponent<CustomerView>();
         if (customerView)
         {

@@ -10,7 +10,7 @@ public class Zone : MonoBehaviour {
     public int staffPower = 20; //this is a percentage (.3f = 30%) 
     public int maxQueue = 5;
     public bool queueOpen = true;
-    public ZoneView zoneView;
+    public List<ZoneView> zoneViews = new List<ZoneView>();
     public Customer currentlyProcessedCustomer;
     public bool processingCustomer = false;
     public float processingStartTime;
@@ -22,14 +22,20 @@ public class Zone : MonoBehaviour {
 	void Start () {
         currentlyProcessedCustomer = null;
         customers = new List<Customer>();
-        zoneView = GetComponent<ZoneView>();
+        foreach (ZoneView view in GetComponentsInChildren<ZoneView>())
+        {
+            zoneViews.Add(view);
+        };
 	}
 
     public void ClearZone()
     {
         customers = new List<Customer>();
         processingCustomer = false;
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
     }
 
     public void OnDeserialized()
@@ -37,27 +43,79 @@ public class Zone : MonoBehaviour {
         //if (LevelSerializer.IsDeserializing)
         //{
         //    //Zone is being reloaded from save
-       zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
+        foreach (Customer customer in customers)
+        {
+            AddCustomerIcon(customer);
+        }
     }
 
     public void AddCustomer(Customer customer)
     {
         customer.currentZone = this;
         customers.Add(customer);
-
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
+        AddCustomerIcon(customer);
         CheckIfQueueIsFull();
     }
-    public void RemoveCustomer(Customer customer)
+
+    
+    public void AddCustomerIcon(Customer customer)
+    {
+        GameObject customerIcon = Instantiate(God.instance.customerIconPrefab, transform.position, Quaternion.identity) as GameObject;
+
+        customerIcon.transform.parent = zoneViews[ Random.Range(0,zoneViews.Count) ].transform;
+        customerIcon.GetComponent<CustomerIcon>().Init(customer);
+        customerIcon.transform.localScale = Vector3.one * .5f;
+        customerIcon.GetComponent<UISprite>().depth = 1;
+    }
+
+    public void CustomerDeadInQueue(Customer customer)
+    {
+
+   //     FireFeedbackToZones(ZoneFeedbackIcon.Icons.DeathInQueue);
+        RemoveCustomer(customer, ZoneFeedbackIcon.Icons.DeathInQueue);
+    }
+
+    public void FireFeedbackToZones(ZoneFeedbackIcon.Icons icon, Customer customer){
+        //if (God.instance.zonePanelManager.displayingZone)
+        //{
+        //    God.instance.zonePanelManager.FireFeedbackZonePanel( icon);
+        //    // Here you got to fire up feedback in the zone too... 
+        //}
+        zoneViews.ForEach(zoneView =>
+        {
+            zoneView.FireFeedback(icon);
+        });
+    }
+
+    public void RemoveCustomer(Customer customer, ZoneFeedbackIcon.Icons icon)
     {
         // CHECK IF CUSTOMER BEING DISPLAYED IN PANEL
-        God.instance.zonePanelManager.RemoveCustomer(customer);
+        FireFeedbackToZones(icon, customer);
+        God.instance.zonePanelManager.RemoveCustomer(customer, icon);
         customers.Remove(customer);
         customer.currentZone = null;
-        zoneView.UpdateCustomerNumber();
+        zoneViews.ForEach((zoneView) =>
+        {
+            zoneView.UpdateCustomerNumber();
+        });
         if (customer == currentlyProcessedCustomer)
         {
             processingCustomer = false;
+        }
+        foreach (CustomerIcon customerIcon in GetComponentsInChildren<CustomerIcon>())
+        {
+            if (customerIcon.referredCustomer == customer)
+            {
+                customerIcon.Die();
+            }
         }
             CheckIfQueueIsFull();
        // StartCustomerProcessing();
@@ -85,21 +143,23 @@ public class Zone : MonoBehaviour {
         currentlyProcessedCustomer = customers[0];
         processingCustomer = true;
         customers[0].waiting = false ;
-
     }
 
 
     void CustomerProcessingCompleteZone()
     {
         God.instance.CustomerProcessingCompleteGod(currentlyProcessedCustomer);
-        processingCustomer = false;
-        customers.RemoveAt(0);
-        zoneView.UpdateCustomerNumber();
-        CheckIfQueueIsFull();
-        if (God.instance.zonePanelManager.enabled)
-        {// This simply removes the customer from the zonepanel if the customer gets processed in that time.
-            God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
-        }
+        //processingCustomer = false;
+        //customers.RemoveAt(0);
+        //zoneViews.ForEach((zoneView) =>
+        //{
+        //    zoneView.UpdateCustomerNumber();
+        //});
+        //CheckIfQueueIsFull();
+        //if (God.instance.zonePanelManager.enabled)
+        //{// This simply removes the customer from the zonepanel if the customer gets processed in that time.
+        //    God.instance.zonePanelManager.RemoveCustomer(currentlyProcessedCustomer);
+        //}
     }
 
 	// Update is called once per frame
@@ -112,7 +172,10 @@ public class Zone : MonoBehaviour {
         {
             processingStartTime += Time.deltaTime;
             float percentageOfCompletion = (processingStartTime) / ( processingTimeInSecondsAtHundredPercent  / ( staffPower /100f)  );
-            zoneView.UpdateProgressIndicator(percentageOfCompletion);
+            zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.UpdateProgressIndicator(percentageOfCompletion);
+            });
             if (percentageOfCompletion >= 1f)
             {
                 CustomerProcessingCompleteZone();

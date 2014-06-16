@@ -18,7 +18,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400018}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Zone
   m_TagString: zone
   m_Icon: {fileID: 0}
@@ -35,13 +35,13 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400020}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: StaffNumberLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 1
@@ -52,8 +52,23 @@ GameObject:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400006}
+  m_Layer: 8
+  m_Name: FeedbackIconSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +84,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400022}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +101,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400024}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ProgressIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +118,53 @@ GameObject:
   - 4: {fileID: 400012}
   - 114: {fileID: 11400036}
   - 114: {fileID: 11400026}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CustomerNumberLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400014}
+  m_Layer: 0
+  m_Name: spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400016}
+  m_Layer: 0
+  m_Name: spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400018}
+  m_Layer: 0
+  m_Name: spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +181,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
+  - {fileID: 400018}
+  - {fileID: 400016}
+  - {fileID: 400014}
   - {fileID: 400002}
+  - {fileID: 400006}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -146,6 +210,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
+--- !u!4 &400006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.753382087, y: 52.0162659, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -181,6 +256,39 @@ Transform:
   - {fileID: 400010}
   - {fileID: 400008}
   m_Father: {fileID: 400000}
+--- !u!4 &400014
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.1635246, y: -76.6271896, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.4084396, y: -104.558395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400018
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .767681479, y: 63.0288353, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -206,8 +314,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 94, y: 344, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 79, y: 322, z: 0}
+  m_Center: {x: 2.5, y: 0, z: 0}
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -236,15 +344,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneName: 
   customers: []
-  staffPower: 20
+  staffPower: 60
   maxQueue: 5
   queueOpen: 1
-  zoneView: {fileID: 0}
+  zoneViews: []
   currentlyProcessedCustomer:
     sex: 
     age: 
     ethnicity: 
     scenario: I want to buy them things, fast!
+    type: 
+    experienceLoop: 
     nps: 1
     avatarName: customer
     upsellable: 0
@@ -319,7 +429,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3001
+  startingRenderQueue: 3011
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -355,7 +465,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: .931034565, a: .00392156886}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 94
   mHeight: 344
@@ -365,7 +475,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: .273255825
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: sliceSpriteZone
+  mSpriteName: zones_CONSULTATION
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -396,6 +506,7 @@ MonoBehaviour:
   progressIndicator: {fileID: 11400032}
   staffBuyingIndicatorSet: {fileID: 100002}
   customersPresenceIndicatorSet: {fileID: 100012}
+  feedbackIconSpawner: {fileID: 100006}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,7 +525,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
@@ -448,7 +559,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
-  mText: 0
+  mText: 1
   mFontSize: 39
   mFontStyle: 0
   mAlignment: 0
@@ -476,7 +587,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
@@ -498,7 +609,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: .823529422, g: .806824982, b: .217993096, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 50
   mHeight: 50
@@ -532,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: afb0791b-021d-4a1b-a73a-77dd9ed9dc7a
+  _id: e5e20698-43cf-44d9-a827-1eccd9e17650
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &11400018
 MonoBehaviour:
@@ -546,13 +657,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: b19e9879-a835-4a67-a845-8a9d04e700fa
+  _id: 3736ea1a-c847-4c78-bc5f-708b4e650574
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
   - Zone
   - ZoneView
-  - UIPanel
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2928f034-0704-4d73-96b6-9f720b502710
+  _id: 2105121d-797f-4a8e-aa93-9d1862a98c24
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &11400022
 MonoBehaviour:
@@ -579,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 69e752fe-682d-4d11-979d-382c905c7073
+  _id: 6f42f9e3-326b-4183-8c72-3cadd5ea8d73
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &11400024
 MonoBehaviour:
@@ -593,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6835d6c8-309d-4e7c-b842-672138d88b4e
+  _id: daa6b51f-485b-4d2a-ada1-9dcb78f2ddab
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &11400026
 MonoBehaviour:
@@ -607,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6c024492-81b8-444d-aa63-5b96506fda2f
+  _id: 6ef284cd-1995-40a4-a7cc-98442c88bd4b
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &11400028
 MonoBehaviour:
@@ -687,7 +797,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: .996078432, b: 0, a: 1}
+  mColor: {r: 0, g: 1, b: 0, a: .300000012}
   mPivot: 4
   mWidth: 70
   mHeight: 70

@@ -7,6 +7,8 @@ using System.Collections;
 	public string age;
 	public string ethnicity;
 	public string scenario;
+    public string type;
+    public string experienceLoop;
 	public float nps = 1f;
 	public string avatarName = "customer";
 	public bool upsellable;
@@ -20,6 +22,7 @@ using System.Collections;
     public Zone currentZone;
 	public bool waiting = false;
     public CustomerView customerView;
+    public bool difficult;
 
 
     
@@ -35,7 +38,7 @@ using System.Collections;
 
     }
 
-    public Customer(string gender, string age, string ethnicity, string scenario, int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
+    public Customer(string gender, string age, string ethnicity, string scenario, string type, string experienceLoop , int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend, string difficulty)
     {
     //}
 
@@ -52,6 +55,8 @@ using System.Collections;
 		this.age = age;
 		this.ethnicity = ethnicity;
 		this.scenario = scenario;
+        this.type = type;
+        this.experienceLoop = experienceLoop;
 		this.nps = npsValue;
 
         this.initialTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
@@ -61,6 +66,14 @@ using System.Collections;
 		this.secondBestZone = secondBestZone;
 		this.upsellable = upSellVal;
 		this.spend = spend;
+        if (difficulty == "HARD")
+        {
+            this.difficult = true;
+        }
+        else
+        {
+            this.difficult = false;
+        }
 
 
         //DEBUG NOT THE RIGHT WAY, DO DIFFERENT LATER.
@@ -88,6 +101,8 @@ using System.Collections;
         this.age = customerCloneBase.age;
         this.ethnicity = customerCloneBase.ethnicity;
         this.scenario = customerCloneBase.scenario;
+        this.type = customerCloneBase.type;
+        this.experienceLoop = customerCloneBase.experienceLoop;
         this.nps = customerCloneBase.nps;
         //DEBUG avatarname not to be used?
         this.avatarName = customerCloneBase.avatarName;
@@ -98,6 +113,7 @@ using System.Collections;
         this.secondBestZone = customerCloneBase.secondBestZone;
         this.upsellable = customerCloneBase.upsellable;
         this.spend = customerCloneBase.spend;
+        this.difficult = customerCloneBase.difficult;
         waiting = true;
     }
 
@@ -108,11 +124,12 @@ using System.Collections;
       
         if (zone.zoneName == bestZone.Trim() ) // best
         {
+            nps += Mathf.Clamp(God.instance.moodModifierBonusForBestChoice, 1f, 10f);
             return ZoneMatchingResults.Best;
         }
         else if (zone.zoneName == secondBestZone.Trim())
         {
-            nps = nps - God.instance.moodModifierForSecondBestChoice;
+            nps = nps - God.instance.moodModifierMalusForSecondBestChoice;
             if (nps < 1f) nps = 1;
             return ZoneMatchingResults.SecondBest;
         }
@@ -131,7 +148,8 @@ using System.Collections;
         if (currentZone != null)
         {
             //Zone takes care of zonepanel removing too, so this all we need if the customer is in a zone.
-            currentZone.RemoveCustomer(this);
+            currentZone.CustomerDeadInQueue(this);
+            //currentZone.RemoveCustomer(this);
         }
             //customer dies while in queue...
         else
@@ -141,7 +159,6 @@ using System.Collections;
             //    CustomerView customerView = customerViewTrans.GetComponent<CustomerView>();
             //    if (customerView.customerModel == this)
             //    {
-            //        GameObject.Destroy(customerView.gameObject);
         // THIS SHOULD ALL BE MOVED IN CUSTOMERVIEW...
             if (customerView.gameObject)
             {
@@ -149,11 +166,12 @@ using System.Collections;
                 {
                     //This is so if the customer dies of running out of time when dragged, all looks good.
                     customerView.EndDrag();
+                    customerView.DestroyCustomerView();
+
                 }
                 else// Customer is still in the queue
                 {
-                    GameObject.Destroy(customerView.gameObject);
-                    God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true;
+                    customerView.DestroyCustomerView(new System.Action(() => God.instance.customersQueue.GetComponent<UIGrid>().repositionNow = true));
                 }
 
                 
@@ -168,7 +186,7 @@ using System.Collections;
 
     public void BackToQueueFromZone()
     {
-        currentZone.RemoveCustomer(this);
+        currentZone.RemoveCustomer(this, ZoneFeedbackIcon.Icons.Null);
         waiting = true;
         currentZone = null; 
         God.instance.customers.Remove(this); //avoids doubleadding

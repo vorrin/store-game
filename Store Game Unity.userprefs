@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\God.cs">
     <Files>
-      <File FileName="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs" Line="98" Column="77" />
+      <File FileName="..\..\bondage-ballerinas\Assets\Scripts\Ship.cs" Line="98" Column="74" />
+      <File FileName="Assets\scripts\God.cs" Line="874" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
