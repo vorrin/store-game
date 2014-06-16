@@ -34,6 +34,8 @@ public class MainMenu : MonoBehaviour {
 
 	}
 
+    
+
 	public static void MenuNav(string buttonName, bool returnMenu)
 	{
 		print(buttonName);
