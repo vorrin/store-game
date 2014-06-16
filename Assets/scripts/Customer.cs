@@ -22,6 +22,7 @@ using System.Collections;
     public Zone currentZone;
 	public bool waiting = false;
     public CustomerView customerView;
+    public bool difficult;
 
 
     
@@ -37,7 +38,7 @@ using System.Collections;
 
     }
 
-    public Customer(string gender, string age, string ethnicity, string scenario, string type, string experienceLoop , int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend)
+    public Customer(string gender, string age, string ethnicity, string scenario, string type, string experienceLoop , int npsValue, float timeMins, string bestZone, string secondBestZone, bool upSellVal, float spend, string difficulty)
     {
     //}
 
@@ -65,6 +66,14 @@ using System.Collections;
 		this.secondBestZone = secondBestZone;
 		this.upsellable = upSellVal;
 		this.spend = spend;
+        if (difficulty == "HARD")
+        {
+            this.difficult = true;
+        }
+        else
+        {
+            this.difficult = false;
+        }
 
 
         //DEBUG NOT THE RIGHT WAY, DO DIFFERENT LATER.
@@ -104,6 +113,7 @@ using System.Collections;
         this.secondBestZone = customerCloneBase.secondBestZone;
         this.upsellable = customerCloneBase.upsellable;
         this.spend = customerCloneBase.spend;
+        this.difficult = customerCloneBase.difficult;
         waiting = true;
     }
 

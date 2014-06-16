@@ -1869,7 +1869,7 @@ MonoBehaviour:
     type: 2}
   customerPanelManager: {fileID: 953546238}
   zonePanelManager: {fileID: 1545613486}
-  csv: {fileID: 4900000, guid: 07c7a377575c4b14ba4db512282269c0, type: 3}
+  csv: {fileID: 4900000, guid: d17fe5d5919688f46aed321f57550336, type: 3}
   possibleCustomersPool: []
   fader: {fileID: 1814919591}
   daytimeTotal: 600
@@ -2656,6 +2656,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -4398,6 +4399,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -8615,6 +8617,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -9706,6 +9709,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   timerLabel: {fileID: 740606782}
   totalTimeLabel: {fileID: 920467623}
   currentZoneLabel: {fileID: 615168008}
@@ -11402,6 +11406,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -15395,6 +15400,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -16699,6 +16705,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -17377,6 +17384,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40
@@ -19434,6 +19442,7 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   processingCustomer: 0
   processingStartTime: 0
   processingTimeInSecondsAtHundredPercent: 40

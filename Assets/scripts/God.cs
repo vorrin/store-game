@@ -91,7 +91,6 @@ public class God : MonoBehaviour {
         DifficultyLevelEntry debugDifficulty = XmlSupport.DeserializeXml<DifficultyLevelEntry>(www.text);
         difficultyLevels[0] = debugDifficulty;
         SetDifficultyLevel(difficultyLevels[0]);
-        //currentLevel = 0;
         StopCoroutine("DelayedAddingOfCustomers") ;
         
         StartCoroutine(DelayedAddingOfCustomers());
@@ -614,14 +613,30 @@ public class God : MonoBehaviour {
     {
         //Customer newCustomer = new Customer();
         //newCustomer.Create();
+        bool difficultCustomer = false;
+        if (Random.Range(0f, 100f) > difficultyLevels[currentLevel].percentageOfHardCustomers) {
+            difficultCustomer = false;
+        }
+        else {
+            difficultCustomer = true; // means next customer is a difficulty one
+        }
 
-
-		int num = Random.Range(0, 27); // This is only a test
-        //You did the range wrong, 1 , 28 brings results... well, between 1 and 27. As the array size is 27, that means:
-        //1- you never get the array[0] element
-        //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
-
-		AddCustomer(new Customer(possibleCustomersPool[num]));
+        bool trying = true;
+        while (trying)
+        {
+            int num = Random.Range(0, possibleCustomersPool.Count); // This is only a test
+            if (possibleCustomersPool[num].difficult == difficultCustomer)
+            {
+                Customer customerToBeGenerated = possibleCustomersPool[num];
+                trying = false;
+                AddCustomer(new Customer(customerToBeGenerated));
+                return;
+            }
+            //Customer customerToBeGenerated =
+            //You did the range wrong, 1 , 28 brings results... well, between 1 and 27. As the array size is 27, that means:
+            //1- you never get the array[0] element
+            //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
+        }
 
         //AddCustomer(newCustomer);
 
