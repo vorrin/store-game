@@ -580,7 +580,10 @@ public class God : MonoBehaviour {
 
     public void QuitGame()
     {
-        Application.Quit();
+        if (Application.platform != RuntimePlatform.IPhonePlayer)
+        {
+            Application.Quit();
+        }
     }
     void OnApplicationQuit()
     {
