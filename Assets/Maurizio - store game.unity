@@ -1721,6 +1721,7 @@ MonoBehaviour:
   secondBestChoice: {fileID: 8300000, guid: 3357544f9a83f1e418a1ddef8129a12d, type: 3}
   button: {fileID: 8300000, guid: 762654ff48c9ba94b9677e0fe9eb09fe, type: 3}
   queueFull: {fileID: 8300000, guid: 59b47d2057b0d0e49a464ef0f7fa07a7, type: 3}
+  customerReleased: {fileID: 8300000, guid: 9e41d6812b079464fb00dc46cf65e23a, type: 3}
 --- !u!1 &201587817
 GameObject:
   m_ObjectHideFlags: 0

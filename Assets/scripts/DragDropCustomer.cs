@@ -56,6 +56,10 @@ public class DragDropCustomer : UIDragDropItem
             ZoneView possibleZoneView = hits[0].collider.GetComponent<ZoneView>();
             possibleZoneView.OnCustomDrop(gameObject);
         }
+        else
+        {
+            AudioManager.instance.CustomerReleased();
+        }
 
 
         

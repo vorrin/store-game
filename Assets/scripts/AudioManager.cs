@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour {
     public AudioClip secondBestChoice;
     public AudioClip button;
     public AudioClip queueFull;
+    public AudioClip customerReleased;
+
 
 
 
@@ -93,6 +95,10 @@ public class AudioManager : MonoBehaviour {
         }
 }
 
+    public void CustomerReleased()
+    {
+        speaker.PlayOneShot(customerReleased);
+    }
     public void PlayAudioForEndOfDay()
     {
         speaker.PlayOneShot(endOfDay);
