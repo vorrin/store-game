@@ -48,8 +48,8 @@ public class God : MonoBehaviour {
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
     //public AudioManager audioManager;
-    [DoNotSerialize] public static float amberMoodTreshold = 7;
-    [DoNotSerialize] public static float redMoodTreshold = 5;
+    [DoNotSerialize] public static float amberMoodTreshold = 9;
+    [DoNotSerialize] public static float redMoodTreshold = 6;
     
     //public enum PossibleMoods {
     //    green ,

@@ -33,12 +33,10 @@ public class EndOfDayPanelManager : MonoBehaviour {
         float totalStaffExp = 0f;
         God.instance.zones.ForEach(zone =>
         {
-            print("looping)");
             totalStaff += zone.staffNumber;
             totalStaffExp += zone.staffPower;
         });
         totalStaffLabel.text = totalStaff.ToString();
-        print("STASKOSASOAKDOKDSA DOK " + totalStaffExp);
         averageStaffLabel.text = ((totalStaffExp) / totalStaff).ToString("0.0") + "%";
              
     }
