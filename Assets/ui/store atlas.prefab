@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: Fail
-    x: 1701
-    y: 1348
+    x: 1931
+    y: 1436
     width: 105
     height: 106
     borderLeft: 0
@@ -340,6 +340,19 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 5
     paddingBottom: 5
+  - name: icons_main_STATUS
+    x: 1574
+    y: 1260
+    width: 429
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 41
+    paddingTop: 1
+    paddingBottom: 2
   - name: icons_NPS
     x: 1465
     y: 1340
@@ -367,8 +380,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 6
   - name: icons_scrollARROW_actual_01
-    x: 1418
-    y: 1340
+    x: 419
+    y: 205
     width: 43
     height: 70
     borderLeft: 0
@@ -393,8 +406,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 4
   - name: icons_scrollARROW_OFF
-    x: 419
-    y: 205
+    x: 1418
+    y: 1340
     width: 43
     height: 70
     borderLeft: 0
@@ -459,7 +472,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mood_amber_PROFILE
     x: 1595
-    y: 1455
+    y: 1752
     width: 249
     height: 296
     borderLeft: 0
@@ -511,7 +524,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: mood_red_PROFILE
     x: 1595
-    y: 1752
+    y: 1455
     width: 249
     height: 296
     borderLeft: 0
@@ -549,8 +562,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 10
   - name: SecondBestOption
-    x: 1931
-    y: 1436
+    x: 1701
+    y: 1348
     width: 105
     height: 106
     borderLeft: 0

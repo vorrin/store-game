@@ -262,9 +262,13 @@ public class God : MonoBehaviour {
 
     void UpdateScoresMenu()
     {
-        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("00");
-        scoreLabels.totalCustomersLabel.text = Mathf.Floor(customers.Count).ToString("00");
-        scoreLabels.totalCustomersProcessedLabel.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("00");
+
+        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("0");
+        scoreLabels.successfulCustomers.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("0");
+        scoreLabels.failedCustomers.text = Mathf.Floor(score.totalCustomersLost).ToString("0");
+        scoreLabels.totalMoneyLabel.text = Mathf.Floor(score.totalSpendForTheDay).ToString("000");
+
+
     }
 
     void ResetScoresAtEndOfDay()
