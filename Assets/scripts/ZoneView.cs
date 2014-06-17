@@ -183,6 +183,7 @@ public class ZoneView : MonoBehaviour {
             {
                 GameObject fullIcon = Instantiate(God.instance.feedbackIconPrefab , customer.transform.position, Quaternion.identity) as GameObject;
                 fullIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Full;
+                AudioManager.instance.PlayAudioForIcon(FeedbackIcon.Icons.Full);
             }
         }
         

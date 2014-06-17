@@ -41,6 +41,7 @@ public class CustomerView : MonoBehaviourEx {
         if (result == Customer.ZoneMatchingResults.Fail)
         {
             feedbackIcon.GetComponent<FeedbackIcon>().icon = FeedbackIcon.Icons.Fail;
+            AudioManager.instance.PlayAudioForIcon(FeedbackIcon.Icons.Fail);
             GetComponent<UIDragDropItem>().enabled = false;
             customerModel.Die();
             return;
@@ -57,6 +58,7 @@ public class CustomerView : MonoBehaviourEx {
         }
         GetComponent<UIDragDropItem>().enabled = false;
         zone.AddCustomer(customerModel);
+        AudioManager.instance.PlayAudioForIcon(feedbackIcon.GetComponent<FeedbackIcon>().icon);
     //    transform.parent = null;
         DestroyCustomerView();
     }

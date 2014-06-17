@@ -122,6 +122,7 @@ public class God : MonoBehaviour {
     public void CustomerLost(Customer customer)
     {
         if (customer.currentZone != null ){
+            
             customer.currentZone.RemoveCustomer(customer,ZoneFeedbackIcon.Icons.DeathInQueue);
         }
         if (customerPanelManager.currentCustomer == customer)
@@ -227,7 +228,7 @@ public class God : MonoBehaviour {
 
     void EndWorkingDay()
     {
-        
+
         zonePanelManager.Hide();
         customerPanelManager.Hide();
         endOfDayPhase = true;

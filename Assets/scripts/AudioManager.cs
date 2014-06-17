@@ -59,7 +59,39 @@ public class AudioManager : MonoBehaviour {
         {
             speaker.PlayOneShot(successfulSale);
         }
+        else if (icon == ZoneFeedbackIcon.Icons.UpsellFail)
+        {
+            speaker.PlayOneShot(failedUpsell);
+        }
+        else if (icon == ZoneFeedbackIcon.Icons.UpsellFine)
+        {
+            speaker.PlayOneShot(successfulUpsell);
+        }
+        else if (icon == ZoneFeedbackIcon.Icons.DeathInQueue)
+        {
+            speaker.PlayOneShot(failedSale);
+        }
+        
     }
+    public void PlayAudioForIcon(FeedbackIcon.Icons icon) {
+        if (icon == FeedbackIcon.Icons.Fail)
+        {
+            speaker.PlayOneShot(failedSale);
+        }
+        else if (icon == FeedbackIcon.Icons.BestOption)
+        {
+            speaker.PlayOneShot(bestChoice);
+        }
+        else if (icon == FeedbackIcon.Icons.SecondBestOption)
+        {
+            speaker.PlayOneShot(secondBestChoice);
+        }
+        else if (icon == FeedbackIcon.Icons.Full)
+        {
+            print("PLAYING QUQUQUQUQ ");
+            speaker.PlayOneShot(queueFull);
+        }
+}
 
     public void PlayAudioForEndOfDay()
     {
