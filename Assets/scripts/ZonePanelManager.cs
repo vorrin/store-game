@@ -88,8 +88,8 @@ public class ZonePanelManager : MonoBehaviour {
 
     public void RemoveStaffHiringButtons()
     {
-        trainButton.isEnabled = false;
-        hireButton.isEnabled = false;
+        trainButton.active = false;
+        hireButton.active = false;
 
     }
 

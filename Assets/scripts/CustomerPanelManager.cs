@@ -46,7 +46,10 @@ public class CustomerPanelManager : MonoBehaviour {
             //God.instance.zonePanelManager.backButton.enabled = false;
             God.instance.zonePanelManager.backButton.isEnabled = false;
         }
-        backToQueueButton.SetActive(God.instance.zonePanelManager.displayingZone);
+        if (customer.DroppedInZone(customer.currentZone) == Customer.ZoneMatchingResults.SecondBest )
+        {
+            backToQueueButton.SetActive(God.instance.zonePanelManager.displayingZone);
+        }
 
         God.instance.fader.GetComponent<UIPlayAnimation>().clipName = "FaderAnim";
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);

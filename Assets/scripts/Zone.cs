@@ -16,6 +16,7 @@ public class Zone : MonoBehaviour {
     public float processingStartTime;
     public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
     public int staffNumber = 1;
+    public Dictionary<ZoneFeedbackIcon.Icons, AudioClip> audioFeedback;
 
 
 	// Use this for initialization

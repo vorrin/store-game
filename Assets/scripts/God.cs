@@ -47,6 +47,7 @@ public class God : MonoBehaviour {
     public UILabel difficultyLevelLabel;
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
+    public AudioSource speaker;
     [DoNotSerialize] public static float amberMoodTreshold = 7;
     [DoNotSerialize] public static float redMoodTreshold = 5;
     
@@ -614,6 +615,7 @@ public class God : MonoBehaviour {
             });
             //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
+        zonePanelManager.RemoveStaffHiringButtons();
         fader.SetActive(false);
         UpdateScoresMenu();
         RefreshStaffBuyingMenu();
