@@ -16,7 +16,6 @@ public class Zone : MonoBehaviour {
     public float processingStartTime;
     public float processingTimeInSecondsAtHundredPercent = 40f;// Time that it takes to process a customer at 100% staff (1 staff, full training)
     public int staffNumber = 1;
-    public Dictionary<ZoneFeedbackIcon.Icons, AudioClip> audioFeedback;
 
 
 	// Use this for initialization
@@ -90,6 +89,7 @@ public class Zone : MonoBehaviour {
         //    God.instance.zonePanelManager.FireFeedbackZonePanel( icon);
         //    // Here you got to fire up feedback in the zone too... 
         //}
+        AudioManager.instance.PlayAudioForIcon(icon);
         zoneViews.ForEach(zoneView =>
         {
             zoneView.FireFeedback(icon);

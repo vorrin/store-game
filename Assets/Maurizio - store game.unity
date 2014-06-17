@@ -1636,6 +1636,7 @@ GameObject:
   - 4: {fileID: 197690411}
   - 114: {fileID: 197690410}
   - 114: {fileID: 197690412}
+  - 114: {fileID: 197690413}
   m_Layer: 9
   m_Name: God
   m_TagString: Untagged
@@ -1682,8 +1683,8 @@ MonoBehaviour:
   hireNewStaffCost: 80
   currentLevel: 0
   difficultyLevels:
-  - minSpawnTime: 20
-    maxSpawnTime: 30
+  - minSpawnTime: 10
+    maxSpawnTime: 15
     percentageOfHardCustomers: 0
     durationOfDay: 600
   - minSpawnTime: 15
@@ -1705,7 +1706,6 @@ MonoBehaviour:
   difficultyLevelLabel: {fileID: 1989950881}
   gameStarted: 0
   customerIconPrefab: {fileID: 100002, guid: b31bc88fa5a68804d904b4de3aa6f482, type: 2}
-  speaker: {fileID: 0}
   score:
     totalCustomersProcessed: 0
     totalCustomersLost: 0
@@ -1746,6 +1746,23 @@ MonoBehaviour:
   classId: b1f54de4-aabf-4de1-b4e0-7da27dc64046
   StoreAllComponents: 1
   Components: []
+--- !u!114 &197690413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197690409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec76fa0155237034882d306418a7fd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 28854542}
+  failedSale: {fileID: 0}
+  successfulSale: {fileID: 8300000, guid: 444ae25ffa37a7e4182b5e5275d6e1b4, type: 3}
+  successfulUpsell: {fileID: 0}
+  failedUpsell: {fileID: 0}
+  endOfDay: {fileID: 8300000, guid: 747ac5d7cfcb36e4ab8d1fa9e935ea6f, type: 3}
 --- !u!1001 &199043569
 Prefab:
   m_ObjectHideFlags: 0

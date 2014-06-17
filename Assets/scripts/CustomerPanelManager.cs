@@ -14,8 +14,6 @@ public class CustomerPanelManager : MonoBehaviour {
 
     void Start()
     {
-        //gameObject.SetActiveRecursively(false);          
-        //print( " KAKKAMALE " + God.instance.moood);
     }
 
     public void SendCurrentCustomerBackToQueue()
@@ -46,7 +44,7 @@ public class CustomerPanelManager : MonoBehaviour {
             //God.instance.zonePanelManager.backButton.enabled = false;
             God.instance.zonePanelManager.backButton.isEnabled = false;
         }
-        if (customer.DroppedInZone(customer.currentZone) == Customer.ZoneMatchingResults.SecondBest )
+        if (customer.currentZone !=null &&  customer.currentZone.zoneName == customer.secondBestZone.Trim())
         {
             backToQueueButton.SetActive(God.instance.zonePanelManager.displayingZone);
         }
@@ -57,7 +55,7 @@ public class CustomerPanelManager : MonoBehaviour {
 
         currentCustomer = customer;
         avatarWindow.spriteName = customer.avatarName + "_PROFILE" ;
-        scenarioLabel.text = customer.scenario + "\n" + "Type: " + customer.type + "\nExperience: " + customer.experienceLoop;
+        scenarioLabel.text = customer.scenario + "\n\n" + "Type: " + customer.type + "\nExperience: " + customer.experienceLoop;
         SetMoodSprite();
         GetComponentInChildren<UpsellButton>().setUpselling(customer.attemptingUpsell);
         if (currentCustomer.currentZone == null)

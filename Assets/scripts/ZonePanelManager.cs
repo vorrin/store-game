@@ -179,9 +179,6 @@ public class ZonePanelManager : MonoBehaviour {
         }
     }
 
-    public void FireFeedbackZonePanel(Customer customer, ZoneFeedbackIcon.Icons icon ){
-
-    }
     
 
     public void RemoveCustomer(Customer processedCustomer, ZoneFeedbackIcon.Icons icon)
