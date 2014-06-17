@@ -22,6 +22,8 @@ public class CustomerPanelManager : MonoBehaviour {
     {
         currentCustomer.BackToQueueFromZone();
         backToQueueButton.SetActive(false);
+        Hide();
+        God.instance.zonePanelManager.Hide();
     }
 
     public void SetMoodSprite()
