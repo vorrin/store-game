@@ -196,6 +196,7 @@ MonoBehaviour:
   - CustomSpriteAnimation
   - UnityEngine.BoxCollider
   - UIDragScrollView
+  - DragDropCustomer
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

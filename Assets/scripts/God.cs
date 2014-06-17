@@ -444,21 +444,21 @@ public class God : MonoBehaviour {
     }
 
    
-        static public GameObject AddChild(GameObject parent, GameObject prefab)
-        {
-            GameObject go = GameObject.Instantiate(prefab) as GameObject;
+    static public GameObject AddChild(GameObject parent, GameObject prefab)
+    {
+        GameObject go = GameObject.Instantiate(prefab) as GameObject;
 
-            if (go != null && parent != null)
-            {
-                Transform t = go.transform;
-                t.parent = parent.transform;
-                t.localPosition = prefab.transform.localPosition;
-                t.localRotation = prefab.transform.localRotation;
-                t.localScale = prefab.transform.localScale;
-                go.layer = parent.layer;
-            }
-            return go;
+        if (go != null && parent != null)
+        {
+            Transform t = go.transform;
+            t.parent = parent.transform;
+            t.localPosition = prefab.transform.localPosition;
+            t.localRotation = prefab.transform.localRotation;
+            t.localScale = prefab.transform.localScale;
+            go.layer = parent.layer;
         }
+        return go;
+    }
 
     void AddRandomCustomer()
     {

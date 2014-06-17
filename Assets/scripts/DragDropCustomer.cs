@@ -88,6 +88,7 @@ public class DragDropCustomer : UIDragDropItem
         //Fades zones in when dragging customer.
         base.OnDragDropMove(delta);
 
+
         RaycastHit[] hits = RaycastForZones();
         foreach (RaycastHit hit in hits)
         {
@@ -96,9 +97,9 @@ public class DragDropCustomer : UIDragDropItem
                 return;
             }
         }
+
         foreach (RaycastHit hit in hits)
         {
-
             ZoneView view = hit.collider.GetComponent<ZoneView>();
             view.zoneModel.zoneViews.ForEach(zonView =>
             {

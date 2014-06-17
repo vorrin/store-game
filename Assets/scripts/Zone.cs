@@ -51,6 +51,7 @@ public class Zone : MonoBehaviour {
         {
             AddCustomerIcon(customer);
         }
+        gameObject.layer = LayerMask.NameToLayer("Zone");
     }
 
     public void AddCustomer(Customer customer)
