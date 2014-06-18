@@ -593,12 +593,6 @@ public class God : MonoBehaviour {
         customersQueue.GetComponent<UIGrid>().Reposition();
         Unpause();
         StartCoroutine("DelayedAddingOfCustomers");
-
-       // customersQueue.GetComponent<UIScrollView>().UpdatePosition();
-
-
-        //customersQueue.GetComponent<UIScrollView>().contentPivot = UIWidget.Pivot.Left;
-
     }
 
     public void RefreshStaffBuyingMenu()
