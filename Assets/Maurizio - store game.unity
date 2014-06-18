@@ -19983,7 +19983,7 @@ MonoBehaviour:
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 145, y: 18, z: 398, w: 1323.80005}
-  mClipSoftness: {x: 4, y: 4}
+  mClipSoftness: {x: 16, y: 4}
   mDepth: 9
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
