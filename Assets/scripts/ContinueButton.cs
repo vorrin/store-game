@@ -14,6 +14,10 @@ public class ContinueButton : MonoBehaviour {
         {
             GetComponent<UIButton>().isEnabled = false;
         }
+        if (God.instance.gameStarted)
+        {
+            GetComponent<UIButton>().isEnabled = true;
+        }
     }
 
     void OnClick()
