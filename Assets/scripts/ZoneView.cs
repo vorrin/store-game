@@ -155,23 +155,11 @@ public class ZoneView : MonoBehaviour {
 
     public void OnCustomDrop(GameObject customer)
     {
-        print("dropping ");
-
-        //if (!God.instance.customerDragging)
-        //{
-        //    return;
-        //    Debug.Log("NODRAGING " );
-
-        //}
         if (customer.tag != "customer")
         {
             return;
         }
 
-        Debug.Log("TAT STAT OF THINGS INI " + customer.GetComponent<DragDropCustomer>().dragging);
-        print("SOMETHING DROPPED ON ZONE");
-
-    //    customer.collider.enabled = false;
         CustomerView customerView = customer.GetComponent<CustomerView>();
         if (customerView)
         {

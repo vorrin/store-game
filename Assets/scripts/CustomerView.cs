@@ -193,7 +193,6 @@ public class CustomerView : MonoBehaviourEx {
       //  Debug.Break();
         
         Go.to(gameObject.transform, .5f, new GoTweenConfig().scale(0f).onComplete( goTween => {
-            print("GOTWEEN FINIS");
             Destroy(gameObject);
             action();
         }));

@@ -111,6 +111,14 @@ public class God : MonoBehaviour {
     }
 
 
+    public void PostScoreToPlatform()
+    {
+        print("Posting score to platform, once that is done.");
+        print("result spending: " + score.resultSpending);
+        print("total spend: " + score.totalSpendForTheDay);
+        print("total nps: " + score.totalNPSForTheDay);
+        print("Game day: " + (currentLevel + 1).ToString());
+    }
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
@@ -146,7 +154,6 @@ public class God : MonoBehaviour {
     {
         if (upselling)
         {
-            print("UPSELLING yO");
             customer.spend = customer.spend * 2;
         }
         score.totalCustomersProcessed++;
@@ -219,15 +226,6 @@ public class God : MonoBehaviour {
 
     }
 
-
-    //void TestTweens(AbstractGoTween asd )
-    //{
-    //    Debug.Log(asd);
-    //    print("GGIGIGIGIO");
-    //}
-
-    
-
     void EndWorkingDay()
     {
 
@@ -248,17 +246,17 @@ public class God : MonoBehaviour {
         {
             customerView.GetComponent<CustomerView>().DestroyCustomerView();
         }
-        foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customerIcon"))
+        foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
         {
-            customerView.GetComponent<CustomerIcon>().Die();
+            customerIcon.GetComponent<CustomerIcon>().Die();
         }
         StopCoroutine("DelayedAddingOfCustomers");
-     //   RefreshQueueButtons();
         endScreenPanel.Display( (x) => {
             RefreshStaffBuyingMenu();
             //CALLBACK -> do whatever you like / attach a method / whatever really!
         } );
         FadeZones(false);
+        PostScoreToPlatform();
         
 
     }
@@ -283,13 +281,9 @@ public class God : MonoBehaviour {
         score.resultSpending = 0;
     }
 
-    
-	// This defines a static instance property that attempts to find the manager object in the scene and
-	// returns it to the caller.
-	
     public void DeleteOldSavegames()
     {
-        //PlayerPrefs.GetString(PlayerName + "__RESUME__") = 
+        //Debug script, tbd
         PlayerPrefs.DeleteKey(LevelSerializer.PlayerName + "__RESUME__");
         Application.LoadLevel(0);
         foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
@@ -347,7 +341,7 @@ public class God : MonoBehaviour {
 
         if (gameStarted == true)
         {
-
+            StopCoroutine("DelayedAddingOfCustomers");
             StartNewGameFromSave();
             return;
         }
@@ -362,7 +356,7 @@ public class God : MonoBehaviour {
 
     void StartNewGame() // This works with next levels, too
     {
-     //   RefreshQueueButtons();
+
         print("brand new game starting");// lie
         gameStarted = true;
         if (currentLevel >= difficultyLevels.Length)
@@ -387,6 +381,11 @@ public class God : MonoBehaviour {
 
     void StartNewGameFromSave()
     {
+        foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
+        {
+            customerIcon.GetComponent<CustomerIcon>().Die();
+        }
+        //print("loading new game from save");
         LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
         foreach (Zone zone in zones)
         {
@@ -397,12 +396,12 @@ public class God : MonoBehaviour {
             });
             //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
+        
         //    RefreshStaffBuyingMenu();
         zonePanelManager.RemoveStaffHiringButtons();
 
-        print("ASD KDKK ADLKSDAKLDALSK ASD " + endOfDayPhase);
         AddRandomCustomer();
-        StartCoroutine("DelayedAddingOfCustomers");
+        //StartCoroutine("DelayedAddingOfCustomers");
     }
     public void FindTheZones()
     {
@@ -437,8 +436,6 @@ public class God : MonoBehaviour {
 
     void AddRandomCustomer()
     {
-        //Customer newCustomer = new Customer();
-        //newCustomer.Create();
         bool difficultCustomer = false;
         if (Random.Range(0f, 100f) > difficultyLevels[currentLevel].percentageOfHardCustomers) {
             difficultCustomer = false;
@@ -463,16 +460,10 @@ public class God : MonoBehaviour {
             //1- you never get the array[0] element
             //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
         }
-
-        //AddCustomer(newCustomer);
-
     }
 
     IEnumerator DelayedAddingOfCustomers()
     {
-      //  AddRandomCustomer();
-
-        print("COROUTING RUNNING " + this);
 
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         if (!endOfDayPhase)
