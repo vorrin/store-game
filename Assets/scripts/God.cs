@@ -17,6 +17,7 @@ public class God : MonoBehaviour {
     public float[] customerSpawnMinMax;
 
     public GameObject customersQueue;
+    public UISprite[] queueButtons;
 	//public  List<GameObject> zones = new List<GameObject>();
     public List<Zone> zones = new List<Zone>();
     public List<Customer> customers = new List<Customer>();
@@ -44,7 +45,7 @@ public class God : MonoBehaviour {
     public int currentLevel = 0;
 
     public DifficultyLevelEntry[] difficultyLevels;
-    public UILabel difficultyLevelLabel;
+    public UISprite difficultyLevelSprite;
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
     //public AudioManager audioManager;
@@ -113,7 +114,8 @@ public class God : MonoBehaviour {
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
-        difficultyLevelLabel.text = (currentLevel + 1).ToString();
+        if (currentLevel > 4) currentLevel = 4;
+        difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentLevel + 1).ToString();
         customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
         daytimeTotal = level.durationOfDay;
         daytimeRemaining = daytimeTotal;
@@ -251,7 +253,7 @@ public class God : MonoBehaviour {
             customerView.GetComponent<CustomerIcon>().Die();
         }
         StopCoroutine("DelayedAddingOfCustomers");
-        
+     //   RefreshQueueButtons();
         endScreenPanel.Display( (x) => {
             RefreshStaffBuyingMenu();
             //CALLBACK -> do whatever you like / attach a method / whatever really!
@@ -360,6 +362,7 @@ public class God : MonoBehaviour {
 
     void StartNewGame() // This works with next levels, too
     {
+     //   RefreshQueueButtons();
         print("brand new game starting");// lie
         gameStarted = true;
         if (currentLevel >= difficultyLevels.Length)
@@ -591,6 +594,7 @@ public class God : MonoBehaviour {
             });
             //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
+        //RefreshQueueButtons();
         zonePanelManager.RemoveStaffHiringButtons();
         fader.SetActive(false);
         UpdateScoresMenu();
@@ -614,7 +618,15 @@ public class God : MonoBehaviour {
             
         };
         if (endOfDayPhase) buyPanel.GetComponentInChildren<UILabel>().text = score.resultSpending.ToString("0");
-            
+        RefreshQueueButtons();    
+    }
+
+    public void RefreshQueueButtons()
+    {
+        foreach (UISprite button in queueButtons)
+        {
+            button.enabled = !endOfDayPhase;
+        }
     }
 
     void OnGUI()
@@ -647,7 +659,7 @@ public class God : MonoBehaviour {
             EndWorkingDay();
 
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))        
         {
             PlayerPrefs.DeleteAll();
         }
