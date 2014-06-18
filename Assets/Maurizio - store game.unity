@@ -2932,7 +2932,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 243432020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 118.867981, y: -22, z: 0}
+  m_LocalPosition: {x: 164, y: 24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 953546232}
@@ -4646,7 +4646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 462889839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 111.249084, y: -94.6927338, z: 0}
+  m_LocalPosition: {x: 154, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 953546232}
@@ -4675,7 +4675,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 84, y: 100, z: 0}
+  m_Size: {x: 132, y: 156, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &462889843
 MonoBehaviour:
@@ -4731,13 +4731,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 84
-  mHeight: 100
+  mWidth: 132
+  mHeight: 156
   mDepth: 5
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .839999974
+  aspectRatio: .846153855
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
   mSpriteName: icons_UPsell_01
   mType: 1
