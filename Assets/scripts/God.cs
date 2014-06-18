@@ -94,7 +94,7 @@ public class God : MonoBehaviour {
         SetDifficultyLevel(difficultyLevels[0]);
         StopCoroutine("DelayedAddingOfCustomers") ;
         
-        StartCoroutine(DelayedAddingOfCustomers());
+        StartCoroutine("DelayedAddingOfCustomers");
 
         string text = www.text;
         
@@ -332,10 +332,10 @@ public class God : MonoBehaviour {
                 zoneView.ZoneViewStateSetup();
             });
         };
-        BeginGame();
+        StartNewGame();
     }
 
-    public void BeginGame()
+    public void PlayButtonPressed()
     {
         //if (PlayerPrefs.GetInt("playedBefore") == 0)
         //{
@@ -346,90 +346,61 @@ public class God : MonoBehaviour {
         if (gameStarted == true)
         {
 
-            LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
-
-            foreach (Zone zone in zones)
-            {
-                zone.ClearZone();
-                zone.zoneViews.ForEach((zoneView) =>
-                {
-                    zoneView.ZoneViewStateSetup();
-                });
-                //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
-            }
-        //    RefreshStaffBuyingMenu();
-            zonePanelManager.RemoveStaffHiringButtons();
-
-            print("ASD KDKK ADLKSDAKLDALSK ASD " + endOfDayPhase);
-            AddRandomCustomer();
-            StartCoroutine("DelayedAddingOfCustomers");
-
+            StartNewGameFromSave();
             return;
-            //customers = new List<Customer>();
-            //zones.ForEach(zone =>
-            //{
-            //    zone.ClearZone();
-            //});
-            //ResetScoresAtEndOfDay();
-            //score.totalSpendForTheDay = 0;
-            //currentLevel = 0;
-            //SetDifficultyLevel(difficultyLevels[currentLevel]);
-            //UpdateScoresMenu();
-            //StartCoroutine(DelayedAddingOfCustomers());
-
         }
         
         else {
             StartCoroutine("LoadDebugXML", "DebugSettings.xml");
-            gameStarted = true;
-            if (currentLevel >= difficultyLevels.Length)
-            {
-                //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
-                SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
-            }
-            else
-            {
-                SetDifficultyLevel(difficultyLevels[currentLevel]);
-            }
-
-            UpdateScoresMenu();
-
-            FindTheZones();
-            possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
-            LevelSerializer.SaveGame("base");
-            AddRandomCustomer();
-            StartCoroutine("DelayedAddingOfCustomers");
+            StartNewGame();
         }
 
-      //  StartCoroutine(CheckHoveredObjects());
-        
-        //StartCoroutine(DelayedAddingOfCustomers());
-
-        //    print("NEVER PLAYED");
-        //    print("creating only game");
-
-        //    LevelSerializer.SaveGame("base");
-
-            //LevelSerializer.load
-         //   PlayerPrefs.SetInt("playedBefore", 1);
-
-        //}
-        //else
-        //{
-        //    print("LOADING only game");
-        ////    PlayerPrefs.SetInt("playedBefore", 0);
-        //    StopCoroutine("DelayedAddingOfCustomers");
-
-        //    foreach (LevelSerializer.SaveEntry save in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
-        //    {
-        //        print("found " + save.Name);
-        //    }
-        //    LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
-        //    StartCoroutine(DelayedAddingOfCustomers());
-
-        //}
     }
 
+
+    void StartNewGame() // This works with next levels, too
+    {
+        print("brand new game starting");// lie
+        gameStarted = true;
+        if (currentLevel >= difficultyLevels.Length)
+        {
+            //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
+            SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
+        }
+        else
+        {
+            SetDifficultyLevel(difficultyLevels[currentLevel]);
+        }
+
+        UpdateScoresMenu();
+
+        FindTheZones();
+        possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
+        LevelSerializer.SaveGame("base");
+        AddRandomCustomer();
+        StartCoroutine("DelayedAddingOfCustomers");
+
+    }
+
+    void StartNewGameFromSave()
+    {
+        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
+        foreach (Zone zone in zones)
+        {
+            zone.ClearZone();
+            zone.zoneViews.ForEach((zoneView) =>
+            {
+                zoneView.ZoneViewStateSetup();
+            });
+            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
+        }
+        //    RefreshStaffBuyingMenu();
+        zonePanelManager.RemoveStaffHiringButtons();
+
+        print("ASD KDKK ADLKSDAKLDALSK ASD " + endOfDayPhase);
+        AddRandomCustomer();
+        StartCoroutine("DelayedAddingOfCustomers");
+    }
     public void FindTheZones()
     {
         GameObject[] zoneTagObjects = GameObject.FindGameObjectsWithTag("zone") as GameObject[];
@@ -498,7 +469,7 @@ public class God : MonoBehaviour {
     {
       //  AddRandomCustomer();
 
- 
+        print("COROUTING RUNNING " + this);
 
         yield return new WaitForSeconds(Random.Range(customerSpawnMinMax[0],customerSpawnMinMax[1]));
         if (!endOfDayPhase)
