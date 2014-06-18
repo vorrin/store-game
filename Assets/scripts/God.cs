@@ -647,6 +647,10 @@ public class God : MonoBehaviour {
             EndWorkingDay();
 
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            PlayerPrefs.DeleteAll();
+        }
 
 
 
