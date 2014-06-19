@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour {
 
 	public static void MenuNav(string buttonName, bool returnMenu)
 	{
-		print(buttonName);
+		//print(buttonName);
 		if (returnMenu == true)
 		{
 			//GameObject.Find("Panel1").GetComponent<UIPlayAnimation>().Play(false);

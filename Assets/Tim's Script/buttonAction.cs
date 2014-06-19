@@ -18,14 +18,14 @@ public class buttonAction: MonoBehaviour {
 
 	void OnClick()
 	{
-		if (returnMenu == true)
-		{
-			MainMenu.buttonDisable = false;
-		}
-		else
-		{
-			MainMenu.buttonDisable = true;
-		}
+        //if (returnMenu == true)
+        //{
+        //    MainMenu.buttonDisable = false;
+        //}
+        //else
+        //{
+        //    MainMenu.buttonDisable = true;
+        //}
 
 		MainMenu.MenuNav(buttonName, returnMenu);
 
