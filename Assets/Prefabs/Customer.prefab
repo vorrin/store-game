@@ -128,7 +128,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: .612903237
-  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mAtlas: {fileID: 11400000, guid: c6fd6f02ac9f9c34a810d7169cfa1ecb, type: 2}
   mSpriteName: customer_QUEUE
   mType: 0
   mFillDirection: 4

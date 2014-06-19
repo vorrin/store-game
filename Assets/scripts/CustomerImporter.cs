@@ -32,7 +32,8 @@ public class CustomerImporter {
         List<Customer> generatedCustomers = new List<Customer>(); // HERE it is
 
         string[] sexType = { "MALE", "FEMALE" };
-        string[] ageType = { "TEENS", "ASPIRING", "FAMILY (PREGNANT/BABY)", "MIDDLE AGED (CASUAL)", "MIDDLE AGED (BUSINESS)", "PENSIONER" };
+//        string[] ageType = { "TEENS", "ASPIRING", "FAMILY (PREGNANT/BABY)", "MIDDLE AGED (CASUAL)", "MIDDLE AGED (BUSINESS)", "PENSIONER" };
+        string[] ageType = { "TEENS", "ASPIRING", "PREGNANT", "CASUAL", "BUSINESS", "PENSIONER" };
         string[] EthnicityType = { "FAIR", "MID", "DARK" };
 
         for (int y = 0; y < grid.GetLength(1) - 1; y++)

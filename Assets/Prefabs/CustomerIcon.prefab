@@ -45,6 +45,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -57,6 +58,7 @@ Transform:
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,8 +157,10 @@ MonoBehaviour:
     currentZone: {fileID: 0}
     waiting: 0
     customerView: {fileID: 0}
+    difficult: 0
   moodCloud: {fileID: 11400002}
   markedForDestruction: 0
+  spots: []
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +198,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: .612903237
-  mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
+  mAtlas: {fileID: 11400000, guid: c6fd6f02ac9f9c34a810d7169cfa1ecb, type: 2}
   mSpriteName: customer_QUEUE
   mType: 0
   mFillDirection: 4

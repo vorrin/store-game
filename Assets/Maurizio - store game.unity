@@ -1775,7 +1775,7 @@ MonoBehaviour:
     type: 2}
   customerPanelManager: {fileID: 953546238}
   zonePanelManager: {fileID: 1545613486}
-  csv: {fileID: 4900000, guid: d17fe5d5919688f46aed321f57550336, type: 3}
+  csv: {fileID: 4900000, guid: 13a6aadd129fc6b4094af709f8da28ab, type: 3}
   possibleCustomersPool: []
   fader: {fileID: 1814919591}
   daytimeTotal: 600
@@ -1880,6 +1880,7 @@ MonoBehaviour:
   button: {fileID: 8300000, guid: 762654ff48c9ba94b9677e0fe9eb09fe, type: 3}
   queueFull: {fileID: 8300000, guid: 59b47d2057b0d0e49a464ef0f7fa07a7, type: 3}
   customerReleased: {fileID: 8300000, guid: 9e41d6812b079464fb00dc46cf65e23a, type: 3}
+  addCustomer: {fileID: 8300000, guid: 99fa6de854c9f6a46a364010e031017d, type: 3}
 --- !u!1 &201587817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,7 +3693,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358687964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.20120144, z: 0}
+  m_LocalPosition: {x: 0, y: -1.18694401, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1656428705}

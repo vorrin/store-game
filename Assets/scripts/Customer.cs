@@ -77,15 +77,15 @@ using System.Collections;
 
 
         ////DEBUG NOT THE RIGHT WAY, DO DIFFERENT LATER.
-        if (Random.value < 0.5f)
-        {
-            avatarName = "customer";
-        }
-        else
-        {
-            avatarName = "customer1";
-        }
-        //avatarName = 
+        //if (Random.value < 0.5f)
+        //{
+        //    avatarName = "customer";
+        //}
+        //else
+        //{
+        //    avatarName = "customer1";
+        //}
+        avatarName = (this.sex + "_" + this.age + "_" + this.ethnicity).ToLower();
 
         //scenario = "Hello, I'm looking for some more mobile prowess in my current pocket monster. Please could you point me towards the beefiest specimen in your shop, so I can play all the 3D games like a breeze? Thank you person!";
 
