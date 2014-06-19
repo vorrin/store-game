@@ -19,14 +19,7 @@ public class AudioManager : MonoBehaviour {
     public AudioClip button;
     public AudioClip queueFull;
     public AudioClip customerReleased;
-
-
-
-
-    
-
-
-
+    public AudioClip addCustomer;
 
     private static AudioManager s_Instance = null;
     public static AudioManager instance
@@ -54,7 +47,9 @@ public class AudioManager : MonoBehaviour {
 
 
 
-
+    public void AddCustomer() {
+        speaker.PlayOneShot(addCustomer);
+    }
     public void PlayAudioForIcon(ZoneFeedbackIcon.Icons icon)
     {
         if (icon == ZoneFeedbackIcon.Icons.SaleFine)

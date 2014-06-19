@@ -495,6 +495,7 @@ public class God : MonoBehaviour {
 
     public void AddCustomer(Customer customer)
     {
+        AudioManager.instance.AddCustomer();
         customers.Add(customer);
         
         //GameObject customerView  = AddChild(gameScreen, customerPrefab);   
