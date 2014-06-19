@@ -381,6 +381,7 @@ public class God : MonoBehaviour {
 
     void StartNewGameFromSave()
     {
+        print(LevelSerializer.SavedGames.Count);
         foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
         {
             customerIcon.GetComponent<CustomerIcon>().Die();
@@ -506,14 +507,6 @@ public class God : MonoBehaviour {
         customersQueue.GetComponent<UIGrid>().Reposition();
 
         UpdateScoresMenu();
-        //customersQueue.GetComponent<UIPanel>().Refresh();
-        //BoxCollider coll = customersQueue.GetComponent<BoxCollider>();
-      //  customerView.GetComponent<UISprite>().panel.Refresh() ;
-
-
-
-        //coll.size = new Vector3(coll.size.x + customersQueue.GetComponent<UIGrid>().cellWidth * 2, coll.size.y, 0f);
-        //collider.bounds.size = new Vector3(collider.bounds.size.x + 50, collider.bounds.size.y, 0f);
     }
 
 
@@ -531,22 +524,19 @@ public class God : MonoBehaviour {
                 }
             }
 
-            //Here be mood enhancing magiks
+            //Here *could* be mood enhancing magiks
         }
     }
 
 
     public void SaveState()
     {
-        fader.SetActive(true);
-        LevelSerializer.Checkpoint();
-        fader.SetActive(false);
+        if (gameStarted) LevelSerializer.Checkpoint();
     }
 
     public void LoadState()
     {
         LevelSerializer.Resume();
-        //fader.SetActiveRecursively(true);
     }
 
     public void QuitGame()
