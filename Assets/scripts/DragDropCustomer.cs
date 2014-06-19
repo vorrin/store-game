@@ -48,7 +48,7 @@ public class DragDropCustomer : UIDragDropItem
         {
             foreach (RaycastHit hit in hits)
             {
-                if (hit.collider.name == "Fader")
+                if (hit.collider.name == "Fader" || hit.collider.name == "Zoner")
                 {
                     return;
                 }
@@ -98,6 +98,12 @@ public class DragDropCustomer : UIDragDropItem
         {
             if (hit.collider.name == "Fader")
             {
+                return;
+            }
+            if (hit.collider.name == "Zoner")
+            {
+                print("HIT ZONER!");
+                God.instance.FadeZones(true);
                 return;
             }
         }
