@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections; 
 using System.Collections.Generic;
+//using SimpleJSON;
+using System.Net;
+
+
 //using System.Xml;
 
 /// AManager is a singleton.
@@ -10,15 +14,10 @@ using System.Collections.Generic;
 ///
 public class God : MonoBehaviour {
 	// s_Instance is used to cache the instance found in the scene so we don't have to look it up every time.
-
-	
 	private static God s_Instance = null;
-
     public float[] customerSpawnMinMax;
-
     public GameObject customersQueue;
     public UISprite[] queueButtons;
-	//public  List<GameObject> zones = new List<GameObject>();
     public List<Zone> zones = new List<Zone>();
     public List<Customer> customers = new List<Customer>();
     public GameObject customerPrefab;
@@ -34,51 +33,66 @@ public class God : MonoBehaviour {
     public float daytimeRemaining = 600f;
     public GameObject buyPanel;
     public bool customerDragging = false;
-    
-
     public float moodModifierBonusForBestChoice = 2f;
     public float moodModifierMalusForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
     public EndOfDayPanelManager endScreenPanel;
     public float trainingStepCost = 20f;
     public float hireNewStaffCost = 80f;
-    public int currentLevel = 0;
-
+    public int currentLevel = 0; //current difficulty level
     public DifficultyLevelEntry[] difficultyLevels;
     public UISprite difficultyLevelSprite;
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
-    //public AudioManager audioManager;
     [DoNotSerialize] public static float amberMoodTreshold = 9;
     [DoNotSerialize] public static float redMoodTreshold = 6;
-    
-    //public enum PossibleMoods {
-    //    green ,
-    //    amber ,
-    //    red 
-    //}
-
-    //public PossibleMoods moood;
-
-    //public List<string, UILabel> scoreLabels;
-
-
-
     public ScoreTracker score;
     public MainScreenIconDictionary scoreLabels;
     public GameObject mainMenuContainer;
+    string url = "http://vodafone-wayofretail.ambidectcloud.com/CompetitionApi/AddScore";
+    string testingUser = "0980808a-2afc-411d-96a5-009487091a61";
+    string testingContentKey = "91fa1062-255b-40fb-a108-3fa783bff6cd";
 
-    //SCORE TRACKING BITS
 
 
+    //DEBUG rest request:
+    HttpWebRequest webRequest;
+        
 
 
+    IEnumerator PostData(JSONObject json)
+    {
+        //WWWForm testWWW = new WWWForm();
+        //testWWW.AddField("Score","12");
+        //testWWW.AddField("ContentKey","91FA1062-255B-40FB-A108-3FA783BFF6CD");
+        //testWWW.AddField("Level","31");
+        //testWWW.AddField("User","0980808A-2AFC-411D-96A5-009487091A61");
+        //testWWW.AddField("Date","2014-06-06 00,00,00Z");
+        //testWWW.AddField("Powerbar","21");
+        //WWW www = new WWW(url, testWWW);
+
+        //string input = @"{""Date"":""" + System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") +@"""}";
+        //print(input);
+        Hashtable headers = new Hashtable();
+        headers.Add("Content-Type", "application/json");
+    
+        byte[] body = System.Text.Encoding.UTF8.GetBytes(json.ToString());
+        print(body[1]);
+        WWW www = new WWW(url, body, headers);
+        
+        yield return www;
+        if (www.error != null)
+        {
+            print("SUCCESS");
+        }
+    }
 
     //DEBUG XML LOADER BAD
     public IEnumerator LoadDebugXML(string xmlName)
     {
         //Root is project root-root (assets/ cd ../../)
-        print(Application.dataPath);
+        //This is just a debug thing for JEremy, calling this shall be REMOVED from a final version.
+        print(" LOADING XML, THSI SHOULD NOT BE HAPPENING IN THE FINAL VERSION");
         WWW www;
         if (Application.isWebPlayer)
         {
@@ -110,14 +124,26 @@ public class God : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
-
+    [ContextMenu("AreWeOnINternet")]
     public void PostScoreToPlatform()
     {
+        Debug.ClearDeveloperConsole();
         print("Posting score to platform, once that is done.");
         print("result spending: " + score.resultSpending);
         print("total spend: " + score.totalSpendForTheDay);
         print("total nps: " + score.totalNPSForTheDay);
         print("Game day: " + (currentLevel + 1).ToString());
+
+        JSONObject currencyJson = new JSONObject();
+        currencyJson.AddField("Date", System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") );
+        currencyJson.AddField("Powerbar", "Currency");
+        currencyJson.AddField("ContentKey", testingContentKey);
+        currencyJson.AddField("User", testingUser);
+        currencyJson.AddField("Level", currentLevel + 1);
+        currencyJson.AddField("Score", score.resultSpending );
+
+        StartCoroutine(PostData(currencyJson));
+        
     }
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
@@ -176,7 +202,6 @@ public class God : MonoBehaviour {
                 {
                     //nothing happens ,sale completes normally.
                     customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.SaleFine);
-                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.SaleFine);
                     CustomerProcessedSuccessfully(customer);
                     return;
                 }
@@ -184,8 +209,6 @@ public class God : MonoBehaviour {
                 {
                     //Customer sale fails through upselling
                     customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFail);
-
-                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
                     CustomerLost(customer);
                     return;
                 }
@@ -194,18 +217,14 @@ public class God : MonoBehaviour {
             {
                 if (currentMood == "red")
                 {
-                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFail);
                     customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFail);
-
                     CustomerLost(customer);
                     return;
                 }
                 else
                 {
                     //SUCCESS CUSTOMER UPSELLABLE AND UPSOLD
-                    //customer.currentZone.FireFeedbackToZones(ZoneFeedbackIcon.Icons.UpsellFine);
                     customer.currentZone.RemoveCustomer(customer, ZoneFeedbackIcon.Icons.UpsellFine);
-
                     CustomerProcessedSuccessfully(customer,true);
                     return;
 
@@ -240,7 +259,6 @@ public class God : MonoBehaviour {
             {
                 zoneView.ZoneViewStateSetup();
             });
-            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
         foreach (GameObject customerView in GameObject.FindGameObjectsWithTag("customer"))
         {
@@ -253,7 +271,6 @@ public class God : MonoBehaviour {
         StopCoroutine("DelayedAddingOfCustomers");
         endScreenPanel.Display( (x) => {
             RefreshStaffBuyingMenu();
-            //CALLBACK -> do whatever you like / attach a method / whatever really!
         } );
         FadeZones(false);
         PostScoreToPlatform();
@@ -297,13 +314,8 @@ public class God : MonoBehaviour {
 
     public void OnApplicationFocus(bool isInFocus)
     {
-        if (isInFocus)
-        {
-            //LOADING FOR MOBILES GOES HERE
-         //   LoadState();
-            // not the right one ... actually should work better... //if (LevelSerializer.CanResume) LoadState();
-        }
-        else
+        
+        if (!isInFocus)
         {
             print("PAUSING AND SAVING ");
             SaveState();
@@ -333,11 +345,6 @@ public class God : MonoBehaviour {
 
     public void PlayButtonPressed()
     {
-        //if (PlayerPrefs.GetInt("playedBefore") == 0)
-        //{
-     //   print(PlayerPrefs.GetInt("playedBefore"));
-
-      
 
         if (gameStarted == true)
         {
@@ -357,17 +364,15 @@ public class God : MonoBehaviour {
     void StartNewGame() // This works with next levels, too
     {
 
-        print("brand new game starting");// lie
         gameStarted = true;
+        
         if (currentLevel >= difficultyLevels.Length)
         {
-            //Quick smart so if you go over 5th day you can keep playing (same harsh difficulty level) 
-            SetDifficultyLevel(difficultyLevels[difficultyLevels.Length - 1]);
+            //Trick to keep replaying the 5th day after having passed that
+            currentLevel = difficultyLevels.Length - 1;
         }
-        else
-        {
-            SetDifficultyLevel(difficultyLevels[currentLevel]);
-        }
+
+        SetDifficultyLevel(difficultyLevels[currentLevel]);
 
         UpdateScoresMenu();
 
@@ -381,12 +386,10 @@ public class God : MonoBehaviour {
 
     void StartNewGameFromSave()
     {
-        print(LevelSerializer.SavedGames.Count);
         foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
         {
             customerIcon.GetComponent<CustomerIcon>().Die();
         }
-        //print("loading new game from save");
         LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
         foreach (Zone zone in zones)
         {
@@ -395,14 +398,10 @@ public class God : MonoBehaviour {
             {
                 zoneView.ZoneViewStateSetup();
             });
-            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
         
-        //    RefreshStaffBuyingMenu();
         zonePanelManager.RemoveStaffHiringButtons();
-
         AddRandomCustomer();
-        //StartCoroutine("DelayedAddingOfCustomers");
     }
     public void FindTheZones()
     {
@@ -456,10 +455,6 @@ public class God : MonoBehaviour {
                 AddCustomer(new Customer(customerToBeGenerated));
                 return;
             }
-            //Customer customerToBeGenerated =
-            //You did the range wrong, 1 , 28 brings results... well, between 1 and 27. As the array size is 27, that means:
-            //1- you never get the array[0] element
-            //2- if you try and access array[27] everything breaks, cause it doesn't exist (it goes from 0 to 26).
         }
     }
 
@@ -482,7 +477,6 @@ public class God : MonoBehaviour {
         {
             return;
         }
-     //   print("fadzones");
         foreach (Zone zone in zones)
         {
             zone.zoneViews.ForEach( (zoneView) =>
@@ -498,9 +492,6 @@ public class God : MonoBehaviour {
         AudioManager.instance.AddCustomer();
         customers.Add(customer);
         
-        //GameObject customerView  = AddChild(gameScreen, customerPrefab);   
-
-
         GameObject customerView = NGUITools.AddChild(customersQueue, customerPrefab);
         customerView.transform.localPosition = new Vector3(customersQueue.GetComponent<UIGrid>().cellWidth * customersQueue.transform.childCount + 100f, customerView.transform.localPosition.y, 0f);
         customerView.GetComponent<CustomerView>().Create(customer);
@@ -509,7 +500,6 @@ public class God : MonoBehaviour {
 
         UpdateScoresMenu();
     }
-
 
     void UpdateCustomers()
     {
@@ -524,8 +514,6 @@ public class God : MonoBehaviour {
                     customer.Die();
                 }
             }
-
-            //Here *could* be mood enhancing magiks
         }
     }
 
@@ -547,6 +535,8 @@ public class God : MonoBehaviour {
             Application.Quit();
         }
     }
+
+    // Ensure that the instance is destroyed when the game is stopped in the editor.
     void OnApplicationQuit()
     {
         s_Instance = null;
@@ -565,7 +555,6 @@ public class God : MonoBehaviour {
 
     public void OnDeserialized()
     {
-        print("deSERIALIZING GOD");
         mainMenuContainer.GetComponent<UITweener>().PlayForward();
         FindTheZones();
         foreach (Zone zone in zones)
@@ -574,9 +563,7 @@ public class God : MonoBehaviour {
             {
                 zoneView.ZoneViewStateSetup();
             });
-            //zone.GetComponent<ZoneView>().ZoneViewStateSetup();
         }
-        //RefreshQueueButtons();
         zonePanelManager.RemoveStaffHiringButtons();
         fader.SetActive(false);
         UpdateScoresMenu();
@@ -605,15 +592,9 @@ public class God : MonoBehaviour {
         }
     }
 
-    void OnGUI()
-    {
-    //    CheckHoveredObjects();
-    }
-
     void Update()
     {
 
-        //DEBUG AREA
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -622,9 +603,7 @@ public class God : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //LevelSerializer.SaveGame("test");
             SaveState();
-
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -640,17 +619,11 @@ public class God : MonoBehaviour {
             PlayerPrefs.DeleteAll();
         }
 
-
-
         if (Input.GetKeyDown(KeyCode.A))
         {
 
-            //LevelSerializer.SavedGames[LevelSerializer.SavedGames.Count - 1];
             LoadState();
             return;
-            //LevelSerializer.LoadNow(LevelSerializer)
-            //List<LevelSerializer.SaveEntry> tmp =  LevelSerializer.SavedGames.Get<string>(LevelSerializer.PlayerName);
-
 
             foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
             {
@@ -673,7 +646,6 @@ public class God : MonoBehaviour {
         if (daytimeRemaining <= 0 )
         {
             scoreLabels.totalTimeLabel.text = "0"; 
-            //DO SOMETHING LIKE MAKE CUSTOMERS DISAPPEAR AND BRING UP THE END SCREEN. 
             EndWorkingDay();
         }
         else
@@ -691,7 +663,6 @@ public class God : MonoBehaviour {
         {
             if (s_Instance == null)
             {
-                // This is where the magic happens.
                 //  FindObjectOfType(...) returns the first AManager object in the scene.
                 s_Instance = FindObjectOfType(typeof(God)) as God;
             }
@@ -707,9 +678,4 @@ public class God : MonoBehaviour {
             return s_Instance;
         }
     }
-
-    // Ensure that the instance is destroyed when the game is stopped in the editor.
-
-
-
 }

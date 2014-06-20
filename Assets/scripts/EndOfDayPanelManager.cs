@@ -48,7 +48,6 @@ public class EndOfDayPanelManager : MonoBehaviour {
         endOfDayPanelTween.setOnCompleteHandler(callback );
         God.instance.fader.GetComponent<UIPlayAnimation>().Play(true);
         AudioManager.instance.PlayAudioForEndOfDay();
-        //endOfDayPanelTween.setOnCompleteHandler(callback );
     }
 
     public void ButtonHide()
