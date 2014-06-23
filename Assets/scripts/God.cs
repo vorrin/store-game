@@ -39,13 +39,13 @@ public class God : MonoBehaviour {
     public EndOfDayPanelManager endScreenPanel;
     public float trainingStepCost = 100f;
     public float hireNewStaffCost = 500f;
-    public int currentLevel = 0; //current difficulty level
+    public int currentDifficultyLevel = 0; //current difficulty level
     public DifficultyLevelEntry[] difficultyLevels;
     public UISprite difficultyLevelSprite;
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
-    [DoNotSerialize] public static float amberMoodTreshold = 8;
-    [DoNotSerialize] public static float redMoodTreshold = 6;
+    public static float amberMoodTreshold = 8;
+    public static float redMoodTreshold = 6;
     public ScoreTracker score;
     public MainScreenIconDictionary scoreLabels;
     public GameObject mainMenuContainer;
@@ -132,14 +132,14 @@ public class God : MonoBehaviour {
         print("result spending: " + score.resultSpending);
         print("total spend: " + score.totalSpendForTheDay);
         print("total nps: " + score.totalNPSForTheDay);
-        print("Game day: " + (currentLevel + 1).ToString());
+        print("Game day: " + (currentDifficultyLevel + 1).ToString());
 
         JSONObject currencyJson = new JSONObject();
         currencyJson.AddField("Date", System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") );
         currencyJson.AddField("Powerbar", "Currency");
         currencyJson.AddField("ContentKey", testingContentKey);
         currencyJson.AddField("User", testingUser);
-        currencyJson.AddField("Level", currentLevel + 1);
+        currencyJson.AddField("Level", (currentDifficultyLevel + 1 ) );
         currencyJson.AddField("Score", score.resultSpending );
         StartCoroutine(PostData(currencyJson));
         
@@ -147,8 +147,8 @@ public class God : MonoBehaviour {
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
     {
-        if (currentLevel > 4) currentLevel = 4;
-        difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentLevel + 1).ToString();
+        if (currentDifficultyLevel > 4) currentDifficultyLevel = 4;
+        difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentDifficultyLevel + 1).ToString();
         customerSpawnMinMax=  new float[2] {level.minSpawnTime, level.maxSpawnTime };
         daytimeTotal = level.durationOfDay;
         daytimeRemaining = daytimeTotal;
@@ -329,9 +329,10 @@ public class God : MonoBehaviour {
 
     public void StartNextDay()
     {
+        print("starting new day");
         ResetScoresAtEndOfDay();
-        currentLevel += 1;
-        SetDifficultyLevel(difficultyLevels[currentLevel]);
+        currentDifficultyLevel += 1;
+        SetDifficultyLevel(difficultyLevels[currentDifficultyLevel]);
         endOfDayPhase = false;
         daytimeRemaining = daytimeTotal;
         RefreshStaffBuyingMenu();
@@ -348,7 +349,6 @@ public class God : MonoBehaviour {
 
     public void PlayButtonPressed()
     {
-
         if (gameStarted == true)
         {
             StopCoroutine("DelayedAddingOfCustomers");
@@ -369,30 +369,32 @@ public class God : MonoBehaviour {
 
         gameStarted = true;
         
-        if (currentLevel >= difficultyLevels.Length)
+        if (currentDifficultyLevel >= difficultyLevels.Length)
         {
             //Trick to keep replaying the 5th day after having passed that
-            currentLevel = difficultyLevels.Length - 1;
+            currentDifficultyLevel = difficultyLevels.Length - 1;
         }
 
-        SetDifficultyLevel(difficultyLevels[currentLevel]);
+        SetDifficultyLevel(difficultyLevels[currentDifficultyLevel]);
 
         UpdateScoresMenu();
 
         FindTheZones();
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
-        LevelSerializer.SaveGame("base");
+        LevelSerializer.SaveGame("base", true, (x,y) => { });
         AddRandomCustomer();
         StartCoroutine("DelayedAddingOfCustomers");
     }
 
     void StartNewGameFromSave()
     {
+        print("STARTING GAME FROM SAVE");
         foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
         {
             customerIcon.GetComponent<CustomerIcon>().Die();
         }
-        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data);
+        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
+     //   currentDifficultyLevel = 0;
         foreach (Zone zone in zones)
         {
             zone.ClearZone();
@@ -404,6 +406,7 @@ public class God : MonoBehaviour {
         
         zonePanelManager.RemoveStaffHiringButtons();
         AddRandomCustomer();
+        
     }
     public void FindTheZones()
     {
@@ -438,8 +441,10 @@ public class God : MonoBehaviour {
 
     void AddRandomCustomer()
     {
+        print("AddRandomCustomer called");
+
         bool difficultCustomer = false;
-        if (Random.Range(0f, 100f) > difficultyLevels[currentLevel].percentageOfHardCustomers) {
+        if (Random.Range(0f, 100f) > difficultyLevels[currentDifficultyLevel].percentageOfHardCustomers) {
             difficultCustomer = false;
         }
         else {
@@ -491,6 +496,7 @@ public class God : MonoBehaviour {
 
     public void AddCustomer(Customer customer)
     {
+        print("Adding customer");
         AudioManager.instance.AddCustomer();
         customers.Add(customer);
         
@@ -557,6 +563,7 @@ public class God : MonoBehaviour {
 
     public void OnDeserialized()
     {
+        print("deserializing");
         mainMenuContainer.GetComponent<UITweener>().PlayForward();
         FindTheZones();
         foreach (Zone zone in zones)
@@ -570,7 +577,7 @@ public class God : MonoBehaviour {
         fader.SetActive(false);
         fader.layer = LayerMask.NameToLayer("Zone");
         UpdateScoresMenu();
-        //difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentLevel + 1).ToString();
+        difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentDifficultyLevel + 1).ToString();
         RefreshStaffBuyingMenu();
         customersQueue.GetComponent<UIGrid>().Reposition();
         Unpause();
