@@ -380,7 +380,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 20
+  processingTimeInSecondsAtHundredPercent: 8
   staffNumber: 1
 --- !u!114 &11400002
 MonoBehaviour:
