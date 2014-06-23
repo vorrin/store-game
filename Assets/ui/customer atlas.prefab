@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: customer atlas
   m_TagString: Untagged
@@ -968,6 +969,22 @@ MonoBehaviour:
   mReplacement: {fileID: 0}
   mCoordinates: 0
   sprites: []
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 
+  classId: cab69c80-6550-43fb-a7fb-1f8f839c6149
+  StoreAllComponents: 1
+  Components: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

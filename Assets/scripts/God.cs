@@ -190,6 +190,10 @@ public class God : MonoBehaviour {
 
     public void CustomerProcessingCompleteGod(Customer customer)
     {
+        if (customerPanelManager.currentCustomer == customer)
+        {
+            customerPanelManager.Hide();
+        }
         //Could check for failed upsell here ? And skip the rest and call custmerlost if upselling failed... 
         if (customer.attemptingUpsell)
         {
@@ -566,6 +570,7 @@ public class God : MonoBehaviour {
         fader.SetActive(false);
         fader.layer = LayerMask.NameToLayer("Zone");
         UpdateScoresMenu();
+        //difficultyLevelSprite.spriteName = "icons_LEVEL_" + (currentLevel + 1).ToString();
         RefreshStaffBuyingMenu();
         customersQueue.GetComponent<UIGrid>().Reposition();
         Unpause();

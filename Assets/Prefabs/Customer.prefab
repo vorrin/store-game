@@ -192,11 +192,11 @@ MonoBehaviour:
   Components:
   - CustomerView
   - UnityEngine.Transform
-  - UISprite
   - CustomSpriteAnimation
-  - UnityEngine.BoxCollider
   - UIDragScrollView
   - DragDropCustomer
+  - UISprite
+  - UnityEngine.BoxCollider
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
