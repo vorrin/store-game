@@ -177,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
@@ -440,7 +440,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3001
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -481,7 +481,7 @@ MonoBehaviour:
   mWidth: 94
   mHeight: 344
   mDepth: 3
-  autoResizeBoxCollider: 1
+  autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: .273255825
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: e5e20698-43cf-44d9-a827-1eccd9e17650
+  _id: df13d4f9-b7c7-4892-9947-38c457bdcd8b
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &11400018
 MonoBehaviour:
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 3736ea1a-c847-4c78-bc5f-708b4e650574
+  _id: 7421c5a4-1637-4c4c-929c-c6b706d8fbfa
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 2105121d-797f-4a8e-aa93-9d1862a98c24
+  _id: 19596062-0d0e-40ad-9d6d-9a20302b3e10
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &11400022
 MonoBehaviour:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6f42f9e3-326b-4183-8c72-3cadd5ea8d73
+  _id: 0955a8f5-a98e-4362-af8a-efa7022c735b
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &11400024
 MonoBehaviour:
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: daa6b51f-485b-4d2a-ada1-9dcb78f2ddab
+  _id: 866b9536-9897-4b6a-b073-6df97a86bbb6
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &11400026
 MonoBehaviour:
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 6ef284cd-1995-40a4-a7cc-98442c88bd4b
+  _id: 8dddcd07-b747-4263-bafb-dba2d3fda9ba
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &11400028
 MonoBehaviour:
