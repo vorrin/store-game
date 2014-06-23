@@ -2473,7 +2473,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &229456378
 MonoBehaviour:
@@ -3692,7 +3692,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358687964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.547945201, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1656428705}
@@ -4377,7 +4377,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &406274128
 MonoBehaviour:
@@ -7901,7 +7901,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &897415190
 MonoBehaviour:
@@ -10572,7 +10572,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &1105554454
 MonoBehaviour:
@@ -14730,7 +14730,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &1608376084
 MonoBehaviour:
@@ -15408,7 +15408,7 @@ MonoBehaviour:
     difficult: 0
   processingCustomer: 0
   processingStartTime: 0
-  processingTimeInSecondsAtHundredPercent: 8
+  processingTimeInSecondsAtHundredPercent: 20
   staffNumber: 1
 --- !u!114 &1639449703
 MonoBehaviour:
