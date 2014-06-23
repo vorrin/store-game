@@ -382,7 +382,12 @@ public class God : MonoBehaviour {
 
         FindTheZones();
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
-        LevelSerializer.SaveGame("base", true, (x,y) => { });
+        print("SAVING THE START GAME!");
+        LevelSerializer.MaxGames = 1;
+        LevelSerializer.SaveGame("base", true, (x,y) => {
+            print(x);
+            print(y);
+        });
         AddRandomCustomer();
         StartCoroutine("DelayedAddingOfCustomers");
     }
@@ -628,6 +633,12 @@ public class God : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Z))        
         {
             PlayerPrefs.DeleteAll();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            print(JSONLevelSerializer.PlayerName);
+            LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
         }
 
         if (Input.GetKeyDown(KeyCode.A))
