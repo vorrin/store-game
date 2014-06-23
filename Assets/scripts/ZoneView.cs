@@ -46,6 +46,7 @@ public class ZoneView : MonoBehaviour {
 
     public void UpdateStaffNumber()
     {
+        //UNUSED NOW
         staffNumberLabel.text = zoneModel.staffNumber.ToString();
     }
 
@@ -60,14 +61,14 @@ public class ZoneView : MonoBehaviour {
             sprite.enabled = !theDayIsOver;
         }
 
-        staffBuyingIndicatorSet.GetComponent<UILabel>().enabled = theDayIsOver;
+        //staffBuyingIndicatorSet.GetComponent<UILabel>().enabled = theDayIsOver; // we don't show the label anymore
         foreach (UISprite sprite in staffBuyingIndicatorSet.GetComponentsInChildren<UISprite>())
         {
             sprite.enabled = theDayIsOver;
         }
         if (theDayIsOver)
         {
-            UpdateStaffNumber();
+//            UpdateStaffNumber();
         }
         else
         {
