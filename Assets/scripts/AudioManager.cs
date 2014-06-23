@@ -85,7 +85,6 @@ public class AudioManager : MonoBehaviour {
         }
         else if (icon == FeedbackIcon.Icons.Full)
         {
-            print("PLAYING QUQUQUQUQ ");
             speaker.PlayOneShot(queueFull);
         }
 }

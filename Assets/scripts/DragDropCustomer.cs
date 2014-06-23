@@ -102,7 +102,6 @@ public class DragDropCustomer : UIDragDropItem
             }
             if (hit.collider.name == "Zoner")
             {
-                print("HIT ZONER!");
                 God.instance.FadeZones(true);
                 return;
             }

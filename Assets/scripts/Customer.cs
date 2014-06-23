@@ -49,7 +49,6 @@ using System.Collections;
         // Ie. sex, age, ethnicity, nps (range 1 -10), upsell (yes/no)
 
         //System.Enum.IsDefined(typeof(CustomerSex), sex);
-        //Debug.Log("CUSTOMER CREATION CALLED");
 
 		this.sex = gender;
 		this.age = age;
@@ -143,7 +142,6 @@ using System.Collections;
     public void Die()
     {
         
-        Debug.Log("cUSTOMER DYING");
         
         //Customer dies while in zone...
         if (currentZone != null)

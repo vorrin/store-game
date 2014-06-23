@@ -72,19 +72,17 @@ public class God : MonoBehaviour {
         //WWW www = new WWW(url, testWWW);
 
         //string input = @"{""Date"":""" + System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") +@"""}";
-        //print(input);
         Hashtable headers = new Hashtable();
         headers.Add("Content-Type", "application/json");
 
         print("Exact Json: \n" + json.ToString(true));
         byte[] body = System.Text.Encoding.UTF8.GetBytes(json.ToString());
-        //print(body[1]);
         WWW www = new WWW(url, body, headers);
         
         yield return www;
         if (www.error != null)
         {
-            print("SUCCESS");
+            print("Platform posting - SUCCESS");
         }
     }
 
@@ -129,14 +127,15 @@ public class God : MonoBehaviour {
     public void PostScoreToPlatform()
     {
         Debug.ClearDeveloperConsole();
-        print("Posting score to platform, once that is done.");
+        print("Posting score to platform.");
         print("result spending: " + score.resultSpending);
         print("total spend: " + score.totalSpendForTheDay);
         print("total nps: " + score.totalNPSForTheDay);
         print("Game day: " + (currentDifficultyLevel + 1).ToString());
 
         JSONObject currencyJson = new JSONObject();
-        currencyJson.AddField("Date", System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") );
+
+        currencyJson.AddField("Date", System.DateTime.Now.ToString("yyyy-MM-ddThh:mm:ssZ") );
         currencyJson.AddField("Powerbar", "Currency");
         currencyJson.AddField("ContentKey", contentKey);
         currencyJson.AddField("User", userID);
@@ -383,23 +382,38 @@ public class God : MonoBehaviour {
         FindTheZones();
         possibleCustomersPool = CustomerImporter.ProcessCSV(csv);
         print("SAVING THE START GAME!");
+       // print("MAX GAMMS " + LevelSerializer.MaxGames);
+        //print("MAX GAMMS " + LevelSerializer.MaxGames);
+
         LevelSerializer.MaxGames = 1;
-        LevelSerializer.SaveGame("base", true, (x,y) => {
-            print(x);
-            print(y);
-        });
+
+        LevelSerializer.SaveGame("base", false,null);
+
         AddRandomCustomer();
         StartCoroutine("DelayedAddingOfCustomers");
     }
 
     void StartNewGameFromSave()
     {
-        print("STARTING GAME FROM SAVE");
         foreach (GameObject customerIcon in GameObject.FindGameObjectsWithTag("customerIcon"))
         {
             customerIcon.GetComponent<CustomerIcon>().Die();
         }
-        LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
+
+        foreach (string content in LevelSerializer.SavedGames.Keys)
+        {
+            print("STRINGA " + content);
+        }
+        foreach ( LevelSerializer.SaveEntry entry in LevelSerializer.SavedGames[LevelSerializer.PlayerName] ){
+            print("loooping");
+            if (entry.Name == "base")
+            {
+                LevelSerializer.LoadNow(entry.Data);
+            }
+            //print (entry.Name);
+        }
+       // print(LevelSerializer.SavedGames);
+     //   LevelSerializer.LoadNow(LevelSerializer.SavedGames["base"][0].Data, false, false);
      //   currentDifficultyLevel = 0;
         foreach (Zone zone in zones)
         {
@@ -447,7 +461,6 @@ public class God : MonoBehaviour {
 
     void AddRandomCustomer()
     {
-        print("AddRandomCustomer called");
 
         bool difficultCustomer = false;
         if (Random.Range(0f, 100f) > difficultyLevels[currentDifficultyLevel].percentageOfHardCustomers) {
@@ -502,7 +515,6 @@ public class God : MonoBehaviour {
 
     public void AddCustomer(Customer customer)
     {
-        print("Adding customer");
         AudioManager.instance.AddCustomer();
         customers.Add(customer);
         
@@ -637,7 +649,6 @@ public class God : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            print(JSONLevelSerializer.PlayerName);
             LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
         }
 

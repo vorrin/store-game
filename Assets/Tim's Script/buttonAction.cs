@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Tim's script, probably unused right now.
 public class buttonAction: MonoBehaviour {
 
 	public string buttonName;

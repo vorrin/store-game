@@ -97,49 +97,12 @@ public class ZoneView : MonoBehaviour {
     }
 
 
-    public void OnCustomHover(bool isOver)
-    {
-        print("custover is " + isOver);
-        if (God.instance.customerDragging && isOver)
-        {
-            foreach (GameObject zone in GameObject.FindGameObjectsWithTag("zone"))
-            {
-                
-                if (zone.GetComponent<ZoneView>().zoneModel != zoneModel)
-                {
-
-                    zone.GetComponent<ZoneView>().zoneModel.zoneViews.ForEach(zoneView =>
-                        zoneView.GetComponent<UIPlayAnimation>().Play(false)
-                        );
-                }
-            }
-        }
-        
-        
-            zoneModel.zoneViews.ForEach(zoneView =>
-            {
-                zoneView.GetComponent<UIPlayAnimation>().Play(isOver);
-            });
-        
-            
-        
-
-    }
-
 	void OnClick () {
         zoneModel.zoneViews.ForEach(zoneView =>
         {
             zoneView.GetComponent<UIPlayAnimation>().Play(true);
         });
-
-        //EventDelegate displayZoneScreen = new EventDelegate(God.instance.zonePanelManager,"Display");
-        //EventDelegate.Parameter parameter = new EventDelegate.Parameter();
-        //parameter.obj = zoneModel;
-        
-        //displayZoneScreen.parameters = new EventDelegate.Parameter[1]{ parameter};
         God.instance.zonePanelManager.Display(zoneModel);
-        //GetComponent<UIPlayAnimation>().onFinished = 
-
 	}
 	
     public void UpdateProgressIndicator(float percentageOfCompletion)

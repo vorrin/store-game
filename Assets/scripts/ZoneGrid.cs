@@ -142,7 +142,6 @@ public class ZoneGrid : UIGrid {
             }
 
             zonePanelManager.ReorderCustomerList(actualItems);
-            //print(" THE LIST IS SIZED SO : " + list.size);
         }
         else
         {

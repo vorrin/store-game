@@ -1785,8 +1785,8 @@ MonoBehaviour:
   moodModifierMalusForSecondBestChoice: 3
   endOfDayPhase: 0
   endScreenPanel: {fileID: 1343082781}
-  trainingStepCost: 20
-  hireNewStaffCost: 80
+  trainingStepCost: 100
+  hireNewStaffCost: 500
   currentDifficultyLevel: 0
   difficultyLevels:
   - minSpawnTime: 15

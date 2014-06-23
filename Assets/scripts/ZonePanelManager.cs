@@ -57,7 +57,6 @@ public class ZonePanelManager : MonoBehaviour {
 
         if (currentZone.staffPower  % 100 == 0) // Unity float weirdness
         {
-            print("modulo as exp");
             hireButton.gameObject.SetActive(true);
             trainButton.gameObject.SetActive(false);
             if (God.instance.score.resultSpending < God.instance.hireNewStaffCost)
@@ -122,7 +121,6 @@ public class ZonePanelManager : MonoBehaviour {
     }
 
     public void ReorderCustomerList( BetterList<Transform> list ){ // THIS HAPPENS IN REPOSITION, ZoneGrid.cs !!!! 
-        //print(" THE LIST IS SIZED SO : " + list.size);
         if (list.size == 0) return;
         List<Customer> customers = new List<Customer>();
         foreach (Transform customerTransform in list)
