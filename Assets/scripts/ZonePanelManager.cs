@@ -101,10 +101,11 @@ public class ZonePanelManager : MonoBehaviour {
         god.RefreshStaffBuyingMenu();
         currentZone.staffNumber += 1;
         currentZone.staffPower += 20;
-        currentZone.zoneViews.ForEach((zoneView) =>
-        {
-           zoneView.UpdateStaffNumber() ;
-        });
+        //We don't have a number of staff visible on each zone anymore! 
+        //currentZone.zoneViews.ForEach((zoneView) =>
+        //{
+        //   zoneView.UpdateStaffNumber() ;
+        //});
 
         //currentZone.zoneViews.UpdateStaffNumber();
         RefreshStaffButtons();
