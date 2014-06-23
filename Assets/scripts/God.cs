@@ -141,7 +141,6 @@ public class God : MonoBehaviour {
         currencyJson.AddField("User", testingUser);
         currencyJson.AddField("Level", currentLevel + 1);
         currencyJson.AddField("Score", score.resultSpending );
-
         StartCoroutine(PostData(currencyJson));
         
     }
