@@ -75,7 +75,8 @@ public class God : MonoBehaviour {
         //print(input);
         Hashtable headers = new Hashtable();
         headers.Add("Content-Type", "application/json");
-    
+
+        print("Exact Json: \n" + json.ToString(true));
         byte[] body = System.Text.Encoding.UTF8.GetBytes(json.ToString());
         //print(body[1]);
         WWW www = new WWW(url, body, headers);
@@ -139,7 +140,7 @@ public class God : MonoBehaviour {
         currencyJson.AddField("Powerbar", "Currency");
         currencyJson.AddField("ContentKey", contentKey);
         currencyJson.AddField("User", userID);
-        currencyJson.AddField("Level", (currentDifficultyLevel + 1 ) );
+        currencyJson.AddField("Level", (currentDifficultyLevel + 1 ).ToString("") );
         currencyJson.AddField("Score", score.resultSpending );
         StartCoroutine(PostData(currencyJson));
         
@@ -349,7 +350,6 @@ public class God : MonoBehaviour {
 
     public void PlayButtonPressed()
     {
-        print(Mathf.Clamp(12, 1f, 10f));
         if (gameStarted == true)
         {
             StopCoroutine("DelayedAddingOfCustomers");

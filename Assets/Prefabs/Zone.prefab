@@ -177,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .340866536, y: 1.28952777, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
@@ -622,15 +622,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 50
-  mHeight: 50
+  mWidth: 60
+  mHeight: 60
   mDepth: 49
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
   mAtlas: {fileID: 11400000, guid: dd88408b305eac147ac64ab248e5ecf5, type: 2}
-  mSpriteName: staffBuyCoin
+  mSpriteName: icons_+_staff_IN-GAME
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: df13d4f9-b7c7-4892-9947-38c457bdcd8b
+  _id: a5451a50-5b31-4f87-b13f-798b0b5e2123
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &11400018
 MonoBehaviour:
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 7421c5a4-1637-4c4c-929c-c6b706d8fbfa
+  _id: 2c4f5e9b-4cd0-4e40-879e-b0f606bbd2a3
   classId: 0111f9b9-148e-4d3c-952a-265e852ba2d9
   StoreAllComponents: 0
   Components:
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 19596062-0d0e-40ad-9d6d-9a20302b3e10
+  _id: bcab285d-0522-4c1c-88d9-f2467f26a646
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &11400022
 MonoBehaviour:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 0955a8f5-a98e-4362-af8a-efa7022c735b
+  _id: f41a129c-1938-433f-b66c-df987b43fe0a
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &11400024
 MonoBehaviour:
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 866b9536-9897-4b6a-b073-6df97a86bbb6
+  _id: 4327a4c0-2c7a-417b-81db-4fc3241a175a
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &11400026
 MonoBehaviour:
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8dddcd07-b747-4263-bafb-dba2d3fda9ba
+  _id: be0c20af-2010-4067-87db-3f846247364a
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &11400028
 MonoBehaviour:

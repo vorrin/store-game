@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 15
   - name: button_CONTINUE_01
-    x: 1739
-    y: 978
+    x: 1393
+    y: 1046
     width: 257
     height: 63
     borderLeft: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 0
   - name: button_CONTINUE_03
-    x: 1481
+    x: 1739
     y: 978
     width: 257
     height: 63
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 8
   - name: button_PLAY_01
-    x: 1651
-    y: 1046
+    x: 1481
+    y: 978
     width: 257
     height: 63
     borderLeft: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_QUIT_01
-    x: 1393
+    x: 1651
     y: 1046
     width: 257
     height: 63
@@ -392,6 +392,19 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 3
     paddingBottom: 2
+  - name: icons_+_staff_IN-GAME
+    x: 1979
+    y: 1875
+    width: 60
+    height: 55
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 3
+    paddingBottom: 0
   - name: icons_CASH_end
     x: 1156
     y: 582
@@ -510,19 +523,6 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 0
   - name: icons_LEVEL_3
-    x: 1069
-    y: 832
-    width: 86
-    height: 118
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 20
-    paddingRight: 14
-    paddingTop: 22
-    paddingBottom: 0
-  - name: icons_LEVEL_4
     x: 963
     y: 160
     width: 86
@@ -535,9 +535,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 22
     paddingBottom: 0
-  - name: icons_LEVEL_5
+  - name: icons_LEVEL_4
     x: 963
     y: 41
+    width: 86
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 14
+    paddingTop: 22
+    paddingBottom: 0
+  - name: icons_LEVEL_5
+    x: 1069
+    y: 832
     width: 86
     height: 118
     borderLeft: 0
@@ -654,7 +667,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: icons_STAFF_+_exp
     x: 1156
-    y: 475
+    y: 368
     width: 87
     height: 106
     borderLeft: 0
@@ -680,7 +693,7 @@ MonoBehaviour:
     paddingBottom: 5
   - name: icons_STAFF_+_exp_03
     x: 1156
-    y: 368
+    y: 475
     width: 87
     height: 106
     borderLeft: 0
@@ -731,19 +744,6 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 24
   - name: icons_UPsell_01
-    x: 258
-    y: 21
-    width: 132
-    height: 156
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: icons_UPsell_02
     x: 828
     y: 187
     width: 132
@@ -756,9 +756,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: icons_UPsell_03
+  - name: icons_UPsell_02
     x: 828
     y: 344
+    width: 132
+    height: 156
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icons_UPsell_03
+    x: 258
+    y: 21
     width: 132
     height: 156
     borderLeft: 0
@@ -797,7 +810,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mood_amber_PROFILE
     x: 1729
-    y: 1455
+    y: 1752
     width: 249
     height: 296
     borderLeft: 0
@@ -849,7 +862,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: mood_red_PROFILE
     x: 1729
-    y: 1752
+    y: 1455
     width: 249
     height: 296
     borderLeft: 0
@@ -927,7 +940,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UpsellFail
     x: 1069
-    y: 612
+    y: 511
     width: 84
     height: 100
     borderLeft: 0
@@ -940,7 +953,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UpsellFine
     x: 1069
-    y: 511
+    y: 612
     width: 84
     height: 100
     borderLeft: 0
