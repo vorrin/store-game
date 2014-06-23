@@ -564,6 +564,7 @@ public class God : MonoBehaviour {
         }
         zonePanelManager.RemoveStaffHiringButtons();
         fader.SetActive(false);
+        fader.layer = LayerMask.NameToLayer("Zone");
         UpdateScoresMenu();
         RefreshStaffBuyingMenu();
         customersQueue.GetComponent<UIGrid>().Reposition();
