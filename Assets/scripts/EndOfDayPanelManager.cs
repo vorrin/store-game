@@ -4,7 +4,10 @@ using System.Collections;
 
 public class EndOfDayPanelManager : MonoBehaviour {
     public GoTween endOfDayPanelTween;
+
+    public UILabel titleLabel;
     public UILabel npsLabel;
+
     public UILabel totalSpendLabel;
     public UILabel resultSpendLabel;
     public UILabel totalStaffLabel;
@@ -43,6 +46,7 @@ public class EndOfDayPanelManager : MonoBehaviour {
 
     public void Display( Action<AbstractGoTween> callback = null)
     {
+        titleLabel.text = "Day " + (God.instance.currentDifficultyLevel + 1 ).ToString();
         PopulateEndOfDayScreen(God.instance.score);
         endOfDayPanelTween.playForward();
         endOfDayPanelTween.setOnCompleteHandler(callback );

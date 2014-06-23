@@ -3910,7 +3910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 866b9536-9897-4b6a-b073-6df97a86bbb6
+  _id: 5354de3e-13e4-4764-aeaa-db7841ce8317
   classId: 94b29486-1d15-469a-be26-b227ce573d54
 --- !u!114 &385213230
 MonoBehaviour:
@@ -5420,7 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 19596062-0d0e-40ad-9d6d-9a20302b3e10
+  _id: e07c3f06-5f4b-4cf2-8024-671cc336516f
   classId: ba7b5231-856d-4cfb-befb-b43dc86a8d18
 --- !u!114 &524233101
 MonoBehaviour:
@@ -6257,7 +6257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 8dddcd07-b747-4263-bafb-dba2d3fda9ba
+  _id: 4e432f25-75b1-4a17-b671-6a61fb0a5652
   classId: 49b9d2b3-767a-4eb8-8871-5af015cc6839
 --- !u!114 &661676560
 MonoBehaviour:
@@ -6881,6 +6881,96 @@ MonoBehaviour:
   IsDeserializing: 0
   _id: fbbe8778-d84d-4571-8d63-818cdde2f3af
   classId: 2e5eaa90-25ca-4d2b-b176-c52a7fa63dd3
+--- !u!1 &703597058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 703597059}
+  - 114: {fileID: 703597060}
+  m_Layer: 9
+  m_Name: TitleLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703597059
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703597058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 327, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1343082774}
+  m_RootOrder: 6
+--- !u!114 &703597060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703597058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 172
+  mHeight: 40
+  mDepth: 5
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 4.30000019
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
+  mFont: {fileID: 11400000, guid: a78c3c100abf58346a90d178303261ec, type: 2}
+  mText: Day
+  mFontSize: 39
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &735795607
 GameObject:
   m_ObjectHideFlags: 0
@@ -12074,6 +12164,7 @@ Transform:
   - {fileID: 1709290646}
   - {fileID: 1104106490}
   - {fileID: 1743458161}
+  - {fileID: 703597059}
   m_Father: {fileID: 693120554}
   m_RootOrder: 1
 --- !u!114 &1343082775
@@ -12241,6 +12332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b188b658e05be4d85613bd35a48034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleLabel: {fileID: 703597060}
   npsLabel: {fileID: 1709290647}
   totalSpendLabel: {fileID: 1743458162}
   resultSpendLabel: {fileID: 1104106491}
@@ -16212,7 +16304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: 0955a8f5-a98e-4362-af8a-efa7022c735b
+  _id: b5e60dfb-5db3-46f3-b304-bcc6817448dd
   classId: a84f432e-da1e-47d3-87d6-edc7dd3a24df
 --- !u!114 &1674203089
 MonoBehaviour:
@@ -19086,7 +19178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDeserializing: 0
-  _id: df13d4f9-b7c7-4892-9947-38c457bdcd8b
+  _id: 64278703-d223-4906-b219-0d01c4e563c0
   classId: f02224d3-9029-4543-bbd7-20c4363d1643
 --- !u!114 &2114998567
 MonoBehaviour:

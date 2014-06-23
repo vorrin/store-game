@@ -349,6 +349,7 @@ public class God : MonoBehaviour {
 
     public void PlayButtonPressed()
     {
+        print(Mathf.Clamp(12, 1f, 10f));
         if (gameStarted == true)
         {
             StopCoroutine("DelayedAddingOfCustomers");
