@@ -59,7 +59,7 @@ using System.Collections;
         this.experienceLoop = experienceLoop;
 		this.nps = npsValue;
 
-        this.initialTimeAvailable = timeMins * 6f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
+        this.initialTimeAvailable = timeMins * 60f; // Converting from minutes to seconds. Dividing the XLS values by a factor of 10 currently (30 mins is kinda crazy)
         this.currentTimeAvailable = this.initialTimeAvailable;
 
 		this.bestZone = bestZone;

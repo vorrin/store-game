@@ -37,14 +37,14 @@ public class God : MonoBehaviour {
     public float moodModifierMalusForSecondBestChoice = 3f;
     public bool endOfDayPhase = false;
     public EndOfDayPanelManager endScreenPanel;
-    public float trainingStepCost = 20f;
-    public float hireNewStaffCost = 80f;
+    public float trainingStepCost = 100f;
+    public float hireNewStaffCost = 500f;
     public int currentLevel = 0; //current difficulty level
     public DifficultyLevelEntry[] difficultyLevels;
     public UISprite difficultyLevelSprite;
     public bool gameStarted = false;
     public GameObject customerIconPrefab;
-    [DoNotSerialize] public static float amberMoodTreshold = 9;
+    [DoNotSerialize] public static float amberMoodTreshold = 8;
     [DoNotSerialize] public static float redMoodTreshold = 6;
     public ScoreTracker score;
     public MainScreenIconDictionary scoreLabels;
@@ -353,7 +353,7 @@ public class God : MonoBehaviour {
         }
         
         else {
-            StartCoroutine("LoadDebugXML", "DebugSettings.xml");
+        //    StartCoroutine("LoadDebugXML", "DebugSettings.xml");
             StartNewGame();
         }
 
@@ -380,7 +380,6 @@ public class God : MonoBehaviour {
         LevelSerializer.SaveGame("base");
         AddRandomCustomer();
         StartCoroutine("DelayedAddingOfCustomers");
-
     }
 
     void StartNewGameFromSave()
