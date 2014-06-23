@@ -36,6 +36,7 @@ public class Zone : MonoBehaviour {
         {
             zoneView.UpdateCustomerNumber();
         });
+        queueOpen = true;
     }
 
     public void OnDeserialized()

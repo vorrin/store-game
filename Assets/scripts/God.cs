@@ -50,8 +50,8 @@ public class God : MonoBehaviour {
     public MainScreenIconDictionary scoreLabels;
     public GameObject mainMenuContainer;
     string url = "http://vodafone-wayofretail.ambidectcloud.com/CompetitionApi/AddScore";
-    string testingUser = "0980808a-2afc-411d-96a5-009487091a61";
-    string testingContentKey = "91fa1062-255b-40fb-a108-3fa783bff6cd";
+    string userID = "61869E01-3ECD-4465-807A-A1CE29687CC6";
+    string contentKey = "91FA1062-255B-40FB-A108-3FA783BFF6CD";
 
 
 
@@ -77,7 +77,7 @@ public class God : MonoBehaviour {
         headers.Add("Content-Type", "application/json");
     
         byte[] body = System.Text.Encoding.UTF8.GetBytes(json.ToString());
-        print(body[1]);
+        //print(body[1]);
         WWW www = new WWW(url, body, headers);
         
         yield return www;
@@ -137,8 +137,8 @@ public class God : MonoBehaviour {
         JSONObject currencyJson = new JSONObject();
         currencyJson.AddField("Date", System.DateTime.Now.ToString("mm/dd/yyyyTHH:mm:ss") );
         currencyJson.AddField("Powerbar", "Currency");
-        currencyJson.AddField("ContentKey", testingContentKey);
-        currencyJson.AddField("User", testingUser);
+        currencyJson.AddField("ContentKey", contentKey);
+        currencyJson.AddField("User", userID);
         currencyJson.AddField("Level", (currentDifficultyLevel + 1 ) );
         currencyJson.AddField("Score", score.resultSpending );
         StartCoroutine(PostData(currencyJson));
@@ -590,7 +590,6 @@ public class God : MonoBehaviour {
         foreach (Transform child in buyPanel.transform)
         {
             child.gameObject.SetActive( endOfDayPhase);
-            
         };
         if (endOfDayPhase) buyPanel.GetComponentInChildren<UILabel>().text = score.resultSpending.ToString("0");
         RefreshQueueButtons();    
@@ -664,10 +663,6 @@ public class God : MonoBehaviour {
         {
             scoreLabels.totalTimeLabel.text = Mathf.Ceil(daytimeRemaining / 60f).ToString();
         }
-        
-
-
-        
     }
     public static God instance
     {
