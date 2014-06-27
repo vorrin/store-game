@@ -400,21 +400,12 @@ public class God : MonoBehaviour {
             customerIcon.GetComponent<CustomerIcon>().Die();
         }
 
-        foreach (string content in LevelSerializer.SavedGames.Keys)
-        {
-            print("STRINGA " + content);
-        }
         foreach ( LevelSerializer.SaveEntry entry in LevelSerializer.SavedGames[LevelSerializer.PlayerName] ){
-            print("loooping");
             if (entry.Name == "base")
             {
                 LevelSerializer.LoadNow(entry.Data);
             }
-            //print (entry.Name);
         }
-       // print(LevelSerializer.SavedGames);
-     //   LevelSerializer.LoadNow(LevelSerializer.SavedGames["base"][0].Data, false, false);
-     //   currentDifficultyLevel = 0;
         foreach (Zone zone in zones)
         {
             zone.ClearZone();
