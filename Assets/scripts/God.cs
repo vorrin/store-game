@@ -114,6 +114,7 @@ public class God : MonoBehaviour {
         
     }
 
+
     public void Pause()
     {
         Time.timeScale = 0;
@@ -143,6 +144,12 @@ public class God : MonoBehaviour {
         currencyJson.AddField("Score", score.resultSpending );
         StartCoroutine(PostData(currencyJson));
         
+    }
+
+    public void SetInitialCredit(int credits)
+    {
+        score.totalSpendForTheDay = credits;
+        UpdateScoresMenu();   
     }
 
     public void SetDifficultyLevel(DifficultyLevelEntry level)
@@ -366,6 +373,8 @@ public class God : MonoBehaviour {
 
     void StartNewGame() // This works with next levels, too
     {
+       // SetInitialCredit(666);
+
 
         gameStarted = true;
         
