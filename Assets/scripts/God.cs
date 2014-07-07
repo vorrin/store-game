@@ -146,9 +146,9 @@ public class God : MonoBehaviour {
         
     }
 
-    public void SetInitialCredit(int credits)
+    public void SetInitialCredit(string credits)
     {
-        score.totalSpendForTheDay = credits;
+        score.totalSpendForTheDay = int.Parse(credits);
         UpdateScoresMenu();   
     }
 
@@ -373,8 +373,7 @@ public class God : MonoBehaviour {
 
     void StartNewGame() // This works with next levels, too
     {
-       // SetInitialCredit(666);
-
+        
 
         gameStarted = true;
         

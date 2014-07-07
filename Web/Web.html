@@ -57,11 +57,12 @@
 					}
 				});
 				u.initPlugin(jQuery("#unityPlayer")[0], "Web.unity3d");
-				while ( u.getUnity() == null ){
-				    u.getUnity().SendMessage("God", "SetInitialCredit", 666);
-				}
+				setTimeout(function() {
+				    console.log('aohi');
+			        u.getUnity().SendMessage("God", "SetInitialCredit", '666');
+			    }, 4000)
 				
-				
+ 				
 			});
 		-->
 		</script>
