@@ -23,10 +23,19 @@ public class EndOfDayPanelManager : MonoBehaviour {
 
     public void PopulateEndOfDayScreen(ScoreTracker currentScores)
     {
-        npsLabel.text = (currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed).ToString("0.0");
+        npsLabel.text = currentScores.totalCustomersProcessed == 0 ? "0%" : Mathf.RoundToInt((currentScores.totalNPSForTheDay * 100f) / currentScores.totalCustomersProcessed).ToString("0") + "%";
+
+        //RECENT NPS SYSTEM CHANGES ARE IN HERE 
+        //npsLabel.text = (currentScores.totalNPSForTheDay / currentScores.totalCustomersProcessed).ToString("0.0");
         totalSpendLabel.text = (currentScores.totalSpendForTheDay).ToString("0");
-        
-        God.instance.score.resultSpending = Mathf.Ceil(((currentScores.totalNPSForTheDay / (float) currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay);
+
+        God.instance.score.resultSpending = currentScores.totalSpendForTheDay + 
+            currentScores.totalSpendForTheDay  * (currentScores.totalCustomersProcessed == 0 ? 0f : (currentScores.totalNPSForTheDay ) / currentScores.totalCustomersProcessed);
+            
+            //Mathf.Ceil(
+
+            //((currentScores.totalNPSForTheDay / (float) currentScores.totalCustomersProcessed) / 10) * currentScores.totalSpendForTheDay
+            //);
         if (float.IsNaN(God.instance.score.resultSpending))
         {
             God.instance.score.resultSpending = 0f;

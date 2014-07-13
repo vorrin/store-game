@@ -294,10 +294,10 @@ public class God : MonoBehaviour {
         //This shall use the formula :
         // 
         //   totalNPSLabel =  (score.totalNPSForTheDay *100) / score.totalCustomersProcessed
-        print(score.totalNPSForTheDay);
-        print(Mathf.RoundToInt((score.totalNPSForTheDay * 100f) / score.totalCustomersProcessed));
+        //print(score.totalNPSForTheDay);
+        //print(Mathf.RoundToInt((score.totalNPSForTheDay * 100f) / score.totalCustomersProcessed));
 
-        scoreLabels.totalNPSLabel.text =    Mathf.RoundToInt((score.totalNPSForTheDay *100f) / score.totalCustomersProcessed).ToString() + "%";
+        scoreLabels.totalNPSLabel.text =  score.totalCustomersProcessed == 0 ? "0%" : Mathf.RoundToInt((score.totalNPSForTheDay *100f) / score.totalCustomersProcessed).ToString("0") + "%";
         //scoreLabels.totalNPSLabel.text =  Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("0");
         scoreLabels.successfulCustomers.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("0");
         scoreLabels.failedCustomers.text = Mathf.Floor(score.totalCustomersLost).ToString("0");
@@ -627,7 +627,7 @@ public class God : MonoBehaviour {
     }
 
 
-    bool debugFlag = true;
+    bool debugFlag = false;
     void Update()
     {
 
