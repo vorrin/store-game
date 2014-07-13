@@ -193,8 +193,6 @@ using System.Collections;
 
     public string GetMoodColor()
     {
-
-       
         string moodColor = "green";
         if (nps > God.amberMoodTreshold)
         {
@@ -211,7 +209,26 @@ using System.Collections;
         return moodColor;
 
     }
-   
+    public int GetPromoterOrDetractorState()
+    {
+        string color = this.GetMoodColor();
+        switch (color)
+        {
+            case "green":
+                return 1;
+                break;
+            case "amber":
+                return 0;
+                break;
+            case "red":
+                return -1;
+                break;
+            default:
+                Debug.Log("this customer doesn't have a mood value: " + avatarName);
+                throw new System.Exception("A customer doesn't have a mood value.");
+                break;
+        }
+    }
 
 	// Use this for initialization
     //void Start () {

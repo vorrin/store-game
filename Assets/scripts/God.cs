@@ -619,54 +619,58 @@ public class God : MonoBehaviour {
         }
     }
 
+
+    bool debugFlag = true;
     void Update()
     {
 
+        if (debugFlag)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AddRandomCustomer();
+                customerPanelManager.Hide();
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                SaveState();
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                DeleteOldSavegames();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                EndWorkingDay();
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    AddRandomCustomer();
-        //    customerPanelManager.Hide();
-        //}
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    SaveState();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    DeleteOldSavegames();
-        //}
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
-        //    EndWorkingDay();
+            }
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                PlayerPrefs.DeleteAll();
+            }
 
-        //}
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    PlayerPrefs.DeleteAll();
-        //}
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
+            }
 
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    LevelSerializer.LoadNow(LevelSerializer.SavedGames[LevelSerializer.PlayerName][0].Data, false, false);
-        //}
+            if (Input.GetKeyDown(KeyCode.A))
+            {
 
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
+                LoadState();
+                return;
 
-        //    LoadState();
-        //    return;
+                foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
+                {
+                    if (currentSvae.Name == "test")
+                    {
+                        LevelSerializer.LoadSavedLevel(currentSvae.Data);
+                    }
+                }
 
-        //    foreach (LevelSerializer.SaveEntry currentSvae in LevelSerializer.SavedGames[LevelSerializer.PlayerName])
-        //    {
-        //        if (currentSvae.Name == "test")
-        //        {
-        //            LevelSerializer.LoadSavedLevel(currentSvae.Data);
-        //        }
-        //    }
-
-        //} 
-
+            } 
+        }
+        
         //END OF DEBUG
 
 
