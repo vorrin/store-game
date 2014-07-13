@@ -173,7 +173,7 @@ public class God : MonoBehaviour {
         }
         score.totalCustomersLost++;
         score.totalCustomersProcessed++;
-        score.totalNPSForTheDay += 1f;
+        score.totalNPSForTheDay += -1 ;//If customer is a detractor, which he is if he leaves angry, the nps is -1
         List<Customer> removedList = new List<Customer>(customers);
         removedList.Remove(customer);
         customers = removedList;
@@ -189,7 +189,7 @@ public class God : MonoBehaviour {
             customer.spend = customer.spend * 2;
         }
         score.totalCustomersProcessed++;
-        score.totalNPSForTheDay += customer.nps;
+        score.totalNPSForTheDay += customer.GetPromoterOrDetractorState();
         score.totalSpendForTheDay += customer.spend;
         customers.Remove(customer);
         UpdateScoresMenu();
@@ -291,7 +291,14 @@ public class God : MonoBehaviour {
     void UpdateScoresMenu()
     {
 
-        scoreLabels.totalNPSLabel.text = Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("0");
+        //This shall use the formula :
+        // 
+        //   totalNPSLabel =  (score.totalNPSForTheDay *100) / score.totalCustomersProcessed
+        print(score.totalNPSForTheDay);
+        print(Mathf.RoundToInt((score.totalNPSForTheDay * 100f) / score.totalCustomersProcessed));
+
+        scoreLabels.totalNPSLabel.text =    Mathf.RoundToInt((score.totalNPSForTheDay *100f) / score.totalCustomersProcessed).ToString() + "%";
+        //scoreLabels.totalNPSLabel.text =  Mathf.Floor(score.totalNPSForTheDay / ( score.totalCustomersProcessed == 0 ? 1 : score.totalCustomersProcessed ) ).ToString("0");
         scoreLabels.successfulCustomers.text = Mathf.Floor(score.totalCustomersProcessed - score.totalCustomersLost).ToString("0");
         scoreLabels.failedCustomers.text = Mathf.Floor(score.totalCustomersLost).ToString("0");
         scoreLabels.totalMoneyLabel.text = Mathf.Floor(score.totalSpendForTheDay).ToString("000");
